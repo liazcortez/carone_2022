@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container, Typography } from "@material-ui/core";
 
-const marca = ({ vehicles, marca }) => {
+const marca = ({ marca }) => {
   return (
     <Container>
       <Typography>{marca}</Typography>
@@ -11,19 +11,11 @@ const marca = ({ vehicles, marca }) => {
 };
 
 export const getServerSideProps = async (context) => {
-  const res = await fetch(
-    `https://apicarone.com/api/v1/vehicles/vehiclesByMake/${context.params.marca}?sort=index`
-  );
   const { req, query, asPath, pathname } = context;
-
-  console.log(req.headers.host);
-
-  const vehicles = await res.json();
 
   return {
     props: {
-      vehicles: vehicles.data,
-      marca: context.params.marca,
+      marca: req.headers.host,
     },
   };
 };
