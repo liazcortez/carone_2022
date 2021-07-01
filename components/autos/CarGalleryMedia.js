@@ -1,0 +1,26 @@
+import React from "react";
+import { Container, Grid } from "@material-ui/core";
+
+const CarGalleryMedia = ({ gallery }) => {
+  return (
+    <Container maxWidth="lg">
+      <Grid container spacing={3}>
+        {gallery.map((i) => (
+          <Grid key={i._id} item xs={4}>
+            <img
+              src={i.image}
+              style={{
+                width: "100%",
+                height: "300px",
+                objectFit: "cover",
+                borderRadius: 10,
+              }}
+            />
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
+  );
+};
+
+export default CarGalleryMedia;
