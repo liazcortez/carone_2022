@@ -13,9 +13,11 @@ const marca = ({ marca }) => {
 export const getServerSideProps = async (context) => {
   const { req, query, asPath, pathname } = context;
 
+  const store = req.headers.host.split(".");
+
   return {
     props: {
-      marca: req.headers.host,
+      marca: store,
     },
   };
 };
