@@ -15,7 +15,7 @@ export const getServerSideProps = async (context) => {
 
   const url = req.headers.host;
 
-  const store = url.Substring(url.IndexOf(".") - 1);
+  const store = url.split(".")[0];
 
   return {
     props: {
