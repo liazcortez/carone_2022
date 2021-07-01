@@ -4,7 +4,7 @@ import Divider from "@material-ui/core/Divider";
 import { makeStyles } from "@material-ui/core/styles";
 import Link from "next/link";
 import { Button } from "@material-ui/core";
-
+import Image from 'next/image'
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
   { width: 550, itemsToShow: 2 },
@@ -29,9 +29,10 @@ const Item = ({ result }) => (
       textAlign: "center",
     }}
   >
-    <Link href={`/categorias/${result.name}`}>
+    <Link href={`/categorias/${result.name}`} passHref={true}>
       <a>
-        <img
+        <Image
+          alt="Picture of the author"
           src={result.image}
           style={{
             width: "100%",
@@ -50,6 +51,7 @@ const Item = ({ result }) => (
         textTransform: "uppercase",
         fontWeight: "bold",
       }}
+      passHref={true}
     >
       <Button>{result.name}</Button>
     </Link>

@@ -205,13 +205,14 @@ const FormComponent = ({ vehicle }) => {
                             : classes.unselectedBorder
                         }
                         key={store._id}
-                        style={{ marginRight: 15 }}
+                        
                         onClick={() => onClickStore(store)}
                         style={{
                           cursor: "pointer",
                           borderRadius: 10,
                           padding: 5,
                           margin: 10,
+                          marginRight: 15
                         }}
                       >
                         <Box display="flex" justifyContent="center">

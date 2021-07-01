@@ -21,13 +21,13 @@ const BreadCrumJobs = ({ data, section }) => {
   return (
     <div className={classes.root} style={{ marginBottom: 10 }}>
       <Breadcrumbs separator="›" aria-label="breadcrumb">
-        <Link color="inherit" href="/">
+        <Link color="inherit" href="/" passHref={true}>
           <Button>Carone</Button>
         </Link>
-        <Link color="inherit" href="/trabajos">
+        <Link color="inherit" href="/trabajos" passHref={true}>
           <Button>{section}</Button>
         </Link>
-        <Link color="inherit" href={`/trabajos/categoria/${category.name}`}>
+        <Link color="inherit" href={`/trabajos/categoria/${category.name}`} passHref={true}>
           <Button>{category.name}</Button>
         </Link>
         <Typography color="textPrimary" style={{ textTransform: "capitalize" }}>

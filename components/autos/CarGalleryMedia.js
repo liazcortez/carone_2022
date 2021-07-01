@@ -1,5 +1,6 @@
 import React from "react";
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core"
+import Image from 'next/image'
 
 const CarGalleryMedia = ({ gallery }) => {
   return (
@@ -7,7 +8,7 @@ const CarGalleryMedia = ({ gallery }) => {
       <Grid container spacing={3}>
         {gallery.map((i) => (
           <Grid key={i._id} item xs={4}>
-            <img
+            <Image
               src={i.image}
               style={{
                 width: "100%",
@@ -15,6 +16,7 @@ const CarGalleryMedia = ({ gallery }) => {
                 objectFit: "cover",
                 borderRadius: 10,
               }}
+              alt="Picture of the author"
             />
           </Grid>
         ))}

@@ -2,7 +2,7 @@ import { Grid, Typography, Divider } from "@material-ui/core";
 import React from "react";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import NumberFormat from "react-number-format";
-
+import Image from 'next/image'
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -56,13 +56,14 @@ const CarTabComponent = ({ version, model }) => {
           </Typography>
         )}
         {/* <Divider style={{ marginBottom: 20 }} /> */}
-        <img
+        <Image
           src={version.image}
           style={{
             width: "100%",
             height: "150",
             objectFit: "cover",
           }}
+          alt="#"
         />
       </Grid>
       <Grid item xs={5}>

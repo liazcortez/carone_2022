@@ -33,7 +33,7 @@ const JobItem = ({ job }) => {
               </Typography>
             </Box>
             <Box>
-              <Link href={`/trabajos/${job.slug}`}>
+              <Link href={`/trabajos/${job.slug}`} passHref={true}>
                 <Typography
                   variant="h6"
                   style={{ textTransform: "capitalize", cursor: "pointer" }}
