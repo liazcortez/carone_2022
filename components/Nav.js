@@ -25,9 +25,10 @@ const Nav = () => {
           <Link href="/" as={`/`} passHref={true}>
             <a>
               <Image
-                src="https://carone.com.mx/wp-content/uploads/logo.png"
-                style={{ width: 180 }}
+                src="https://carone.com.mx/wp-content/uploads/logo.png"               
                 alt="Picture of the author"
+                width="180"
+                height="60"
               />
             </a>
           </Link>
