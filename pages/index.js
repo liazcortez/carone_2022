@@ -13,7 +13,9 @@ const marca = ({ marca }) => {
 export const getServerSideProps = async (context) => {
   const { req, query, asPath, pathname } = context;
 
-  const store = req.headers.host.split(".");
+  const url = req.headers.host;
+
+  const store = url.Substring(url.IndexOf(".") - 1);
 
   return {
     props: {
