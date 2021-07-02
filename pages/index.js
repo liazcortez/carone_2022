@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Marca = ({ vehicles, make }) => {
+const Marca = ({ vehicles, make, store }) => {
   const classes = useStyles();
 
   return (
@@ -38,7 +38,9 @@ const Marca = ({ vehicles, make }) => {
               color="textPrimary"
               style={{ textTransform: "capitalize" }}
             >
-              <Button disabled>{make}</Button>
+              <Button disabled>
+                {make} {store}
+              </Button>
             </Typography>
           </Breadcrumbs>
         </div>
@@ -72,6 +74,7 @@ export const getServerSideProps = async (context) => {
     props: {
       vehicles: vehicles.data,
       make: data.make.name,
+      store: store.name,
     },
   };
 };
