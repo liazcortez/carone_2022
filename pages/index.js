@@ -7,7 +7,7 @@ const marca = ({ vehicles }) => {
     <Container>
       {vehicles &&
         vehicles.map((vehicle, i) => (
-          <Typography key={i}>{vehicle.name} </Typography>
+          <Typography key={i}>{vehicle.model} </Typography>
         ))}
     </Container>
   );
@@ -36,6 +36,7 @@ export const getServerSideProps = async (context) => {
     props: {
       vehicles: vehicles.data,
       // marca: context.params.marca,
+      test: "test",
     },
   };
 };
