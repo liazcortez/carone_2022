@@ -64,6 +64,8 @@ export const getServerSideProps = async (context) => {
 
   const { data } = store;
 
+  console.log(data.name);
+
   const res = await fetch(
     `https://apicarone.com/api/v1/vehicles?make=${data.make._id}`
   );
@@ -74,7 +76,7 @@ export const getServerSideProps = async (context) => {
     props: {
       vehicles: vehicles.data,
       make: data.make.name,
-      store: data.store.name,
+      store: data.name,
     },
   };
 };
