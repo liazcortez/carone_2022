@@ -10,7 +10,7 @@ import {
   Checkbox,
   Box,
 } from "@material-ui/core";
-import { useSnackbar } from 'notistack';
+import { useSnackbar } from "notistack";
 import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { Divider } from "@material-ui/core";
@@ -62,50 +62,49 @@ const emptyImage =
 const CarlistCard = ({ vehicle, setDataList }) => {
   const classes = useStyles();
   const [isFavorite, setIsFavorite] = useState(false);
-  const { enqueueSnackbar } = useSnackbar();  
+  const { enqueueSnackbar } = useSnackbar();
 
-  const handleAddFavorite = (vehicle) => {
-    let data;
-    if (!localStorage.getItem("favorites")) {
-      data = [vehicle];
-      localStorage.setItem("favorites", JSON.stringify(data));
-      setIsFavorite(true);
-    } else if (localStorage.getItem("favorites")) {
-      data = JSON.parse(localStorage.getItem("favorites"));
-        if (data.some((d) => d._id === vehicle._id)) {
-          if (isFavorite) {
-            const newFavorites = data.filter((d) => d._id !== vehicle._id);
-            if(setDataList){
-              setDataList(newFavorites)
-            }
-            localStorage.setItem("favorites", JSON.stringify(newFavorites));
-            setIsFavorite(false);
-            return;
-          }
-          return;
-        }
-        const newData = [...data, vehicle];
-        if(newData.length > 4){
-          return enqueueSnackbar("Solo puedes tener un máximo de 4 favoritos", {
-            variant: 'error'
-          });
-        }
+  // const handleAddFavorite = (vehicle) => {
+  //   // let data;
+  //   // if (!localStorage.getItem("favorites")) {
+  //   //   data = [vehicle];
+  //   //   localStorage.setItem("favorites", JSON.stringify(data));
+  //   //   setIsFavorite(true);
+  //   // } else if (localStorage.getItem("favorites")) {
+  //   //   data = JSON.parse(localStorage.getItem("favorites"));
+  //   //     if (data.some((d) => d._id === vehicle._id)) {
+  //   //       if (isFavorite) {
+  //   //         const newFavorites = data.filter((d) => d._id !== vehicle._id);
+  //   //         if(setDataList){
+  //   //           setDataList(newFavorites)
+  //   //         }
+  //   //         localStorage.setItem("favorites", JSON.stringify(newFavorites));
+  //   //         setIsFavorite(false);
+  //   //         return;
+  //   //       }
+  //   //       return;
+  //   //     }
+  //   //     const newData = [...data, vehicle];
+  //   //     if(newData.length > 4){
+  //   //       return enqueueSnackbar("Solo puedes tener un máximo de 4 favoritos", {
+  //   //         variant: 'error'
+  //   //       });
+  //   //     }
+  //   //     localStorage.setItem("favorites", JSON.stringify(newData));
+  //   //     setIsFavorite(true);
+  //   // }
+  // };
 
-        localStorage.setItem("favorites", JSON.stringify(newData));
-        setIsFavorite(true);
-    }
-  };
-
-  useEffect(() => {
-    if (vehicle && vehicle._id) {
-      if (localStorage.getItem("favorites")) {
-        let favs = JSON.parse(localStorage.getItem("favorites"));
-        if (favs.some((d) => d._id === vehicle._id)) {
-          setIsFavorite(true);
-        }
-      }
-    }
-  }, [vehicle]);
+  // useEffect(() => {
+  //   if (vehicle && vehicle._id) {
+  //     if (localStorage.getItem("favorites")) {
+  //       let favs = JSON.parse(localStorage.getItem("favorites"));
+  //       if (favs.some((d) => d._id === vehicle._id)) {
+  //         setIsFavorite(true);
+  //       }
+  //     }
+  //   }
+  // }, [vehicle]);
 
   return (
     <Card className={(classes.root, classes.hover)}>
@@ -183,14 +182,16 @@ const CarlistCard = ({ vehicle, setDataList }) => {
       </CardContent>
       <Divider />
       <CardActions disableSpacing>
-        <Checkbox
+        {/* <Checkbox
           icon={<FavoriteIcon style={{ color: "#888" }} />}
           checkedIcon={<FavoriteIcon style={{ color: "#c54065" }} />}
           name="checkedH"
           // checked={isFavorite}
-          checked={JSON.parse(localStorage.getItem("favorites")).some((d) => vehicle && d._id === vehicle._id )}
+          checked={JSON.parse(localStorage.getItem("favorites")).some(
+            (d) => vehicle && d._id === vehicle._id
+          )}
           onClick={(e) => handleAddFavorite(vehicle)}
-        />
+        /> */}
         {/* <FavoriteIcon /> */}
       </CardActions>
     </Card>

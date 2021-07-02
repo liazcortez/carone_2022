@@ -1,15 +1,51 @@
 import React from "react";
+import Breadcrumbs from "@material-ui/core/Breadcrumbs";
+import { Container, Divider, Button, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import Link from "next/link";
+import CarList from "../components/autos/CarList";
 
-import { Container, Typography } from "@material-ui/core";
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& > * + *": {
+      marginTop: theme.spacing(2),
+      marginBottom: 50,
+    },
+  },
+}));
 
-const marca = ({ vehicles }) => {
+const Marca = ({ vehicles }) => {
+  const classes = useStyles();
+
   return (
-    <Container>
-      {vehicles &&
-        vehicles.map((vehicle, i) => (
-          <Typography key={i}>{vehicle.model} </Typography>
-        ))}
-    </Container>
+    <>
+      {/* <Meta
+        title={`Autos tipo ${marca.toUpperCase()}`}
+        description={`Busca tu auto por marca ${marca}`}
+      /> */}
+
+      <Container maxWidth="lg">
+        <Divider style={{ marginBottom: "50px" }} />
+        <div className={classes.root} style={{ marginBottom: 10 }}>
+          <Breadcrumbs separator="›" aria-label="breadcrumb">
+            <Link color="inherit" href="/" passHref={true}>
+              <Button>CARONE </Button>
+            </Link>
+            <Link color="inherit" href="/autos" passHref={true}>
+              <Button>Autos</Button>
+            </Link>
+            <Typography
+              color="textPrimary"
+              style={{ textTransform: "capitalize" }}
+            >
+              {/* <Button disabled>{marca}</Button> */}
+            </Typography>
+          </Breadcrumbs>
+        </div>
+
+        <CarList vehicles={vehicles} />
+      </Container>
+    </>
   );
 };
 
@@ -20,7 +56,9 @@ export const getServerSideProps = async (context) => {
 
   const storeP = url.split(".")[0];
 
-  const resStore = await fetch(`https://apicarone.com/api/v1/stores/${storeP}`);
+  const resStore = await fetch(
+    `https://apicarone.com/api/v1/stores/604a4f0682e680001517c9b1`
+  );
 
   const store = await resStore.json();
 
@@ -35,10 +73,8 @@ export const getServerSideProps = async (context) => {
   return {
     props: {
       vehicles: vehicles.data,
-      // marca: context.params.marca,
-      test: "test",
     },
   };
 };
 
-export default marca;
+export default Marca;
