@@ -56,9 +56,7 @@ export const getServerSideProps = async (context) => {
 
   const storeP = url.split(".")[0];
 
-  const resStore = await fetch(
-    `https://apicarone.com/api/v1/stores/604a4f0682e680001517c9b1`
-  );
+  const resStore = await fetch(`https://apicarone.com/api/v1/stores/${storeP}`);
 
   const store = await resStore.json();
 
