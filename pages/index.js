@@ -74,7 +74,7 @@ export const getServerSideProps = async (context) => {
     props: {
       vehicles: vehicles.data,
       make: data.make.name,
-      store: store.name,
+      store: data.store.name,
     },
   };
 };
