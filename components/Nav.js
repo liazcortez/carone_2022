@@ -22,7 +22,7 @@ const Nav = () => {
     <Container maxWidth="lg">
       <Box display="flex" alignItems="center" p={1} bgcolor="background.paper">
         <Box p={1} flexGrow={1}>
-          <Link href="/" as={`/`} passHref={true}>
+          {/* <Link href="/" as={`/`} passHref={true}>
             <a>
               <Image
                 src="https://carone.com.mx/wp-content/uploads/logo.png"               
@@ -31,7 +31,7 @@ const Nav = () => {
                 height="60"
               />
             </a>
-          </Link>
+          </Link> */}
         </Box>
         <Box p={1}>
           <Link href="/autos" passHref={true}>

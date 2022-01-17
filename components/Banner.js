@@ -138,7 +138,7 @@ const Banner = ({ imageUrl }) => {
                 Donde encuentras toda una gama de marcas y vehiculos para ti
               </Typography>
 
-              <Link href="/autos" passHref={true}>
+              <Link href="/autos">
                 <Button
                   variant="contained"
                   color="primary"

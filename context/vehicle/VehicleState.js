@@ -24,7 +24,7 @@ const VehicleState = (props) => {
     setLoading();
     try {
       const res = await api.get(
-        `/vehicles/advancedResults?page=${page}&limit=12&searchText=${query}`
+        `/vehicles/advancedResults?searchText=${query}&page=${page}`
       );
       dispatch({ type: GET_VEHICLES_ADVANCED_SEARCH, payload: res.data });
     } catch (err) {

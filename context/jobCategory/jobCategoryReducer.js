@@ -1,22 +1,19 @@
 import { 
-  GET_JOBS_ADVANCED_SEARCH, 
+  GET_CATEGORIES, 
   SET_ERROR,
   CLEAR_STATE,
   SET_LOADING
-} from '../types';
+ } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
-    case GET_JOBS_ADVANCED_SEARCH:
-      console.log(action.payload)
+    case GET_CATEGORIES:
       return {
         ...state,
-        jobs: action.payload.data,
+        jobCategories: action.payload,
         loading: false,
-        error: null,
-        results: action.payload.pagination.total
+        error: null
       };
-      
     case SET_ERROR:
       return {
         ...state,
@@ -25,8 +22,8 @@ export default (state, action) => {
       }
     case CLEAR_STATE:
       return {
-        job: {},
-        jobs: [],
+        jobCategory: {},
+        jobCategories: [],
         loading: false,
         error: null
       }

@@ -1,11 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import Image from 'next/image'
-
 
 const CarCardItem = ({ data }) => {
   return (
-    <Link href={`/autos/${data.name}`}>
+    <Link href={`/autos/${data && data.name}`}>
       <a>
         <div
           style={{
@@ -14,8 +12,7 @@ const CarCardItem = ({ data }) => {
             borderRadius: "10px",
           }}
         >
-          <Image
-          alt="Picture of the author"
+          <img
             src={data.image}
             style={{
               width: "100%",
