@@ -27,7 +27,11 @@ const Nav = () => {
             </a>
           </Link>
         </Box>
-          <Box p={1}/>
+          <Box p={1} flexGrow={1}/>
+          <Box p={1} flexGrow={1}/>
+          <Box p={1} flexGrow={1}/>
+          <Box p={1} flexGrow={1}/>
+          <Box p={1} flexGrow={1}/>
 
           <Box p={1}>
             <Link href="/autos" passHref={true}>
