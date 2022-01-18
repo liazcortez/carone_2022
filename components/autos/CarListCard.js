@@ -110,7 +110,6 @@ const CarlistCard = ({ vehicle, setDataList }) => {
 
   return (
     <Card className={(classes.root, classes.hover)}>
-      console.log(vehicle.make)
       {vehicle ? (
         <Link href={`/autos/${vehicle.make.name}/${vehicle.slug}`}>
           <a>

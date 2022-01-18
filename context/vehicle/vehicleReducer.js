@@ -8,7 +8,6 @@ import {
 export default (state, action) => {
   switch (action.type) {
     case GET_VEHICLES_ADVANCED_SEARCH:
-      console.log(action.payload)
       return {
         ...state,
         vehicles: action.payload.data,

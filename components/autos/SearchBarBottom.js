@@ -146,7 +146,7 @@ const SearchBarBottom = ({
         </TextField>
       </Grid>
       <Grid item xs={12} sm={12} md={4} lg={4}>
-        <TextField
+      <TextField
           style={{
             backgroundColor: "#f3f7f9",
             border: "0px solid rgb(217, 221, 233)",

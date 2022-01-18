@@ -64,7 +64,6 @@ const index = ({ vehiclesSP, total, makes, categories }) => {
   );
 };
 export const getStaticProps = async (context) => {
-  console.log(baseURL);
   const res = await fetch(`${baseURL}/vehicles?page=1&limit=12&sort=index`);
   const vehicles = await res.json();
 

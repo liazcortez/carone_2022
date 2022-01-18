@@ -6,10 +6,10 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../src/theme";
 import Layout from "../components/Layout";
-// import VehicleState from "../context/vehicle/VehicleState";
-// import CategoryState from "../context/category/CategoryState";
-// import MakeState from "../context/make/MakeState";
-// import JobState from "../context/job/JobState";
+import VehicleState from "../context/vehicle/VehicleState";
+import CategoryState from "../context/category/CategoryState";
+import MakeState from "../context/make/MakeState";
+import JobState from "../context/job/JobState";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -35,17 +35,17 @@ export default function MyApp(props) {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Layout>
-          {/* <VehicleState>
+          <VehicleState>
             <MakeState>
               <JobState>
-                <CategoryState> */}
+                <CategoryState>
                   <SnackbarProvider dense maxSnack={3}>
                     <Component {...pageProps} />
                   </SnackbarProvider>
-                {/* </CategoryState>
+                </CategoryState>
               </JobState>
             </MakeState>
-          </VehicleState> */}
+          </VehicleState>
         </Layout>
       </ThemeProvider>
     </React.Fragment>

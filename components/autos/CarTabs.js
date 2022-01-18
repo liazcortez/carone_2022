@@ -38,7 +38,6 @@ const CarTabs = ({ versions, model }) => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    console.log(newValue);
   };
 
   return (

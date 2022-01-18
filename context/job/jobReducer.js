@@ -8,7 +8,6 @@ import {
 export default (state, action) => {
   switch (action.type) {
     case GET_JOBS_ADVANCED_SEARCH:
-      console.log(action.payload)
       return {
         ...state,
         jobs: action.payload.data,

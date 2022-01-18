@@ -19,8 +19,6 @@ const useStyles = makeStyles((theme) => ({
 
 const marca = ({ vehicles }) => {
 
-  React.useEffect(()=>{console.log(vehicles);},vehicles)
-
   const router = useRouter();
   const { marca } = router.query;
   const classes = useStyles();
