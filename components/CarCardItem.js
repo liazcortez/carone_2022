@@ -15,9 +15,9 @@ const CarCardItem = ({ data }) => {
         >
           <Image
             src={data.image}
-            width={'100%'}
-            height={100}
-            objectFit="cover"
+            width={900}
+            height={400}
+            // objectFit="cover"
             // style={{
             //   width: "100%",
             //   height: "100px",

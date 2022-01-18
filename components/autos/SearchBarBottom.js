@@ -112,7 +112,6 @@ const SearchBarBottom = ({
             <option
               key={option.name}
               value={option._id}
-              className={classes.selectOption}
             >
               {capitalCase(option.name)}
             </option>
@@ -164,7 +163,7 @@ const SearchBarBottom = ({
           variant="outlined"
         >
           <option key={0} value={"-"}>
-            Cualquiera
+          Todos
           </option>
           {sortOptions.map((option) => (
             <option

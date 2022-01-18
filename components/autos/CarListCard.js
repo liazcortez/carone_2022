@@ -9,6 +9,7 @@ import {
   Typography,
   Checkbox,
   Box,
+  FormControlLabel,
 } from "@material-ui/core";
 import { useSnackbar } from "notistack";
 import { red } from "@material-ui/core/colors";
@@ -64,57 +65,59 @@ const CarlistCard = ({ vehicle, setDataList }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
 
-  // const handleAddFavorite = (vehicle) => {
-  //   // let data;
-  //   // if (!localStorage.getItem("favorites")) {
-  //   //   data = [vehicle];
-  //   //   localStorage.setItem("favorites", JSON.stringify(data));
-  //   //   setIsFavorite(true);
-  //   // } else if (localStorage.getItem("favorites")) {
-  //   //   data = JSON.parse(localStorage.getItem("favorites"));
-  //   //     if (data.some((d) => d._id === vehicle._id)) {
-  //   //       if (isFavorite) {
-  //   //         const newFavorites = data.filter((d) => d._id !== vehicle._id);
-  //   //         if(setDataList){
-  //   //           setDataList(newFavorites)
-  //   //         }
-  //   //         localStorage.setItem("favorites", JSON.stringify(newFavorites));
-  //   //         setIsFavorite(false);
-  //   //         return;
-  //   //       }
-  //   //       return;
-  //   //     }
-  //   //     const newData = [...data, vehicle];
-  //   //     if(newData.length > 4){
-  //   //       return enqueueSnackbar("Solo puedes tener un máximo de 4 favoritos", {
-  //   //         variant: 'error'
-  //   //       });
-  //   //     }
-  //   //     localStorage.setItem("favorites", JSON.stringify(newData));
-  //   //     setIsFavorite(true);
-  //   // }
-  // };
+  const handleAddFavorite = (vehicle) => {
+    let data;
+    if (!localStorage.getItem("favorites")) {
+      data = [vehicle];
+      localStorage.setItem("favorites", JSON.stringify(data));
+      setIsFavorite(true);
+    } else if (localStorage.getItem("favorites")) {
+      data = JSON.parse(localStorage.getItem("favorites"));
+      if (data.some((d) => d._id === vehicle._id)) {
+        if (isFavorite) {
+          const newFavorites = data.filter((d) => d._id !== vehicle._id);
+          if (setDataList) {
+            setDataList(newFavorites);
+          }
+          localStorage.setItem("favorites", JSON.stringify(newFavorites));
+          setIsFavorite(false);
+          return;
+        }
+        return;
+      }
+      const newData = [...data, vehicle];
+      if (newData.length > 4) {
+        return enqueueSnackbar("Solo puedes tener un máximo de 4 favoritos", {
+          variant: "error",
+        });
+      }
 
-  // useEffect(() => {
-  //   if (vehicle && vehicle._id) {
-  //     if (localStorage.getItem("favorites")) {
-  //       let favs = JSON.parse(localStorage.getItem("favorites"));
-  //       if (favs.some((d) => d._id === vehicle._id)) {
-  //         setIsFavorite(true);
-  //       }
-  //     }
-  //   }
-  // }, [vehicle]);
+      localStorage.setItem("favorites", JSON.stringify(newData));
+      setIsFavorite(true);
+    }
+  };
+
+  useEffect(() => {
+    if (vehicle && vehicle._id) {
+      if (localStorage.getItem("favorites")) {
+        let favs = JSON.parse(localStorage.getItem("favorites"));
+        if (favs.some((d) => d._id === vehicle._id)) {
+          setIsFavorite(true);
+        }
+      }
+    }
+  }, [vehicle]);
 
   return (
     <Card className={(classes.root, classes.hover)}>
+      console.log(vehicle.make)
       {vehicle ? (
         <Link href={`/autos/${vehicle.make.name}/${vehicle.slug}`}>
           <a>
             <CardMedia
               className={classes.media}
-              image={vehicle.mainImage ? vehicle.mainImage : emptyImage}
-              title={`${capitalCase(vehicle.model)} ${vehicle.year}`}
+              image={vehicle.mainImage ? vehicle.mainImage : 'emptyImage'}
+              title={`${vehicle && vehicle.model && capitalCase(vehicle.model)} ${vehicle && vehicle.year}`}
             />
           </a>
         </Link>
@@ -124,7 +127,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
       <CardContent>
         {vehicle ? (
           <>
-            <Link href={`/marcas/${vehicle.make.name}`}>
+            <Link href={`/marcas/${vehicle && vehicle.make && vehicle.make.name}`}>
               <a style={{ textDecoration: "none", color: "black" }}>
                 <Typography
                   variant="subtitle1"
@@ -132,11 +135,11 @@ const CarlistCard = ({ vehicle, setDataList }) => {
                     (classes.modelFormatting, classes.modelFormattingUpper)
                   }
                 >
-                  {vehicle.make.name}{" "}
+                  {vehicle && vehicle.make && vehicle.make.name}{" "}
                 </Typography>
               </a>
             </Link>
-            <Link href={`/autos/${vehicle.make.name}/${vehicle.slug}`}>
+            <Link href={`/autos/${vehicle && vehicle.make && vehicle.make.name}/${vehicle && vehicle.slug}`}>
               <a style={{ textDecoration: "none", color: "black" }}>
                 <Typography variant="h6" className={classes.modelFormatting}>
                   {`${vehicle.model} ${vehicle.year}`}
@@ -182,16 +185,23 @@ const CarlistCard = ({ vehicle, setDataList }) => {
       </CardContent>
       <Divider />
       <CardActions disableSpacing>
-        {/* <Checkbox
-          icon={<FavoriteIcon style={{ color: "#888" }} />}
-          checkedIcon={<FavoriteIcon style={{ color: "#c54065" }} />}
-          name="checkedH"
-          // checked={isFavorite}
-          checked={JSON.parse(localStorage.getItem("favorites")).some(
-            (d) => vehicle && d._id === vehicle._id
-          )}
+
+        <FormControlLabel
+          control={
+            <Checkbox   
+              icon={<FavoriteIcon style={{ color: "#888" }} />} 
+              checkedIcon={<FavoriteIcon style={{ color: "#c54065" }} />} 
+              name="checkedH"
+              checked={
+                process.browser && localStorage.getItem("favorites") &&
+                JSON.parse(localStorage.getItem("favorites")).some(
+                  (d) => vehicle && d._id === vehicle._id
+                )
+              }
+            />}
           onClick={(e) => handleAddFavorite(vehicle)}
-        /> */}
+
+        />
         {/* <FavoriteIcon /> */}
       </CardActions>
     </Card>

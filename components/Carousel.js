@@ -33,15 +33,9 @@ const Item = ({ result }) => (
     <Link href={`/categorias/${result && result.name}`}>
       <a>
         <Image
-         width={'100%'}
-         height={100}
-         fill={'cover'}
+          width={250}
+          height={180}
           src={result && result.image}
-          style={{
-            width: "100%",
-            height: "100px",
-            objectFit: "cover",
-          }}
         />
       </a>
     </Link>

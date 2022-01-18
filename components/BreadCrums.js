@@ -26,14 +26,14 @@ const BreadcrumbComponent = ({ data, section }) => {
   return (
     <div className={classes.root} style={{ marginBottom: 10 }}>
       <Breadcrumbs separator="›" aria-label="breadcrumb">
-        <Link color="inherit" href={`/${section}`} passHref={true}>
+        <Link color="inherit" href={`/${section}`}>
           <Button>{section}</Button>
         </Link>
-        <Link color="inherit" href="/autos" passHref={true}>
+        <Link color="inherit" href="/autos">
           <Button>Autos</Button>
         </Link>
-        <Link color="inherit" href={`/autos/${make.name}`} passHref={true}>
-          <Button>{make.name}</Button>
+        <Link color="inherit" href={`/autos/${make && make.name}`}>
+          <Button>{make && make.name}</Button>
         </Link>
         <Typography color="textPrimary" style={{ textTransform: "capitalize" }}>
           <Button disabled>
