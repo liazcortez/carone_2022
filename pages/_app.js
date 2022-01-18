@@ -10,6 +10,7 @@ import VehicleState from "../context/vehicle/VehicleState";
 import CategoryState from "../context/category/CategoryState";
 import MakeState from "../context/make/MakeState";
 import JobState from "../context/job/JobState";
+import AuthState from "../context/auth/AuthState";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -35,17 +36,19 @@ export default function MyApp(props) {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Layout>
-          <VehicleState>
-            <MakeState>
-              <JobState>
-                <CategoryState>
-                  <SnackbarProvider dense maxSnack={3}>
-                    <Component {...pageProps} />
-                  </SnackbarProvider>
-                </CategoryState>
-              </JobState>
-            </MakeState>
-          </VehicleState>
+          <AuthState>
+            <VehicleState>
+              <MakeState>
+                <JobState>
+                  <CategoryState>
+                    <SnackbarProvider dense maxSnack={3}>
+                      <Component {...pageProps} />
+                    </SnackbarProvider>
+                  </CategoryState>
+                </JobState>
+              </MakeState>
+            </VehicleState>
+          </AuthState>
         </Layout>
       </ThemeProvider>
     </React.Fragment>

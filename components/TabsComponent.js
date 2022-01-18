@@ -73,19 +73,25 @@ const TabsComponent = ({ features, gallery, video }) => {
         <VideoComponent video={video} />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <Typography
-          variant="body1"
-          gutterBottom
-          style={{
-            marginBottom: 15,
-            marginTop: 20,
-            fontWeight: "bold",
-            fontSize: 18,
-          }}
-        >
-          Descargar Ficha Técnica
-        </Typography>
-        <CloudDownloadIcon color="primary" style={{ fontSize: 50 }} />
+        <Box display={'flex'} justifyContent={'center'}>
+          <Box>
+          <Typography
+            variant="body1"
+            gutterBottom
+            style={{
+              marginBottom: 15,
+              marginTop: 20,
+              fontWeight: "bold",
+              fontSize: 18,
+            }}
+            >
+            Descargar Ficha Técnica
+          </Typography>
+          <Box display={'flex'} justifyContent={'center'}>
+          <CloudDownloadIcon color="primary" style={{ fontSize: 50 }} />
+          </Box>
+          </Box>
+        </Box>
       </TabPanel>
     </>
   );

@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: 140,
+    minWidth: 270
   },
   categories: {
     display: "none",

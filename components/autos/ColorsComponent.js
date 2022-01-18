@@ -72,7 +72,7 @@ const ColorsComponent = ({ colors }) => {
               <Box key={index}>
                 <Box className={index === current ? "color active" : "color"}>
                   {index === current && (
-                    <Image src={color.image} alt="w/e" className="image" />
+                    <Image src={color.image} alt="w/e" className="image" width={600} height={300} />
                   )}
                 </Box>
               </Box>

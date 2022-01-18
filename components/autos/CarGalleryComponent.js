@@ -95,7 +95,7 @@ const CarGalleryComponent = ({ slides, title }) => {
               className={index === current ? "slide active" : "slide"}
             >
               {index === current && (
-                <Image src={slide.image} alt="w/e" className="image" />
+                <Image src={slide.image} alt="w/e" className="image" width={50} height={50}/>
               )}
             </div>
           );

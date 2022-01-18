@@ -59,6 +59,8 @@ const CarTabComponent = ({ version, model }) => {
         <Image
           src={version.image}
           objectFit="cover"
+          width={100}
+          height={150}
           style={{
             width: "100%",
             height: "150",

@@ -10,12 +10,9 @@ const CarGalleryMedia = ({ gallery }) => {
           <Grid key={i._id} item xs={4}>
             <Image
               src={i.image}
-              style={{
-                width: "100%",
-                height: "300px",
-                objectFit: "cover",
-                borderRadius: 10,
-              }}
+              width={700}
+              height={500}
+              objectFit="cover"
               alt="Picture of the author"
             />
           </Grid>
