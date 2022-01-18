@@ -35,6 +35,7 @@ const Item = ({ result }) => (
         <Image
           width={250}
           height={180}
+          alt="no image"
           src={result && result.image}
         />
       </a>
@@ -42,6 +43,7 @@ const Item = ({ result }) => (
 
     <Link
       href={`/categorias/${result && result.name}`}
+      passHref={true}
       style={{
         textAlign: "center",
         color: "#9fa3a7",

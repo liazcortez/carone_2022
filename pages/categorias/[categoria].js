@@ -4,7 +4,7 @@ import CarList from "../../components/autos/CarList";
 import Meta from "../../components/Meta";
 import { Container, Divider } from "@material-ui/core";
 
-const categoria = ({ vehicles }) => {
+const Category = ({ vehicles }) => {
 
   const router = useRouter();
   const { categoria } = router.query;
@@ -42,4 +42,4 @@ export const getServerSideProps = async (ctx) => {
   };
 };
 
-export default categoria;
+export default Category;

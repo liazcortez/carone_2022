@@ -8,7 +8,7 @@ import useVehicles from "../../hooks/useVehicle";
 import Banner from "../../components/Banner";
 import { baseURL } from "../../api/api";
 
-const index = ({ vehiclesSP, total, makes, categories }) => {
+const Index = ({ vehiclesSP, total, makes, categories }) => {
 
   const { vehicles, getVehicles, loading, results } = useVehicles();
   const [disableTopBar, setDisableTopBar] = useState(false);
@@ -25,6 +25,7 @@ const index = ({ vehiclesSP, total, makes, categories }) => {
       page,
       `${query}&make=${make}&category=${category}&prices=${sort}`
     );
+    //eslint-disable-next-line
   }, [page, make, category, sort]);
 
 
@@ -83,4 +84,4 @@ export const getStaticProps = async (context) => {
   };
 };
 
-export default index;
+export default Index;

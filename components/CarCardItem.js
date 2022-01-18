@@ -17,6 +17,7 @@ const CarCardItem = ({ data }) => {
             src={data.image}
             width={900}
             height={400}
+            alt='none image'
             // objectFit="cover"
             // style={{
             //   width: "100%",

@@ -34,10 +34,10 @@ const Marca = ({ vehicles }) => {
         <Divider style={{ marginBottom: "50px" }} />
         <div className={classes.root} style={{ marginBottom: 10 }}>
           <Breadcrumbs separator="›" aria-label="breadcrumb">
-            <Link color="inherit" href="/">
+            <Link color="inherit" href="/" passHref={true}>
               <Button>CARONE </Button>
             </Link>
-            <Link color="inherit" href="/autos">
+            <Link color="inherit" href="/autos" passHref={true}>
               <Button>Autos</Button>
             </Link>
             <Typography
