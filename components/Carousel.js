@@ -34,7 +34,7 @@ const Item = ({ result }) => (
       <a>
         <Image
           width={250}
-          height={180}
+          height={150}
           alt="no image"
           src={result && result.image}
         />

@@ -8,59 +8,60 @@ import Link from "next/link";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import Grid from "@material-ui/core/Grid";
 import { useRouter } from "next/router";
-// import Image from 'next/image'
+import Image from 'next/image'
 
 const Nav = () => {
   const router = useRouter();
   const HomeNav = () => (
     <Container maxWidth="lg">
       <Box display="flex" alignItems="center" p={1} bgcolor="background.paper">
-        <Box p={1} flexGrow={1}>
-          {/* <Link href="/" as={`/`} passHref={true}>
+        <Box p={1}>
+          <Link href="/" as={`/`} passHref={true}>
             <a>
               <Image
-                src="https://carone.com.mx/wp-content/uploads/logo.png"               
+                src="/static/logo.png"            
                 alt="Picture of the author"
-                width="180"
-                height="60"
+                width={200}
+                height={60}
               />
             </a>
-          </Link> */}
-        </Box>
-        <Box p={1}>
-          <Link href="/autos" passHref={true}>
-            <Button>Autos</Button>
           </Link>
         </Box>
-        <Box p={1}>
-          <Link href="/favoritos" passHref={true}>
-            <Button>Favoritos</Button>
-          </Link>
-        </Box>
-        {/* <Box p={1}>
-          <Link href="#" passHref={true}>
-            <Button disabled>Accesorios</Button>
-          </Link>
-        </Box> */}
-        <Box p={1}>
-          <Link href="/trabajos" passHref={true}>
-            <Button>Únete al equipo</Button>
-          </Link>
+          <Box p={1}/>
+
+          <Box p={1}>
+            <Link href="/autos" passHref={true}>
+              <Button>Autos</Button>
+            </Link>
+          </Box>
+          <Box p={1}>
+            <Link href="/favoritos" passHref={true}>
+              <Button>Favoritos</Button>
+            </Link>
+          </Box>
+         
+          <Box p={1}>
+            <Link href="/trabajos" passHref={true}>
+              <Button>Únete al equipo</Button>
+            </Link>
+          </Box>
+
+          <Box p={1}>
+            <Link href="#" passHref={true}>
+              <Button variant="contained" color="primary">
+                Contacto
+              </Button>
+            </Link>
+          </Box>
+
+          <Box p={1}>
+            <Link href="/" passHref={true}>
+              <InstagramIcon />
+            </Link>
+          </Box>
+          
         </Box>
 
-        <Box p={1}>
-          <Link href="#" passHref={true}>
-            <Button variant="contained" color="primary">
-              Contacto
-            </Button>
-          </Link>
-        </Box>
-        <Box p={1}>
-          <Link href="/" passHref={true}>
-            <InstagramIcon />
-          </Link>
-        </Box>
-      </Box>
     </Container>
   );
 

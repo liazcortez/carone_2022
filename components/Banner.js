@@ -108,6 +108,7 @@ const Banner = ({ imageUrl }) => {
         <Paper
           style={{
             padding: 100,
+            backgroundPosition: 'center',
             backgroundImage: `url(${imageUrl})`,
           }}
         >

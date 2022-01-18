@@ -9,7 +9,7 @@ import Banner from "../components/Banner";
 import CarCardList from "../components/CarCardList";
 import Meta from "../components/Meta";
 
-const imageUrl = "https://carone.com.mx/wp-content/uploads/2021/03/banner2.jpg";
+const imageUrl = "https://fondosmil.com/fondo/21960.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
