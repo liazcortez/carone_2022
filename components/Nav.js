@@ -1,20 +1,14 @@
 import React from "react";
 import {
-  TextField,
   Box,
-  Typography,
   Container,
   Button,
 } from "@material-ui/core";
 import Link from "next/link";
-import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import Grid from "@material-ui/core/Grid";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import SearchIcon from "@material-ui/icons/Search";
 import { useRouter } from "next/router";
-import Image from 'next/image'
+// import Image from 'next/image'
 
 const Nav = () => {
   const router = useRouter();
@@ -70,38 +64,38 @@ const Nav = () => {
     </Container>
   );
 
-  const PageNav = () => (
-    <Container maxWidth="lg">
-      <Grid container spacing={3} style={{ marginTop: 10, marginBottom: 10 }}>
-        <Grid item xs={2}>
-          <Link href="/" as={`/`} passHref={true}>
-            <a>
-              <Image
-                src="https://carone.com.mx/wp-content/uploads/logo.png"
-                style={{ width: 180 }}
-                alt="aasd"
-              />
-            </a>
-          </Link>
-        </Grid>
+  // const PageNav = () => (
+  //   <Container maxWidth="lg">
+  //     <Grid container spacing={3} style={{ marginTop: 10, marginBottom: 10 }}>
+  //       <Grid item xs={2}>
+  //         <Link href="/" as={`/`} passHref={true}>
+  //           <a>
+  //             <Image
+  //               src="https://carone.com.mx/wp-content/uploads/logo.png"
+  //               style={{ width: 180 }}
+  //               alt="aasd"
+  //             />
+  //           </a>
+  //         </Link>
+  //       </Grid>
 
-        <Grid item xs={10}>
-          <Box display="flex" alignItems="center">
-            <Box p={1} mt={1}>
-              <Link href="/autos" passHref={true}>
-                <Button color="primary">Autos</Button>
-              </Link>
-            </Box>
-            <Box p={1} mt={1}>
-              <Link href="/autos" passHref={true}>
-                <Button color="primary">Favoritos</Button>
-              </Link>
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
-    </Container>
-  );
+  //       <Grid item xs={10}>
+  //         <Box display="flex" alignItems="center">
+  //           <Box p={1} mt={1}>
+  //             <Link href="/autos" passHref={true}>
+  //               <Button color="primary">Autos</Button>
+  //             </Link>
+  //           </Box>
+  //           <Box p={1} mt={1}>
+  //             <Link href="/autos" passHref={true}>
+  //               <Button color="primary">Favoritos</Button>
+  //             </Link>
+  //           </Box>
+  //         </Box>
+  //       </Grid>
+  //     </Grid>
+  //   </Container>
+  // );
 
   return HomeNav();
 };
