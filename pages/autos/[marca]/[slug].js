@@ -14,7 +14,7 @@ import ColorsComponent from "../../../components/autos/ColorsComponent";
 import VersionList from "../../../components/autos/versions/VersionList";
 import { baseURL } from "../../../api/api";
 
-const slug = ({ vehicle }) => {
+const Slug = ({ vehicle }) => {
   const router = useRouter();
 
   const url = `https://carone2021.herokuapp.com${router.asPath}`;
@@ -154,4 +154,4 @@ export const getServerSideProps = async (ctx) => {
   };
 };
 
-export default slug;
+export default Slug;

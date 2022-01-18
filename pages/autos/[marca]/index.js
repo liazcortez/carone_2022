@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const marca = ({ vehicles }) => {
+const Marca = ({ vehicles }) => {
 
   const router = useRouter();
   const { marca } = router.query;
@@ -70,4 +70,4 @@ export const getServerSideProps = async (context) => {
   };
 };
 
-export default marca;
+export default Marca;
