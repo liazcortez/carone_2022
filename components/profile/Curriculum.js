@@ -16,7 +16,7 @@ import useAuth from '../../hooks/useAuth';
 import useApplicant from '../../hooks/useApplicant';
 import DropzoneInput from '../../components/DropzoneInput';
 import { FileText } from 'react-feather'
-
+import Image from 'next/image'
 
 const methodIcons = {
   Auth0: '/static/images/auth0.svg',
@@ -161,7 +161,8 @@ useEffect(()=>{
     setOpen(false);
     } 
     setSubmit(false);
-}
+  }
+  //eslint-disable-next-line
 },[user]);
 
 return (
@@ -183,7 +184,9 @@ return (
                 content={
                     <>
                         <div>
-                            <img
+                            <Image
+                            width={80}
+                            height={80}
                             alt="Select file"
                             className={classes.image}
                             src="/static/images/undraw_add_file2_gvbb.svg"
@@ -214,7 +217,7 @@ return (
             {
              (user && user.resume && !update)?
               <Box display='flex'>
-                <a href={user.resume} download style={{textDecoration: 'none'}} target="_blank">
+                <a href={user.resume} download style={{textDecoration: 'none'}} target="_blank" rel="noreferrer">
 
                 <Button 
                   color="primary"

@@ -12,6 +12,9 @@ import MakeState from "../context/make/MakeState";
 import JobState from "../context/job/JobState";
 import AuthState from "../context/auth/AuthState";
 
+import AlertState from "../context/alert/AlertState";
+import ApplicantState from "../context/applicant/ApplicantState";
+
 export default function MyApp(props) {
   const { Component, pageProps } = props;
 
@@ -26,7 +29,7 @@ export default function MyApp(props) {
   return (
     <React.Fragment>
       <Head>
-        <title>My page</title>
+        <title>Car One Group</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
@@ -37,17 +40,21 @@ export default function MyApp(props) {
         <CssBaseline />
         <Layout>
           <AuthState>
-            <VehicleState>
-              <MakeState>
-                <JobState>
-                  <CategoryState>
-                    <SnackbarProvider dense maxSnack={3}>
-                      <Component {...pageProps} />
-                    </SnackbarProvider>
-                  </CategoryState>
-                </JobState>
-              </MakeState>
-            </VehicleState>
+            <AlertState>
+              <ApplicantState>
+                <VehicleState>
+                  <MakeState>
+                    <JobState>
+                      <CategoryState>
+                        <SnackbarProvider dense maxSnack={3}>
+                          <Component {...pageProps} />
+                        </SnackbarProvider>
+                      </CategoryState>
+                    </JobState>
+                  </MakeState>
+                </VehicleState>
+              </ApplicantState>
+            </AlertState>
           </AuthState>
         </Layout>
       </ThemeProvider>

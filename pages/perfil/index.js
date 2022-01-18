@@ -51,8 +51,9 @@ const Index = () => {
 
   React.useEffect(()=>{
     if(!user){
-            router.push("/");
+      router.push("/");
     }
+    //eslint-disable-next-line
   },[user]);
 
   if(!user || JSON.stringify(user) === '{}'){
