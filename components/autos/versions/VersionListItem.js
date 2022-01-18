@@ -142,8 +142,8 @@ const VersionListItem = ({ version, model }) => {
       <Divider />
 
       <Container style={{ padding: 20 }}>
-        {version.specifications.map((spec) => (
-          <div style={{ minHeight: 50 }}>
+        {version.specifications.map((spec, index) => (
+          <div style={{ minHeight: 50 }} key={index}>
             <Typography
               variant="body1"
               gutterBottom

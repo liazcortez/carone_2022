@@ -90,9 +90,9 @@ const SearchBarBottom = ({
           <option key={0} value={"-"}>
             Todas
           </option>
-          {categories.map((option) => (
+          {categories.map((option, index) => (
             <option
-              key={option.name}
+              key={index}
               value={option._id}
               className={classes.selectOption}
             >
