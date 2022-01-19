@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from 'next/image';
 
 const CarCardItem = ({ data }) => {
   return (
@@ -13,17 +12,14 @@ const CarCardItem = ({ data }) => {
             borderRadius: "10px",
           }}
         >
-          <Image
+           <img
             src={data.image}
-            width={900}
-            height={400}
             alt='none image'
-            // objectFit="cover"
-            // style={{
-            //   width: "100%",
-            //   height: "100px",
-            //   objectFit: "cover",
-            // }}
+            style={{
+              width: "100%",
+              height: "100px",
+              objectFit: "cover",
+            }}
           />
         </div>
       </a>

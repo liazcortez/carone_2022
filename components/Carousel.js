@@ -4,7 +4,6 @@ import Divider from "@material-ui/core/Divider";
 import { makeStyles } from "@material-ui/core/styles";
 import Link from "next/link";
 import { Button } from "@material-ui/core";
-import Image from 'next/image'
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -32,11 +31,13 @@ const Item = ({ result }) => (
   >
     <Link href={`/categorias/${result && result.name}`}>
       <a>
-        <Image
-          width={250}
-          height={150}
-          alt="no image"
+        <img
           src={result && result.image}
+          style={{
+            width: "100%",
+            height: "100px",
+            objectFit: "cover",
+          }}
         />
       </a>
     </Link>

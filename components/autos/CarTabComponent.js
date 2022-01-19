@@ -2,7 +2,7 @@ import { Grid, Typography, Divider } from "@material-ui/core";
 import React from "react";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import NumberFormat from "react-number-format";
-import Image from 'next/image'
+
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +28,7 @@ const CarTabComponent = ({ version, model }) => {
           component="h3"
           style={{ fontWeight: "bold", color: "#656d78" }}
         >
-          {model.toUpperCase()} {version.name.toUpperCase()}
+          {model.toUpperCase()} {version && version.name.toUpperCase()}
         </Typography>
         {version.price ? (
           <Typography
@@ -56,17 +56,13 @@ const CarTabComponent = ({ version, model }) => {
           </Typography>
         )}
         {/* <Divider style={{ marginBottom: 20 }} /> */}
-        <Image
+        <img
           src={version.image}
-          objectFit="cover"
-          width={100}
-          height={150}
           style={{
             width: "100%",
             height: "150",
             objectFit: "cover",
           }}
-          alt="#"
         />
       </Grid>
       <Grid item xs={5}>
@@ -76,7 +72,7 @@ const CarTabComponent = ({ version, model }) => {
             component="h3"
             style={{ fontWeight: "bold", marginBottom: 20, color: "#656d78" }}
           >
-            La version {model.toUpperCase()} {version.name.toUpperCase()} cuenta
+            La version {model.toUpperCase()} {version && version.name.toUpperCase()} cuenta
             con:
           </Typography>
           <Divider style={{ marginBottom: 20 }} />

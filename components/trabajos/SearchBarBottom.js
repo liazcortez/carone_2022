@@ -137,7 +137,7 @@ const SearchBarBottom = ({
           }}
           select
           fullWidth
-          label="Precio"
+          label="Salario"
           value={sort}
           onChange={handleSort}
           SelectProps={{

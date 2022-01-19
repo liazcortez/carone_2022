@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@material-ui/icons/ArrowForwardIosRounded";
 import { Typography, Container, Grid, Box } from "@material-ui/core";
-import Image from 'next/image'
 
 const useStyles = makeStyles((theme) => ({
   leftArrow: {
@@ -70,9 +69,9 @@ const ColorsComponent = ({ colors }) => {
           <Grid item xs={12} className="colorSlider">
             {colors.map((color, index) => (
               <Box key={index}>
-                <Box className={index === current ? "color active" : "color"}>
+                 <Box className={index === current ? "color active" : "color"}>
                   {index === current && (
-                    <Image src={color.image} alt="w/e" className="image" width={600} height={300} />
+                    <img src={color.image} alt="w/e" className="image" />
                   )}
                 </Box>
               </Box>

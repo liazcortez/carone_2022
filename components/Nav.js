@@ -8,7 +8,6 @@ import Link from "next/link";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import Grid from "@material-ui/core/Grid";
 import { useRouter } from "next/router";
-import Image from 'next/image'
 
 const Nav = () => {
   const router = useRouter();
@@ -18,11 +17,9 @@ const Nav = () => {
         <Box p={1}>
           <Link href="/" as={`/`} passHref={true}>
             <a>
-              <Image
+              <img
                 src="/static/logo.png"            
-                alt="Picture of the author"
-                width={200}
-                height={60}
+                style={{ width: 180 }}
               />
             </a>
           </Link>

@@ -25,7 +25,6 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
       page,
       `${query}&make=${make}&category=${category}&prices=${sort}`
     );
-    console.log('aca?')
     //eslint-disable-next-line
   }, [page, make, category, sort]);
 

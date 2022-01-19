@@ -3,8 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@material-ui/icons/ArrowForwardIosRounded";
 import { Typography, Container, Grid } from "@material-ui/core";
-import Image from 'next/image'
-
 
 const useStyles = makeStyles((theme) => ({
   leftArrow: {
@@ -95,7 +93,7 @@ const CarGalleryComponent = ({ slides, title }) => {
               className={index === current ? "slide active" : "slide"}
             >
               {index === current && (
-                <Image src={slide.image} alt="w/e" className="image" width={50} height={50}/>
+                <img src={slide.image} alt="w/e" className="image" />
               )}
             </div>
           );

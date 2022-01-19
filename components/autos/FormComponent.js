@@ -9,6 +9,7 @@ import StoreMallDirectoryOutlinedIcon from "@material-ui/icons/StoreMallDirector
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import CheckBoxOutlineBlankOutlinedIcon from "@material-ui/icons/CheckBoxOutlineBlankOutlined";
+import { useSnackbar } from "notistack";
 import CheckBoxOutlinedIcon from "@material-ui/icons/CheckBoxOutlined";
 import {
   Card,
@@ -32,12 +33,38 @@ const useStyles = makeStyles({
   unselectedBorder: {
     border: "1px solid #252525",
   },
+  makesStyles:{
+    color: '#363784',
+    textAlign:'center',
+    gridTemplateColumns: '1fr 1fr 1fr 1fr',
+    display:'grid'
+  }
 });
+const timeFrames = [
+  {
+    id: 0,
+    value: "Solo quiero información"
+  },
+  {
+    id: 1,
+    value: "1 mes o menos"
+  },
+  {
+    id: 2,
+    value: "2 meses"
+  },
+  {
+    id: 3,
+    value: "3 meses o más"
+  },
+]
 
 const FormComponent = ({ vehicle }) => {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
+
+  const { enqueueSnackbar } = useSnackbar();
 
   const [storeIcon, setStoreIcon] = React.useState("");
 
@@ -45,20 +72,21 @@ const FormComponent = ({ vehicle }) => {
     name: "",
     email: "",
     phone: "",
-    timeFrame: "",
-    downPayment: "",
+    timeFrame: "Solo quiero información",
+    downPayment: 0,
     store: "",
     vehicle: vehicle._id,
+    vehicleName: vehicle.model,
     make: vehicle.make._id,
     year: vehicle.year,
-    source: "5fc523e5ba8f7c09d5dd94aa",
+    source: "605b541a020c150355aac5e6",
   });
 
   const { name, email, phone, timeFrame, downPayment } = formData;
 
   const onClickStore = (store) => {
-    setStoreIcon(store._id);
-    setFormData({ ...formData, store: store._id });
+    setStoreIcon(store.dpxStore);
+    setFormData({ ...formData, store: store.dpxStore });
   };
 
   const handleClickOpen = () => {
@@ -69,10 +97,10 @@ const FormComponent = ({ vehicle }) => {
     setOpen(false);
   };
 
-  const onHandleChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onHandleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const sendLead = async (lead) => {
+    console.log(lead)
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -80,18 +108,47 @@ const FormComponent = ({ vehicle }) => {
     };
     try {
       const response = await axios.post(
-        "https://dealerproxapi.com/api/v1/leads",
+        "https://dealerproxapi.com/api/v1/leads/website",
+        // "http://localhost:5001/api/v1/leads/website",
         lead,
         config
       );
+      handleClose()
     } catch (err) {
       console.log(err);
     }
   };
 
-  const onHandleSubmit = (e) => {
+  const onHandleSubmit = async(e) => {
     e.preventDefault();
-    sendLead(formData);
+
+    let emailValidation = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
+    let phoneValidation = new RegExp(/^[0-9]{10}$/);
+    let downPaymentValidation = new RegExp(/^[0-9]+$/);
+
+    if(formData.name === '' || formData.email === '' || formData.phone === '' || storeIcon === ''){
+      return enqueueSnackbar("Por favor llena todos los campos", {
+        variant: "error",
+      });
+    }else if(!emailValidation.test(formData.email)){
+      return enqueueSnackbar("Por favor utiliza un email válido", {
+      variant: "error",
+    });
+    }else if(!phoneValidation.test(formData.phone)){
+      return enqueueSnackbar("Por favor utiliza un télefono válido (10 Dpigitos)", {
+        variant: "error",
+      });
+    }else if(!downPaymentValidation.test(formData.downPayment)){
+      return enqueueSnackbar("Ingresa un enganche válido (Solo números)", {
+        variant: "error",
+      });
+    }else{
+      
+      await sendLead(formData);
+      return enqueueSnackbar("Se ha enviado tu información, en breve un asesor se pondrá en contacto contigo.", {
+        variant: "success",
+      });
+    }
   };
 
   return (
@@ -195,31 +252,30 @@ const FormComponent = ({ vehicle }) => {
                 >
                   2. Selecciona la Agencia de Preferencia
                 </Typography>
-                <Box display="flex" flexDirection="row">
+                <Box className={classes.makesStyles}>
                   {vehicle.availableStore &&
                     vehicle.availableStore.map((store) => (
                       <Box
                         className={
-                          storeIcon === store._id
+                          storeIcon === store.dpxStore
                             ? classes.selectedBorder
                             : classes.unselectedBorder
                         }
-                        key={store._id}
-                        
+                        key={store.dpxStore}
+                        style={{ marginRight: 15 }}
                         onClick={() => onClickStore(store)}
                         style={{
                           cursor: "pointer",
                           borderRadius: 10,
                           padding: 5,
                           margin: 10,
-                          marginRight: 15
                         }}
                       >
                         <Box display="flex" justifyContent="center">
                           <StoreIcon
                             style={{ fontSize: 50 }}
                             color={
-                              storeIcon === store._id ? "primary" : "inherit"
+                              storeIcon === store.dpxStore ? "primary" : "inherit"
                             }
                           />
                         </Box>
@@ -229,11 +285,11 @@ const FormComponent = ({ vehicle }) => {
                             gutterBottom
                             style={{ textTransform: "capitalize" }}
                           >
-                            {vehicle.make.name} {store.name}
+                            {store.make.name} {store.name}
                           </Typography>
                         </Box>
                         <Box display="flex" justifyContent="center">
-                          {storeIcon === store._id ? (
+                          {storeIcon === store.dpxStore ? (
                             <CheckBoxOutlinedIcon
                               color={
                                 storeIcon === store._id ? "primary" : "inherit"
@@ -274,12 +330,20 @@ const FormComponent = ({ vehicle }) => {
                   value={timeFrame}
                   onChange={onHandleChange}
                   fullWidth
+                  select 
+                  SelectProps={{ native: true }}
                   style={{
                     marginBottom: 10,
                     border: "1px solid #dbf2ff",
                     borderRadius: 10,
                   }}
-                />
+                >
+                {timeFrames && timeFrames.map(timeFrame => (
+                      <option key={timeFrame.id} value={timeFrame.value}>
+                        {timeFrame.value}
+                      </option>
+                    ))}
+                </TextField>
                 <TextField
                   id="outlined-basic"
                   label="Enganche"
