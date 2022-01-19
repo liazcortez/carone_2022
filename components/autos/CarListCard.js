@@ -115,7 +115,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
           <a>
             <CardMedia
               className={classes.media}
-              image={vehicle.mainImage ? vehicle.mainImage : 'emptyImage'}
+              image={vehicle.mainImage ? vehicle.mainImage : emptyImage}
               title={`${vehicle && vehicle.model && capitalCase(vehicle.model)} ${vehicle && vehicle.year}`}
             />
           </a>

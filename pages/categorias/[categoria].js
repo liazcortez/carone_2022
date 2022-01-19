@@ -33,7 +33,9 @@ export const getServerSideProps = async (ctx) => {
     `https://apicarone.com/api/v1/vehicles/vehiclesByCategory/${ctx.params.categoria}`
   );
 
-  const vehicles = await res.json();
+  let vehicles = await res.json();
+
+  if(!vehicles.data) vehicles.data = []
 
   return {
     props: {
