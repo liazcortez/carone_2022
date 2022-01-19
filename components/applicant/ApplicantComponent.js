@@ -124,7 +124,6 @@ const handleSubmit = async ()=>{
 // crear state de applicant
 setSubmit(true);
  if(user && user.resume){
-   console.log('delete');
    deleteResume();
  }else{
   if(file && user){

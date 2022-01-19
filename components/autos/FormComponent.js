@@ -100,7 +100,6 @@ const FormComponent = ({ vehicle }) => {
   const onHandleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const sendLead = async (lead) => {
-    console.log(lead)
     const config = {
       headers: {
         "Content-Type": "application/json",
