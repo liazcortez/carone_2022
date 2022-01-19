@@ -183,7 +183,7 @@ useEffect(()=>{
             <Box flexGrow={1} mt={3}>
               <DropzoneInput 
                 files={file}
-                types={'application/pdf, application/msword, application/vnd.ms-powerpoint'}
+                types={'application/pdf, application/vnd.ms-excel, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-powerpoint'}
                 setFiles={setFile}
                 content={
                   <>

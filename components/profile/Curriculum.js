@@ -179,8 +179,8 @@ return (
               :
               <DropzoneInput 
                 files={file}
-                types={'application/pdf, application/vnd.ms-excel, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-powerpoint'}
                 setFiles={setFile}
+                types={'application/pdf, application/vnd.ms-excel, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-powerpoint'}
                 content={
                     <>
                         <div>

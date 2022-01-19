@@ -1,15 +1,46 @@
-import React from "react";
+import React,{useEffect} from "react";
 import {
   Box,
   Container,
   Button,
+  Grid,
+  Menu,
+  MenuItem
 } from "@material-ui/core";
 import Link from "next/link";
 import InstagramIcon from "@material-ui/icons/Instagram";
-import Grid from "@material-ui/core/Grid";
 import { useRouter } from "next/router";
+import useAuth from "../hooks/useAuth";
 
 const Nav = () => {
+
+
+  
+
+  const { user, loadUser, logout } = useAuth();
+  useEffect(
+    () => {
+      if(!user || JSON.stringify(user) === '{}'){
+        loadUser();
+      }
+    },
+    [],
+  );
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    logout();
+  };
+
   const router = useRouter();
   const HomeNav = () => (
     <Container maxWidth="lg">
@@ -60,6 +91,28 @@ const Nav = () => {
               <InstagramIcon />
             </Link>
           </Box>
+
+          {user && user.name? <Box p={1}>
+
+            <Button color='primary' aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} >menu</Button>
+            <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        
+        <MenuItem>
+
+          <Link href="/perfil">
+            <Button>Perfil</Button>
+          </Link>
+          </MenuItem>
+          
+        <MenuItem onClick={handleLogout}>Logout</MenuItem>
+      </Menu>
+        </Box>:''}
           
         </Box>
 

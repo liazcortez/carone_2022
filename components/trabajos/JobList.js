@@ -5,8 +5,8 @@ import JobItem from "./JobItem";
 const JobList = ({ jobs, loading }) => {
   return (
       jobs && jobs.length > 0 ? jobs.map(
-        (job, i) => (
-            <JobItem key={i} job={job} loading={loading} />
+        (job, index) => (
+            <JobItem job={job} loading={loading} key={job._id} />
         )
       ) : ''
   );

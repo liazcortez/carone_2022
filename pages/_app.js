@@ -38,8 +38,8 @@ export default function MyApp(props) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Layout>
-          <AuthState>
+        <AuthState>
+          <Layout>
             <AlertState>
               <ApplicantState>
                 <VehicleState>
@@ -55,8 +55,8 @@ export default function MyApp(props) {
                 </VehicleState>
               </ApplicantState>
             </AlertState>
-          </AuthState>
-        </Layout>
+          </Layout>
+        </AuthState>
       </ThemeProvider>
     </React.Fragment>
   );

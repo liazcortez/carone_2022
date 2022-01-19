@@ -90,9 +90,9 @@ const SearchBarBottom = ({
           <option key={0} value={"-"}>
             Todas
           </option>
-          {categories.map((option, index) => (
+          {categories.map((option) => (
             <option
-              key={index}
+              key={option._id}
               value={option._id}
               className={classes.selectOption}
             >
@@ -122,7 +122,7 @@ const SearchBarBottom = ({
             Todas
           </option>
           {stores.map((option) => (
-            <option key={option.name} value={option._id}>
+            <option key={option._id} value={option._id}>
               {capitalCase(option.make.name + ' ' + option.name.replace("-", " "))}
             </option>
           ))}
@@ -146,7 +146,7 @@ const SearchBarBottom = ({
           variant="outlined"
         >
           <option key={0} value={"-"}>
-            Cualquiera
+            Todos
           </option>
           {sortOptions.map((option) => (
             <option

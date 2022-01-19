@@ -36,7 +36,7 @@ const GeneralModal = ({job}) => {
   const {user}=useAuth();
 
   const handleOpen = () => {
-    if(user && user._id){
+    if(user){
       setSelect('resume');
     }else{
       setSelect('auth');
@@ -56,7 +56,6 @@ const GeneralModal = ({job}) => {
       setPostulated(false);
     }
     handlePostulated();
-    //eslint-disable-next-line
   },[user]);
 
 const handlePostulated = ()=>{
@@ -80,7 +79,6 @@ const handlePostulated = ()=>{
       setPostulated(true);
     setDisabled(true);
     }
-    //eslint-disable-next-line
   },[modalPostulated]);
 
   const handleResume = ()=>{
@@ -97,12 +95,14 @@ const handlePostulated = ()=>{
 
   return (
     <>
-      {(postulated)?<Button disabled={disabled} variant="contained" color="primary">Postulado</Button>: (user && user.resume) ?
+ 
+      {(postulated)?<Button disabled={disabled} variant="contained" color="primary">Postulado</Button>: (user && user.resume)?
       <Button disabled={disabled} variant="contained" color="primary" onClick={handleResume} fullWidth>Aplicar</Button> :
       <>
       <Grid container>
+       
         {
-          !user || JSON.stringify(user) === '{}' &&
+          !user &&
           <>
           <Grid item sm={12} style={{marginBottom: '1em'}}>
             <Button variant="contained" color='primary' fullWidth onClick={()=>{handleOpen();setLogin(true);}}>
@@ -111,7 +111,7 @@ const handlePostulated = ()=>{
           </Grid>
           <Grid item sm={12} >
             <Button disabled={disabled} variant="text" color="primary" onClick={()=>{handleOpen(); setLogin(false)}} fullWidth>
-              {user && user.role ? 'Postularme':'¿No tienes cuenta? Regístrate'}
+              {user && user.role?'Postularme':'¿No tienes cuenta? Regístrate'}
             </Button>
           </Grid>
           </>
@@ -144,7 +144,7 @@ const handlePostulated = ()=>{
       >
         <Fade in={open}>
           <Box>
-            {select === 'resume'? 
+            {select==='resume'? 
             <ApplicantComponent setModalPostulated={setModalPostulated} job={job} setOpen={setOpen}/>
             :
             <AuthComponent setOpen={setOpen} login={login} setLogin={setLogin}/>
