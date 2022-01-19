@@ -12,14 +12,9 @@ import moment from "moment";
 import parse from "html-react-parser";
 import Meta from "../../../components/Meta";
 import JobItem from "../../../components/trabajos/JobItem";
-// import BreadCrumCats from "../../../components/BreadCrumCats";
-import { useRouter } from "next/router";
+import BreadCrumCats from "../../../components/BreadCrumCats";
 
-import BreadCrumJobs from "../../../components/BreadCrumJobs";
-
-const Index = ({ jobs }) => {
-  const router = useRouter();
-
+const index = ({ jobs }) => {
   return (
     <>
       <Meta
@@ -27,7 +22,7 @@ const Index = ({ jobs }) => {
         description="Los mejores trabajos los encuentras en Car One"
       />
       <Container maxWidth="lg">
-      <BreadCrumJobs data={{ category: { name: router.query.categoria} , title: ''}} section="Trabajos" />
+      <BreadCrumJobs data={job} section="Trabajos" />
 
         <Grid container>
           {jobs && jobs.map((job, i) => <JobItem job={job} key={i} />)}
@@ -54,4 +49,4 @@ export const getServerSideProps = async (ctx) => {
   };
 };
 
-export default Index;
+export default index;

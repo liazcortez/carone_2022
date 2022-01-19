@@ -128,6 +128,7 @@ const AuthState = props => {
   
       } else {
         res = await api.put('/auth/updatedetails', values, config);
+        console.log(res)
         dispatch({
           type: UPDATE_PROFILE,
           payload: res.data.data

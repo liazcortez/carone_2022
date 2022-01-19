@@ -6,7 +6,7 @@ import Pagination from "../../components/Pagination";
 import useJob from "../../hooks/useJob";
 import JobList from "../../components/trabajos/JobList";
 
-const Index = ({ jobsSP, categories, stores, total }) => {
+const index = ({ jobsSP, categories, stores, total }) => {
   const { jobs, getJobs, loading, results } = useJob();
 
   const [disableTopBar, setDisableTopBar] = useState(false);
@@ -23,15 +23,13 @@ const Index = ({ jobsSP, categories, stores, total }) => {
       page,
       `${query}&store=${store}&category=${category}&salaries=${sort}`
     );
-    //eslint-disable-next-line
   }, [page]);
 
   useEffect(() => {
     getJobs(
       page,
       `${query}&store=${store}&category=${category}&salaries=${sort}`
-      );
-    //eslint-disable-next-line
+    );
   }, [store, category, sort]);
   return (
     <>
@@ -94,4 +92,4 @@ export const getServerSideProps = async (context) => {
   };
 };
 
-export default Index;
+export default index;

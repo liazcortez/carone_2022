@@ -84,7 +84,7 @@ const ProfileDetails = ({ className, edit, ...rest}) => {
             edit ? 
             <FilesDropzone 
                 setFiles={setAttachment}
-                types={'image/jpeg, image/png, image/gif, image/jpg'}
+                types={'application/pdf, application/vnd.ms-excel, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-powerpoint'}
                 isProfilePicture={true}
                 content={
                     <div>

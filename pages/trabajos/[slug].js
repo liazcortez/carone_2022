@@ -16,7 +16,8 @@ import BreadCrumJobs from "../../components/BreadCrumJobs";
 import GeneralModal from "../../components/GeneralModal";
 import useAuth from "../../hooks/useAuth";
 import useJob from "../../hooks/useJob";
-const Slug = ({ job }) => { 
+const slug = ({ job }) => { 
+  
 
   moment.locale("es-mx");
   const [openLogin, setOpenLogin] = useState(false)
@@ -136,4 +137,4 @@ export const getServerSideProps = async (ctx) => {
   };
 };
 
-export default Slug;
+export default slug;

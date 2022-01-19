@@ -1,6 +1,17 @@
-import React from "react";
-import { 
+import React, { useState, useEffect } from "react";
+import { Box,
+  Card,
+  CardHeader,
+  Divider,
+  Table,
+  TableBody,
+  TableCell,
+  TableRow,
+  Typography,
+  Container,
+  CardContent,
   Grid,
+  Avatar,
   makeStyles} from "@material-ui/core";
 import Meta from "../../components/Meta";
 import useAuth from "../../hooks/useAuth";
@@ -43,17 +54,15 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-const Index = () => {
-  
+const index = () => {
   const classes = useStyles();
   const {user} = useAuth();
   const router = useRouter();
 
   React.useEffect(()=>{
     if(!user){
-      router.push("/");
+            router.push("/");
     }
-    //eslint-disable-next-line
   },[user]);
 
   if(!user || JSON.stringify(user) === '{}'){
@@ -79,4 +88,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default index;
