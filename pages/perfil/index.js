@@ -50,6 +50,15 @@ const useStyles = makeStyles(theme => ({
     height: '80vh',
     display: 'flex',
     alignItems: 'center'
+  },
+  leftCards:{
+    height:'100%',
+    display:'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
+  noPadding:{
+    padding:'0!important'
   }
 
 }));
@@ -71,19 +80,23 @@ const index = () => {
 
   return (
     <>
+    <Container maxWidth="lg">
       <Meta
         title="Perfil de usuario"
         description="Pagina de perfil de usuario"
       />
-      <Grid container spacing={3} className={classes.root}>
-          <Grid item sm={3} xs={3} ms={3} lg={3}>
+      <Grid container spacing={3}>
+          <Grid  item sm={4} xs={4} ms={4} lg={4}>
+           <Box className={classes.leftCards}>
             <Information edit="true" style={{marginBottom: '1em'}}/>
             <ApplicantComponent width='100%'/>
+             </Box> 
           </Grid>
-          <Grid item sm={9} xs={9} ms={9} lg={9}>
+          <Grid item sm={8} xs={8} ms={8} lg={8}>
             <PersonalInformation />
           </Grid>
         </Grid>
+    </Container>
     </>
   );
 };
