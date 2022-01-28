@@ -5,11 +5,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Tabs from "../components/Tabs";
 
 import Banner from "../components/Banner";
-// import Carousel from "../components/Carousel";
+import MainCarousel from "../components/MainCarousel";
+import Carousel from "../components/Carousel";
 import CarCardList from "../components/CarCardList";
 import Meta from "../components/Meta";
 
-const imageUrl = "https://fondosmil.com/fondo/21960.jpg";
+const imageUrl = "/static/images/BannerC1.jpeg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,6 +23,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const data = ['']
+
 const Home = ({ makes, categories }) => {
   const classes = useStyles();
 
@@ -29,7 +32,8 @@ const Home = ({ makes, categories }) => {
     <>
       <Meta title="Car One Group" description="Autos Nuevo, Seminuevos" />
       <Container maxWidth="lg">
-        <Banner imageUrl={imageUrl} />
+        <MainCarousel imageUrl={imageUrl}/>
+        {/* <Carousel /> */}
         <Tabs categories={categories} />
         <CarCardList title="BUSCAR POR MARCA" data={makes} />
       </Container>
