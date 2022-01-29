@@ -9,7 +9,7 @@ import MainCarousel from "../components/MainCarousel";
 import Carousel from "../components/Carousel";
 import CarCardList from "../components/CarCardList";
 import Meta from "../components/Meta";
-
+import { baseURL } from "../api/api";
 const imageUrl = "/static/images/BannerC1.jpeg";
 
 const useStyles = makeStyles((theme) => ({
@@ -42,10 +42,10 @@ const Home = ({ makes, categories }) => {
 };
 
 export const getStaticProps = async (context) => {
-  const res = await fetch(`https://apicarone.com/api/v1/makes`);
+  const res = await fetch(`${baseURL}/makes/redis`);
   const makes = await res.json();
 
-  const resCategories = await fetch(`https://apicarone.com/api/v1/categories`);
+  const resCategories = await fetch(`${baseURL}/categories`);
   const categories = await resCategories.json();
 
   return {
