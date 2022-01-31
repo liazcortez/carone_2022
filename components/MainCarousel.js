@@ -8,21 +8,7 @@ const useStyles = makeStyles((theme) => ({
   root: {}
 }));
 
-const data = [
-  '/static/images/BannerC1.jpeg',
-  '/static/images/BannerC12.jpeg',
-  '/static/images/BannerKia.jpeg',
-  '/static/images/BannerMG.jpeg',
-  '/static/images/BannerMitsu.png',
-  '/static/images/BannerNissan.jpeg',
-  '/static/images/BannerOferta.png',
-  '/static/images/BannerPromocion.jpeg',
-  '/static/images/BannerSeat.jpeg',
-  '/static/images/BannerSeminuevo.jpg',
-  '/static/images/BannerServicio.png',
-]
-
-const Banner = ({ imageUrl }) => {
+const Banner = ({ medias }) => {
   const classes = useStyles();
 
   return (
@@ -35,11 +21,15 @@ const Banner = ({ imageUrl }) => {
           transitionTime={1000}
         >
           {
-            data.map(item => (
+            medias && medias.length > 0 ?
+            medias.map((item, key) => (
               <div>
-                <img src={item} />
+                <img src={item.image} key={key}/>
               </div>
-            ))
+            )) :
+            <div>
+              <img src={'/static/images/BannerC1.jpeg'} />
+            </div>
           }
         </Carousel>
       </Grid>

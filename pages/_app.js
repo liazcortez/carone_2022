@@ -11,6 +11,7 @@ import CategoryState from "../context/category/CategoryState";
 import MakeState from "../context/make/MakeState";
 import JobState from "../context/job/JobState";
 import AuthState from "../context/auth/AuthState";
+import MediaState from "../context/media/MediaState";
 
 import AlertState from "../context/alert/AlertState";
 import ApplicantState from "../context/applicant/ApplicantState";
@@ -46,9 +47,11 @@ export default function MyApp(props) {
                   <MakeState>
                     <JobState>
                       <CategoryState>
-                        <SnackbarProvider dense maxSnack={3}>
-                          <Component {...pageProps} />
-                        </SnackbarProvider>
+                        <MediaState>
+                          <SnackbarProvider dense maxSnack={3}>
+                            <Component {...pageProps} />
+                          </SnackbarProvider>
+                        </MediaState>
                       </CategoryState>
                     </JobState>
                   </MakeState>

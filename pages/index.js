@@ -25,14 +25,14 @@ const useStyles = makeStyles((theme) => ({
 
 const data = ['']
 
-const Home = ({ makes, categories }) => {
+const Home = ({ makes, categories, medias }) => {
   const classes = useStyles();
 
   return (
     <>
       <Meta title="Car One Group" description="Autos Nuevo, Seminuevos" />
       <Container maxWidth="lg">
-        <MainCarousel imageUrl={imageUrl}/>
+        <MainCarousel medias={medias}/>
         {/* <Carousel /> */}
         <Tabs categories={categories} />
         <CarCardList title="BUSCAR POR MARCA" data={makes} />
@@ -48,10 +48,14 @@ export const getStaticProps = async (context) => {
   const resCategories = await fetch(`https://apicarone.com/api/v1/categories`);
   const categories = await resCategories.json();
 
+  const resBanner = await fetch(`https://apicarone.com/api/v1/medias?section=main-banner`);
+  const medias = await resBanner.json();
+
   return {
     props: {
       makes: makes.data,
       categories: categories.data,
+      medias: medias.data
     },
   };
 };
