@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 // import Divider from "@material-ui/core/Divider";
@@ -9,6 +9,7 @@ import MainCarousel from "../components/MainCarousel";
 import Carousel from "../components/Carousel";
 import CarCardList from "../components/CarCardList";
 import Meta from "../components/Meta";
+import useMedia from "../hooks/useMedia";
 
 const imageUrl = "/static/images/BannerC1.jpeg";
 
@@ -27,12 +28,18 @@ const data = ['']
 
 const Home = ({ makes, categories, medias }) => {
   const classes = useStyles();
+  const { mediasMainBanner, getMediasMainBanner } = useMedia();
+  
+  useEffect(() => {
+
+    getMediasMainBanner();
+  },[])
 
   return (
     <>
       <Meta title="Car One Group" description="Autos Nuevo, Seminuevos" />
       <Container maxWidth="lg">
-        <MainCarousel medias={medias}/>
+        <MainCarousel medias={mediasMainBanner}/>
         {/* <Carousel /> */}
         <Tabs categories={categories} />
         <CarCardList title="BUSCAR POR MARCA" data={makes} />
@@ -48,14 +55,10 @@ export const getStaticProps = async (context) => {
   const resCategories = await fetch(`https://apicarone.com/api/v1/categories`);
   const categories = await resCategories.json();
 
-  const resBanner = await fetch(`https://apicarone.com/api/v1/medias?section=main-banner`);
-  const medias = await resBanner.json();
-
   return {
     props: {
       makes: makes.data,
       categories: categories.data,
-      medias: medias.data
     },
   };
 };
