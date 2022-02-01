@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 // import Divider from "@material-ui/core/Divider";
@@ -10,6 +10,8 @@ import Carousel from "../components/Carousel";
 import CarCardList from "../components/CarCardList";
 import Meta from "../components/Meta";
 import { baseURL } from "../api/api";
+import useMedia from "../hooks/useMedia";
+
 const imageUrl = "/static/images/BannerC1.jpeg";
 
 const useStyles = makeStyles((theme) => ({
@@ -25,14 +27,20 @@ const useStyles = makeStyles((theme) => ({
 
 const data = ['']
 
-const Home = ({ makes, categories }) => {
+const Home = ({ makes, categories, medias }) => {
   const classes = useStyles();
+  const { mediasMainBanner, getMediasMainBanner } = useMedia();
+  
+  useEffect(() => {
+
+    getMediasMainBanner();
+  },[])
 
   return (
     <>
       <Meta title="Car One Group" description="Autos Nuevo, Seminuevos" />
       <Container maxWidth="lg">
-        <MainCarousel imageUrl={imageUrl}/>
+        <MainCarousel medias={mediasMainBanner}/>
         {/* <Carousel /> */}
         <Tabs categories={categories} />
         <CarCardList title="BUSCAR POR MARCA" data={makes} />

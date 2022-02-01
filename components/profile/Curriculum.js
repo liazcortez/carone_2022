@@ -149,7 +149,6 @@ setUpdate(false);
 };
 
 const handleDelete= async(action)=>{
-  console.log(action)
   if(action === 'yes'){
     await deleteResume();
     (!error)? enqueueSnackbar('Documento Eliminado', {
