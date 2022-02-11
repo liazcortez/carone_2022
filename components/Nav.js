@@ -74,7 +74,7 @@ const Nav = () => {
          
           <Box p={1}>
             <Link href="/trabajos" passHref={true}>
-              <Button>Únete al equipo</Button>
+              <Button>Bolsa de Trabajo</Button>
             </Link>
           </Box>
 
