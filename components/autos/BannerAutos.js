@@ -1,53 +1,45 @@
 import React from "react";
-import { Container, Grid, Typography,Box} from "@material-ui/core";
+import { Container, Grid, Typography } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  responsiveBanner:{
-    width: "100%",
-    height: 450,
-    // minHeight:300,
-    backgroundSize:'cover',
-    [theme.breakpoints.down('sm')]:{
-      height:'20vh'
-      },
-    [theme.breakpoints.down('xs')]:{
-    height:'15vh'
-    }
+  media: {
+    height: 140,
   },
-  responsiveDescription:{
-    [theme.breakpoints.down('sm')]:{
-      },
-    [theme.breakpoints.down('xs')]:{
-    }
+  categories: {
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "block",
+    },
+    marginBottom: 30,
   },
-  descriptionContainer:{}
 }));
 
 const imageUrl =
   "https://carone.com.mx/wp-content/uploads/2021/02/carone-banner3.jpg";
 
 const BannerAut = ({ banner, description, promotion, title }) => {
-  const classes = useStyles();
   return (
     <Grid container style={{ marginBottom: 30 }}>
       <Grid item xs={12}>
         <Paper
           style={{
+            width: "100%",
+            height: 450,
             backgroundImage: `url(${banner ? banner : imageUrl})`,
           }}
-          className='responsiveBanner'
         >
-          <Box className={classes.descriptionContainer} >
-            <Box className={classes.responsiveDescription}>
-              <Grid item xs={12} sm={9} md={6}  style={{ padding: "3em" }}>
+          <Container maxWidth="lg" style={{ marginTop: 20 }}>
+            <Grid container spacing={3}>
+              <Grid item xs={6} style={{ padding: "3em" }}>
                 <Typography
                   variant="subtitle1"
                   component="div"
                   style={{
                     color: "white",
                     fontSize: "25px",
+                    paddingTop: "7rem",
                     textTransform: "capitalize",
                   }}
                 >
@@ -77,8 +69,8 @@ const BannerAut = ({ banner, description, promotion, title }) => {
                   {promotion}
                 </Typography>
               </Grid>
-            </Box>
-          </Box>
+            </Grid>
+          </Container>
         </Paper>
       </Grid>
     </Grid>

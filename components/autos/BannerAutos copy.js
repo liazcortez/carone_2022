@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   responsiveBanner:{
+    width: "100%",
     height: 450,
     // minHeight:300,
     backgroundSize:'cover',
