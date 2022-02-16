@@ -86,7 +86,7 @@ const SearchBarBottom = ({
       spacing={1}
       style={{ paddingLeft: 0, paddingRight: 0, marginBottom: 20 }}
     >
-      <Grid item xs={12} sm={12} md={4} lg={4}>
+      <Grid item xs={4} sm={4} md={4} lg={4}>
         <TextField
           style={{
             backgroundColor: "#f3f7f9",
@@ -118,7 +118,7 @@ const SearchBarBottom = ({
           ))}
         </TextField>
       </Grid>
-      <Grid item xs={12} sm={12} md={4} lg={4}>
+      <Grid item xs={4} sm={4} md={4} lg={4}>
         <TextField
           style={{
             backgroundColor: "#f3f7f9",
@@ -145,7 +145,7 @@ const SearchBarBottom = ({
           ))}
         </TextField>
       </Grid>
-      <Grid item xs={12} sm={12} md={4} lg={4}>
+      <Grid item xs={4} sm={4} md={4} lg={4}>
       <TextField
           style={{
             backgroundColor: "#f3f7f9",

@@ -28,8 +28,8 @@ const CarCardList = ({ title, data, columns }) => {
           <Grid
             key={make._id}
             item
-            xs={3}
-            sm={3}
+            xs={6}
+            sm={6}
             md={3}
             lg={3}
             className={classes.categories}

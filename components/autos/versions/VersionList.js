@@ -6,7 +6,7 @@ const VersionList = ({ versions, model }) => {
   return (
     <Grid container spacing={5}>
       {versions.map((version, index) => (
-        <Grid item xs={3} sm={3} md={3} lg={3} key={index}> 
+        <Grid item xs={6} sm={6} md={3} lg={3} key={index}> 
           <VersionListItem version={version} model={model} />
         </Grid>
       ))}
