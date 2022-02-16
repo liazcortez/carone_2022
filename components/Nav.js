@@ -1,121 +1,108 @@
-import React,{useEffect} from "react";
+import React, { useEffect,useState } from "react";
 import {
   Box,
   Container,
   Button,
   Grid,
   Menu,
-  MenuItem
+  MenuItem,
 } from "@material-ui/core";
 import Link from "next/link";
-import InstagramIcon from "@material-ui/icons/Instagram";
+import MenuOpenIcon from '@material-ui/icons/MenuOpen';
+import MenuIcon from '@material-ui/icons/Menu';
 import { useRouter } from "next/router";
 import useAuth from "../hooks/useAuth";
+import { makeStyles } from "@material-ui/core/styles";
+import NavList from "./NavList";
+import clsx from 'clsx';
+
+const useStyles = makeStyles((theme) => ({
+  media: {
+    height: 140,
+  },
+  categories: {
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "block",
+    },
+    marginBottom: 30,
+  },
+  mainLogo: {
+    width: "20VW",
+    maxWidth: "180px",
+  },
+  navContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  navListDesktop: {
+    display:'flex',
+    [theme.breakpoints.down("xs")]: {
+      background: 'white',
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: '3rem',
+      overflow: 'hidden',
+      zIndex: 8,
+    },
+  },
+  navListMobile: {
+      display: "none",
+    [theme.breakpoints.down("xs")]: {
+      display: "flex",
+    },
+  },
+  menuClosed:{
+    [theme.breakpoints.down("xs")]: {
+      height:0,
+    },
+  }
+}));
 
 const Nav = () => {
+  const classes = useStyles();
+  const { user, loadUser, logout } = useAuth();
+  const [menuOpen,setMenuOpen] = useState(false);
+  useEffect(() => {
+    if (!user || JSON.stringify(user) === "{}") {
+      loadUser();
+    }
+  }, []);
 
 
   
 
-  const { user, loadUser, logout } = useAuth();
-  useEffect(
-    () => {
-      if(!user || JSON.stringify(user) === '{}'){
-        loadUser();
-      }
-    },
-    [],
-  );
-
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleLogout = () => {
-    logout();
-  };
-
   const router = useRouter();
   const HomeNav = () => (
     <Container maxWidth="lg">
-      <Box display="flex" alignItems="center" p={1} bgcolor="background.paper">
+      <Box className={classes.navContainer} p={1} bgcolor="background.paper">
         <Box p={1}>
           <Link href="/" as={`/`} passHref={true}>
             <a>
-              <img
-                src="/static/logo.png"            
-                style={{ width: 180 }}
-              />
+              <img className={classes.mainLogo} src="/static/logo.png" />
             </a>
           </Link>
         </Box>
-          <Box p={1} flexGrow={1}/>
-          <Box p={1} flexGrow={1}/>
-          <Box p={1} flexGrow={1}/>
-          <Box p={1} flexGrow={1}/>
-          <Box p={1} flexGrow={1}/>
-
-          <Box p={1}>
-            <Link href="/autos" passHref={true}>
-              <Button>Autos</Button>
-            </Link>
-          </Box>
-          <Box p={1}>
-            <Link href="/favoritos" passHref={true}>
-              <Button>Favoritos</Button>
-            </Link>
-          </Box>
-         
-          <Box p={1}>
-            <Link href="/trabajos" passHref={true}>
-              <Button>Bolsa de Trabajo</Button>
-            </Link>
-          </Box>
-
-          <Box p={1}>
-            <Link href="#" passHref={true}>
-              <Button variant="contained" color="primary">
-                Contacto
-              </Button>
-            </Link>
-          </Box>
-
-          <Box p={1}>
-            <Link href="/" passHref={true}>
-              <InstagramIcon />
-            </Link>
-          </Box>
-
-          {user && user.name? <Box p={1}>
-
-            <Button color='primary' aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} >menu</Button>
-            <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        
-        <MenuItem>
-
-          <Link href="/perfil">
-            <Button>Perfil</Button>
-          </Link>
-          </MenuItem>
-          
-        <MenuItem onClick={handleLogout}>Logout</MenuItem>
-      </Menu>
-        </Box>:''}
-          
+        <Box className={classes.navListMobile}>
+          {menuOpen?
+          <MenuOpenIcon onClick={()=>{setMenuOpen(!menuOpen)}} />
+          :
+          <MenuIcon onClick={()=>{setMenuOpen(!menuOpen)}} />}
         </Box>
 
+        <Box 
+        className={clsx({
+          [classes.navListDesktop]:true,
+          [classes.menuClosed]: !menuOpen
+        })}
+        >
+          <NavList setMenuOpen={setMenuOpen} logout={logout} user={user} />
+        </Box>
+        
+
+      </Box>
     </Container>
   );
 

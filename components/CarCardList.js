@@ -29,7 +29,7 @@ const CarCardList = ({ title, data, columns }) => {
             key={make._id}
             item
             xs={6}
-            sm={6}
+            sm={3}
             md={3}
             lg={3}
             className={classes.categories}

@@ -22,7 +22,7 @@ const Meta = ({ title, description, url, image }) => {
       <meta property="og:image" content={image} />
       <meta property="og:url" content={url} />
       <meta name="twitter:card" content="summary_large_image" />
-
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       <title>{title}</title>
     </Head>
   );

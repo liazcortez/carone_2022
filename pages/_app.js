@@ -15,7 +15,7 @@ import MediaState from "../context/media/MediaState";
 
 import AlertState from "../context/alert/AlertState";
 import ApplicantState from "../context/applicant/ApplicantState";
-
+import '../styles/styles.css'
 export default function MyApp(props) {
   const { Component, pageProps } = props;
 
