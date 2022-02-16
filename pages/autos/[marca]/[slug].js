@@ -66,7 +66,7 @@ const Slug = ({ vehicle }) => {
       <BreadcrumbComponent data={vehicle} section="autos" />
 
       <Grid container style={{ marginBottom: 50 }}>
-        <Grid item xs={7}>
+        <Grid item xs={12} lg={7}>
           <Typography
             variant="h5"
             component="h3"
@@ -102,7 +102,7 @@ const Slug = ({ vehicle }) => {
           {/* Colors Component */}
           <ColorsComponent colors={colors} />
         </Grid>
-        <Grid item xs={5}>
+        <Grid item xs={12} lg={5}>
           <Financing vehicle={vehicle} />
           {/* sharing */}
           {/* <SharingComponent url={url} /> */}
