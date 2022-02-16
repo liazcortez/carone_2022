@@ -194,7 +194,7 @@ const ComparativeCarItem = ({ vehicle, setDataList }) => {
           vehicle.features.map((feature,i) => {
             if(i>=5)return '';
             return (
-              <div style={{ height: 100 }} key={i}>
+              <div  key={i}>
                 <Typography
                   variant="h6"
                   gutterBottom
