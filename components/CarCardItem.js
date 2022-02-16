@@ -1,7 +1,20 @@
 import React from "react";
 import Link from "next/link";
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles((theme)=>({
+  mobileImage:{
+    width: "100%",
+    height: "100px",
+    objectFit: "cover",
+    [theme.breakpoints.down('xs')]:{
+      height: "70px",
+    }
+  }
+}));
 
 const CarCardItem = ({ data }) => {
+  const classes = useStyles();
   return (
     <Link href={`/autos/${data && data.name}`}>
       <a>
@@ -15,11 +28,7 @@ const CarCardItem = ({ data }) => {
            <img
             src={data.image}
             alt='none image'
-            style={{
-              width: "100%",
-              height: "100px",
-              objectFit: "cover",
-            }}
+            className={classes.mobileImage}
           />
         </div>
       </a>
