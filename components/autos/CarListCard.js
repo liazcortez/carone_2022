@@ -109,7 +109,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
   }, [vehicle]);
 
   return (
-    <Card className={(classes.root, classes.hover)}>
+    <Card  className={(classes.root, classes.hover)}>
       {vehicle ? (
         <Link href={`/autos/${vehicle.make.name}/${vehicle.slug}`}>
           <a>

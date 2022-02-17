@@ -1,45 +1,54 @@
 import React from "react";
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Container, Grid, Typography,Box} from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  media: {
-    height: 140,
+  responsiveBanner:{
+    width: "100%",
+    height: 450,
+    // minHeight:300,
+    backgroundSize:'cover',
+    [theme.breakpoints.down('sm')]:{
+      height:'20vh'
+      },
+    [theme.breakpoints.down('xs')]:{
+    height:'15vh'
+    }
   },
-  categories: {
-    display: "none",
-    [theme.breakpoints.up("md")]: {
-      display: "block",
-    },
-    marginBottom: 30,
+  responsiveDescription:{
+    [theme.breakpoints.down('sm')]:{
+      },
+    [theme.breakpoints.down('xs')]:{
+    }
   },
+  descriptionContainer:{}
 }));
 
 const imageUrl =
   "https://carone.com.mx/wp-content/uploads/2021/02/carone-banner3.jpg";
 
 const BannerAut = ({ banner, description, promotion, title }) => {
+  const classes = useStyles();
   return (
     <Grid container style={{ marginBottom: 30 }}>
       <Grid item xs={12}>
         <Paper
+          className='responsiveBanner'
+
           style={{
-            width: "100%",
-            height: 450,
             backgroundImage: `url(${banner ? banner : imageUrl})`,
           }}
         >
-          <Container maxWidth="lg" style={{ marginTop: 20 }}>
-            <Grid container spacing={3}>
-              <Grid item xs={6} style={{ padding: "3em" }}>
+          <Box className='descriptionContainer'>
+            <Box className='responsiveDescriptionDesktop'>
+              <Grid item xs={12} style={{ padding: "3em" }}>
                 <Typography
                   variant="subtitle1"
                   component="div"
                   style={{
                     color: "white",
                     fontSize: "25px",
-                    paddingTop: "7rem",
                     textTransform: "capitalize",
                   }}
                 >
@@ -69,8 +78,46 @@ const BannerAut = ({ banner, description, promotion, title }) => {
                   {promotion}
                 </Typography>
               </Grid>
-            </Grid>
-          </Container>
+            </Box>
+            <Box className='responsiveDescriptionMobile'>
+              <Grid item xs={12} >
+                <Typography
+                  variant="subtitle1"
+                  component="div"
+                  style={{
+                    color: "white",
+                    fontSize: "15px",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  {title}
+                </Typography>
+                <Typography
+                  variant="h4"
+                  component="h2"
+                  style={{
+                    color: "white",
+                    fontSize: "20px",
+                    fontWeight: "bold",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {description}
+                </Typography>
+                <Typography
+                  variant="h4"
+                  component="h2"
+                  style={{
+                    color: "white",
+                    fontSize: "15px",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  {promotion}
+                </Typography>
+              </Grid>
+            </Box>
+          </Box>
         </Paper>
       </Grid>
     </Grid>
