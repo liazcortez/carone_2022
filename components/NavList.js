@@ -56,7 +56,7 @@ const NavList = ({ user, setMenuOpen, logout }) => {
 
   const classes = useStyles();
   return (
-    <Box className={classes.navListContainer}>
+    <Box className='navListContainer'>
       <Box p={1}>
         <Link href="/autos" passHref={true}>
           <Button
@@ -106,7 +106,7 @@ const NavList = ({ user, setMenuOpen, logout }) => {
         </Link>
       </Box>
 
-      <Box className={classes.hideOnMobile} p={1}>
+      <Box className='hideOnMobile' p={1}>
         <Link
           onClick={() => {
             setMenuOpen(false);
@@ -120,7 +120,7 @@ const NavList = ({ user, setMenuOpen, logout }) => {
 
       {user && user.name ? (
         <Box p={1}>
-          <Box className={classes.hideOnMobile}>
+          <Box className='hideOnMobile'>
             <Button
               color="primary"
               aria-controls="simple-menu"
@@ -158,7 +158,7 @@ const NavList = ({ user, setMenuOpen, logout }) => {
               </MenuItem>
             </Menu>
           </Box>
-          <Box className={classes.showOnMobile}>
+          <Box className='showOnMobile'>
             <Box >
             <Link href="/perfil">
                   <Button

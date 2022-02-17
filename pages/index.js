@@ -40,7 +40,7 @@ const Home = ({ makes, categories, medias }) => {
     <>
       <Meta title="Car One Group" description="Autos Nuevo, Seminuevos" />
       <Container maxWidth="lg">
-        <MainCarousel medias={mediasMainBanner}/>
+        <MainCarousel  medias={mediasMainBanner}/>
         {/* <Carousel /> */}
         <Tabs categories={categories} />
         <CarCardList title="BUSCAR POR MARCA" data={makes} />

@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
     height: 140,
   },
   categories: {
-    display: "none",
     [theme.breakpoints.up("md")]: {
       display: "block",
     },
