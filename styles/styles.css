@@ -47,9 +47,9 @@
 /* banner */
 
 .descriptionContainer {
-	width: 100%;
-	background-color: #0000001f;
-	height: 100%;
+  width: 100%;
+  background-color: #0000001f;
+  height: 100%;
 }
 .responsiveBanner {
   width: 100%;
@@ -58,21 +58,18 @@
   align-items: center;
   display: flex;
   background-position: center;
-  
 }
 
-.responsiveDescriptionDesktop{
-height: 100%;
-display: flex;
-padding-left: 3em;
-align-items: center;
+.responsiveDescriptionDesktop {
+  height: 100%;
+  display: flex;
+  padding-left: 3em;
+  align-items: center;
 }
 
-.responsiveDescriptionMobile{
-	display: none;
+.responsiveDescriptionMobile {
+  display: none;
 }
-
-
 
 @media only screen and (max-width: 900px) {
   .responsiveBanner {
@@ -81,21 +78,21 @@ align-items: center;
 }
 
 @media only screen and (max-width: 600px) {
-	.responsiveBanner {
-	  height: 15vh;
-	}
-      
-	.responsiveDescriptionDesktop{
-	      display: none;
-	      }
-	      
-	      .responsiveDescriptionMobile{
-		display: flex;
-		padding-left: 1em;
-		align-items: center;
-		height: 100%;
-	      }
-      }
+  .responsiveBanner {
+    height: 15vh;
+  }
+
+  .responsiveDescriptionDesktop {
+    display: none;
+  }
+
+  .responsiveDescriptionMobile {
+    display: flex;
+    padding-left: 1em;
+    align-items: center;
+    height: 100%;
+  }
+}
 
 /* nav styles */
 
@@ -122,9 +119,6 @@ align-items: center;
   align-items: center;
 }
 
-
-
-
 .navListDesktop {
   display: flex;
 }
@@ -144,11 +138,11 @@ align-items: center;
 }
 
 .transitionEaseInOut {
-	height: 100%;
-	-webkit-transition: all .40s ease-in-out;
-	-moz-transition: all .40s ease-in-out;
-	-o-transition: all .40s ease-in-out;
-	transition: all .40s ease-in-out;
+  height: 100%;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 @media only screen and (max-width: 600px) {
@@ -170,11 +164,11 @@ align-items: center;
   }
 
   .navContainer {
-	position:sticky;
-	background-color: white;
-	top:0;
-  z-index: 99;
-}
+    position: sticky;
+    background-color: white;
+    top: 0;
+    z-index: 99;
+  }
 
   .navListContainer {
     display: flex;
