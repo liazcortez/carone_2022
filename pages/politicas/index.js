@@ -78,118 +78,147 @@ const index = () => {
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <h2 class="text-center">Términos y Condiciones – Chevrolet</h2>
+                <h2 class="text-center">Términos y Condiciones – Chevrolet Universidad</h2>
               </div>
             </div>
           </div>
           <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>
+                  Aveo
+                  </strong>
+                </p>
+                <p>
+                MENSUALIDAD DESDE $2,999.00 
+AÑO DE SEGURO GRATIS + 0% CXA
+Precio válido en operaciones con GMF para Chevrolet Aveo A/LS/TM 2022. El enganche de $87,465 representa el 35% del costo de la unidad. Con mensualidades desde $3,067.51 pesos, a un plazo de 60 meses, con tasa de 15.87%,  comisión por apertura, año de seguro gratis y anualidades de $20,000 pesos.Promoción válida hasta 04 de marzo de 2022. Las fotografías son de uso ilustrativo.calculado al 1 de febrero   de 2022 para fines informativos y de comparación.  Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+
+                </p>
+         
+              </div>
+            </div>
             <div class="row">
               <div class="col-md-12">
                 <p>
                   <strong>
-                    *NUEVO CAVALIER 2022 TURBO Seguro Gratis, Incluye placas.
+                  Captiva 
                   </strong>
                 </p>
                 <p>
-                  Vigencia del 1 al 31 de Enero 2022. Aplica para los modelos
-                  CAVALIER 2022. Precios y promociones sujetas a cambios sin
-                  previo aviso. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A
-                  CUENTA. Incluye placas dentro de tu financiamiento.
+                MENSUALIDAD DESDE $7,299.00
+COMISIÓN POR APERTURA GRATIS
+Precio válido en operaciones con GMF para Chevrolet CAPTIVA  A/LS 2022. El enganche de $156,065 representa el 35% del costo de la unidad. Con mensualidades desde $7,229.86 pesos, a un plazo de 60 meses, con tasa de 15.86% , comision por apertura gratis y seguro financiado.Promoción válida hasta 04 de marzo de 2022. Las fotografías son de uso ilustrativo.calculado al 01 de febrero de 2021 para fines informativos y de comparación.  Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+
                 </p>
+         
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
                 <p>
                   <strong>
-                    * NUEVO CAVALIER 2022 TURBO Bono de $10,000.00 mil pesos
+                  Colorado
                   </strong>
                 </p>
                 <p>
-                  Vigencia del 1 al 31 de Enero 2022. Aplica dejando un auto a
-                  cuenta suv o sedan mayor al 2015 o solo comprobando ser dueño
-                  de algún sedan o suv 2015 en adelante. &nbsp;Precios y
-                  promociones sujetas a cambios sin previo aviso. Imágenes de
-                  uso ilustrativo. TOMAMOS TU AUTO A CUENTA.
+                MENSUALIDAD DESDE $17,099.00
+AÑO DE SEGURO GRATIS
+Precio válido en operaciones con GMF para Chevrolet COLORADO  PAQ . D 2022. El enganche de $311,814.99 representa el 35% del costo de la unidad. Con mensualidades desde $17,039.19  pesos, a un plazo de 60 meses, con tasa de 20% , comision por apertura de $20,185.15, año seguro gratis en operaciones de contadoy financiamiento y anualidades de $30,000.Promoción válida hasta 04 de marzo de 2022. Las fotografías son de uso ilustrativo.calculado al 01 de febrero   de 2021 para fines informativos y de comparación.  Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+
                 </p>
+         
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
                 <p>
                   <strong>
-                    *NUEVA GROOVE 2022 Mensualidad desde $4,999.00 Con Tasa
-                    desde 12.49*{" "}
+                  Suburban
                   </strong>
                 </p>
                 <p>
-                  Vigencia del 1 al 31 de Enero 2022. Aplica para Groove Ls std
-                  paq A. Con 35% de enganche a 60 meses Y anualidades de
-                  $25,000.00. Sujeto a aprobación de crédito con GMF. Precios y
-                  promociones sujetas a cambios sin previo aviso. Imágenes de
-                  uso ilustrativo. TOMAMOS TU AUTO A CUENTA.
+                ENGANCHE DESDE 10% + AÑO DE SEGURO GRATIS
+Precio válido en operaciones con GMF para Chevrolet SUBURBAN   PAQ . G 2022. El enganche de $625,214.99 representa el 35% del costo de la unidad. Con mensualidades desde $31,292.84  pesos, a un plazo de 60 meses, con tasa de 15.99% , comisión por apertura de $38,513.25, año seguro gratis y anualidades de $50,000.Promoción válida hasta 04 de marzo de 2022. Las fotografías son de uso ilustrativo. calculado al 01 de febrero   de 2021 para fines informativos y de comparación.  Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
                 </p>
+         
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="text-center">Términos y Condiciones – Chevrolet Ruiz Cortines</h2>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+          <div class="row">
+              <div class="col-md-12">
                 <p>
                   <strong>
-                    *SILVERADO CAB REGULAR 4X4 2022 RENTA MENSUAL DESDE
-                    $10,599.00*{" "}
+                  Aveo
                   </strong>
                 </p>
                 <p>
-                  Vigencia del 1 al 31 de Enero 2022. Aplica para SILVERADO 4X4
-                  PAQ O 2022. Con 40% de enganche a 48 meses más seguro de
-                  contado. Como valor residual se pagaría $295,000.00 más iva.
-                  Sujeto a aprobación de Arrendamiento con GMF. &nbsp;Precios y
-                  promociones sujetas a cambios sin previo aviso. Imágenes de
-                  uso ilustrativo. TOMAMOS TU AUTO A CUENTA.
+                MENSUALIDAD DESDE $2,999.00 
+AÑO DE SEGURO GRATIS + 0% CXA
+Precio válido en operaciones con GMF para Chevrolet Aveo A/LS/TM 2022. El enganche de $87,465 representa el 35% del costo de la unidad. Con mensualidades desde $3,067.51 pesos, a un plazo de 60 meses, con tasa de 15.87%,  comisión por apertura, año de seguro gratis y anualidades de $20,000 pesos.Promoción válida hasta 04 de marzo 2022. Las fotografías son de uso ilustrativo.calculado al 1 de febrero   de 2022 para fines informativos y de comparación.  Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One. 
+
                 </p>
+         
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
                 <p>
                   <strong>
-                    *ONIX 2022 Mensualidad desde $3,899.00 + Año Seg Gratis y
-                    hasta 6 Meses sin Intereses *
+                  Onix
                   </strong>
                 </p>
                 <p>
-                  Vigencia del 1 al 31 de Enero 2022. Aplica para ONIX LS STD
-                  PAQ A 2022. Con 35% de enganche a 60 meses Y anualidades de
-                  $25,000.00 mil pesos. Para aplicar los 6 meses sin intereses
-                  es necesario dar un 35% Enganche y financiar a 6 meses máximo.
-                  Sujeto a aprobación de crédito con GMF. Precios y promociones
-                  sujetas a cambios sin previo aviso. Imágenes de uso
-                  ilustrativo. TOMAMOS TU AUTO A CUENTA.
+                MENSUALIDAD DESDE $3,999.00
+AÑO DE SEGURO GRATIS
+Precio válido en operaciones con GMF para Chevrolet Onix  A/LS/TM 2022. El enganche de $103,040 representa el 35% del costo de la unidad. Con mensualidades desde $3,979.08 pesos, a un plazo de 60 meses, con tasa de 15.94%,  comisión por apertura de $7,235.51 pesos, año de seguro gratis y anualidades de $22,000 pesos.Promoción válida hasta 04 de Marzo 2022. Las fotografías son de uso ilustrativo.calculado al 1 de Febrero de 2022 para fines informativos y de comparación.  Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+
                 </p>
+         
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
                 <p>
                   <strong>
-                    *AVEO LT STD 2022 Mensualidad desde $2,999.00 + 0%CxA + Año
-                    Seg Gratis *
+                  Tracker
                   </strong>
                 </p>
                 <p>
-                  Vigencia del 1 al 31 de Enero. Aplica para AVEO LT STD PAQ C
-                  2022. Con 35% de enganche a 60 meses Y anualidades de
-                  $25,000.00 mil pesos. Sujeto a aprobación de crédito con GMF.
-                  Precios y promociones sujetas a cambios sin previo aviso.
-                  Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA.
+                MENSUALIDAD $4,900.00
+0% COMISIÓN POR APERTURA
+Precio válido en operaciones con GMF para Chevrolet TRACKER PAQ F 2022. El enganche de $139,516.81 representa el 35% del costo de la unidad. Con mensualidades desde $4,827.82  pesos, a un plazo de 60 meses, con tasa de 14.17% , comision por apertura gratis, seguro de contado y anualidades de $25,000. Promoción válida hasta 04 de Marzo de  2022. Las fotografías son de uso ilustrativo.calculado al 01 de Febrero  de 2022 para fines informativos y de comparación.  Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+
                 </p>
+         
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
                 <p>
                   <strong>
-                    *TRACKER 2022 Mensualidad desde $5,999.00 + 0% CxA{" "}
+                  Colorado
                   </strong>
                 </p>
                 <p>
-                  Vigencia del 1 al 31 de Enero. Aplica para AVEO LT STD PAQ C
-                  2022. Con 35% de enganche a 60 meses Y anualidades de
-                  $30,000.00 mil pesos. Sujeto a aprobación de crédito con GMF.
-                  Precios y promociones sujetas a cambios sin previo aviso.
-                  Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA.
+                MENSUALIDAD DESDE $17,099.00
+AÑO DE SEGURO GRATIS
+Precio válido en operaciones con GMF para Chevrolet COLORADO  PAQ . D 2022. El enganche de $311,814.99 representa el 35% del costo de la unidad. Con mensualidades desde $17,039.19  pesos, a un plazo de 60 meses, con tasa de 20% , comision por apertura de $20,185.15, año seguro gratis en operaciones de contadoy financiamiento y anualidades de $30,000.Promoción válida hasta 04 de marzo de 2022. Las fotografías son de uso ilustrativo.calculado al 01 de febrero   de 2021 para fines informativos y de comparación.  Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+
                 </p>
-                <h4>*CHEYENNE 4×4 cabina regular Enganche $73,000</h4>
-                <p>
-                  Precio válido en operaciones con GMF Leasing para Chevrolet
-                  Cheyenne Paq H. Inversión inicial desde $73,047.35 pesos y
-                  rentas desde $23,807.86 pesos a un plazo de 48 meses. Al
-                  finalizar el término se realiza el pago total de la unidad o
-                  bien se puede realizar un refinanciamiento, si se cumple con
-                  los requisitos señalados por planta. Calculado al 07 de Enero
-                  2022. Promoción válida al 31 de enero 2022. Las fotografías
-                  son de uso ilustrativo. Aplican términos y condiciones.
-                  Ninguna de las ofertas aplica con otras promociones ni en la
-                  compra de vehículos de flotilla. Para mayor información sobre
-                  los planes de financiamiento, requisitos de contratación y
-                  comisiones con su asesor de ventas Car One Chevrolet.
-                </p>
+         
               </div>
             </div>
           </div>
