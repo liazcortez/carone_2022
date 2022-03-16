@@ -63,12 +63,11 @@ const FormComponent = ({ vehicle }) => {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
-
+  const [dissableButton,setDissableButton] = React.useState(false);
   const { enqueueSnackbar } = useSnackbar();
 
   const [storeIcon, setStoreIcon] = React.useState("");
-
-  const [formData, setFormData] = React.useState({
+  const defaultData = {
     name: "",
     email: "",
     phone: "",
@@ -81,7 +80,9 @@ const FormComponent = ({ vehicle }) => {
     make: vehicle.make._id,
     year: vehicle.year,
     source: "605b541a020c150355aac5e6",
-  });
+  };
+
+  const [formData, setFormData] = React.useState(defaultData);
 
   const { name, email, phone, timeFrame, downPayment } = formData;
 
@@ -107,13 +108,17 @@ const FormComponent = ({ vehicle }) => {
       },
     };
     try {
+      enqueueSnackbar("Formulario Completado Correctamente", {
+        variant: "info",
+      });
+      handleClose()
       const response = await axios.post(
         "https://dealerproxapi.com/api/v1/leads/website",
         // "http://localhost:5001/api/v1/leads/website",
         lead,
         config
       );
-      handleClose()
+      setFormData(defaultData)
     } catch (err) {
       console.log(err);
     }
@@ -121,6 +126,7 @@ const FormComponent = ({ vehicle }) => {
 
   const onHandleSubmit = async(e) => {
     e.preventDefault();
+    await setDissableButton(true);
 
     let emailValidation = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
     let phoneValidation = new RegExp(/^[0-9]{10}$/);
@@ -145,11 +151,15 @@ const FormComponent = ({ vehicle }) => {
     }else{
       
       await sendLead(formData);
-      return enqueueSnackbar("Se ha enviado tu información, en breve un asesor se pondrá en contacto contigo.", {
-        variant: "success",
-      });
+        setDissableButton(false);
+        return enqueueSnackbar("Se ha enviado tu información, en breve un asesor se pondrá en contacto contigo.", {
+          variant: "success",
+        });
+      
     }
   };
+
+  
 
   return (
     <div style={{ marginBottom: 20 }}>
@@ -159,6 +169,7 @@ const FormComponent = ({ vehicle }) => {
         onClick={handleClickOpen}
         fullWidth
         size="large"
+        disabled={dissableButton}
       >
         Solicitar Cotización
       </Button>
@@ -364,6 +375,7 @@ const FormComponent = ({ vehicle }) => {
                 color="primary"
                 fullWidth
                 type="submit"
+                disabled={dissableButton}
               >
                 Cotizar
               </Button>
