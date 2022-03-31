@@ -93,6 +93,18 @@ const NavList = ({ user, setMenuOpen, logout }) => {
       </Box>
 
       <Box p={1}>
+        <Link href="/carOneTv" passHref={true}>
+          <Button
+            onClick={() => {
+              setMenuOpen(false);
+            }}
+          >
+            Car One Tv
+          </Button>
+        </Link>
+      </Box>
+
+      <Box p={1}>
         <Link href="#" passHref={true}>
           <Button
             onClick={() => {

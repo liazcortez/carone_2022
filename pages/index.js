@@ -11,6 +11,7 @@ import CarCardList from "../components/CarCardList";
 import Meta from "../components/Meta";
 import { baseURL } from "../api/api";
 import useMedia from "../hooks/useMedia";
+import Live from "../components/Live";
 
 const imageUrl = "/static/images/BannerC1.jpeg";
 
@@ -44,6 +45,7 @@ const Home = ({ makes, categories, medias }) => {
         {/* <Carousel /> */}
         <Tabs categories={categories} />
         <CarCardList title="BUSCAR POR MARCA" data={makes} />
+        
       </Container>
     </>
   );
