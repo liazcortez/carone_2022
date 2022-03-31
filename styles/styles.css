@@ -8,6 +8,12 @@
   --xl: 1536px;
 }
 
+.LayoutContainer {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
 /* animated style  */
 
 .animated {
@@ -200,4 +206,20 @@
   .mobileImage {
     height: 70px;
   }
+}
+
+/* carone live video */
+
+.VideoContainer {
+}
+.VideoBox{
+  margin-top: 5rem;
+  height: 50vw;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+.LiveContainer {
+  width: 10rem;
 }

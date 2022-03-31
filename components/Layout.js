@@ -4,7 +4,7 @@ import Nav from "./Nav";
 
 const Layout = ({ children }) => {
   return (
-    <div>
+    <div className="LayoutContainer">
       <Nav />
       {children}
       <Footer />
