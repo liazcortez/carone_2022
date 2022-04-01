@@ -25,15 +25,7 @@ const CarCardList = ({ title, data, columns }) => {
       <h1 style={{ marginBottom: "70px", textAlign: "center" }}>{title}</h1>
       <Grid container spacing={5}>
         {data.map((make) => (
-          <Grid
-            key={make._id}
-            item
-            xs={6}
-            sm={6}
-            md={3}
-            lg={3}
-            className={classes.categories}
-          >
+          <Grid key={make._id} item xs={6} sm={6} md={3} lg={3} className={classes.categories}>
             <CarCardItem data={make} />
           </Grid>
         ))}
