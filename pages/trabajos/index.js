@@ -4,7 +4,7 @@ import Meta from "../../components/Meta";
 import SearchBar from "../../components/trabajos/SearchBar";
 import Pagination from "../../components/Pagination";
 import useJob from "../../hooks/useJob";
-import JobList from "../../components/trabajos/JobList";
+import JobItem from "../../components/trabajos/JobItem";
 import SelectedJob from "../../components/trabajos/SelectedJob";
 
 
@@ -62,11 +62,13 @@ const index = ({ jobsSP, categories, stores, total }) => {
         />
         <Grid spacing={1} container>
             <Grid item xs={12} md={5}>
-            {jobs && jobs.length > 0 ? (
-                <JobList setSelectedJob={setSelectedJob} jobs={jobs} loading={loading} />
-              ) : (
-                <JobList setSelectedJob={setSelectedJob} jobs={jobsSP} loading={loading} />
-              )}
+            {
+              jobs && jobs.length > 0 ? jobs.map(
+                (job, index) => (
+                    <JobItem setSelectedJob={setSelectedJob} selectedJob={selectedJob} job={job} loading={loading} key={job._id} />
+                )
+              ) : ''
+            }
             </Grid>
             <Grid item xs={0} md={7}>
              {selectedJob? <SelectedJob job={selectedJob}/>:''}

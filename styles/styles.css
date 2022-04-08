@@ -225,3 +225,7 @@
 .LiveContainer {
   width: 10rem;
 }
+
+.JobSelected {
+  border:1px solid #003780!important;
+}

@@ -10,14 +10,18 @@ import Link from "next/link";
 // import parse from "html-react-parser";
 import { CapitalizeFirstLetter } from "../../utils/functions";
 import NumberFormat from "react-number-format";
+import clsx from "clsx";
 
-const JobItem = ({ job, setSelectedJob }) => {
+const JobItem = ({ job, setSelectedJob, selectedJob }) => {
   moment.locale("es");
   const createdAt = moment(job.createdAt).fromNow();
 
   return (
     // <Grid item xs={8} >
-      <Paper onClick={()=>setSelectedJob(job)} variant="outlined" style={{ marginBottom: 15,cursor:'pointer' }}>
+      <Paper onClick={()=>setSelectedJob(job)} variant="outlined"   className={clsx({
+        ["JobSelected"]: (selectedJob === job)
+      })}
+       style={{ marginBottom: 15,cursor:'pointer' }}>
         <Box p={3}>
           <Box>
             <Box
