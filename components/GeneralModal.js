@@ -36,7 +36,7 @@ const GeneralModal = ({job}) => {
   const {user}=useAuth();
 
   const handleOpen = () => {
-    if(user){
+    if(user && user._id){
       setSelect('resume');
     }else{
       setSelect('auth');
@@ -44,11 +44,17 @@ const GeneralModal = ({job}) => {
     setOpen(true);
   };
 
+
+  useEffect(()=>{
+    console.log(postulated);
+  },[postulated])
+
   const handleClose = () => {
     setOpen(false);
   };
 
   useEffect(()=>{
+    console.log(user);
     if(user && user.name){
       setOpen(false);
     }
@@ -56,7 +62,8 @@ const GeneralModal = ({job}) => {
       setPostulated(false);
     }
     handlePostulated();
-  },[user]);
+  },[user,job]);
+
 
 const handlePostulated = ()=>{
   var found = false;
@@ -102,7 +109,7 @@ const handlePostulated = ()=>{
       <Grid container>
        
         {
-          !user &&
+          user && !user._id &&
           <>
           <Grid item sm={12} style={{marginBottom: '1em'}}>
             <Button variant="contained" color='primary' fullWidth onClick={()=>{handleOpen();setLogin(true);}}>
