@@ -207,7 +207,7 @@ const NavList = ({ setMenuOpen, logout, menuOpen }) => {
         </Box>
       }
       
-      <Box display='flex' justifyContent={'center'} mt={30} style={{paddingTop:5}}>
+      <Box display='flex' justifyContent={'center'} style={{paddingTop:5}}>
         <a
           href="https://instagram.com/caronegroup_oficial?igshid=YmMyMTA2M2Y="
           target='_blank'
