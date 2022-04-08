@@ -1,11 +1,24 @@
 import React from "react";
 import Link from "next/link";
+// import { makeStyles } from '@material-ui/core';
+
+// const useStyles = makeStyles((theme)=>({
+//   mobileImage:{
+//     width: "100%",
+//     height: "100px",
+//     objectFit: "cover",
+//     [theme.breakpoints.down('xs')]:{
+//       height: "70px",
+//     }
+//   }
+// }));
 
 const CarCardItem = ({ data }) => {
   return (
-    <Link href={`/autos/${data && data.name}`}>
+    <Link  href={`/autos/${data && data.name}`}>
       <a>
         <div
+        className="animated fadeIn"
           style={{
             border: "1px solid #d8d8d8",
             padding: "1em",
@@ -15,11 +28,7 @@ const CarCardItem = ({ data }) => {
            <img
             src={data.image}
             alt='none image'
-            style={{
-              width: "100%",
-              height: "100px",
-              objectFit: "cover",
-            }}
+            className='mobileImage'
           />
         </div>
       </a>

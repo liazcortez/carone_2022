@@ -61,11 +61,12 @@ const CarouselComponent = ({ title, data }) => {
   const classes = useStyles();
 
   return (
-    <div style={{ marginBottom: 30, marginTop: 50 }}>
+    <div   style={{ marginBottom: 30, marginTop: 50 }}>
       <h1 style={{ marginBottom: "70px", textAlign: "center" }}>{title}</h1>
 
-      <div className="App">
+      <div className="animated fadeIn" className="App">
         <Carousel
+        
           breakPoints={breakPoints}
           showArrows={false}
           showEmptySlots={true}

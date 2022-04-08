@@ -11,6 +11,7 @@ import CarCardList from "../components/CarCardList";
 import Meta from "../components/Meta";
 import { baseURL } from "../api/api";
 import useMedia from "../hooks/useMedia";
+import Live from "../components/Live";
 
 const imageUrl = "/static/images/BannerC1.jpeg";
 
@@ -32,7 +33,6 @@ const Home = ({ makes, categories, medias }) => {
   const { mediasMainBanner, getMediasMainBanner } = useMedia();
   
   useEffect(() => {
-
     getMediasMainBanner();
   },[])
 
@@ -40,10 +40,11 @@ const Home = ({ makes, categories, medias }) => {
     <>
       <Meta title="Car One Group" description="Autos Nuevo, Seminuevos" />
       <Container maxWidth="lg">
-        <MainCarousel medias={mediasMainBanner}/>
+        <MainCarousel  medias={mediasMainBanner}/>
         {/* <Carousel /> */}
         <Tabs categories={categories} />
         <CarCardList title="BUSCAR POR MARCA" data={makes} />
+        
       </Container>
     </>
   );

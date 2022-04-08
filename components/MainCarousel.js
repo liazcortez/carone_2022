@@ -12,7 +12,7 @@ const Banner = ({ medias }) => {
   const classes = useStyles();
 
   return (
-    <Grid container>
+    <Grid className="animated fadeIn" container>
       <Grid item xs={12}>
         <Carousel
           autoPlay
