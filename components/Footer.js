@@ -19,19 +19,13 @@ const Footer = () => {
   const classes = useStyles();
   return (
     <Container maxWidth="lg" className={classes.footer}>
-      <Box display={'flex'} justifyContent='center' flexDirection={'column'}>
-        <Box display={'flex'} justifyContent='center'>
-          <Typography variant='body2'>
+      <Box style={{textAlign: 'center'}}>
+          <Typography variant='body2' style={{width:'100%'}}>
           © Car One Group All rights reserved
           </Typography>
-        </Box>
-        <Box display={'flex'} justifyContent='center'>
-        </Box>
-        <Box display={'flex'} justifyContent='center'>
           <Link className={classes.policy} href={'/politicas'}>
           <strong>Términos y Condiciones</strong>
           </Link>
-        </Box>
       </Box>
     </Container>
   );

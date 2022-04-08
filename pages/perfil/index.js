@@ -69,8 +69,8 @@ const index = () => {
   const router = useRouter();
 
   React.useEffect(()=>{
-    if(!user){
-            router.push("/");
+    if(user && user._id === undefined){
+      router.push("/");
     }
   },[user]);
 
