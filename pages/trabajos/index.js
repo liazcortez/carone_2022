@@ -4,7 +4,9 @@ import Meta from "../../components/Meta";
 import SearchBar from "../../components/trabajos/SearchBar";
 import Pagination from "../../components/Pagination";
 import useJob from "../../hooks/useJob";
-import JobList from "../../components/trabajos/JobList";
+import JobItem from "../../components/trabajos/JobItem";
+import SelectedJob from "../../components/trabajos/SelectedJob";
+
 
 const index = ({ jobsSP, categories, stores, total }) => {
   const { jobs, getJobs, loading, results } = useJob();
@@ -15,8 +17,14 @@ const index = ({ jobsSP, categories, stores, total }) => {
   const [category, setCategory] = useState("-");
   const [store, setStore] = useState("-");
   const [sort, setSort] = useState("-");
+  const [selectedJob,setSelectedJob]= useState(false);
 
   const changePage = (event, value) => setPage(value);
+
+  useEffect(()=>{
+    if((jobs && jobs.length <=0) && selectedJob )return;
+    setSelectedJob(jobs[0])
+  },[jobs])
 
   useEffect(() => {
     getJobs(
@@ -52,12 +60,19 @@ const index = ({ jobsSP, categories, stores, total }) => {
           sort={sort}
           setSort={setSort}
         />
-        <Grid container>
-          {jobs && jobs.length > 0 ? (
-            <JobList jobs={jobs} loading={loading} />
-          ) : (
-            <JobList jobs={jobsSP} loading={loading} />
-          )}
+        <Grid spacing={1} container>
+            <Grid item xs={12} md={5}>
+            {
+              jobs && jobs.length > 0 ? jobs.map(
+                (job, index) => (
+                    <JobItem setSelectedJob={setSelectedJob} selectedJob={selectedJob} job={job} loading={loading} key={job._id} />
+                )
+              ) : ''
+            }
+            </Grid>
+            <Grid className='SelectedJobContainer' item  md={7}>
+             {selectedJob? <SelectedJob job={selectedJob}/>:''}
+            </Grid>
         </Grid>
         <Pagination
           total={results !== null ? results : total}

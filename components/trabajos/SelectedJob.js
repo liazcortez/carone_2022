@@ -9,6 +9,7 @@ import {
   Button,
   Chip
 } from "@material-ui/core";
+import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import moment from "moment";
 import parse from "html-react-parser";
 import NumberFormat from "react-number-format";
@@ -17,8 +18,7 @@ import BreadCrumJobs from "../../components/BreadCrumJobs";
 import GeneralModal from "../../components/GeneralModal";
 import useAuth from "../../hooks/useAuth";
 import useJob from "../../hooks/useJob";
-import LocalAtmIcon from '@material-ui/icons/LocalAtm';
-const slug = ({ job }) => { 
+const SelectedJob = ({ job }) => { 
   
 
   moment.locale("es-mx");
@@ -33,16 +33,8 @@ const slug = ({ job }) => {
     jobDescription.charAt(0).toUpperCase() + jobDescription.slice(1);
     
   return (
-    <>
 
-      <Meta
-        title="Busqueda de trabajos Car One"
-        description="Los mejores trabajos los encuentras en Car One"
-      />
-      <Container maxWidth="lg">
-        <BreadCrumJobs data={job} section="Trabajos" />
-        <Grid container spacing={2}>
-          <Grid item xs={8}>
+  <>
             <Paper variant="outlined">
               <Box p={3}>
                 <Box>
@@ -51,14 +43,14 @@ const slug = ({ job }) => {
                     justifyContent="space-between"
                     style={{ marginBottom: 10 }}
                   >
-                    <Typography variant="body2">
+                    {/* <Typography variant="body2">
                       {createdAtCapitalize}
-                    </Typography>
+                    </Typography> */}
                     <Typography
                       variant="subtitle2"
                       style={{ textTransform: "capitalize" }}
                     >
-                      {job.store.make.name} {job.store.name}
+                      {/* {job.store.make.name} {job.store.name} */}
                     </Typography>
                   </Box>
                   <Box>
@@ -110,34 +102,17 @@ const slug = ({ job }) => {
                 </Typography>
               </Box>
             </Paper>
-          </Grid>
 
-          <Grid item xs={4}>
+
+
             <Paper variant="outlined">
               <Box display="flex" justifyContent="center" p={3}>
               <GeneralModal job={job}/>
               </Box>
             </Paper>
-          </Grid>
-        </Grid>
-      </Container>
-    </>
+</>
   );
 };
 
-export const getServerSideProps = async (ctx) => {
 
-  const res = await fetch(
-    `https://apicarone.com/api/v1/jobs?slug=${ctx.params.slug}`
-  );
-
-  const job = await res.json();
-  
-  return {
-    props: {
-      job: job.data[0],
-    },
-  };
-};
-
-export default slug;
+export default SelectedJob;
