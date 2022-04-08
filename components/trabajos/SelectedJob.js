@@ -7,7 +7,9 @@ import {
   Paper,
   Divider,
   Button,
+  Chip
 } from "@material-ui/core";
+import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import moment from "moment";
 import parse from "html-react-parser";
 import NumberFormat from "react-number-format";
@@ -58,18 +60,19 @@ const SelectedJob = ({ job }) => {
                     >
                       {job.title}
                     </Typography>
-                    <Typography variant="subtitle1">
-                      {job.salary === 0 ? (
-                        "Salario no mostrado por la empresa"
-                      ) : (
-                        <NumberFormat
-                          thousandSeparator={true}
-                          prefix={"$"}
-                          value={job.salary}
-                          displayType={"text"}
-                        />
-                      )}
-                    </Typography>
+                    <Typography variant="subtitle1" gutterBottom>
+                
+                <Chip size='small' icon={<LocalAtmIcon/>} style={{fontSize: '.875rem!important',fontWeight: '700!important',lineHeight: '1.3125rem!important',color: '#595959'}} label={job.salary === 0 ? (
+                  "Salario no mostrado por la empresa"
+                ) : (
+                  <NumberFormat
+                    thousandSeparator={true}
+                    prefix={"$"}
+                    value={job.salary}
+                    displayType={"text"}
+                  />
+                )} />
+              </Typography>
 
                     <Typography
                       variant="subtitle1"

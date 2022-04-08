@@ -70,7 +70,7 @@ const index = ({ jobsSP, categories, stores, total }) => {
               ) : ''
             }
             </Grid>
-            <Grid item xs={0} md={7}>
+            <Grid className='SelectedJobContainer' item  md={7}>
              {selectedJob? <SelectedJob job={selectedJob}/>:''}
             </Grid>
         </Grid>
