@@ -81,7 +81,7 @@ const AuthComponent = ({setOpen, login, setLogin}) => {
 
 const { clearState } = useAuth();
   return (
-  <Card>
+    <Card>
           <CardContent className={classes.cardContent}>
             <Box
               justifyContent="center"

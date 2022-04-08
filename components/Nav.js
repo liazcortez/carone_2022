@@ -2,17 +2,12 @@ import React, { useEffect, useState } from "react";
 import {
   Box,
   Container,
-  Button,
-  Grid,
-  Menu,
-  MenuItem,
 } from "@material-ui/core";
 import Link from "next/link";
 import MenuOpenIcon from "@material-ui/icons/MenuOpen";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useRouter } from "next/router";
 import useAuth from "../hooks/useAuth";
-// import { makeStyles } from "@material-ui/core/styles";
 import NavList from "./NavList";
 import clsx from "clsx";
 
@@ -65,7 +60,7 @@ const Nav = () => {
   const { user, loadUser, logout } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
-    if (!user || JSON.stringify(user) === "{}") {
+    if (localStorage && localStorage.getItem('token')) {
       loadUser();
     }
   }, []);
@@ -111,7 +106,7 @@ const Nav = () => {
             ["menuClosed"]: !menuOpen,
           })}
         >
-          <NavList setMenuOpen={setMenuOpen} logout={logout} user={user} />
+          <NavList setMenuOpen={setMenuOpen} logout={logout} user={user} menuOpen={menuOpen}/>
         </Box>
       </Box>
     </Container>

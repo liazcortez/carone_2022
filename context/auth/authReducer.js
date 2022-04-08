@@ -23,6 +23,7 @@ export default (state, action) => {
       ...state,
       loading: false,
       error: null,
+      success: null,
       user: null,
       isAuthenticated: false
     }
@@ -51,6 +52,7 @@ export default (state, action) => {
       return {
         ...state,
         ...action.payload,
+        success: true,
         isAuthenticated: true,
         loading: false,
         error: null
@@ -75,7 +77,8 @@ export default (state, action) => {
         token: null,
         isAuthenticated: false,
         loading: false,
-        user: null,
+        success: false,
+        user: {},
         error: action.payload
       };
     case FORGOT_PASSWORD:

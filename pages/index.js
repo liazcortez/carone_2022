@@ -33,7 +33,6 @@ const Home = ({ makes, categories, medias }) => {
   const { mediasMainBanner, getMediasMainBanner } = useMedia();
   
   useEffect(() => {
-
     getMediasMainBanner();
   },[])
 

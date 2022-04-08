@@ -1,71 +1,8 @@
-import React, { useState, useEffect } from "react";
-import {
-  Box,
-  Card,
-  CardHeader,
-  Divider,
-  Table,
-  TableBody,
-  TableCell,
-  TableRow,
-  Typography,
-  Container,
-  CardContent,
-  Grid,
-  Avatar,
-  makeStyles,
-} from "@material-ui/core";
+import React from "react";
+import { Container } from "@material-ui/core";
 import Meta from "../../components/Meta";
-import useAuth from "../../hooks/useAuth";
-import ApplicantComponent from "../../components/profile/Curriculum";
-import Information from "../../components/profile/Information";
-import PersonalInformation from "../../components/profile/PersonalInformation";
-import { useRouter } from "next/router";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: "inherit",
-    minHeight: "100%",
-    padding: theme.spacing(5),
-  },
-  fontWeightMedium: {
-    fontWeight: theme.typography.fontWeightMedium,
-  },
-  gridStyle: {
-    display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)",
-    gridGap: "1rem",
-  },
-  flexStyle: {
-    width: "100%",
-  },
-  avatar: {
-    width: "35%",
-    height: "auto",
-    margin: "0rem auto 1rem auto",
-  },
-  cardContent: {
-    padding: "1.5rem 0rem 1.5rem 0rem",
-  },
-  container: {
-    height: "80vh",
-    display: "flex",
-    alignItems: "center",
-  },
-  leftCards: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-  },
-  noPadding: {
-    padding: "0!important",
-  },
-}));
 
 const index = () => {
-  const classes = useStyles();
-  const router = useRouter();
 
   return (
     <>

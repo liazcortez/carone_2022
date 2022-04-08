@@ -26,7 +26,8 @@ const AuthState = props => {
     isAuthenticated: false,
     user: {},
     loading: false,
-    error: null
+    error: null,
+    success: null
   };
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
@@ -266,6 +267,7 @@ const deleteResume = async () => {
         isAuthenticated: state.isAuthenticated,
         user: state.user,
         error: state.error,
+        success: state.success,
         register,
         login,
         loadUser,

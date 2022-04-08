@@ -1,7 +1,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import { Button, Container, Grid, Paper } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import CarouselComponent from "./Carousel";
 
