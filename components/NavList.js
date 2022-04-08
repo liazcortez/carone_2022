@@ -9,7 +9,7 @@ import Link from "next/link";
 import { Menu as MenuIcon } from 'react-feather';
 import { makeStyles } from "@material-ui/core/styles";
 import useAuth from "../hooks/useAuth";
-import Login from "./auth/LoginNav";
+import Login from "./auth/DialogAuth";
 
 const useStyles = makeStyles((theme) => ({
   navListContainer: {

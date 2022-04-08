@@ -11,7 +11,7 @@ import {
   FormHelperText,
   TextField,
   makeStyles,
-  Dialog
+  Typography,
 } from '@material-ui/core';
 import useAuth from '../../hooks/useAuth';
 import useIsMountedRef from '../../hooks/useIsMountedRef';
@@ -20,7 +20,7 @@ const useStyles = makeStyles(() => ({
   root: {}
 }));
 
-const Login = ({setOpen, open, className, ...rest }) => {
+const Login = ({setOpen, className, setType, ...rest }) => {
   const classes = useStyles();
   const { login, error, success } = useAuth();
   const isMountedRef = useIsMountedRef();
@@ -37,12 +37,6 @@ const Login = ({setOpen, open, className, ...rest }) => {
   },[success])
   
   return (
-    <Dialog
-      style={{zIndex: 5}}
-      onClose={()=>setOpen(false)}
-      aria-labelledby="simple-dialog-title"
-      open={open}
-    >
       <Formik
         initialValues={{
           email: '',
@@ -93,12 +87,23 @@ const Login = ({setOpen, open, className, ...rest }) => {
             className={clsx(classes.root, className)}
             {...rest}
           >
+            <center>
+              <Typography style={{padding: 5}} variant='h4'>Login</Typography>
+              <Typography 
+                style={{padding: 5, cursor: 'pointer'}} 
+                variant='body2' 
+                color='primary'
+                onClick={()=>setType('register')}
+              >
+                ¿No tienes cuenta? Registrate!
+              </Typography>
+            </center>
             <TextField
               error={Boolean(touched.email && errors.email)}
               fullWidth
               autoFocus
               helperText={touched.email && errors.email}
-              label={t("Forms.Email")}
+              label={"Correo Electrónico"}
               margin="normal"
               name="email"
               onBlur={handleBlur}
@@ -111,7 +116,7 @@ const Login = ({setOpen, open, className, ...rest }) => {
               error={Boolean(touched.password && errors.password)}
               fullWidth
               helperText={touched.password && errors.password}
-              label={t("Forms.Password")}
+              label={"Contraseña"}
               margin="normal"
               name="password"
               onBlur={handleBlur}
@@ -146,7 +151,6 @@ const Login = ({setOpen, open, className, ...rest }) => {
           </form>
         )}
       </Formik>
-    </Dialog>
   );
 };
 
