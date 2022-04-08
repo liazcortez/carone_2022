@@ -207,19 +207,7 @@ const NavList = ({ setMenuOpen, logout, menuOpen }) => {
         </Box>
       }
       
-      {/* <Link href='/perfil'>
-        <Box display='flex' justifyContent={'center'} className={classes.showOnMobile}>
-          <Button className={classes.link}>
-            Perfil
-          </Button>
-        </Box>
-      </Link>
-      <Box display='flex' justifyContent={'center'} className={classes.showOnMobile}>
-        <Button className={classes.link} onClick={handleLogout}>
-          Logout
-        </Button>
-      </Box> */}
-      <Box display='flex' justifyContent={'center'} pt={1}>
+      <Box display='flex' justifyContent={'center'} mt={30} style={{paddingTop:5}}>
         <a
           href="https://instagram.com/caronegroup_oficial?igshid=YmMyMTA2M2Y="
           target='_blank'
