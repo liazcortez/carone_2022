@@ -89,8 +89,8 @@ const Register = ({setOpen=false, setType, className, ...rest }) => {
 	  values
 	}) => (
 	  <form
-      style={{padding: 20}}
-	    noValidate
+      style={{width: '100%', padding: 20}}
+      noValidate
 	    className={clsx(classes.root, className)}
 	    onSubmit={handleSubmit}
 	    {...rest}
