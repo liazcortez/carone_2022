@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Grid, Typography, Box } from "@material-ui/core";
 import moment from "moment";
+import 'moment/locale/es';
 import TextTruncate from "react-text-truncate"; // recommend
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,13 +11,13 @@ import Link from "next/link";
 import { CapitalizeFirstLetter } from "../../utils/functions";
 import NumberFormat from "react-number-format";
 
-const JobItem = ({ job }) => {
-  moment.locale("es-mx");
+const JobItem = ({ job, setSelectedJob }) => {
+  moment.locale("es");
   const createdAt = moment(job.createdAt).fromNow();
 
   return (
-    <Grid item xs={8} style={{ marginBottom: 15 }}>
-      <Paper variant="outlined">
+    // <Grid item xs={8} >
+      <Paper onClick={()=>setSelectedJob(job)} variant="outlined" style={{ marginBottom: 15,cursor:'pointer' }}>
         <Box p={3}>
           <Box>
             <Box
@@ -33,14 +34,14 @@ const JobItem = ({ job }) => {
               </Typography>
             </Box>
             <Box>
-              <Link href={`/trabajos/${job.slug}`}>
+              {/* <Link href={`/trabajos/${job.slug}`}> */}
                 <Typography
                   variant="h6"
                   style={{ textTransform: "capitalize", cursor: "pointer" }}
                 >
                   {job.title}
                 </Typography>
-              </Link>
+              {/* </Link> */}
               <Typography variant="subtitle1" gutterBottom>
                 {job.salary === 0 ? (
                   "Salario no mostrado por la empresa"
@@ -69,7 +70,7 @@ const JobItem = ({ job }) => {
           </Typography>
         </Box>
       </Paper>
-    </Grid>
+    // </Grid>
   );
 };
 
