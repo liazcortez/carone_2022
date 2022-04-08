@@ -55,20 +55,17 @@ const NavList = ({ user, setMenuOpen, logout }) => {
   };
 
   const classes = useStyles();
+
   return (
-    <Box className='navListContainer'>
-      <Box p={1}>
+    <Box className='navListContainer' alignContent={'center'} display='flex' alignSelf={'center'} alignItems='center'>
+      <Box m={1} display='flex' justifyContent={'center'}>
         <Link href="/autos" passHref={true}>
-          <Button
-            onClick={() => {
-              setMenuOpen(false);
-            }}
-          >
+          <Button onClick={() => {setMenuOpen(false)}}>
             Autos
           </Button>
         </Link>
       </Box>
-      <Box p={1}>
+      <Box m={1} display='flex' justifyContent={'center'}>
         <Link href="/favoritos" passHref={true}>
           <Button
             onClick={() => {
@@ -79,8 +76,7 @@ const NavList = ({ user, setMenuOpen, logout }) => {
           </Button>
         </Link>
       </Box>
-
-      <Box p={1}>
+      <Box m={1} display='flex' justifyContent={'center'}>
         <Link href="/trabajos" passHref={true}>
           <Button
             onClick={() => {
@@ -91,8 +87,7 @@ const NavList = ({ user, setMenuOpen, logout }) => {
           </Button>
         </Link>
       </Box>
-
-      <Box p={1}>
+      <Box m={1} display='flex' justifyContent={'center'}>
         <Link href="/carOneTv" passHref={true}>
           <Button
             onClick={() => {
@@ -103,35 +98,29 @@ const NavList = ({ user, setMenuOpen, logout }) => {
           </Button>
         </Link>
       </Box>
-
-      <Box p={1}>
+      <Box m={1} display='flex' justifyContent={'center'}>
         <Link href="#" passHref={true}>
           <Button
             onClick={() => {
               setMenuOpen(false);
             }}
-            variant="contained"
-            color="primary"
           >
             Contacto
           </Button>
         </Link>
       </Box>
-
-      <Box className='hideOnMobile' p={1}>
-        <Link
-          onClick={() => {
-            setMenuOpen(false);
-          }}
-          href="/"
-          passHref={true}
-        >
-          <InstagramIcon />
-        </Link>
+      <Box px={2} display='flex' justifyContent={'center'} pt={1}>
+        <a
+          href="https://instagram.com/caronegroup_oficial?igshid=YmMyMTA2M2Y="
+          target='_blank'
+          rel='noopener noreferrer'
+          >
+          <img src='https://cdn-icons-png.flaticon.com/512/174/174855.png' width={25} />
+        </a>
       </Box>
 
-      {user && user.name ? (
-        <Box p={1}>
+      {user && user.name && 
+        <Box display='flex' justifyContent={'center'}>
           <Box className='hideOnMobile'>
             <Button
               color="primary"
@@ -160,43 +149,27 @@ const NavList = ({ user, setMenuOpen, logout }) => {
                 </Link>
               </MenuItem>
 
-              <MenuItem
-                onClick={() => {
-                  setMenuOpen(false);
-                }}
-                onClick={handleLogout}
-              >
+              <MenuItem onClick={handleLogout}>
                 Logout
               </MenuItem>
             </Menu>
           </Box>
           <Box className='showOnMobile'>
             <Box >
-            <Link href="/perfil">
-                  <Button
-                    onClick={() => {
-                      setMenuOpen(false);
-                    }}
-                  >
-                    Perfil
-                  </Button>
-                </Link>
+              <Link href="/perfil">
+                <Button onClick={() => { setMenuOpen(false) }}>
+                  Perfil
+                </Button>
+              </Link>
             </Box>
-            <Box >
-                  <Button
-                    onClick={() => {
-                      setMenuOpen(false);
-                    }}
-                    onClick={handleLogout}
-                  >
-                    Logout
-                  </Button>
+            <Box>
+              <Button onClick={handleLogout}>
+                Logout
+              </Button>
             </Box>
           </Box>
         </Box>
-      ) : (
-        ""
-      )}
+      }
     </Box>
   );
 };
