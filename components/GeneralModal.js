@@ -23,12 +23,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const GeneralModal = ({job,select='auth'}) => {
+const GeneralModal = ({job}) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [postulated, setPostulated] = React.useState(false);
   const [disabled, setDisabled] = React.useState(true);
-  // const [select, setSelect] = React.useState('auth');
+  const [select, setSelect] = React.useState('auth');
   const [modalPostulated, setModalPostulated] = React.useState(false);
   const {createApplicant} = useApplicant();
   const { enqueueSnackbar } = useSnackbar();
@@ -36,25 +36,20 @@ const GeneralModal = ({job,select='auth'}) => {
   const {user}=useAuth();
 
   const handleOpen = () => {
-    // if(user && user._id){
-    //   setSelect('resume');
-    // }else{
-    //   setSelect('auth');
-    // }
+    if(user && user._id){
+      setSelect('resume');
+    }else{
+      setSelect('auth');
+    }
     setOpen(true);
   };
 
-
-  useEffect(()=>{
-    console.log(postulated);
-  },[postulated])
 
   const handleClose = () => {
     setOpen(false);
   };
 
   useEffect(()=>{
-    console.log(user);
     if(user && user.name){
       setOpen(false);
     }
@@ -102,48 +97,36 @@ const handlePostulated = ()=>{
 
   return (
     <>
-
-{select==='resume'? 
-
-// {}
-<>
-{(postulated)?<Button disabled={disabled} variant="contained" color="primary">Postulado</Button>: (user && user.resume)?
- <Button disabled={disabled} variant="contained" color="primary" onClick={handleResume}>Aplicar</Button>:''}
-</>
-            :
-            <>
-            <Grid container>
-             
-              {
-                user && !user._id &&
-                <>
-                <Grid item sm={12} style={{marginBottom: '1em'}}>
-                  <Button variant="contained" color='primary' fullWidth onClick={()=>{handleOpen();setLogin(true);}}>
-                      Ingresa a tu cuenta
-                  </Button>
-                </Grid>
-                <Grid item sm={12} >
-                  <Button disabled={disabled} variant="text" color="primary" onClick={()=>{handleOpen(); setLogin(false)}} fullWidth>
-                    {user && user.role?'Postularme':'¿No tienes cuenta? Regístrate'}
-                  </Button>
-                </Grid>
-                </>
-             }
-             {
-               user && user.role && 
-                <Grid item sm={12} >
-                  <Button disabled={disabled} variant="contained" color="primary" onClick={()=>{handleOpen(); setLogin(false)}} fullWidth>
-                    {user && user.role?'Postularme':'Crear cuenta para postularse'}
-                  </Button>
-                </Grid>
-             }
-      
-            </Grid>
-            
-              
-            </>         
-            }   
  
+      {(postulated)?<Button disabled={disabled} variant="contained" color="primary">Postulado</Button>: (user && user.resume)?
+      <Button disabled={disabled} variant="contained" color="primary" onClick={handleResume}>Aplicar</Button> :
+      <>
+      <Grid container>
+       
+        {
+          user && !user._id &&
+          <>
+          <Grid item sm={12} style={{marginBottom: '1em'}}>
+            <Button variant="contained" color='primary' onClick={()=>{handleOpen();setLogin(true);}}>
+                Ingresa a tu cuenta
+            </Button>
+          </Grid>
+          </>
+       }
+       {
+         user && user.role && 
+          <Grid item sm={12} >
+            <Button disabled={disabled} variant="contained" color="primary" onClick={()=>{handleOpen(); setLogin(false)}}>
+              Aplicar
+            </Button>
+          </Grid>
+       }
+
+      </Grid>
+      
+        
+      </>
+      }
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -173,3 +156,4 @@ const handlePostulated = ()=>{
 
 
 export default GeneralModal;
+
