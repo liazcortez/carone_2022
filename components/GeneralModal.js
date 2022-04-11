@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {Modal,Fade,Backdrop,Button,Box, Grid, Typography} from '@material-ui/core';
+import {Modal,Fade,Backdrop,Button,Box, Grid, Typography,Link} from '@material-ui/core';
 // import Authcomponent from './AuthComponent';
 import { SportsEsports } from '@material-ui/icons';
 import AuthComponent from "./auth/AuthComponent";
@@ -112,10 +112,17 @@ const handlePostulated = ()=>{
             </Button>
           </Grid>
          {fullWidth &&
-          <Grid item xs={12} style={{marginBottom: '1em'}}>
-          <Button fullWidth={fullWidth} variant="contained" color='primary' onClick={()=>{handleOpen();setLogin(false);}}>
-             Registrarse 
-          </Button>
+          <Grid item xs={12} style={{textAlign: 'center'}}>
+          <Typography 
+            style={{ cursor: 'pointer'}}
+            onClick={()=>{handleOpen();setLogin(false)}}
+            variant='p1'
+            color='textSecondary'
+          >
+            ¿No tienes cuenta?
+            {' '}
+            <Link>Registrate!</Link>
+          </Typography>
         </Grid>}
           </>
        }
