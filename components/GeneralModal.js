@@ -106,13 +106,13 @@ const handlePostulated = ()=>{
         {
           user && !user._id &&
           <>
-          <Grid item sm={12} style={{marginBottom: '1em'}}>
+          <Grid item xs={12} style={{marginBottom: '1em'}}>
             <Button fullWidth={fullWidth} variant="contained" color='primary' onClick={()=>{handleOpen();setLogin(true);}}>
                 Ingresa a tu cuenta
             </Button>
           </Grid>
          {fullWidth &&
-          <Grid item sm={12} style={{marginBottom: '1em'}}>
+          <Grid item xs={12} style={{marginBottom: '1em'}}>
           <Button fullWidth={fullWidth} variant="contained" color='primary' onClick={()=>{handleOpen();setLogin(false);}}>
              Registrarse 
           </Button>
@@ -121,7 +121,7 @@ const handlePostulated = ()=>{
        }
        {
          user && user.role && 
-          <Grid item sm={12} >
+          <Grid item xs={12} >
             <Button fullWidth={fullWidth} disabled={disabled} variant="contained" color="primary" onClick={()=>{handleOpen(); setLogin(false)}}>
               Aplicar
             </Button>
