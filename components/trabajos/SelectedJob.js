@@ -34,15 +34,18 @@ const SelectedJob = ({ job }) => {
     
   return (
 
-            <Paper style={{position:'sticky', top:'1rem'}} variant="outlined">
-                    {/* logion or register */}
-                    {user && !user.name ? 
-                    <Paper variant="outlined">
+          <Box style={{position:'sticky', top:'1rem'}}>
+
+            {/* logion or register */}
+            {user && !user.name ? 
+                    <Box>
                         <Box display="flex" justifyContent="center" p={3}>
                         <GeneralModal job={job}/>
                         </Box>
-                    </Paper>:''
+                    </Box>:''
                     }
+              <Paper mt={30} variant="outlined">
+                    
               <Box p={3}>
                 <Box>
                   <Box
@@ -111,6 +114,7 @@ const SelectedJob = ({ job }) => {
                 </Typography>
               </Box>
             </Paper>
+          </Box>
 
 
 
