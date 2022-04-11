@@ -221,8 +221,10 @@ const AuthState = props => {
       const dataKey = uploadConfig.data.key;
 
       let res = await api.put(`/auth/updatedetails`, { resume: dataKey }, config);
+      
       dispatch({ type: UPDATE_PROFILE, payload: res.data.data });
     } catch (err) {
+      console.log(err);
       dispatch({ type: SET_ERROR, payload: err.response});
     }
   };

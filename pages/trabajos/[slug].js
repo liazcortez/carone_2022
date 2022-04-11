@@ -42,7 +42,7 @@ const slug = ({ job }) => {
       <Container maxWidth="lg">
         <BreadCrumJobs data={job} section="Trabajos" />
         <Grid container spacing={2}>
-          <Grid item xs={8}>
+          <Grid item xs={12}>
             <Paper variant="outlined">
               <Box p={3}>
                 <Box>
@@ -99,7 +99,10 @@ const slug = ({ job }) => {
                   Categoria: {job.category.name}
                 </Typography>
 
-                <Divider style={{ marginBottom: 30 }} />
+              <GeneralModal job={job}/>
+
+
+                <Divider style={{ marginBottom: 30,marginTop:20 }} />
 
                 <Typography variant="h6" gutterBottom>
                   Descripción
@@ -108,14 +111,6 @@ const slug = ({ job }) => {
                 <Typography variant="body2">
                   {jobDescriptionCapitalize && parse(jobDescriptionCapitalize)}
                 </Typography>
-              </Box>
-            </Paper>
-          </Grid>
-
-          <Grid item xs={4}>
-            <Paper variant="outlined">
-              <Box display="flex" justifyContent="center" p={3}>
-              <GeneralModal job={job}/>
               </Box>
             </Paper>
           </Grid>

@@ -37,13 +37,6 @@ const SelectedJob = ({ job }) => {
           <Box style={{position:'sticky', top:'1rem'}}>
 
             {/* logion or register */}
-            {user && !user.name ? 
-                    <Box>
-                        <Box display="flex" justifyContent="center" p={3}>
-                        <GeneralModal job={job}/>
-                        </Box>
-                    </Box>:''
-                    }
               <Paper mt={30} variant="outlined">
                     
               <Box p={3}>
@@ -100,7 +93,7 @@ const SelectedJob = ({ job }) => {
                 >
                   Categoria: {job.category.name}
                 </Typography>
-                <GeneralModal select='resume' job={job}/>
+                <GeneralModal job={job}/>
 
 
                 <Divider style={{ marginBottom: 30,marginTop:20}} />
