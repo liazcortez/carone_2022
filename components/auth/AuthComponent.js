@@ -51,8 +51,17 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     minHeight: 400,
+    
+    [theme.breakpoints.down('md')]: {
     width:'30vw',
-    maxWidth: '40rem'
+    
+
+    },
+    [theme.breakpoints.down('xs')]: {
+      width:'100vw',
+  
+      },
+    // maxWidth: '40rem'
 
   },
   currentMethodIcon: {
