@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const GeneralModal = ({job}) => {
+const GeneralModal = ({job,fullWidth=false}) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [postulated, setPostulated] = React.useState(false);
@@ -99,7 +99,7 @@ const handlePostulated = ()=>{
     <>
  
       {(postulated)?<Button disabled={disabled} variant="contained" color="primary">Postulado</Button>: (user && user.resume)?
-      <Button disabled={disabled} variant="contained" color="primary" onClick={handleResume}>Aplicar</Button> :
+      <Button fullWidth={fullWidth} disabled={disabled} variant="contained" color="primary" onClick={handleResume}>Aplicar</Button> :
       <>
       <Grid container>
        
@@ -107,16 +107,22 @@ const handlePostulated = ()=>{
           user && !user._id &&
           <>
           <Grid item sm={12} style={{marginBottom: '1em'}}>
-            <Button variant="contained" color='primary' onClick={()=>{handleOpen();setLogin(true);}}>
+            <Button fullWidth={fullWidth} variant="contained" color='primary' onClick={()=>{handleOpen();setLogin(true);}}>
                 Ingresa a tu cuenta
             </Button>
           </Grid>
+         {fullWidth &&
+          <Grid item sm={12} style={{marginBottom: '1em'}}>
+          <Button fullWidth={fullWidth} variant="contained" color='primary' onClick={()=>{handleOpen();setLogin(false);}}>
+             Registrarse 
+          </Button>
+        </Grid>}
           </>
        }
        {
          user && user.role && 
           <Grid item sm={12} >
-            <Button disabled={disabled} variant="contained" color="primary" onClick={()=>{handleOpen(); setLogin(false)}}>
+            <Button fullWidth={fullWidth} disabled={disabled} variant="contained" color="primary" onClick={()=>{handleOpen(); setLogin(false)}}>
               Aplicar
             </Button>
           </Grid>

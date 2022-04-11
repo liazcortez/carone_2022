@@ -98,7 +98,7 @@ const { clearState } = useAuth();
               {/* <JWTLogin /> */}
             </Box>
       <CardActions className={classes.flexEnd} display='flex' direction="row" alingItems="center">
-        {
+        {/* {
           !login &&
           <Typography 
             style={{ cursor: 'pointer', marginTop: 10}}
@@ -130,7 +130,7 @@ const { clearState } = useAuth();
             {' '}
             <Link>Registrate!</Link>
           </Typography>
-        }
+        } */}
         
       </CardActions>
           </CardContent>
