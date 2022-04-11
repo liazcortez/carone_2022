@@ -77,7 +77,7 @@ const JobItem = ({ job, setSelectedJob, selectedJob }) => {
         variant="contained"
         color="primary"
       >
-        Ver
+        Ver Trabajo
       </Button>
               </Link>
 

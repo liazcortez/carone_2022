@@ -44,7 +44,7 @@ const DialogAuth = ({setOpen, open, className, ...rest }) => {
       <Card className={classes.root}>
       {
         type === 'login' ?
-        <Login setType={setType}/> :
+        <Login setOpen={setOpen} setType={setType}/> :
         <Register setType={setType}/>
       }
       </Card>
