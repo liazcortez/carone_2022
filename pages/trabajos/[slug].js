@@ -42,7 +42,14 @@ const slug = ({ job }) => {
       <Container maxWidth="lg">
         <BreadCrumJobs data={job} section="Trabajos" />
         <Grid container spacing={2}>
-          <Grid item xs={8}>
+        <Grid className='SelectedJobContainerTop' item xs={12}>
+            <Paper variant="outlined">
+              <Box display="flex" justifyContent="center" p={3}>
+              <GeneralModal fullWidth={true} job={job}/>
+              </Box>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={8}>
             <Paper variant="outlined">
               <Box p={3}>
                 <Box>
@@ -70,7 +77,7 @@ const slug = ({ job }) => {
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
                 
-                <Chip size='small' icon={<LocalAtmIcon/>} style={{fontSize: '.875rem!important',fontWeight: '700!important',lineHeight: '1.3125rem!important',color: '#595959'}} label={job.salary === 0 ? (
+                <Chip size='small' icon={<LocalAtmIcon/>} style={{padding:'0 .4rem',fontSize: '.875rem!important',fontWeight: '700!important',lineHeight: '1.3125rem!important',color: '#595959'}} label={job.salary === 0 ? (
                   "Salario no mostrado por la empresa"
                 ) : (
                   <NumberFormat
@@ -112,10 +119,10 @@ const slug = ({ job }) => {
             </Paper>
           </Grid>
 
-          <Grid item xs={4}>
+          <Grid className='SelectedJobContainer' item xs={4}>
             <Paper variant="outlined">
               <Box display="flex" justifyContent="center" p={3}>
-              <GeneralModal job={job}/>
+              <GeneralModal fullWidth={true} job={job}/>
               </Box>
             </Paper>
           </Grid>

@@ -42,7 +42,7 @@ const JobItem = ({ job, setSelectedJob, selectedJob }) => {
               </Typography>
               <Typography variant="subtitle1" gutterBottom>
                 
-                <Chip size='small' icon={<LocalAtmIcon/>} style={{fontSize: '.875rem!important',fontWeight: '700!important',lineHeight: '1.3125rem!important',color: '#595959'}} label={job.salary === 0 ? (
+                <Chip size='small' icon={<LocalAtmIcon/>} style={{padding:'0 .4rem',fontSize: '.875rem!important',fontWeight: '700!important',lineHeight: '1.3125rem!important',color: '#595959'}} label={job.salary === 0 ? (
                   "Salario no mostrado por la empresa"
                 ) : (
                   <NumberFormat
@@ -77,7 +77,7 @@ const JobItem = ({ job, setSelectedJob, selectedJob }) => {
         variant="contained"
         color="primary"
       >
-        Ver
+        Ver Trabajo
       </Button>
               </Link>
 

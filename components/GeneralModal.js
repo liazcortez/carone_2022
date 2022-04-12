@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {Modal,Fade,Backdrop,Button,Box, Grid, Typography} from '@material-ui/core';
+import {Modal,Fade,Backdrop,Button,Box, Grid, Typography,Link} from '@material-ui/core';
 // import Authcomponent from './AuthComponent';
 import { SportsEsports } from '@material-ui/icons';
 import AuthComponent from "./auth/AuthComponent";
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const GeneralModal = ({job}) => {
+const GeneralModal = ({job,fullWidth=false}) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [postulated, setPostulated] = React.useState(false);
@@ -45,16 +45,11 @@ const GeneralModal = ({job}) => {
   };
 
 
-  useEffect(()=>{
-    console.log(postulated);
-  },[postulated])
-
   const handleClose = () => {
     setOpen(false);
   };
 
   useEffect(()=>{
-    console.log(user);
     if(user && user.name){
       setOpen(false);
     }
@@ -104,30 +99,38 @@ const handlePostulated = ()=>{
     <>
  
       {(postulated)?<Button disabled={disabled} variant="contained" color="primary">Postulado</Button>: (user && user.resume)?
-      <Button disabled={disabled} variant="contained" color="primary" onClick={handleResume} fullWidth>Aplicar</Button> :
+      <Button fullWidth={fullWidth} disabled={disabled} variant="contained" color="primary" onClick={handleResume}>Aplicar</Button> :
       <>
       <Grid container>
        
         {
           user && !user._id &&
           <>
-          <Grid item sm={12} style={{marginBottom: '1em'}}>
-            <Button variant="contained" color='primary' fullWidth onClick={()=>{handleOpen();setLogin(true);}}>
+          <Grid item xs={12} >
+            <Button fullWidth={fullWidth} variant="contained" color='primary' onClick={()=>{handleOpen();setLogin(true);}}>
                 Ingresa a tu cuenta
             </Button>
           </Grid>
-          <Grid item sm={12} >
-            <Button disabled={disabled} variant="text" color="primary" onClick={()=>{handleOpen(); setLogin(false)}} fullWidth>
-              {user && user.role?'Postularme':'¿No tienes cuenta? Regístrate'}
-            </Button>
-          </Grid>
+         {fullWidth &&
+          <Grid item xs={12} style={{textAlign: 'center'}}>
+          <Typography 
+            style={{ cursor: 'pointer'}}
+            onClick={()=>{handleOpen();setLogin(false)}}
+            variant='p1'
+            color='textSecondary'
+          >
+            ¿No tienes cuenta?
+            {' '}
+            <Link>Registrate!</Link>
+          </Typography>
+        </Grid>}
           </>
        }
        {
          user && user.role && 
-          <Grid item sm={12} >
-            <Button disabled={disabled} variant="contained" color="primary" onClick={()=>{handleOpen(); setLogin(false)}} fullWidth>
-              {user && user.role?'Postularme':'Crear cuenta para postularse'}
+          <Grid item xs={12} >
+            <Button fullWidth={fullWidth} disabled={disabled} variant="contained" color="primary" onClick={()=>{handleOpen(); setLogin(false)}}>
+              Aplicar
             </Button>
           </Grid>
        }
@@ -166,3 +169,4 @@ const handlePostulated = ()=>{
 
 
 export default GeneralModal;
+

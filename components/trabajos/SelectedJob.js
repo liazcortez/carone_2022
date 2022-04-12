@@ -34,8 +34,11 @@ const SelectedJob = ({ job }) => {
     
   return (
 
-  <>
-            <Paper variant="outlined">
+          <Box style={{position:'sticky', top:'1rem'}}>
+
+            {/* logion or register */}
+              <Paper mt={30} variant="outlined">
+                    
               <Box p={3}>
                 <Box>
                   <Box
@@ -90,8 +93,10 @@ const SelectedJob = ({ job }) => {
                 >
                   Categoria: {job.category.name}
                 </Typography>
+                <GeneralModal job={job}/>
 
-                <Divider style={{ marginBottom: 30 }} />
+
+                <Divider style={{ marginBottom: 30,marginTop:20}} />
 
                 <Typography variant="h6" gutterBottom>
                   Descripción
@@ -102,17 +107,15 @@ const SelectedJob = ({ job }) => {
                 </Typography>
               </Box>
             </Paper>
+          </Box>
 
 
 
-            <Paper variant="outlined">
-              <Box display="flex" justifyContent="center" p={3}>
-              <GeneralModal job={job}/>
-              </Box>
-            </Paper>
-</>
+          
+
   );
 };
 
 
 export default SelectedJob;
+
