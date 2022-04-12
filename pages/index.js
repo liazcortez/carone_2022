@@ -4,14 +4,11 @@ import { makeStyles } from "@material-ui/core/styles";
 // import Divider from "@material-ui/core/Divider";
 import Tabs from "../components/Tabs";
 
-import Banner from "../components/Banner";
 import MainCarousel from "../components/MainCarousel";
-import Carousel from "../components/Carousel";
 import CarCardList from "../components/CarCardList";
 import Meta from "../components/Meta";
 import { baseURL } from "../api/api";
 import useMedia from "../hooks/useMedia";
-import Live from "../components/Live";
 
 const imageUrl = "/static/images/BannerC1.jpeg";
 

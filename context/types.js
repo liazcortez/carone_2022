@@ -38,3 +38,6 @@ export const CREATE_APPLICANT = 'CREATE_APPLICANT';
 
 // Medias
 export const GET_MEDIAS_MAIN_BANNER = 'GET_MEDIAS_MAIN_BANNER';
+
+// Stores
+export const GET_STORES = 'GET_STORES';

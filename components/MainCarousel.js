@@ -8,17 +8,36 @@ const useStyles = makeStyles((theme) => ({
   root: {}
 }));
 
-const Banner = ({ medias }) => {
+const Banner = ({ 
+  medias, 
+  autoPlay = true, 
+  infiniteLoop = true, 
+  interval = 8000, 
+  transitionTime = 1000, 
+  showThumbs = true, 
+  showArrows = true,
+  showStatus = true,
+  showIndicators = true,
+  xs=12
+}) => {
   const classes = useStyles();
 
   return (
     <Grid className="animated fadeIn" container>
-      <Grid item xs={12}>
+      {
+        xs === 10 &&
+        <Grid item xs={1}/>
+      }
+      <Grid item xs={xs}>
         <Carousel
-          autoPlay
-          infiniteLoop
-          interval={8000}
-          transitionTime={1000}
+          autoPlay={autoPlay}
+          infiniteLoop={infiniteLoop}
+          interval={interval}
+          transitionTime={transitionTime}
+          showThumbs={showThumbs}
+          showArrows={showArrows}
+          showStatus={showStatus}
+          showIndicators={showIndicators}
         >
           {
             medias && medias.length > 0 ?

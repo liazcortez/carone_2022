@@ -19,7 +19,7 @@ const Footer = () => {
   const classes = useStyles();
   return (
     <Container maxWidth="lg" className={classes.footer}>
-      <Box style={{textAlign: 'center'}}>
+      <Box style={{textAlign: 'center'}} pb={2}>
           <Typography variant='body2' style={{width:'100%'}}>
           © Car One Group All rights reserved
           </Typography>
