@@ -309,7 +309,7 @@ return (
             type="submit"
             variant="contained"
           >
-            {!update && user.resume ? "Actualizar" : "Enviar"}
+            {!update && user.resume ? "Actualizar" : "Guardar"}
           </Button>
         </Box>
       </Box>

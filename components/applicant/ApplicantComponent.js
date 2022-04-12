@@ -265,7 +265,7 @@ useEffect(()=>{
             size="large"
             type="submit"
             variant="contained"
-            >Enviar</Button>}
+            >Guardar</Button>}
             </CardActions>
 
           </CardContent>
