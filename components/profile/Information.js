@@ -123,7 +123,7 @@ const ProfileDetails = ({ className, edit, ...rest}) => {
               </span>
           </Typography> */}
           {
-            edit ? (
+            (edit && user && user.image !== '') ? (
             <CardActions>
               <Button
                 fullWidth
