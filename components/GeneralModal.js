@@ -106,7 +106,7 @@ const handlePostulated = ()=>{
         {
           user && !user._id &&
           <>
-          <Grid item xs={12} style={{marginBottom: '1em'}}>
+          <Grid item xs={12} >
             <Button fullWidth={fullWidth} variant="contained" color='primary' onClick={()=>{handleOpen();setLogin(true);}}>
                 Ingresa a tu cuenta
             </Button>
