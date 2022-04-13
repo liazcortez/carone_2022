@@ -1,73 +1,427 @@
-import React from "react";
+import React, { Fragment, useEffect } from 'react';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
+import Check from '@material-ui/icons/Check';
 import Meta from "../../components/Meta";
-import { Button, Container, Divider, Box, Typography } from "@material-ui/core";
-import { CheckSquare, ChevronRight, Clock, DollarSign } from 'react-feather'
-import MainCarousel from "../../components/MainCarousel";
-import Link from "next/link";
+import useMake from "../../hooks/useMake";
+import useStore from "../../hooks/useStore";
+import {
+  Container,
+  Step,
+  StepLabel,
+  StepConnector,
+  Typography,
+  Stepper,
+  Button,
+  Divider,
+  Box,
+  Grid,
+  TextField,
+  TextareaAutosize,
+} from '@material-ui/core'
+import * as Yup from 'yup';
+import { Formik } from 'formik';
+import { capitalCase } from 'change-case';
+import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
 
-const imageUrl = "https://automotive-api.s3.us-east-2.amazonaws.com/Global/ce5fd6ba-1d4e-4d4b-bb7e-92ae339eca5e/banner-web-1230x450-CAR-ONE.jpeg";
+const QontoConnector = withStyles({
+  alternativeLabel: {
+    top: 10,
+    left: 'calc(-50% + 16px)',
+    right: 'calc(50% + 16px)',
+  },
+  active: {
+    '& $line': {
+      borderColor: '#784af4',
+    },
+  },
+  completed: {
+    '& $line': {
+      borderColor: '#784af4',
+    },
+  },
+  line: {
+    borderColor: '#eaeaf0',
+    borderTopWidth: 3,
+    borderRadius: 1,
+  },
+})(StepConnector);
 
-const CompraAuto = () => {
+const useQontoStepIconStyles = makeStyles({
+  root: {
+    color: '#eaeaf0',
+    display: 'flex',
+    height: 22,
+    alignItems: 'center',
+  },
+  active: {
+    color: '#556BD6',
+  },
+  circle: {
+    width: 15,
+    height: 15,
+    borderRadius: '50%',
+    backgroundColor: 'currentColor',
+  },
+  completed: {
+    color: '#556BD6',
+    zIndex: 1,
+    fontSize: 22,
+  },
+});
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+  },
+  button: {
+    marginRight: theme.spacing(1),
+  },
+  instructions: {
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+  },
+  inputLabel: {
+    ...theme.typography.body2,
+    color: '#707070',
+    fontWeight: 300,
+    fontSize: 14,
+    marginBottom: 5
+  },
+  textarea: {
+      border: `solid #bcbdbf 1px`,
+      ...theme.typography.body1,
+      color: theme.palette.text.primary,
+      outline: 'none',
+      resize: 'none',
+      padding: 10,
+      width: '100%',
+      borderRadius: 5,
+      backgroundColor: theme.palette.background.paper,
+  },
+  button: {
+    backgroundColor: theme.palette.primary.main,
+    color: '#fff',
+    width: 50,
+    height: 50,
+    margin: 0
+  }
+}));
+
+const StepperView = ({...rest}) => {
+  const classes = useStyles();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const steps = [
+    'Cuentanos más sobre la unidad',
+    'Agencia de tu preferencia',
+    '¿Tienes algún comentario extra relevante de la unidad?',
+    '¿Con quien nos debemos poner en contacto?',
+  ];
+  const { getMakes, makes } = useMake()
+  const { getStores, stores } = useStore()
+
+  useEffect(()=>{
+    getMakes()
+    getStores()
+    //eslint-disable-next-line
+  },[])
   
+  const QontoStepIcon = (props) => {
+    const classes = useQontoStepIconStyles();
+    const { active, completed } = props;
+
+    return (
+      <div
+        className={clsx(classes.root, {
+          [classes.active]: active,
+        })}
+      >
+        {completed ? <Check className={classes.completed} /> : 
+        active ? <DirectionsCarIcon className={classes.completed} /> :  <div className={classes.circle} />}
+      </div>
+    );
+  }
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
   return (
     <>
-      <Meta
+    <Meta
         title={`Compramos tu auto!`}
         description={`Compramos tu auto`}
-      />
+    />
+      <Container maxWidth="lg" style={{height: '80vh'}}>
+        <Divider />
+        <Box display='flex' flexDirection='column' justifyContent='center' style={{height: '100%'}}>
+          <Formik
+            initialValues={{
+              make: '',
+              model: '',
+              kilometers: '',
+              year: '',
+              description: '',
+              state: '',
+              store: '',
+              name: '',
+              email: '',
+              phone: ''
+            }}
+            validationSchema={Yup.object().shape({
+              model: Yup.string().max(255).required('Modelo es requerido'),
+              kilometers: Yup.string().max(255).required('Modelo es requerido'),
+              year: Yup.number().required('Año del modelo es requerido'),
+              state: Yup.string().required('Estado es requerido'),
+              name: Yup.string().max(255).required('Nombre es requerido'),
+              email: Yup.string().email('Ingresa por favor un correo válido').max(255).required('El correo es requerido'),
+              phone: Yup.string().matches(/^[0-9]+$/, 'Ingresa un teléfono válido').test('max length', 'El télefono solo puede contener 10 dígitos', val => val && val.length === 10),
+            })}
+            // onSubmit={async (values, {
+            onSubmit={ (values, {
+              setErrors,
+              setStatus,
+              setSubmitting
+            }) => {
+              try {
+              //codigo
 
-      <Container maxWidth="lg">
-        <Divider style={{ marginBottom: "20px" }} />
-        <Box px={30} pY={0}>
-            <MainCarousel xs={10}  medias={[{ image: imageUrl }]} showThumbs={false} showStatus={false} showArrows={false} showIndicators={false}/>
-        </Box>
-        <Box display='flex' justifyContent='center'>
-            <Link color="inherit" href={`/compramos-tu-auto/valua-tu-auto`} passHref={true}>
-                <Button 
-                    variant='contained'
-                    color='primary'
-                    endIcon={<ChevronRight />}
-                    style={{ height: 65, padding: 20, marginTop: 20 }}
+                if (isMountedRef.current) {
+                  if(!error){
+                    setStatus({ success: true });
+                    setSubmitting(false);
+                  }
+                }
+                
+              } catch (err) {
+                if (isMountedRef.current) {
+                  setStatus({ success: false });
+                  setErrors({ submit: err.error });
+                  setSubmitting(false);
+                }
+              }
+            }}
+          >
+          {({
+            errors,
+            handleBlur,
+            handleChange,
+            handleSubmit,
+            isSubmitting,
+            touched,
+            values
+          }) => (
+            <form noValidate onSubmit={handleSubmit} className={clsx(classes.root)} {...rest}>
+              <Box display='flex' justifyContent='center' mb={0}>
+                <Typography variant='h4'>{steps[activeStep]}</Typography>
+              </Box>
+              <Stepper alternativeLabel activeStep={activeStep} connector={<QontoConnector />} style={{marginBottom: '2em', marginTop: '2em'}}>
+                {steps.map((label) => (
+                  <Step key={label}>
+                    <StepLabel StepIconComponent={QontoStepIcon}></StepLabel>
+                  </Step>
+                ))}
+              </Stepper>
+              
+              <Grid container spacing={3} style={{paddingRight: 160, paddingLeft: 160}}>
+              {
+                activeStep === 0 && 
+                <Fragment>
+                  <Grid item sm={12} md={6}>
+                    <TextField
+                      error={Boolean(touched.make && errors.make)}
+                      fullWidth
+                      helperText={touched.make && errors.make}
+                      name="make"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      placeholder='Selecciona una marca'
+                      value={values.make}
+                      variant="outlined"
+                      select
+                      SelectProps={{native:true}}
                     >
-                    Vender mi auto
-                </Button>
-            </Link>
+                      <option value={''} kay={''}>{'Selecciona una Marca'}</option>
+                      {
+                        makes && makes.map(item =>
+                          <option key={item._id} value={item._id}>{capitalCase(item.name)}</option>
+                        )
+                      }
+                    </TextField>
+                  </Grid>
+                  <Grid item sm={12} md={6}>
+                    <TextField
+                      fullWidth
+                      error={Boolean(touched.model && errors.model)}
+                      helperText={touched.model && errors.model}
+                      label={'Modelo'}
+                      name="model"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      value={values.model}
+                      variant="outlined"
+                    />
+                  </Grid>
+                  <Grid item sm={12} md={6}>
+                    <TextField
+                      error={Boolean(touched.year && errors.year)}
+                      fullWidth
+                      helperText={touched.year && errors.year}
+                      label={'Año'}
+                      name="year"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      value={values.year}
+                      variant="outlined"
+                    />
+                  </Grid>
+                  <Grid item sm={12} md={6}>
+                    <TextField
+                      error={Boolean(touched.kilometers && errors.kilometers)}
+                      fullWidth
+                      helperText={touched.kilometers && errors.kilometers}
+                      // label={'Kilometraje'}
+                      name="kilometers"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      value={values.kilometers}
+                      variant="outlined"
+                      select
+                      SelectProps={{native:true}}
+                    >
+                      <option value={''}>{'Selecciona un Kilometraje'}</option>
+                      <option value={1}>1 a 50,000 kms</option>
+                      <option value={2}>50,0001 a 100,000 kms</option>
+                      <option value={3}>100,000 a 150,000 kms</option>
+                    </TextField>
+                  </Grid>
+                  <Grid item sm={12}>
+                    <Box mt={5} display='flex' flexDirection={'row-reverse'}>
+                      <Button color='primary' variant='contained' onClick={handleNext} style={{minWidth: '15ch'}}>Siguiente</Button>
+                    </Box>
+                  </Grid>
+                </Fragment>
+              }
+              {
+                activeStep === 1 &&
+                <Fragment>
+                  <Grid item sm={12}>
+                    <TextField
+                      error={Boolean(touched.store && errors.store)}
+                      fullWidth
+                      helperText={touched.store && errors.store}
+                      // label={'Agencia de tu preferencia'}
+                      name="store"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      value={values.store}
+                      variant="outlined"
+                      select
+                      SelectProps={{native:true}}
+                    >
+                      <option value={''}>{'Selecciona una Agencia'}</option>
+                      {
+                        stores && stores.map(item =>
+                          <option key={item._id} value={item._id}>{capitalCase(item.make.name + ' ' + item.name)}</option>
+                        )
+                      }
+                    </TextField>
+                  </Grid>
+                  <Grid item sm={12}>
+                    <Box mt={5} display='flex' justifyContent='space-between'>
+                      <Button color='primary' variant='contained' onClick={handleBack} style={{minWidth: '15ch'}}>Atrás</Button>
+                      <Button color='primary' variant='contained' onClick={handleNext} style={{minWidth: '15ch'}}>Siguiente</Button>
+                    </Box>
+                  </Grid>
+                </Fragment>
+              }
+              {
+                activeStep === 2 &&
+                <Fragment>
+                  <Grid item sm={12}>
+                    <Typography className={classes.inputLabel}>Descripción</Typography>
+                    <TextareaAutosize
+                      error={touched.description && errors.description}
+                      name="description"
+                      className={classes.textarea}
+                      placeholder={'Ingrese algún comentario relevante con el cliente'}
+                      minRows={5}
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      value={values.description}
+                    />
+                  </Grid>
+                  <Grid item sm={12}>
+                    <Box mt={5} display='flex' justifyContent='space-between'>
+                      <Button color='primary' variant='contained' onClick={handleBack} style={{minWidth: '15ch'}}>Atrás</Button>
+                      <Button color='primary' variant='contained' onClick={handleNext} style={{minWidth: '15ch'}}>Siguiente</Button>
+                    </Box>
+                  </Grid>
+                </Fragment>
+              }
+              {
+                activeStep === 3 &&
+                <Fragment>
+                  <Grid item sm={12} md={12}>
+                    <TextField
+                      error={Boolean(touched.name && errors.name)}
+                      fullWidth
+                      helperText={touched.name && errors.name}
+                      label={'Nombre Completo'}
+                      name="name"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      value={values.name}
+                      variant="outlined"
+                    />
+                  </Grid>
+                  <Grid item sm={12} md={6}>
+                    <TextField
+                      error={Boolean(touched.email && errors.email)}
+                      fullWidth
+                      helperText={touched.email && errors.email}
+                      label={'Correo Eletrónico'}
+                      name="email"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      value={values.email}
+                      variant="outlined"
+                    />
+                  </Grid>
+                  <Grid item sm={12} md={6}>
+                    <TextField
+                      error={Boolean(touched.phone && errors.phone)}
+                      fullWidth
+                      helperText={touched.phone && errors.phone}
+                      label={'Teléfono (10 Dígitos)'}
+                      name="phone"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      value={values.phone}
+                      variant="outlined"
+                    />
+                  </Grid>
+                  <Grid item sm={12}>
+                    <Box mt={5} display='flex' justifyContent='space-between'>
+                      <Button color='primary' variant='contained' onClick={handleBack} style={{minWidth: '15ch'}}>Atrás</Button>
+                      <Button color='primary' variant='contained' type='submit'>Finalizar</Button>
+                    </Box>
+                  </Grid>
+                </Fragment>
+              }
+              </Grid>
+            </form>
+          )}
+          </Formik>
         </Box>
-        <Box display='flex' justifyContent='space-between' pt={15} pb={5}>
-            <Box m={5} style={{ backgroundColor: '#F8F9FA', padding: 5, borderRadius: 5, textAlign: 'center', width: 250, minHeight: '30ch'}}>
-                <Box py={3}>
-                    <Clock size={60} style={{color: '#636D79'}}/>
-                </Box>
-                <Box style={{paddingLeft: 20, paddingRight: 20}}>
-                    <Typography variant='h6' style={{color: '#636D79', fontSize: 16}}>
-                        Validamos tu oferta en 1 hora
-                    </Typography>
-                </Box>
-            </Box>
-            <Box m={5} style={{ backgroundColor: '#F8F9FA', padding: 5, borderRadius: 5, textAlign: 'center', width: 250, minHeight: '30ch'}}>
-                <Box py={3}>
-                    <CheckSquare size={60} style={{color: '#636D79'}}/>
-                </Box>
-                <Box style={{paddingLeft: 20, paddingRight: 20}}>
-                    <Typography variant='h6' style={{color: '#636D79', fontSize: 16}}>
-                        Sin trabas, sin fraudes, sin preocupaciones
-                    </Typography>
-                </Box>
-            </Box>
-            <Box m={5} style={{ backgroundColor: '#F8F9FA', padding: 5, borderRadius: 5, textAlign: 'center', width: 250, minHeight: '30ch'}}>
-                <Box py={3}>
-                    <DollarSign size={60} style={{color: '#636D79'}}/>
-                </Box>
-                <Box style={{paddingLeft: 20, paddingRight: 20}}>
-                    <Typography variant='h6' style={{color: '#636D79', fontSize: 16}}>
-                        Pagamos en 3 horas 
-                    </Typography>
-                </Box>
-            </Box>
-        </Box>
+
       </Container>
     </>
   );
-};
+}
 
-export default CompraAuto;
+export default StepperView;

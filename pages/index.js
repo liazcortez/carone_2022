@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
-// import Divider from "@material-ui/core/Divider";
 import Tabs from "../components/Tabs";
 
 import MainCarousel from "../components/MainCarousel";
@@ -9,21 +8,14 @@ import CarCardList from "../components/CarCardList";
 import Meta from "../components/Meta";
 import { baseURL } from "../api/api";
 import useMedia from "../hooks/useMedia";
-
-const imageUrl = "/static/images/BannerC1.jpeg";
+import CallToAction from "../components/main/CallToAction";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    paddingBottom: 25
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  },
+ 
 }));
-
-const data = ['']
 
 const Home = ({ makes, categories, medias }) => {
   const classes = useStyles();
@@ -36,10 +28,10 @@ const Home = ({ makes, categories, medias }) => {
   return (
     <>
       <Meta title="Car One Group" description="Autos Nuevo, Seminuevos" />
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className={classes.root}>
         <MainCarousel  medias={mediasMainBanner}/>
-        {/* <Carousel /> */}
         <Tabs categories={categories} />
+        <CallToAction style={{marginBottom: '2em'}} color='white'/>
         <CarCardList title="BUSCAR POR MARCA" data={makes} />
         
       </Container>
