@@ -2,20 +2,22 @@ import React from "react";
 import { TextField } from "@material-ui/core";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
-import useJob from "../../hooks/useJob";
+// import useJob from "../../hooks/useJob";
 
-const SearchBarTop = ({ setQuery, query, disableTopBar, store, category, sort }) => {
-
-  const { getJobs } = useJob();
+const SearchBarTop = ({ setQuery, query, disableTopBar,setPage, store, category, sort }) => {
+  const [search,setSearch] = React.useState('');
+  // const { getJobs } = useJob();
 
   const handleChange = (event) => {
     event.preventDefault();
-    setQuery(event.target.value);
+    setSearch(event.target.value);
   }
 
   const handleKeyUp = (event) => {
     if (event.keyCode === 13) {
-      getJobs(1, `${query}&store=${store}&category=${category}&salaries=${sort}`)
+      // getJobs(1, `${query}&store=${store}&category=${category}&salaries=${sort}`)
+      setPage(1);
+      setQuery(event.target.value);
     }
   }
 
@@ -33,7 +35,7 @@ const SearchBarTop = ({ setQuery, query, disableTopBar, store, category, sort })
         onKeyUp={handleKeyUp}
         fullWidth
         disabled={disableTopBar}
-        value={query}
+        value={search}
         onChange={handleChange}
         name="query"
         InputProps={{

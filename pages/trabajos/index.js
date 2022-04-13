@@ -6,10 +6,11 @@ import Pagination from "../../components/Pagination";
 import useJob from "../../hooks/useJob";
 import JobItem from "../../components/trabajos/JobItem";
 import SelectedJob from "../../components/trabajos/SelectedJob";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 
 const index = ({ jobsSP, categories, stores, total }) => {
-  const { jobs, getJobs, loading, results } = useJob();
+  const { jobs, getJobs, loading, results,clearState:clearJobs } = useJob();
 
   const [disableTopBar, setDisableTopBar] = useState(false);
   const [page, setPage] = useState(1);
@@ -18,27 +19,36 @@ const index = ({ jobsSP, categories, stores, total }) => {
   const [store, setStore] = useState("-");
   const [sort, setSort] = useState("-");
   const [selectedJob,setSelectedJob]= useState(false);
-
+  const [infiniteJobs,setInfiniteJobs] = useState([]);
   const changePage = (event, value) => setPage(value);
 
-  useEffect(()=>{
-    if((jobs && jobs.length <=0) && selectedJob )return;
-    setSelectedJob(jobs[0])
-  },[jobs])
 
   useEffect(() => {
+    setInfiniteJobs([]);
+    loadData(true);
+  }, [store, category, sort,query]);
+
+
+  useEffect(() => {
+    if(jobs && jobs.length <=0)return;
+    if(page === 2)setSelectedJob(jobs[0]);
+      setInfiniteJobs([...infiniteJobs, ...jobs]);
+      clearJobs();
+  }, [jobs]);
+
+  useEffect(() => {
+    // load first page then handle with infinite scroll
+    // loadData();
+  }, []);
+
+  const loadData = (firstPage=false)=>{
     getJobs(
       page,
       `${query}&store=${store}&category=${category}&salaries=${sort}`
     );
-  }, [page]);
+    setPage(page + 1);
+  }
 
-  useEffect(() => {
-    getJobs(
-      page,
-      `${query}&store=${store}&category=${category}&salaries=${sort}`
-    );
-  }, [store, category, sort]);
   return (
     <>
       <Meta
@@ -62,24 +72,33 @@ const index = ({ jobsSP, categories, stores, total }) => {
         />
         <Grid spacing={1} container>
             <Grid item xs={12} md={5}>
-            {
-              jobs && jobs.length > 0 ? jobs.map(
-                (job, index) => (
-                    <JobItem setSelectedJob={setSelectedJob} selectedJob={selectedJob} job={job} loading={loading} key={job._id} />
-                )
-              ) : ''
-            }
+            
+
+              <InfiniteScroll
+                dataLength={infiniteJobs.length}
+                next={loadData}
+                hasMore={true}
+                // loader={<CustomLoading {...{ loading }} />}
+                >
+                              {
+                                infiniteJobs.map(
+                                  (job, index) => (
+                                      <JobItem setSelectedJob={setSelectedJob} selectedJob={selectedJob} job={job} loading={loading} key={job._id} />
+                                  )
+                                )
+                              }
+              </InfiniteScroll>
             </Grid>
             <Grid className='SelectedJobContainer' item  md={7}>
              {selectedJob? <SelectedJob job={selectedJob}/>:''}
             </Grid>
         </Grid>
-        <Pagination
+        {/* <Pagination
           total={results !== null ? results : total}
           page={page}
           limit={12}
           changePage={changePage}
-        />
+        /> */}
       </Container>
     </>
   );

@@ -16,6 +16,7 @@ const SearchBar = ({ setQuery, query, stores, categories, setCategory, setStore,
         category={category}
         store={store}
         sort={sort}
+        setPage={setPage}
       />
       <SearchBarBottom 
         setPage={setPage}
