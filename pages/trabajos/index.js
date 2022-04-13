@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Grid } from "@material-ui/core";
 import Meta from "../../components/Meta";
 import SearchBar from "../../components/trabajos/SearchBar";
-import Pagination from "../../components/Pagination";
+import CustomLoading from "../../components/CustomLoading";
 import useJob from "../../hooks/useJob";
 import JobItem from "../../components/trabajos/JobItem";
 import SelectedJob from "../../components/trabajos/SelectedJob";
@@ -78,7 +78,7 @@ const index = ({ jobsSP, categories, stores, total }) => {
                 dataLength={infiniteJobs.length}
                 next={loadData}
                 hasMore={true}
-                // loader={<CustomLoading {...{ loading }} />}
+                // loader={<CustomLoading {...{ loading:true }} />}
                 >
                               {
                                 infiniteJobs.map(
@@ -88,6 +88,7 @@ const index = ({ jobsSP, categories, stores, total }) => {
                                 )
                               }
               </InfiniteScroll>
+             {loading &&  <CustomLoading />}
             </Grid>
             <Grid className='SelectedJobContainer' item  md={7}>
              {selectedJob? <SelectedJob job={selectedJob}/>:''}
