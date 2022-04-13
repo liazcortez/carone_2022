@@ -9,6 +9,7 @@ import {
     makeStyles
 } from '@material-ui/core';
 import clsx from 'clsx';
+import Link from 'next/link'
 
 const useStyles = makeStyles((theme) => ({
     root: {},
@@ -47,9 +48,11 @@ const Calltoaction = ({ color = 'white', ...rest }) => {
                         </center>
                     </Box>
                     <Box display='flex' alignContent='center' alignItems='center' >
-                        <Button variant='contained' color='primary' className={classes.button}>
-                            Vender tu auto
-                        </Button>
+                        <Link href={'/compramos-tu-auto'}>
+                            <Button variant='contained' color='primary' className={classes.button}>
+                                Vender tu auto
+                            </Button>
+                        </Link>
                     </Box>
                 </Box>
             </CardContent>
