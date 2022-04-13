@@ -33,7 +33,7 @@ Meta.defaultProps = {
   description:
     "Car One Group - Venta de autos nuevos y seminuevos en Monterrey Nuevo Leon y Mexico",
   url: "https://www.carone.com.mx",
-  image: "https://kiamonterrey.mx/wp-content/uploads/2019/08/VIDEO_SEDONA.jpg",
+  image: "https://automotive-api.s3.us-east-2.amazonaws.com/60353a7149ef4d0d9d02489b/4174612d-09b0-4089-9d58-60ef1450c31a/logo.png",
 };
 
 export default Meta;

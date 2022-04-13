@@ -116,7 +116,7 @@ const handlePostulated = ()=>{
           <Typography 
             style={{ cursor: 'pointer'}}
             onClick={()=>{handleOpen();setLogin(false)}}
-            variant='p1'
+            variant='body1'
             color='textSecondary'
           >
             ¿No tienes cuenta?

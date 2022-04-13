@@ -224,7 +224,6 @@ const AuthState = props => {
       
       dispatch({ type: UPDATE_PROFILE, payload: res.data.data });
     } catch (err) {
-      console.log(err);
       dispatch({ type: SET_ERROR, payload: err.response});
     }
   };

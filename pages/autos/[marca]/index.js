@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Marca = ({ vehicles }) => {
+const Marca = ({ vehicles, make }) => {
 
   const router = useRouter();
   const { marca } = router.query;
@@ -28,6 +28,7 @@ const Marca = ({ vehicles }) => {
       <Meta
         title={`Autos tipo ${marca.toUpperCase()}`}
         description={`Busca tu auto por marca ${marca}`}
+        image={make.image ? make.image : 'https://automotive-api.s3.us-east-2.amazonaws.com/60353a7149ef4d0d9d02489b/4174612d-09b0-4089-9d58-60ef1450c31a/logo.png'}
       />
 
       <Container maxWidth="lg">
@@ -57,15 +58,25 @@ const Marca = ({ vehicles }) => {
 
 export const getServerSideProps = async (context) => {
 
-    // `https://apicarone.com/api/v1/vehicles/vehiclesByMake/${context.params.marca}?sort=index`
+  // `https://apicarone.com/api/v1/vehicles/vehiclesByMake/${context.params.marca}?sort=index`
   const res = await fetch(
     `${baseURL}/vehicles/vehiclesByMake/${context.params.marca}?sort=index`
   );
   const vehicles = await res.json();
 
+  const resMake = await fetch(`${baseURL}/makes/slug/${context.params.marca}`);
+  const make = await resMake.json();
+
+  let resV = [];
+  let resM = {}
+  if(vehicles.data) resV = vehicles.data
+  if(make) resM = make
+
+
   return {
     props: {
-      vehicles: vehicles.data,
+      vehicles: resV,
+      make: resM
     },
   };
 };

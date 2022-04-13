@@ -36,16 +36,12 @@ const index = () => {
     document.getElementById("chatframe").appendChild(livevid);
   };
   function onPlayerStateChange() {
-    console.log("change");
   }
 
   React.useEffect(() => {
     onYouTubeIframeAPIReady();
   }, []);
 
-  React.useEffect(() => {
-    console.log(player);
-  }, [player]);
 
   return (
     <>

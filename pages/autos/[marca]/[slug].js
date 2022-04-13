@@ -143,10 +143,10 @@ const Slug = ({ vehicle }) => {
 export const getServerSideProps = async (ctx) => {
   // `https://apicarone.com/api/v1/vehicles?slug=${ctx.params.slug}`
   const res = await fetch(`${baseURL}/vehicles?slug=${ctx.params.slug}`);
-
   const vehicle = await res.json();
 
   let currentVehicle =( (typeof vehicle.data[0] != 'undefined') && vehicle.data.length > 0) ? vehicle.data[0] : { isPublished: false };
+
   return {
     props: {
       vehicle:currentVehicle

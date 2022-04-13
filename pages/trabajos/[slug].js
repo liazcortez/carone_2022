@@ -38,6 +38,7 @@ const slug = ({ job }) => {
       <Meta
         title="Busqueda de trabajos Car One"
         description="Los mejores trabajos los encuentras en Car One"
+        image={job.image}
       />
       <Container maxWidth="lg">
         <BreadCrumJobs data={job} section="Trabajos" />
