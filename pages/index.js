@@ -12,28 +12,26 @@ import CallToAction from "../components/main/CallToAction";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingBottom: 25
+    paddingBottom: 25,
   },
- 
 }));
 
 const Home = ({ makes, categories, medias }) => {
   const classes = useStyles();
   const { mediasMainBanner, getMediasMainBanner } = useMedia();
-  
+
   useEffect(() => {
     getMediasMainBanner();
-  },[])
+  }, []);
 
   return (
     <>
       <Meta title="Car One Group" description="Autos Nuevo, Seminuevos" />
       <Container maxWidth="lg" className={classes.root}>
-        <MainCarousel  medias={mediasMainBanner}/>
+        <MainCarousel medias={mediasMainBanner} />
         <Tabs categories={categories} />
-        <CallToAction style={{marginBottom: '2em'}} color='white'/>
+        <CallToAction style={{ marginBottom: "2em" }} color="white" />
         <CarCardList title="BUSCAR POR MARCA" data={makes} />
-        
       </Container>
     </>
   );

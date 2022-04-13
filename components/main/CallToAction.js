@@ -14,7 +14,7 @@ import Link from "next/link";
 const useStyles = makeStyles((theme) => ({
   root: {},
   button: {
-    borderRadius: 30,
+    // borderRadius: 30,
     padding: 10,
     minWidth: 180,
     height: 55,
@@ -43,12 +43,10 @@ const Calltoaction = ({ color = "white", ...rest }) => {
       <CardContent>
         <Box display="flex" justifyContent="space-between" px={10}>
           <Box pr={10}>
-            <center>
-              <h1 style={{ margin: 0 }}>Car One Compra tu auto!</h1>
-              <Typography variant="caption" style={{ fontSize: 16 }}>
-                SIN TRABAS - SIN FRAUDES - SIN PREOCUPACIONES
-              </Typography>
-            </center>
+            <h1 style={{ margin: 0 }}>Car One Compra tu auto!</h1>
+            <Typography variant="caption" style={{ fontSize: 16 }}>
+              SIN TRABAS - SIN FRAUDES - SIN PREOCUPACIONES
+            </Typography>
           </Box>
           <Box display="flex" alignContent="center" alignItems="center">
             <Link href={"/compramos-tu-auto"}>
