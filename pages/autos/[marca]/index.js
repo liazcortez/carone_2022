@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Marca = ({ vehicles, make=false }) => {
+const Marca = ({ vehicles, make }) => {
 
   const router = useRouter();
   const { marca } = router.query;
@@ -65,19 +65,19 @@ export const getServerSideProps = async (context) => {
 
   const vehicles = await res.json();
 
-  // const resMake = await fetch(`${baseURL}/makes/slug/${context.params.marca}`);
-  // const make = await resMake.json();
+  const resMake = await fetch(`${baseURL}/makes/slug/${context.params.marca}`);
+  const make = await resMake.json();
 
   let resV = [];
   let resM = {}
   if(vehicles.data) resV = vehicles.data
-  // if(make) resM = make
+  if(make) resM = make
 
 
   return {
     props: {
       vehicles: resV,
-      // make: resM
+      make: resM
     },
   };
 };
