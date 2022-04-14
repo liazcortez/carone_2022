@@ -20,6 +20,12 @@ const useStyles = makeStyles((theme) => ({
     height: 55,
   },
   card: {
+    [theme.breakpoints.down('xs')]: {
+      display:'none'
+    },
+    [theme.breakpoints.down('sm')]: {
+      display:'block'
+    },
     // boxShadow: '2px 2px 10px 1px rgba(0, 0, 0, 0.1);',
   },
   blue: {
@@ -35,12 +41,12 @@ const Calltoaction = ({ color = "white", ...rest }) => {
   const classes = useStyles();
 
   return (
-    <Card
+    <Card 
       className={clsx(classes[color], classes.card)}
       elevation={0}
       {...rest}
     >
-      <CardContent>
+      <CardContent className='dontShowOnMobile' >
         <Box display="flex" justifyContent="space-between" px={10}>
           <Box pr={10}>
             <h1 style={{ margin: 0 }}>Car One Compra tu auto!</h1>

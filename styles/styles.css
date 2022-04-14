@@ -108,6 +108,9 @@
   content: url("/static/logo.png");
 }
 @media only screen and (max-width: 400px) {
+  .dontShowOnMobile{
+    display:none
+  }
   .mainLogo {
     max-width: 2rem;
     content: url("/static/logoMobile.png");
