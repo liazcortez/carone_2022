@@ -10,15 +10,14 @@ const useStyles = makeStyles((theme) => ({
     height: 140,
   },
   categories: {
-    [theme.breakpoints.up("md")]: {
-      display: "block",
-    },
+ 
     marginBottom: 30,
   },
 }));
 
 const CarCardList = ({ title, data, columns }) => {
   const classes = useStyles();
+  
   return (
     <Container maxWidth="lg" style={{ marginTop: 20 }}>
       <h1 style={{ marginBottom: "70px", textAlign: "center" }}>{title}</h1>
