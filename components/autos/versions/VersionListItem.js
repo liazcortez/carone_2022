@@ -111,7 +111,7 @@ const VersionListItem = ({ version, model }) => {
                   (classes.modelFormatting, classes.modelFormattingUpper)
                 }
               >
-                {model} {version.name}
+               {version.name}
               </Typography>
             </a>
           </Link>
