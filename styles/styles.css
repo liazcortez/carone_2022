@@ -246,3 +246,36 @@ display:none
 display:none
   }
 }
+
+.vehiclesGrid {
+  display:grid!important;
+  gap:1rem;
+  margin-bottom:50rem
+}
+
+@media only screen and (min-width: 600px) {
+  .vehiclesGrid {
+    grid-template-columns:1fr;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .vehiclesGrid {
+    grid-template-columns:1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .vehiclesGrid {
+    grid-template-columns:1fr 1fr 1fr 1fr;
+  }
+}
+
+
+/* xs={12} sm={4} md={3} lg={3} */
+
+/* xs, extra-small: 0px
+sm, small: 600px
+md, medium: 900px
+lg, large: 1200px
+xl, extra-large: 1536px */
