@@ -77,7 +77,6 @@ const TabsComponent = ({ features, gallery, video,technicalSheet }) => {
               imageUrl.substr(imageUrl.lastIndexOf('/') + 1)
             );
             document.body.appendChild(link);
-            console.log(link)
             link.click();
           });
         })

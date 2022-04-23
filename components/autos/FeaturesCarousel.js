@@ -96,7 +96,7 @@ const FeaturesCarousel = ({ title, data }) => {
           showEmptySlots={true}
           pagination={true}
         >
-          {data.map((category) => (
+          {data && data.map((category) => (
             <Item key={category._id} result={category} />
           ))}
         </Carousel>
