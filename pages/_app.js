@@ -15,7 +15,10 @@ import MediaState from "../context/media/MediaState";
 import AlertState from "../context/alert/AlertState";
 import ApplicantState from "../context/applicant/ApplicantState";
 import StoreState from "../context/store/StoreState";
+import PreownedState from "../context/preowned/PreownedState";
+
 import '../styles/styles.css'
+
 export default function MyApp(props) {
   const { Component, pageProps } = props;
 
@@ -45,17 +48,19 @@ export default function MyApp(props) {
               <ApplicantState>
                 <StoreState>
                   <VehicleState>
-                    <MakeState>
-                      <JobState>
-                        <CategoryState>
-                          <MediaState>
-                            <SnackbarProvider dense maxSnack={3}>
-                              <Component {...pageProps} />
-                            </SnackbarProvider>
-                          </MediaState>
-                        </CategoryState>
-                      </JobState>
-                    </MakeState>
+                    <PreownedState>
+                      <MakeState>
+                        <JobState>
+                          <CategoryState>
+                            <MediaState>
+                              <SnackbarProvider dense maxSnack={3}>
+                                <Component {...pageProps} />
+                              </SnackbarProvider>
+                            </MediaState>
+                          </CategoryState>
+                        </JobState>
+                      </MakeState>
+                    </PreownedState>
                   </VehicleState>
                 </StoreState>
               </ApplicantState>

@@ -5,7 +5,7 @@ const CarGalleryMedia = ({ gallery }) => {
   return (
     <Container maxWidth="lg">
       <Grid container spacing={3}>
-        {gallery.map((i) => (
+        {gallery && gallery.map((i) => (
           <Grid key={i._id} item xs={12} lg={4}>
             <img
               src={i.image}

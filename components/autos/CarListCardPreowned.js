@@ -111,12 +111,12 @@ const CarlistCard = ({ vehicle, setDataList }) => {
   return (
     <Card  className={(classes.root, classes.hover)}>
       {vehicle ? (
-        <Link href={`/autos/${vehicle.make.name}/${vehicle.slug}`}>
+        <Link href={`/seminuevos/${vehicle.make.name}/${vehicle.slug}`}>
           <a>
             <CardMedia
               className={classes.media}
               image={vehicle.mainImage ? vehicle.mainImage : emptyImage}
-              title={`${vehicle && vehicle.model && capitalCase(vehicle.model)} ${vehicle && vehicle.year}`}
+              title={`${vehicle && vehicle.version && capitalCase(vehicle.version)} ${vehicle && vehicle.year}`}
             />
           </a>
         </Link>
@@ -138,11 +138,11 @@ const CarlistCard = ({ vehicle, setDataList }) => {
                 </Typography>
               </a>
             </Link>
-            <Link href={`/autos/${vehicle && vehicle.make && vehicle.make.name}/${vehicle && vehicle.slug}`}>
+            <Link href={`/seminuevos/${vehicle && vehicle.make && vehicle.make.name}/${vehicle && vehicle.slug}`}>
               <a style={{ textDecoration: "none", color: "black" }}>
                 <Typography variant="h6" className={classes.modelFormatting}>
 
-                  {`${vehicle && vehicle.model} ${vehicle.year}`}
+                  {`${vehicle && vehicle.vehicle ? vehicle.vehicle.model :''} ${vehicle.version} ${vehicle.year}`}
                 </Typography>
               </a>
             </Link>
