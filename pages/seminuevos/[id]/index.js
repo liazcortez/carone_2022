@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Grid, Typography, Divider, Box} from "@material-ui/core";
 import { object } from "yup";
 import SemisForm from "../../../components/preowned/SemisForm";
+import SemisCarosel from "../../../components/preowned/SemisCarousel"
 import { Form } from "formik";
 
 const index = () => {
@@ -18,7 +19,6 @@ const index = () => {
             KIA RIO SEDAN LX 2020
           </Typography>
 
-          
         <Box style={{display: "flex", justifyContent: "stretch", margin: "0px", paddingBlockEnd: "1rem"}}>
 
           <Typography
@@ -50,23 +50,7 @@ const index = () => {
         
         <Grid style={{minHeight:'10rem'}} item xs={8}>
             <Grid container spacing={3}>
-
-                <Grid item xs={12}>
-                <img style={{width: "100%", height:"35rem"}} src="https://caroneseminuevos.com/wp-content/uploads/2022/04/IMG_20220409_102637.jpg" />
-                </Grid>
-
-                <Grid item xs={4}>
-                <img style={{width: "100%", height:"8rem", objectFit: "cover"}} src="https://caroneseminuevos.com/wp-content/uploads/2022/04/IMG_20220409_102739.jpg" />
-                </Grid>
-
-                <Grid item xs={4}>
-                <img style={{width: "100%", height:"8rem", objectFit: "cover"}} src="https://caroneseminuevos.com/wp-content/uploads/2022/04/IMG_20220409_102758.jpg" />
-                </Grid>
-
-                <Grid item xs={4}>
-                <img style={{width: "100%", height:"8rem", objectFit: "cover"}} src="https://caroneseminuevos.com/wp-content/uploads/2022/04/IMG_20220409_102805.jpg" />
-                </Grid>
-
+                <SemisCarosel/>
             </Grid>
         </Grid>
 
