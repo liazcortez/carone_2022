@@ -114,8 +114,8 @@ const Slug = ({ preowned }) => {
             </Typography>
         </Grid>
 
-            <Grid container spacing={3}>
-               {/*<SemisCarousel/>*/} 
+            <Grid container>
+               <SemisCarousel medias={[{image:preowned.mainImage,key:0}, ...preowned.gallery]}/>
             </Grid>
         </Grid>
 
