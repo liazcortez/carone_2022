@@ -15,7 +15,7 @@ import { useEffect } from "react";
 const Slug = ({ preowned }) => {
   const router = useRouter();
 
-  useEffect(()=>{console.log(preowned)}, [preowned] )
+  // useEffect(()=>{console.log(preowned)}, [preowned] )
   
 
   const url = `https://carone2021.herokuapp.com${router.asPath}`;
@@ -120,7 +120,7 @@ const Slug = ({ preowned }) => {
         </Grid>
 
         <Grid style={{minHeight:'10rem'}}   item xs={5}> {/*Aqui es xs={4}*/}
-            <SemisForm />
+            <SemisForm preowned={preowned}/>
         </Grid>
         
         
