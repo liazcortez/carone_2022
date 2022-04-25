@@ -28,7 +28,7 @@ const Banner = ({
         xs === 10 &&
         <Grid item xs={1}/>
       }
-      <Grid style={{width:'90vw'}}  item xs={xs}>
+      <Grid item xs={xs}>
         <Carousel
           autoPlay={autoPlay}
           infiniteLoop={infiniteLoop}
