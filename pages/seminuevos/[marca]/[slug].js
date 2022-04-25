@@ -10,12 +10,16 @@ import SemisForm from "../../../components/preowned/SemisForm";
 import NumberFormat from "react-number-format";
 import { useRouter } from "next/router";
 import { baseURL } from "../../../api/api";
+import { useEffect } from "react";
 
 const Slug = ({ preowned }) => {
   const router = useRouter();
 
+  useEffect(()=>{console.log(preowned)}, [preowned] )
+  
+
   const url = `https://carone2021.herokuapp.com${router.asPath}`;
-  const title = (preowned.make && preowned.version && preowned.year)?`${preowned.make.name} ${preowned.versions} ${preowned.year}`:false;
+  const title = (preowned.make && preowned.version && preowned.year)?`${preowned.make.name} ${preowned.versions} ${preowned.year}  `:false;
 
   const Capitalize = (string) => {
     if (string === undefined) return "";
@@ -64,12 +68,13 @@ const Slug = ({ preowned }) => {
     <Container maxWidth="lg">
       <Grid container style={{ marginBottom: 50 }}>
         <Grid item xs={12}>
+        
         <Typography
             variant="h5"
             component="h3"
             style={{ fontWeight: "bold", color: "#656d78" }}
           >
-            KIA RIO SEDAN LX 2020
+            {preowned.make.name.toUpperCase()} {preowned.version.toUpperCase()} {preowned.year}
           </Typography>
 
         <Box style={{display: "flex", justifyContent: "stretch", margin: "0px", paddingBlockEnd: "1rem"}}>
@@ -79,7 +84,7 @@ const Slug = ({ preowned }) => {
               component="h3"
               style={{color: "#656d78" }}
             >
-                39,408 kms |
+                {preowned.km} kms |
             </Typography>
             
             <Typography
@@ -87,7 +92,7 @@ const Slug = ({ preowned }) => {
               component="h3"
               style={{color: "#656d78", marginLeft: "1rem"}}
             >
-            Automatica |
+            {Capitalize(preowned.transmision)} |
             </Typography>
 
             <Typography
@@ -101,13 +106,20 @@ const Slug = ({ preowned }) => {
          </Box>
         </Grid>
         
-        <Grid style={{minHeight:'10rem'}} item xs={8}>
+        <Grid style={{minHeight:'10rem'}} item xs={7}> {/*Aqui es xs={8}*/}
+
+        <Grid container spacing={3}>
+            <Typography style={{margin: "1rem", paddingBlockEnd: "1rem"}}>
+              {preowned.description}
+            </Typography>
+        </Grid>
+
             <Grid container spacing={3}>
-                <SemisCarousel/>
+               {/*<SemisCarousel/>*/} 
             </Grid>
         </Grid>
 
-        <Grid style={{minHeight:'10rem'}}   item xs={4}>
+        <Grid style={{minHeight:'10rem'}}   item xs={5}> {/*Aqui es xs={4}*/}
             <SemisForm />
         </Grid>
         
@@ -118,50 +130,104 @@ const Slug = ({ preowned }) => {
              component="h3"
               style={{ fontWeight: "bold", color: "#656d78", paddingTop: "2rem", paddingBlockEnd: "1rem"}}
              >
-                CARACTERISTICAS KIA RIO SEDAN LX 2020
+                CARACTERISTICAS {preowned.make.name.toUpperCase()} {preowned.version.toUpperCase()} {preowned.year}
              </Typography>
 
             <Divider/>
 
           <Grid container spacing={3} style={{paddingTop: "1rem"}}>
                 <Grid item xs={3}>
-                    <Typography style={{paddingBlockEnd: "2rem", fontWeight: 600}}>
+                  <Box>
+                    <Typography style={{ fontWeight: 600}}>
                         Marca
                     </Typography>
 
-                    <Typography style={{fontWeight: 600}}>
-                        Kilometraje
+                    <Typography style={{paddingBlockEnd: "2rem"}}>
+                    {Capitalize(preowned.make.name)}
                     </Typography>
+                  </Box>
+
+                  <Box>
+                    <Typography style={{fontWeight: 600}}>
+                      Kilometraje
+                    </Typography>
+
+                    <Typography style={{paddingBlockEnd: "2rem"}}>
+                      {preowned.km}
+                    </Typography>
+                  </Box>
                 </Grid>
 
                 <Grid item xs={3}>
-                    <Typography style={{paddingBlockEnd: "2rem", fontWeight: 600}}>
-                        Modelo
-                    </Typography>
+                    
+                    <Box>
+                      <Typography style={{fontWeight: 600}}>
+                          Modelo
+                      </Typography>
 
+                      <Typography style={{paddingBlockEnd: "2rem"}}>
+                        {preowned.version}
+                      </Typography>
+
+                    </Box>
+              
+                    <Box>
                     <Typography style={{fontWeight: 600}}>
                         Precio
                     </Typography> 
+
+                    <Typography>
+                    <NumberFormat
+                      value={preowned.price}
+                      displayType={"text"}
+                      prefix={"$"}
+                      suffix={" MXN"}
+                    />
+                    </Typography>
+                    </Box>
+
                 </Grid>
 
                 <Grid item xs={3}>
-                    <Typography style={{paddingBlockEnd: "2rem", fontWeight: 600}}>
+                  <Box>
+                    <Typography style={{fontWeight: 600}}>
                         Año
                     </Typography>
 
-                    <Typography style={{fontWeight: 600}}>
-                        Tansmisión
+                    <Typography style={{paddingBlockEnd: "2rem"}}>
+                        {preowned.year}
                     </Typography>
+                  
+                  </Box>
+                  
+                  <Box>
+                    <Typography style={{fontWeight: 600}}>
+                        Transmisión
+                    </Typography>
+
+                    <Typography>
+                    {Capitalize(preowned.transmision)}
+                    </Typography>
+                  </Box>
                 </Grid>
 
                 <Grid item xs={3}>
-                    <Typography style={{paddingBlockEnd: "2rem", fontWeight: 600}}>
+                    <Box>
+                      <Typography style={{paddingBlockEnd: "2rem", fontWeight: 600}}>
                         Agencia
-                    </Typography>
+                      </Typography>
+                    </Box>
 
+                  <Box>
                     <Typography style={{fontWeight: 600}}>
                         Tipo
                     </Typography>
+
+                    <Typography>
+                      
+                    </Typography>
+
+                  </Box>
                 </Grid>
           </Grid>
         </Grid>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Box, Button} from "@material-ui/core";
+import { Typography, Box, Button, Divider} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 
 const SemisForm = () => {
@@ -8,7 +8,8 @@ const SemisForm = () => {
     <Box
         style={{ padding: 20, borderRadius: 10, marginBottom: 10, border: "1px solid #dbf2ff", flexDirection: "column"}}>
 
-        <Box>
+        <Box style={{justifyContent: "center"}}>
+          <Divider/>
             <Typography
                       variant="h6"
                       component="p"
@@ -17,8 +18,6 @@ const SemisForm = () => {
                     Cotiza Online
             </Typography>
         </Box>
-
-      
 
         <Box>
           <TextField
@@ -74,6 +73,39 @@ const SemisForm = () => {
             borderRadius: 10,
           }}
           />
+        </Box>
+
+        <Box>
+                <TextField
+                  id="outlined-basic"
+                  label="Tiempo de compra"
+                  variant="outlined"
+                  name="timeFrame"
+                  fullWidth
+                  select 
+                  SelectProps={{ native: true }}
+                  style={{
+                    marginBottom: 10,
+                    border: "1px solid #dbf2ff",
+                    borderRadius: 10,
+                  }}
+                >
+                  <option>
+                  </option>
+
+                </TextField>
+                <TextField
+                  id="outlined-basic"
+                  label="Enganche"
+                  variant="outlined"
+                  name="downPayment"
+                  fullWidth
+                  style={{
+                    marginBottom: 10,
+                    border: "1px solid #dbf2ff",
+                    borderRadius: 10,
+                  }}
+                />
         </Box>
 
         <Box>
