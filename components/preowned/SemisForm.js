@@ -7,6 +7,7 @@ const SemisForm = () => {
     
     <Box
         style={{ padding: 20, borderRadius: 10, marginBottom: 10, border: "1px solid #dbf2ff", flexDirection: "column"}}>
+        
 
         <Box style={{justifyContent: "center"}}>
           <Divider/>

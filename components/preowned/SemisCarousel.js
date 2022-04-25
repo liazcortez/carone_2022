@@ -42,13 +42,13 @@ const Banner = ({
           {
             medias && medias.length > 0 ?
             medias.map((item, key) => (
-              <div>
+              <div style={{width: "100%"}}>
                 <img src={item.image} key={key}/>
               </div>
             )) :
             <div>
                 
-              <img src="https://caroneseminuevos.com/wp-content/uploads/2022/04/IMG_20220409_102637.jpg" />
+              <img  src=""/>
 
             </div>
           }
