@@ -1,16 +1,110 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Typography, Box, Button, Divider} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
+import { useSnackbar } from "notistack";
+import axios from "axios";
 
-const SemisForm = () => {
+const SemisForm = ({preowned}) => {
+  useEffect(()=>{console.log(preowned)}, [preowned] )
+
+  const [dissableButton,setDissableButton] = useState(false)
+  
+  const defaultData = {
+    name: "",
+    email: "",
+    phone: "",
+    carType:'seminuevo',
+    version:preowned.version,
+    downPayment: 0,
+    store: preowned.store.dpxStore,
+    vehicle: preowned.vehicle,
+    modelType: preowned.vehicle.modelType,
+    vehicleModel: preowned.vehicle.model,
+    make: preowned.vehicle.make,
+    sellerMake:preowned.make,
+    year: preowned.year,
+    source: "605b541a020c150355aac5e6",
+  };
+
+  const [formData, setFormData] = React.useState(defaultData);
+
+  const { name, email, phone, timeFrame, downPayment } = formData;
+
+  const { enqueueSnackbar } = useSnackbar();
+
+  const onHandleSubmit = async(e) => {
+    e.preventDefault();
+    await setDissableButton(true);
+
+    let emailValidation = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
+    let phoneValidation = new RegExp(/^[0-9]{10}$/);
+    let downPaymentValidation = new RegExp(/^[0-9]+$/);
+    console.log(formData);
+    if(formData.name === '' || formData.email === '' || formData.phone === ''){
+       enqueueSnackbar("Por favor llena todos los campos", {
+        variant: "error",
+      });
+    }else if(!phoneValidation.test(formData.phone)){
+       enqueueSnackbar("Por favor utiliza un télefono válido (10 Dpigitos)", {
+        variant: "error",
+      });
+    }
+    else if(!emailValidation.test(formData.email)){
+      enqueueSnackbar("Por favor utiliza un email válido", {
+     variant: "error",
+   });
+   }
+    else if(!downPaymentValidation.test(formData.downPayment)){
+       enqueueSnackbar("Ingresa un enganche válido (Solo números)", {
+        variant: "error",
+      });
+    }else{
+      
+      await sendLead(formData);
+
+        enqueueSnackbar("Se ha enviado tu información, en breve un asesor se pondrá en contacto contigo.", {
+          variant: "success",
+        });
+      
+    }
+    setDissableButton(false);
+
+  };
+
+
+  const sendLead = async (lead) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      enqueueSnackbar("Formulario Completado Correctamente", {
+        variant: "info",
+      });
+      const response = await axios.post(
+        // "https://dealerproxapi.com/api/v1/leads/website",
+        "http://localhost:5001/api/v1/leads/website",
+        lead,
+        config
+      );
+      setFormData(defaultData)
+    } catch (err) {
+      console.log(err)
+    }
+  };
+
+  const onHandleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+
   return (
     
-    <Box
+    <form onSubmit={onHandleSubmit}>
+      <Box
         style={{ padding: 20, borderRadius: 10, marginBottom: 10, border: "1px solid #dbf2ff", flexDirection: "column"}}>
         
 
         <Box style={{justifyContent: "center"}}>
-          <Divider/>
             <Typography
                       variant="h6"
                       component="p"
@@ -26,6 +120,9 @@ const SemisForm = () => {
           label="Nombre Completo"
           variant="outlined"
           fullWidth
+          onChange={onHandleChange}
+          name='name'
+          value={name}
           style={{
             marginBottom: 10,
             border: "1px solid #dbf2ff",
@@ -40,6 +137,9 @@ const SemisForm = () => {
           label="Telefono"
           variant="outlined"
           fullWidth
+          onChange={onHandleChange}
+          name='phone'
+          value={phone}
           style={{
             marginBottom: 10,
             border: "1px solid #dbf2ff",
@@ -54,6 +154,9 @@ const SemisForm = () => {
           label="Email"
           variant="outlined"
           fullWidth
+          onChange={onHandleChange}
+          name='email'
+          value={email}
           style={{
             marginBottom: 10,
             border: "1px solid #dbf2ff",
@@ -65,56 +168,13 @@ const SemisForm = () => {
         <Box>
           <TextField
           id="outlined-basic"
+          onChange={onHandleChange}
           label="Cuanto puedes dar de enganche?"
           variant="outlined"
           fullWidth
-          style={{
-            marginBottom: 10,
-            border: "1px solid #dbf2ff",
-            borderRadius: 10,
-          }}
-          />
-        </Box>
-
-        <Box>
-                <TextField
-                  id="outlined-basic"
-                  label="Tiempo de compra"
-                  variant="outlined"
-                  name="timeFrame"
-                  fullWidth
-                  select 
-                  SelectProps={{ native: true }}
-                  style={{
-                    marginBottom: 10,
-                    border: "1px solid #dbf2ff",
-                    borderRadius: 10,
-                  }}
-                >
-                  <option>
-                  </option>
-
-                </TextField>
-                <TextField
-                  id="outlined-basic"
-                  label="Enganche"
-                  variant="outlined"
-                  name="downPayment"
-                  fullWidth
-                  style={{
-                    marginBottom: 10,
-                    border: "1px solid #dbf2ff",
-                    borderRadius: 10,
-                  }}
-                />
-        </Box>
-
-        <Box>
-          <TextField
-          id="outlined-basic"
-          label="Comentario"
-          variant="outlined"
-          fullWidth
+          name="downPayment"
+                  value={downPayment}
+                  onChange={onHandleChange}
           style={{
             marginBottom: 10,
             border: "1px solid #dbf2ff",
@@ -129,12 +189,14 @@ const SemisForm = () => {
            color="primary"
            fullWidth
            type="submit"
+           disabled={dissableButton}
         >
           Cotizar
           </Button>
         </Box>
 
     </Box>
+    </form>
   )
 }
 
