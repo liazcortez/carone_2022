@@ -64,6 +64,9 @@ const Slug = ({ preowned }) => {
         <Grid container>
         
         <Grid item xs={8}>
+
+        <Box style={{padding: "11px", display: "block"}}>
+
           <Typography
             variant="h5"
             component="h3"
@@ -90,12 +93,17 @@ const Slug = ({ preowned }) => {
               /> 
               {' '}| {Capitalize(preowned.transmision)} | {Capitalize(preowned.store.make.name + ' ' + preowned.store.name)}
             </Typography>
+          
+        </Box>
 
         </Grid>
         
         
-        <Grid item xs={4}>
-        <Typography style={{fontSize: "45px", color:"#555", fontWeight: 600}}>
+        <Grid item xs={4} style={{display: "flex", paddingTop: "2rem"}}>
+        <Typography style={{fontSize: "30px", color:"#555", fontWeight: 600, paddingRight: "5px"}}>
+          Precio: 
+        </Typography>
+        <Typography style={{fontSize: "30px", color:"#555", fontWeight: 600}}>
              <NumberFormat
                value={preowned.price}
                displayType={"text"}
@@ -112,12 +120,12 @@ const Slug = ({ preowned }) => {
         <Grid style={{minHeight:'10rem'}} item xs={7}> {/*Aqui es xs={8}*/}
 
         <Grid container spacing={3}>
-            <Typography style={{paddingBlockEnd: "2rem"}}>
+            <Typography style={{paddingBlockEnd: "2rem", padding: "13px"}}>
               {preowned.description}
             </Typography>
         </Grid>
 
-            <Grid container>
+            <Grid container style={{paddingTop: "10px"}}>
                <SemisCarousel medias={[{image:preowned.mainImage,key:0}, ...preowned.gallery]}/>
             </Grid>
         </Grid>
