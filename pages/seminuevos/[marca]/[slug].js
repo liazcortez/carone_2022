@@ -61,9 +61,10 @@ const Slug = ({ preowned }) => {
    
     <Container maxWidth="lg">
       <Grid container style={{ marginBottom: 50 }} spacing={3}>
-        <Grid item xs={12}>
+        <Grid container>
         
-        <Typography
+        <Grid item xs={8}>
+          <Typography
             variant="h5"
             component="h3"
             style={{ fontWeight: "bold", color: "#656d78" }}
@@ -75,8 +76,6 @@ const Slug = ({ preowned }) => {
               `${preowned.make.name.toUpperCase()} ${preowned.version.toUpperCase()} ${preowned.year}`
             }
           </Typography>
-
-        <Box style={{display: "flex", justifyContent: "stretch", margin: "0px", paddingBlockEnd: "1rem"}}>
 
           <Typography
               variant="h5"
@@ -92,15 +91,28 @@ const Slug = ({ preowned }) => {
               {' '}| {Capitalize(preowned.transmision)} | {Capitalize(preowned.store.make.name + ' ' + preowned.store.name)}
             </Typography>
 
-         </Box>
+        </Grid>
+        
+        
+        <Grid item xs={4}>
+        <Typography style={{fontSize: "45px", color:"#555", fontWeight: 600}}>
+             <NumberFormat
+               value={preowned.price}
+               displayType={"text"}
+               thousandSeparator={true}
+                prefix={"$"}
+                suffix={" MXN"}
+              />
+            </Typography>
+        </Grid>
 
-
+        {/*Aqui termina*/}
         </Grid>
         
         <Grid style={{minHeight:'10rem'}} item xs={7}> {/*Aqui es xs={8}*/}
 
         <Grid container spacing={3}>
-            <Typography style={{margin: "1rem", paddingBlockEnd: "1rem"}}>
+            <Typography style={{paddingBlockEnd: "2rem"}}>
               {preowned.description}
             </Typography>
         </Grid>
