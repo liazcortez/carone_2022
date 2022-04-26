@@ -84,26 +84,12 @@ const Slug = ({ preowned }) => {
               component="h3"
               style={{color: "#656d78" }}
             >
-                {preowned.km} kms |
-            </Typography>
-            
-            <Typography
-              variant="h5"
-              component="h3"
-              style={{color: "#656d78", marginLeft: "1rem"}}
-            >
-            {Capitalize(preowned.transmision)} |
-            </Typography>
-
-            <Typography
-              variant="h5"
-              component="h3"
-              style={{color: "#656d78", marginLeft: "1rem"}}
-            >
-            KIA Gonzalitos
+                {preowned.km} kms | {Capitalize(preowned.transmision)} | KIA Gonzalitos
             </Typography>
 
          </Box>
+
+
         </Grid>
         
         <Grid style={{minHeight:'10rem'}} item xs={7}> {/*Aqui es xs={8}*/}
@@ -224,7 +210,7 @@ const Slug = ({ preowned }) => {
                     </Typography>
 
                     <Typography>
-                      
+                       {Capitalize(preowned.vehicle.modelType)}
                     </Typography>
 
                   </Box>
