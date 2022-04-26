@@ -54,7 +54,6 @@ const TabsComponent = ({ features, gallery, video,technicalSheet }) => {
       }
 
       if (!imageUrl.length) {
-        console.log('Please add an image url');
         return;
       }
 

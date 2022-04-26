@@ -9,7 +9,8 @@ import {
   Typography,
   Checkbox,
   Box,
-  FormControlLabel,
+  Grid,
+  Container,
 } from "@material-ui/core";
 import { useSnackbar } from "notistack";
 import { red } from "@material-ui/core/colors";
@@ -19,8 +20,12 @@ import Link from "next/link";
 import Skeleton from "@material-ui/lab/Skeleton";
 import { capitalCase } from "change-case";
 import NumberFormat from "react-number-format";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles((theme) => ({
+  table: {
+    minWidth: 650,
+  },
   root: {
     maxWidth: 345,
   },
@@ -60,26 +65,26 @@ const useStyles = makeStyles((theme) => ({
 const emptyImage =
   "https://i.pinimg.com/originals/ae/8a/c2/ae8ac2fa217d23aadcc913989fcc34a2.png";
 
-const CarlistCard = ({ vehicle, setDataList }) => {
+const ComparativeCarItem = ({ vehicle, setDataList }) => {
   const classes = useStyles();
   const [isFavorite, setIsFavorite] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
 
   const handleAddFavorite = (vehicle) => {
     let data;
-    if (!localStorage.getItem("favorites-seminuevos")) {
+    if (!localStorage.getItem("favorites")) {
       data = [vehicle];
-      localStorage.setItem("favorites-seminuevos", JSON.stringify(data));
+      localStorage.setItem("favorites", JSON.stringify(data));
       setIsFavorite(true);
-    } else if (localStorage.getItem("favorites-seminuevos")) {
-      data = JSON.parse(localStorage.getItem("favorites-seminuevos"));
+    } else if (localStorage.getItem("favorites")) {
+      data = JSON.parse(localStorage.getItem("favorites"));
       if (data.some((d) => d._id === vehicle._id)) {
         if (isFavorite) {
           const newFavorites = data.filter((d) => d._id !== vehicle._id);
           if (setDataList) {
             setDataList(newFavorites);
           }
-          localStorage.setItem("favorites-seminuevos", JSON.stringify(newFavorites));
+          localStorage.setItem("favorites", JSON.stringify(newFavorites));
           setIsFavorite(false);
           return;
         }
@@ -92,15 +97,15 @@ const CarlistCard = ({ vehicle, setDataList }) => {
         });
       }
 
-      localStorage.setItem("favorites-seminuevos", JSON.stringify(newData));
+      localStorage.setItem("favorites", JSON.stringify(newData));
       setIsFavorite(true);
     }
   };
 
   useEffect(() => {
     if (vehicle && vehicle._id) {
-      if (localStorage.getItem("favorites-seminuevos")) {
-        let favs = JSON.parse(localStorage.getItem("favorites-seminuevos"));
+      if (localStorage.getItem("favorites")) {
+        let favs = JSON.parse(localStorage.getItem("favorites"));
         if (favs.some((d) => d._id === vehicle._id)) {
           setIsFavorite(true);
         }
@@ -109,14 +114,14 @@ const CarlistCard = ({ vehicle, setDataList }) => {
   }, [vehicle]);
 
   return (
-    <Card  className={(classes.root, classes.hover)}>
+    <Card className={(classes.root, classes.hover)}>
       {vehicle ? (
-        <Link href={`/seminuevos/${vehicle.make.name}/${vehicle.slug}`}>
+        <Link href={`/autos/${vehicle.make.name}/${vehicle.slug}`}>
           <a>
             <CardMedia
               className={classes.media}
               image={vehicle.mainImage ? vehicle.mainImage : emptyImage}
-              title={`${vehicle && vehicle.version && capitalCase(vehicle.version)} ${vehicle && vehicle.year}`}
+              title={`${capitalCase(vehicle.vehicle.model)} ${vehicle.year}`}
             />
           </a>
         </Link>
@@ -126,26 +131,29 @@ const CarlistCard = ({ vehicle, setDataList }) => {
       <CardContent>
         {vehicle ? (
           <>
-            <Link href={`/marcas/${vehicle && vehicle.make && vehicle.make.name}`}>
+            <Link href={`/marcas/${vehicle.make.name}`}>
               <a style={{ textDecoration: "none", color: "black" }}>
                 <Typography
                   variant="subtitle1"
                   className={
-                    [classes.modelFormatting, classes.modelFormattingUpper]
+                    (classes.modelFormatting, classes.modelFormattingUpper)
                   }
                 >
-                  {vehicle && vehicle.make && vehicle.make.name}{" "}
+                  {vehicle.make.name}{" "}
                 </Typography>
               </a>
             </Link>
-            <Link href={`/seminuevos/${vehicle && vehicle.make && vehicle.make.name}/${vehicle && vehicle.slug}`}>
-              <Box style={{height: 60}}>
+            <Link href={`/autos/${vehicle.make.name}/${vehicle.slug}`}>
               <a style={{ textDecoration: "none", color: "black" }}>
-                <Typography variant="h6"  className={[classes.modelFormatting]}>
-                  {`${vehicle && vehicle.vehicle ? vehicle.vehicle.model :''} ${vehicle.version} ${vehicle.year}`}a
+                <Typography variant="h6" className={classes.modelFormatting}>
+                {
+                  vehicle.version.toLowerCase().includes(vehicle.vehicle.model.toLowerCase()) ? 
+                  `${vehicle.version.toUpperCase()} ${vehicle.year}`
+                  : 
+                  `${vehicle.vehicle.model.toUpperCase()} ${vehicle.version.toUpperCase()} ${vehicle.year}`
+                }
                 </Typography>
               </a>
-              </Box>
             </Link>
             <Typography variant="h6" gutterBottom style={{ fontSize: 17 }}>
               Desde &nbsp;
@@ -185,28 +193,64 @@ const CarlistCard = ({ vehicle, setDataList }) => {
         )}
       </CardContent>
       <Divider />
+      {/* Features */}
+      <CardContent>
+        <Typography
+          variant="subtitle1"
+          style={{
+            fontSize: 17,
+            textTransform: "capitalize",
+          }}
+        >
+        Año: {vehicle.year}
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          style={{
+            fontSize: 17,
+            textTransform: "capitalize",
+          }}
+        >
+        KM:{' '}
+        <NumberFormat
+          value={vehicle.km}
+          displayType={"text"}
+          thousandSeparator={true}
+          suffix={" Kms"}
+        /> 
+        
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          style={{
+            fontSize: 17,
+            textTransform: "capitalize",
+          }}
+        >
+        Transmisión: {vehicle.transmission}
+        </Typography>
+      </CardContent>
+      {/* End Features */}
+      <Divider />
       <CardActions disableSpacing>
-
-        <FormControlLabel
-          control={
-            <Checkbox   
-              icon={<FavoriteIcon style={{ color: "#888" }} />} 
-              checkedIcon={<FavoriteIcon style={{ color: "#c54065" }} />} 
-              name="checkedH"
-              checked={
-                process.browser && localStorage.getItem("favorites-seminuevos") &&
-                JSON.parse(localStorage.getItem("favorites-seminuevos")).some(
-                  (d) => vehicle && d._id === vehicle._id
-                )
-              }
-            />}
-          onClick={(e) => handleAddFavorite(vehicle)}
-
-        />
+        <Tooltip title="Favorite">
+          <Checkbox
+            icon={<FavoriteIcon style={{ color: "#888" }} />}
+            checkedIcon={<FavoriteIcon style={{ color: "#c54065" }} />}
+            name="checkedH"
+            checked={
+              localStorage.getItem("favorites") &&
+              JSON.parse(localStorage.getItem("favorites")).some(
+                (d) => vehicle && d._id === vehicle._id
+              )
+            }
+            onClick={(e) => handleAddFavorite(vehicle)}
+          />
+        </Tooltip>
         {/* <FavoriteIcon /> */}
       </CardActions>
     </Card>
   );
 };
 
-export default CarlistCard;
+export default ComparativeCarItem;

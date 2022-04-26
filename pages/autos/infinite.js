@@ -35,7 +35,6 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
   }, [vehicles]);
 
   const loadData = (firstPage = false) => {
-    console.log("load");
     getVehicles(
       page,
       `${query}&make=${make}&category=${category}&prices=${sort}`
