@@ -10,7 +10,7 @@ import SemisForm from "../../components/preowned/SemisForm";
 import NumberFormat from "react-number-format";
 import { useRouter } from "next/router";
 import { baseURL } from "../../api/api";
-import { useEffect } from "react";
+
 
 const Slug = ({ preowned }) => {
   const router = useRouter();
