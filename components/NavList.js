@@ -76,6 +76,13 @@ const NavList = ({ setMenuOpen, logout, menuOpen }) => {
         </Link>
       </Box>
       <Box m={1} display='flex' justifyContent={'center'}>
+        <Link href="/seminuevos" passHref={true}>
+          <Button onClick={() => {setMenuOpen(false)}}>
+            Seminuevos
+          </Button>
+        </Link>
+      </Box>
+      <Box m={1} display='flex' justifyContent={'center'}>
         <Link href="/favoritos" passHref={true}>
           <Button
             onClick={() => {

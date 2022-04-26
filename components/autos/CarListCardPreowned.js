@@ -131,7 +131,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
                 <Typography
                   variant="subtitle1"
                   className={
-                    (classes.modelFormatting, classes.modelFormattingUpper)
+                    [classes.modelFormatting, classes.modelFormattingUpper]
                   }
                 >
                   {vehicle && vehicle.make && vehicle.make.name}{" "}
@@ -139,12 +139,13 @@ const CarlistCard = ({ vehicle, setDataList }) => {
               </a>
             </Link>
             <Link href={`/seminuevos/${vehicle && vehicle.make && vehicle.make.name}/${vehicle && vehicle.slug}`}>
+              <Box style={{height: 60}}>
               <a style={{ textDecoration: "none", color: "black" }}>
                 <Typography variant="h6" className={classes.modelFormatting}>
-
-                  {`${vehicle && vehicle.vehicle ? vehicle.vehicle.model :''} ${vehicle.version} ${vehicle.year}`}
+                  {`${vehicle && vehicle.vehicle ? vehicle.vehicle.model.toUpperCase() :''} ${vehicle.version} ${vehicle.year}`}
                 </Typography>
               </a>
+              </Box>
             </Link>
             <Typography variant="h6" gutterBottom style={{ fontSize: 17 }}>
               Desde &nbsp;
