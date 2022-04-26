@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import { baseURL } from "../../api/api";
 import { useEffect } from "react";
 
+
 const Slug = ({ preowned }) => {
   const router = useRouter();
 
