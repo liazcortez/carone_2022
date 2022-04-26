@@ -111,7 +111,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
   return (
     <Card  className={(classes.root, classes.hover)}>
       {vehicle ? (
-        <Link href={`/seminuevos/${vehicle.make.name}/${vehicle.slug}`}>
+        <Link href={`/seminuevos/${vehicle.slug}`}>
           <a>
             <CardMedia
               className={classes.media}
@@ -138,11 +138,11 @@ const CarlistCard = ({ vehicle, setDataList }) => {
                 </Typography>
               </a>
             </Link>
-            <Link href={`/seminuevos/${vehicle && vehicle.make && vehicle.make.name}/${vehicle && vehicle.slug}`}>
+            <Link href={`/seminuevos/${vehicle && vehicle.slug}`}>
               <Box style={{height: 60}}>
               <a style={{ textDecoration: "none", color: "black" }}>
                 <Typography variant="h6"  className={[classes.modelFormatting]}>
-                  {`${vehicle && vehicle.vehicle ? vehicle.vehicle.model :''} ${vehicle.version} ${vehicle.year}`}a
+                  {`${vehicle && vehicle.vehicle ? vehicle.vehicle.model :''} ${vehicle.version} ${vehicle.year}`}
                 </Typography>
               </a>
               </Box>
