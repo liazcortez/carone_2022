@@ -144,7 +144,7 @@ const SemisForm = ({preowned}) => {
     
     <form onSubmit={onHandleSubmit}>
       <Box
-        style={{ padding: 20, borderRadius: 10, marginBottom: 10, border: "1px solid #dbf2ff", flexDirection: "column"}}>
+        style={{ padding: 20, borderRadius: 10, marginBottom: 10, border: "1px solid #dbf2ff", flexDirection: "column", borderColor: "#e2e2e2"}}>
         
 
         <Box style={{justifyContent: "center"}}>
@@ -254,6 +254,7 @@ const SemisForm = ({preowned}) => {
            fullWidth
            type="submit"
            disabled={dissableButton}
+           style={{height:"3rem"}}
         >
           Cotizar
           </Button>
