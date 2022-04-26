@@ -60,7 +60,7 @@ const Slug = ({ preowned }) => {
  
    
     <Container maxWidth="lg">
-      <Grid container style={{ marginBottom: 50 }} spacing={3}>
+      <Grid container style={{ marginBottom: 50, paddingTop: "1rem" }} spacing={3}>
         <Grid container>
         
         <Grid item xs={8}>
