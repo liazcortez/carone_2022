@@ -3,9 +3,28 @@ import { Typography, Box, Button, Divider} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import { useSnackbar } from "notistack";
 import axios from "axios";
+import moment from 'moment';
+
+const timeFrames = [
+  {
+    id: 0,
+    value: 'Solo quiero información'
+  },
+  {
+    id: 1,
+    value: '1 Mes o Menos'
+  },
+  {
+    id: 2,
+    value: '2 Meses'
+  },
+  {
+    id: 3,
+    value: '3 Meses o Más'
+  },
+]
 
 const SemisForm = ({preowned}) => {
-  useEffect(()=>{console.log(preowned)}, [preowned] )
 
   const [dissableButton,setDissableButton] = useState(false)
   
@@ -16,6 +35,7 @@ const SemisForm = ({preowned}) => {
     carType:'seminuevo',
     version:preowned.version,
     downPayment: 0,
+    timeFrame: 0,
     store: preowned.store.dpxStore,
     vehicle: preowned.vehicle,
     modelType: preowned.vehicle.modelType,
@@ -28,18 +48,41 @@ const SemisForm = ({preowned}) => {
 
   const [formData, setFormData] = React.useState(defaultData);
 
-  const { name, email, phone, timeFrame, downPayment } = formData;
+  const { name, email, phone, downPayment } = formData;
 
   const { enqueueSnackbar } = useSnackbar();
 
   const onHandleSubmit = async(e) => {
     e.preventDefault();
-    await setDissableButton(true);
+    setDissableButton(true);
+
+    if(formData.store === null || formData.store === undefined){
+      setDissableButton(false);
+
+      return enqueueSnackbar("Por favor selecciona otra agencia", {
+        variant: "error",
+      });
+    }
+
+    let tiempoFinal = moment(0).format();
+
+    if(parseInt(formData.timeFrame, 10) === 0){
+      tiempoFinal = moment(0).format()
+    }
+    if(parseInt(formData.timeFrame, 10) === 1){
+      tiempoFinal = moment().add(1, 'month').format()
+    }
+    if(parseInt(formData.timeFrame, 10) === 2){
+      tiempoFinal = moment().add(2, 'months').format()
+    }
+    if(parseInt(formData.timeFrame, 10) === 3){
+      tiempoFinal = moment().add(3, 'months').format()
+    }
 
     let emailValidation = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
     let phoneValidation = new RegExp(/^[0-9]{10}$/);
     let downPaymentValidation = new RegExp(/^[0-9]+$/);
-    console.log(formData);
+
     if(formData.name === '' || formData.email === '' || formData.phone === ''){
        enqueueSnackbar("Por favor llena todos los campos", {
         variant: "error",
@@ -60,7 +103,7 @@ const SemisForm = ({preowned}) => {
       });
     }else{
       
-      await sendLead(formData);
+      await sendLead({...formData, timeFrame: tiempoFinal });
 
         enqueueSnackbar("Se ha enviado tu información, en breve un asesor se pondrá en contacto contigo.", {
           variant: "success",
@@ -79,12 +122,12 @@ const SemisForm = ({preowned}) => {
       },
     };
     try {
-      enqueueSnackbar("Formulario Completado Correctamente", {
-        variant: "info",
-      });
-      const response = await axios.post(
-        // "https://dealerproxapi.com/api/v1/leads/website",
-        "http://localhost:5001/api/v1/leads/website",
+        enqueueSnackbar("Formulario Completado Correctamente", {
+          variant: "info",
+        });
+        await axios.post(
+        "https://dealerproxapi.com/api/v1/leads/website",
+        // "http://localhost:5001/api/v1/leads/website",
         lead,
         config
       );
@@ -105,13 +148,13 @@ const SemisForm = ({preowned}) => {
         
 
         <Box style={{justifyContent: "center"}}>
-            <Typography
-                      variant="h6"
-                      component="p"
-                      style={{ marginBottom: 10 }}
-                    >
-                    Cotiza Online
-            </Typography>
+          <Typography
+            variant="h6"
+            component="p"
+            style={{ marginBottom: 10 }}
+          >
+          Cotiza Online
+          </Typography>
         </Box>
 
         <Box>
@@ -173,14 +216,35 @@ const SemisForm = ({preowned}) => {
           variant="outlined"
           fullWidth
           name="downPayment"
-                  value={downPayment}
-                  onChange={onHandleChange}
+          value={downPayment}
           style={{
             marginBottom: 10,
             border: "1px solid #dbf2ff",
             borderRadius: 10,
           }}
           />
+        </Box>
+        <Box>
+          <TextField
+            fullWidth
+            label={'¿En cuanto tiempo deseas comprar la unidad?'}
+            name="timeFrame"
+            onChange={onHandleChange}
+            select
+            variant="outlined"
+            SelectProps={{ native: true }}
+            style={{
+              marginBottom: 10,
+              border: "1px solid #dbf2ff",
+              borderRadius: 10,
+            }}
+          >
+            {timeFrames && timeFrames.map(timeFrame => (
+              <option key={timeFrame.id} value={timeFrame.id}>
+                {timeFrame.value}
+              </option>
+            ))}
+          </TextField>
         </Box>
 
         <Box>

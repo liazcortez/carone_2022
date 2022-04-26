@@ -15,10 +15,6 @@ import { useEffect } from "react";
 const Slug = ({ preowned }) => {
   const router = useRouter();
 
-  // useEffect(()=>{console.log(preowned)}, [preowned] )
-  
-
-  const url = `https://carone2021.herokuapp.com${router.asPath}`;
   const title = (preowned.make && preowned.version && preowned.year)?`${preowned.make.name} ${preowned.versions} ${preowned.year}  `:false;
 
   const Capitalize = (string) => {
@@ -49,7 +45,6 @@ const Slug = ({ preowned }) => {
         preowned.year
       } - Carone Group`}
       description={Capitalize(preowned.fullDescription)}
-      url={url}
       image={mainImage}
     />
     <Container maxWidth="lg">
@@ -63,10 +58,9 @@ const Slug = ({ preowned }) => {
       )}
     </Container>
  
-
    
     <Container maxWidth="lg">
-      <Grid container style={{ marginBottom: 50 }}>
+      <Grid container style={{ marginBottom: 50 }} spacing={3}>
         <Grid item xs={12}>
         
         <Typography
@@ -74,7 +68,12 @@ const Slug = ({ preowned }) => {
             component="h3"
             style={{ fontWeight: "bold", color: "#656d78" }}
           >
-            {preowned.make.name.toUpperCase()} {preowned.version.toUpperCase()} {preowned.year}
+            {
+              preowned.version.toLowerCase().includes(preowned.make.name.toLowerCase()) ? 
+              `${preowned.version.toUpperCase()} ${preowned.year}`
+              : 
+              `${preowned.make.name.toUpperCase()} ${preowned.version.toUpperCase()} ${preowned.year}`
+            }
           </Typography>
 
         <Box style={{display: "flex", justifyContent: "stretch", margin: "0px", paddingBlockEnd: "1rem"}}>
@@ -84,26 +83,18 @@ const Slug = ({ preowned }) => {
               component="h3"
               style={{color: "#656d78" }}
             >
-                {preowned.km} kms |
-            </Typography>
-            
-            <Typography
-              variant="h5"
-              component="h3"
-              style={{color: "#656d78", marginLeft: "1rem"}}
-            >
-            {Capitalize(preowned.transmision)} |
-            </Typography>
-
-            <Typography
-              variant="h5"
-              component="h3"
-              style={{color: "#656d78", marginLeft: "1rem"}}
-            >
-            KIA Gonzalitos
+              <NumberFormat
+                value={preowned.km}
+                displayType={"text"}
+                thousandSeparator={true}
+                suffix={" Kms"}
+              /> 
+              {' '}| {Capitalize(preowned.transmision)} | {Capitalize(preowned.store.make.name + ' ' + preowned.store.name)}
             </Typography>
 
          </Box>
+
+
         </Grid>
         
         <Grid style={{minHeight:'10rem'}} item xs={7}> {/*Aqui es xs={8}*/}
@@ -126,11 +117,11 @@ const Slug = ({ preowned }) => {
         
         <Grid item xs={12}>
             <Typography
-             variant="h5"
-             component="h3"
+              variant="h5"
+              component="h3"
               style={{ fontWeight: "bold", color: "#656d78", paddingTop: "2rem", paddingBlockEnd: "1rem"}}
              >
-                CARACTERISTICAS {preowned.make.name.toUpperCase()} {preowned.version.toUpperCase()} {preowned.year}
+                CARACTERÍSTICAS {preowned.make.name.toUpperCase()} {preowned.version.toUpperCase()} {preowned.year}
              </Typography>
 
             <Divider/>
@@ -153,7 +144,12 @@ const Slug = ({ preowned }) => {
                     </Typography>
 
                     <Typography style={{paddingBlockEnd: "2rem"}}>
-                      {preowned.km}
+                      <NumberFormat
+                        value={preowned.km}
+                        displayType={"text"}
+                        thousandSeparator={true}
+                        suffix={" Kms"}
+                      />
                     </Typography>
                   </Box>
                 </Grid>
@@ -180,6 +176,7 @@ const Slug = ({ preowned }) => {
                     <NumberFormat
                       value={preowned.price}
                       displayType={"text"}
+                      thousandSeparator={true}
                       prefix={"$"}
                       suffix={" MXN"}
                     />
@@ -213,8 +210,11 @@ const Slug = ({ preowned }) => {
 
                 <Grid item xs={3}>
                     <Box>
-                      <Typography style={{paddingBlockEnd: "2rem", fontWeight: 600}}>
+                      <Typography style={{fontWeight: 600}}>
                         Agencia
+                      </Typography>
+                      <Typography style={{paddingBlockEnd: "2rem"}}>
+                       {Capitalize(preowned.store.make.name + ' ' + preowned.store.name)}
                       </Typography>
                     </Box>
 
@@ -224,7 +224,7 @@ const Slug = ({ preowned }) => {
                     </Typography>
 
                     <Typography>
-                      
+                       {Capitalize(preowned.vehicle.modelType)}
                     </Typography>
 
                   </Box>
