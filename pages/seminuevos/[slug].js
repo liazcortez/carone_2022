@@ -10,7 +10,7 @@ import SemisForm from "../../components/preowned/SemisForm";
 import NumberFormat from "react-number-format";
 import { useRouter } from "next/router";
 import { baseURL } from "../../api/api";
-import { useEffect } from "react";
+
 
 const Slug = ({ preowned }) => {
   const router = useRouter();
@@ -63,9 +63,9 @@ const Slug = ({ preowned }) => {
       <Grid container style={{ marginBottom: 50, paddingTop: "1rem" }} spacing={3}>
         <Grid container>
         
-        <Grid item xs={8}>
+        <Grid item xs={7}>
 
-        <Box style={{padding: "11px", display: "block"}}>
+        <Box style={{ paddingTop: "1rem", paddingLeft: "10px", display: "block"}}>
 
           <Typography
             variant="h5"
@@ -99,11 +99,11 @@ const Slug = ({ preowned }) => {
         </Grid>
         
         
-        <Grid item xs={4} style={{display: "flex", paddingTop: "2rem"}}>
-        <Typography style={{fontSize: "30px", color:"#555", fontWeight: 600, paddingRight: "5px"}}>
+        <Grid item xs={5} style={{display: "flex", paddingTop: "3rem", paddingLeft: "18px"}}>
+        <Typography style={{fontSize: "35px", color:"#555", fontWeight: 600, paddingRight: "5px"}}>
           Precio: 
         </Typography>
-        <Typography style={{fontSize: "30px", color:"#555", fontWeight: 600}}>
+        <Typography style={{fontSize: "35px", color:"#555", fontWeight: 600}}>
              <NumberFormat
                value={preowned.price}
                displayType={"text"}
@@ -119,11 +119,9 @@ const Slug = ({ preowned }) => {
         
         <Grid style={{minHeight:'10rem'}} item xs={7}> {/*Aqui es xs={8}*/}
 
-        <Grid container spacing={3}>
-            <Typography style={{paddingBlockEnd: "2rem", padding: "13px"}}>
-              {preowned.description}
-            </Typography>
-        </Grid>
+        
+            
+         
 
             <Grid container style={{paddingTop: "10px"}}>
                <SemisCarousel medias={[{image:preowned.mainImage,key:0}, ...preowned.gallery]}/>
