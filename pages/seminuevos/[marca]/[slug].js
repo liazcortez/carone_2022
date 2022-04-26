@@ -100,10 +100,10 @@ const Slug = ({ preowned }) => {
         
         
         <Grid item xs={5} style={{display: "flex", paddingTop: "3rem", paddingLeft: "18px"}}>
-        <Typography style={{fontSize: "30px", color:"#555", fontWeight: 600, paddingRight: "5px"}}>
+        <Typography style={{fontSize: "35px", color:"#555", fontWeight: 600, paddingRight: "5px"}}>
           Precio: 
         </Typography>
-        <Typography style={{fontSize: "30px", color:"#555", fontWeight: 600}}>
+        <Typography style={{fontSize: "35px", color:"#555", fontWeight: 600}}>
              <NumberFormat
                value={preowned.price}
                displayType={"text"}
@@ -119,13 +119,9 @@ const Slug = ({ preowned }) => {
         
         <Grid style={{minHeight:'10rem'}} item xs={7}> {/*Aqui es xs={8}*/}
 
-        { preowned && preowned.description && <Grid container spacing={3}>
+        
             
-            <Typography style={{ paddingLeft: "13px", paddingBlockEnd: "1rem"}}>
-              {preowned.description} 
-            </Typography>
-            
-        </Grid>}
+         
 
             <Grid container style={{paddingTop: "10px"}}>
                <SemisCarousel medias={[{image:preowned.mainImage,key:0}, ...preowned.gallery]}/>
