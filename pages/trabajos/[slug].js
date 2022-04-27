@@ -16,14 +16,11 @@ import Meta from "../../components/Meta";
 import BreadCrumJobs from "../../components/BreadCrumJobs";
 import GeneralModal from "../../components/GeneralModal";
 import useAuth from "../../hooks/useAuth";
-import useJob from "../../hooks/useJob";
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 const slug = ({ job }) => { 
   
 
   moment.locale("es-mx");
-  const [openLogin, setOpenLogin] = useState(false)
-  const { user, isAuthenticated, loadUser } = useAuth();
   const createdAt = moment(job.createdAt).fromNow();
   const createdAtCapitalize =
     createdAt.charAt(0).toUpperCase() + createdAt.slice(1);
