@@ -23,7 +23,7 @@ const Index = ({ preownedsSP, total, makes, categories }) => {
   useEffect(() => {
     getPreowneds(
       page,
-      `${query}&make=${make}&category=${category}&prices=${sort}`
+      `${query}&make=${make}&category=${category}&prices=${sort}&sort=-createdAt`
     );
     //eslint-disable-next-line
   }, [page, make, category, sort]);
@@ -65,7 +65,7 @@ const Index = ({ preownedsSP, total, makes, categories }) => {
   );
 };
 export const getStaticProps = async (context) => {
-  const res = await fetch(`${baseURL}/preowneds?page=1&limit=12&sort=index`);
+  const res = await fetch(`${baseURL}/preowneds?page=1&limit=12&sort=-createdAt`);
   const preowneds = await res.json();
 
   const makesRes = await fetch(`${baseURL}/makes`);

@@ -31,14 +31,16 @@ const slug = ({ job }) => {
   const jobDescription = job.description;
   const jobDescriptionCapitalize =
     jobDescription.charAt(0).toUpperCase() + jobDescription.slice(1);
+
+  const { meta, image } = job;
     
   return (
     <>
 
       <Meta
-        title="Busqueda de trabajos Car One"
-        description="Los mejores trabajos los encuentras en Car One"
-        image={job.image}
+        title={meta && meta.title ? meta.title : "Busqueda de trabajos Car One"}
+        description={meta && meta.description ? meta.description  : "Los mejores trabajos los encuentras en Car One"}
+        image={meta && meta.image ? meta.image : image}
       />
       <Container maxWidth="lg">
         <BreadCrumJobs data={job} section="Trabajos" />
