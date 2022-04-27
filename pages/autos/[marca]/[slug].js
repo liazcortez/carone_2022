@@ -37,19 +37,18 @@ const Slug = ({ vehicle }) => {
     colors,
     promotion,
     technicalSheet,
-    isPublished
+    meta
   } = vehicle;
+
   return (
     <>
-      {(vehicle && vehicle.isPublished)?
-      <>
-      <Meta
-      title={`${Capitalize(vehicle.make.name)} ${Capitalize(vehicle.model)} ${
-        vehicle.year
-      } - Carone Group`}
-      description={Capitalize(vehicle.fullDescription)}
+    {(vehicle && vehicle.isPublished)?
+    <>
+    <Meta
+      title={meta && meta.title ? meta.title : `${Capitalize(vehicle.make.name)} ${Capitalize(vehicle.model)} ${vehicle.year} - Carone Group`}
+      description={meta && meta.description ? meta.description  : Capitalize(vehicle.fullDescription)}
       url={url}
-      image={mainImage}
+      image={meta && meta.image ? meta.image : mainImage}
     />
     <Container maxWidth="lg">
       {banner && (

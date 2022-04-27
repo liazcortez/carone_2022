@@ -24,29 +24,21 @@ const Slug = ({ preowned }) => {
   };
 
   const {
-    versions,
-    gallery,
     description,
     banner,
     mainImage,
-    features,
-    video,
-    colors,
     promotion,
-    technicalSheet,
-    isPublished
+    meta
   } = preowned;
   return (
     <>
       {(preowned && preowned.isPublished)?
       <>
-      <Meta
-      title={`${Capitalize(preowned.make.name)} ${Capitalize(preowned.version)} ${
-        preowned.year
-      } - Carone Group`}
-      description={Capitalize(preowned.fullDescription)}
-      image={mainImage}
-    />
+       <Meta
+        title={meta && meta.title ? meta.title : `${Capitalize(preowned.make.name)} ${Capitalize(preowned.version)} ${preowned.year} - Carone Group`}
+        description={meta && meta.description ? meta.description  : Capitalize(preowned.fullDescription)}
+        image={meta && meta.image ? meta.image : mainImage}
+      />
     <Container maxWidth="lg">
       {banner && (
         <BannerAutos
