@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useEffect } from "react";
 import { Container, Grid, Typography, Divider, Box } from "@material-ui/core";
 import BannerAutos from "../../components/autos/BannerAutos";
 import Financing from "../../components/autos/Financing";
@@ -103,14 +103,17 @@ const Slug = ({ preowned }) => {
         <Typography style={{fontSize: "35px", color:"#555", fontWeight: 600, paddingRight: "5px"}}>
           Precio: 
         </Typography>
+
         <Typography style={{fontSize: "35px", color:"#555", fontWeight: 600}}>
-             <NumberFormat
+
+        { preowned && preowned.km && preowned.km !== "" ? <NumberFormat
                value={preowned.price}
                displayType={"text"}
                thousandSeparator={true}
                 prefix={"$"}
                 suffix={" MXN"}
-              />
+              /> : "Proximamente" }
+                    
             </Typography>
         </Grid>
 
@@ -152,7 +155,9 @@ const Slug = ({ preowned }) => {
                     </Typography>
 
                     <Typography style={{paddingBlockEnd: "2rem"}}>
-                    {Capitalize(preowned.make.name)}
+                    
+                    { preowned && preowned.make.name && preowned.make.name !== "" ? Capitalize(preowned.make.name) : "----"  }
+
                     </Typography>
                   </Box>
 
@@ -162,12 +167,14 @@ const Slug = ({ preowned }) => {
                     </Typography>
 
                     <Typography style={{paddingBlockEnd: "2rem"}}>
-                      <NumberFormat
+                     
+                    { preowned && preowned.km && preowned.km !== "" ? <NumberFormat
                         value={preowned.km}
                         displayType={"text"}
                         thousandSeparator={true}
                         suffix={" Kms"}
-                      />
+                      />: "----" }
+                     
                     </Typography>
                   </Box>
                 </Grid>
@@ -180,7 +187,9 @@ const Slug = ({ preowned }) => {
                       </Typography>
 
                       <Typography style={{paddingBlockEnd: "2rem"}}>
-                        {preowned.version}
+                        
+                      { preowned && preowned.version && preowned.version !== "" ? Capitalize(preowned.version) : "----"  }
+                        
                       </Typography>
 
                     </Box>
@@ -191,13 +200,15 @@ const Slug = ({ preowned }) => {
                     </Typography> 
 
                     <Typography>
-                    <NumberFormat
+                    
+                    { preowned && preowned.km && preowned.km !== "" ? <NumberFormat
                       value={preowned.price}
                       displayType={"text"}
                       thousandSeparator={true}
                       prefix={"$"}
                       suffix={" MXN"}
-                    />
+                    /> : "----" }
+                     
                     </Typography>
                     </Box>
 
@@ -210,7 +221,7 @@ const Slug = ({ preowned }) => {
                     </Typography>
 
                     <Typography style={{paddingBlockEnd: "2rem"}}>
-                        {preowned.year}
+                    { preowned && preowned.year && preowned.year !== "" ? Capitalize(preowned.year) : "----"  }
                     </Typography>
                   
                   </Box>
@@ -220,8 +231,8 @@ const Slug = ({ preowned }) => {
                         Transmisión
                     </Typography>
 
-                    <Typography>
-                    {Capitalize(preowned.transmision)}
+                    <Typography>  
+                    { preowned && preowned.transmision && preowned.transmision !== "" ? Capitalize(preowned.transmision) : "----"  }
                     </Typography>
                   </Box>
                 </Grid>
@@ -232,7 +243,8 @@ const Slug = ({ preowned }) => {
                         Agencia
                       </Typography>
                       <Typography style={{paddingBlockEnd: "2rem"}}>
-                       {Capitalize(preowned.store.make.name + ' ' + preowned.store.name)}
+
+                      { preowned && preowned.store.make.name + ' ' + preowned.store.name && preowned.store.make.name + ' ' + preowned.store.name !== "" ? Capitalize(preowned.store.make.name + ' ' + preowned.store.name) : "----"  }                      
                       </Typography>
                     </Box>
 
