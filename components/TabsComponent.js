@@ -11,6 +11,8 @@ import CarGalleryMedia from "./autos/CarGalleryMedia";
 import VideoComponent from "./autos/VideoComponent";
 import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf";
 import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
+import axios from 'axios'
+import fileDownload from 'js-file-download'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -44,48 +46,14 @@ const TabsComponent = ({ features, gallery, video,technicalSheet }) => {
     setValue(newValue);
   };
 
-  const disableCache = true;
-
-
-  const onButtonClick = useCallback(
-    (e, imageUrl) => {
-      if (e.preventDefault) {
-        e.preventDefault();
-      }
-
-      if (!imageUrl.length) {
-        return;
-      }
-
-      const fetchUrl = `${e.target.href}${
-        disableCache ? `?dummy=${Math.floor(Date.now())}` : ''
-      }`;
-
-      fetch(fetchUrl, {
-        method: 'GET',
-        headers: {}
-      })
-        .then((response) => {
-          response.arrayBuffer().then(function (buffer) {
-            const url = window.URL.createObjectURL(new Blob([buffer]));
-            const link = document.createElement('a');
-
-            link.href = url;
-            link.setAttribute(
-              'download',
-              imageUrl.substr(imageUrl.lastIndexOf('/') + 1)
-            );
-            document.body.appendChild(link);
-            link.click();
-          });
-        })
-        .catch((error) => {
-          console.log(error);
-          return error;
-        });
-    },
-    [disableCache]
-  );
+  const handleDownload = (url, filename) => {
+    axios.get(url, {
+      responseType: 'blob',
+    })
+    .then((res) => {
+      fileDownload(res.data, filename)
+    })
+  }
 
   return (
     <>
@@ -117,8 +85,11 @@ const TabsComponent = ({ features, gallery, video,technicalSheet }) => {
         <VideoComponent video={video} />
       </TabPanel>
       <TabPanel value={value} index={3}>
-      <a style={{textDecoration:'none'}} href={technicalSheet} onClick={(e) => onButtonClick(e, technicalSheet)}>
-   <Box display={'flex'} justifyContent={'center'}>
+        <a style={{textDecoration:'none'}} href={technicalSheet} onClick={(e) => {
+          e.preventDefault()
+          handleDownload(technicalSheet, technicalSheet.split('/').pop())
+        }}>
+        <Box display={'flex'} justifyContent={'center'}>
           <Box>
           <Typography
             variant="body1"
@@ -137,7 +108,7 @@ const TabsComponent = ({ features, gallery, video,technicalSheet }) => {
           </Box>
           </Box>
         </Box>
-            </a>
+      </a>
        
       </TabPanel>
     </>

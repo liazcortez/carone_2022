@@ -72,7 +72,6 @@ const BannerAut = ({ banner, description, promotion, title }) => {
                   style={{
                     color: "white",
                     fontSize: "25px",
-                    textTransform: "capitalize",
                   }}
                 >
                   {promotion}
@@ -110,7 +109,6 @@ const BannerAut = ({ banner, description, promotion, title }) => {
                   style={{
                     color: "white",
                     fontSize: "15px",
-                    textTransform: "capitalize",
                   }}
                 >
                   {promotion}
