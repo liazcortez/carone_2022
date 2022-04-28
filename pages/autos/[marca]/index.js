@@ -22,15 +22,15 @@ const Marca = ({ vehicles, make }) => {
   const router = useRouter();
   const { marca } = router.query;
   const classes = useStyles();
+  const { meta } = make;
 
   return (
     <>
       <Meta
-        title={`Autos tipo ${marca.toUpperCase()}`}
-        description={`Busca tu auto por marca ${marca}`}
-        image={make && make.image ? make.image : 'https://automotive-api.s3.us-east-2.amazonaws.com/60353a7149ef4d0d9d02489b/4174612d-09b0-4089-9d58-60ef1450c31a/logo.png'}
+        title={meta && meta.title ? meta.title : `Autos tipo ${marca.toUpperCase()}`}
+        description={meta && meta.description ? meta.description  : `Busca tu auto por marca ${marca}`}
+        image={meta && meta.image ? meta.image : make && make.image ? make.image : 'https://automotive-api.s3.us-east-2.amazonaws.com/60353a7149ef4d0d9d02489b/4174612d-09b0-4089-9d58-60ef1450c31a/logo.png'}
       />
-
       <Container maxWidth="lg">
         <Divider style={{ marginBottom: "50px" }} />
         <div className={classes.root} style={{ marginBottom: 10 }}>
@@ -71,7 +71,7 @@ export const getServerSideProps = async (context) => {
   let resV = [];
   let resM = {}
   if(vehicles.data) resV = vehicles.data
-  if(make) resM = make
+  if(make) resM = make.data
 
 
   return {
