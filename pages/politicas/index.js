@@ -450,6 +450,91 @@ Vigencia del 1 al 30 de abril. Aplica para los modelos MG GT 2022. Desde 10% de 
             </div>
           </div>
         </div>
+
+        <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="text-center">
+                Términos y Condiciones – SEAT
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>SEAT Ibiza 2022 con seguro por $3,999 (1) y protección de llantas gratis (2).</strong>
+                </p>
+                <p>
+                Volkswagen Leasing, S.A. de C.V. es la entidad comercial que ofrece el producto con la marca respectiva.
+                (1)  El seguro promocional con cobertura amplia durante el primer año, aplica para toda la gama Ibiza modelo 2022 y será responsabilidad de la Compañía Aseguradora que los brinda.
+                (2) Protección de llantas gratis por 12 meses o un evento (lo que ocurra primero) de uno a cuatro neumáticos por evento, aplica para toda la gama Ibiza modelo 2022 única y exclusivamente en caso de incluir cualquiera de los paquetes de servicios de mantenimiento pre pagados en el financiamiento. La protección de llantas es operado por México Asistencia, S.A. de C.V. quien es responsable frente a los clientes del cabal cumplimiento. Consulta los términos y condiciones en el Certificado correspondiente.
+                La oferta aplica exclusivamente para unidades nuevas adquiridas a través del plan financiero SEAT Total (Premium Credit), Credit y Leasing ofrecidos por Volkswagen Leasing S.A. de C.V. No aplica con otras promociones. Sujeto a la aprobación del crédito. Las cantidades están expresadas en pesos mexicanos. Vigencia del 01 al 30 de abril de 2022. Para mayor información consulta vwfs.mx/promociones-seat
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>SEAT Arona 2022 (con faros de niebla) con seguro por $4,999 (1) y protección de llantas gratis (2)</strong>
+                </p>
+                <p>
+                <strong>SEAT Arona 2022 (sin faros de niebla) con seguro gratis (3) y protección de llantas gratis (2).</strong>
+                </p>
+                <p>
+                Volkswagen Leasing, S.A. de C.V. es la entidad comercial que ofrece el producto con la marca respectiva.
+                 (1) El seguro promocional con cobertura amplia durante el primer año, aplica para Arona Style y Xperience modelo 2022 con faros de niebla y será responsabilidad de la Compañía Aseguradora que los brinda.
+                (2) Protección de llantas gratis por 12 meses o un evento (lo que ocurra primero) de uno a cuatro neumáticos por evento, aplica para toda la gama Arona modelo 2022 única y exclusivamente en caso de incluir cualquiera de los paquetes de servicios de mantenimiento pre pagados en el financiamiento. La protección de llantas es operado por México Asistencia, S.A. de C.V. quien es responsable frente a los clientes del cabal cumplimiento. Consulta los términos y condiciones en el Certificado correspondiente.
+                (3) El seguro gratis con cobertura amplia durante el primer año, aplica para Arona Style y Xperience modelo 2022 sin faros de niebla y será responsabilidad de la Compañía Aseguradora que los brinda.
+                La oferta aplica exclusivamente para unidades nuevas adquiridas a través del plan financiero SEAT Total (Premium Credit), Credit y Leasing ofrecidos por Volkswagen Leasing S.A. de C.V. No aplica con otras promociones. Sujeto a la aprobación del crédito. Las cantidades están expresadas en pesos mexicanos. Vigencia del 01 al 30 de abril de 2022. Para mayor información consulta vwfs.mx/promociones-seat
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>SEAT Ateca 2021 - 2022 con seguro gratis (1), comisión por apertura gratis y protección de llantas gratis (2).</strong>
+                </p>
+                <p>
+                Volkswagen Leasing, S.A. de C.V. es la entidad comercial que ofrece el producto con la marca respectiva.
+                (1) El seguro gratis con cobertura amplia durante el primer año, aplica para toda la gama Ateca modelo 2021 y 2022, y será responsabilidad de la Compañía Aseguradora que los brinda.
+                (2) Protección de llantas gratis por 12 meses o un evento (lo que ocurra primero) de uno a cuatro neumáticos por evento, aplica para toda la gama Ateca modelo 2021 y 2022 única y exclusivamente en caso de incluir cualquiera de los paquetes de servicios de mantenimiento pre pagados en el financiamiento. La protección de llantas es operado por México Asistencia, S.A. de C.V. quien es responsable frente a los clientes del cabal cumplimiento. Consulta los términos y condiciones en el Certificado correspondiente.
+                La oferta aplica exclusivamente para unidades nuevas adquiridas a través del plan financiero SEAT Total (Premium Credit) y Credit ofrecidos por Volkswagen Leasing S.A. de C.V. en plazos a partir de 30 meses. No aplica con otras promociones. Consulta con la concesionaria SEAT de tu preferencia, las ofertas vigentes aplicables al resto de los productos financieros ofrecidos por Volkswagen Leasing S.A. de C.V. Sujeto a la aprobación del crédito. Vigencia del 01 al 30 de abril de 2022. Para mayor información consulta www.vwfs.mx/vwl/promociones-seat
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>SEAT León 2021 - 2022 con seguro por $7,499 (1), 1% de comisión por apertura y protección de llantas gratis (2).</strong>
+                </p>
+                <p>
+                Volkswagen Leasing, S.A. de C.V. es la entidad comercial que ofrece el producto con la marca respectiva.
+                (1) El seguro promocional con cobertura amplia durante el primer año, aplica para toda la gama León modelo 2021 y 2022 y será responsabilidad de la Compañía Aseguradora que los brinda.
+
+                (2) Protección de llantas gratis por 12 meses o un evento (lo que ocurra primero) de uno a cuatro neumáticos por evento, aplica para toda la gama León modelo 2021 y 2022 única y exclusivamente en caso de incluir cualquiera de los paquetes de servicios de mantenimiento pre pagados en el financiamiento. La protección de llantas es operado por México Asistencia, S.A. de C.V. quien es responsable frente a los clientes del cabal cumplimiento. Consulta los términos y condiciones en el Certificado correspondiente.
+                La oferta aplica exclusivamente para unidades nuevas adquiridas a través del plan financiero SEAT Total (Premium Credit) y Credit ofrecidos por Volkswagen Leasing S.A. de C.V. No aplica con otras promociones. Consulta con la concesionaria SEAT de tu preferencia, las ofertas vigentes aplicables al resto de los productos financieros ofrecidos por Volkswagen Leasing S.A. de C.V. Sujeto a la aprobación del crédito. Las cantidades están expresadas en pesos mexicanos. Vigencia del 01 al 30 de abril de 2022. Para mayor información consulta vwfs.mx/promociones-seat
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>SEAT Tarraco FR 2021 - 2022 con seguro por $9,499 (1), comisión por apertura gratis y protección de llantas gratis (2).</strong>
+                </p>
+                <p>
+                Volkswagen Leasing, S.A. de C.V. es la entidad comercial que ofrece el producto con la marca respectiva.
+                (1) El seguro promocional con cobertura amplia durante el primer año, aplica para Tarraco FR modelo 2021 y 2022, y será responsabilidad de la Compañía Aseguradora que los brinda.
+                (2) Protección de llantas gratis por 12 meses o un evento (lo que ocurra primero) de uno a cuatro neumáticos por evento, aplica para toda la gama Tarraco modelo 2021 y 2022 única y exclusivamente en caso de incluir cualquiera de los paquetes de servicios de mantenimiento pre pagados en el financiamiento. La
+                protección de llantas es operado por México Asistencia, S.A. de C.V. quien es responsable frente a los clientes del cabal cumplimiento. Consulta los términos y condiciones en el Certificado correspondiente.
+                La oferta aplica exclusivamente para unidades nuevas adquiridas a través del plan financiero SEAT Total (Premium Credit) y Credit ofrecidos por Volkswagen Leasing S.A. de C.V. No aplica con otras promociones. Consulta con la concesionaria SEAT de tu preferencia, las ofertas vigentes aplicables al resto de los productos financieros ofrecidos por Volkswagen Leasing S.A. de C.V. Sujeto a la aprobación del crédito. Las cantidades están expresadas en pesos mexicanos. Vigencia del 01 al 30 de abril de 2022. Para mayor información consulta www.vwfs.mx/vwl/promociones-seat
+                </p>
+              </div>
+            </div>
+          </div>
+
       </Container>
     </>
   );
