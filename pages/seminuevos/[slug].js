@@ -75,15 +75,20 @@ const Slug = ({ preowned }) => {
           <Typography
               variant="h5"
               component="h3"
-              style={{color: "#656d78" }}
+              style={{color: "#656d78", textTransform: "Capitalize"}}
             >
-              <NumberFormat
-                value={preowned.km}
-                displayType={"text"}
-                thousandSeparator={true}
-                suffix={" Kms"}
-              /> 
-              {' '}| {Capitalize(preowned.transmision)} | {Capitalize(preowned.store.make.name + ' ' + preowned.store.name)}
+              { preowned && preowned.km && preowned.km !== "" ? <NumberFormat
+                        value={preowned.km}
+                        displayType={"text"}
+                        thousandSeparator={true}
+                        suffix={" Kms |"} 
+                      /> : " " }
+            
+              { preowned && preowned.transmision && transmision !== "" ? preowned.transmision + ' ' + '|' : " "}
+
+              { preowned && preowned.make.name && preowned.make.name !== "" ? preowned.store.make.name + ' ' + preowned.store.name : ""  }
+
+
             </Typography>
           
         </Box>
