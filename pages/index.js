@@ -44,8 +44,6 @@ export const getStaticProps = async (context) => {
   const resCategories = await fetch(`${baseURL}/categories`);
   const categories = await resCategories.json();
 
-  console.log(makes)
-
   return {
     props: {
       makes: makes.data,
