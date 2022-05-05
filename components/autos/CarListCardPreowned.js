@@ -143,7 +143,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
               <Box style={{height: 60}}>
               <a style={{ textDecoration: "none", color: "black" }}>
                 <Typography variant="h6" >
-                  {`${vehicle && vehicle.vehicle ? capitalCase(vehicle.vehicle.model) :''} ${capitalCase(vehicle.version.toLowerCase())} ${vehicle.year}`}
+                  {`${vehicle && vehicle.vehicle ? capitalCase(vehicle.vehicle.model) :''} ${vehicle.version} ${vehicle.year}`}
                 </Typography>
               </a>
               </Box>
