@@ -142,8 +142,8 @@ const CarlistCard = ({ vehicle, setDataList }) => {
             <Link href={`/seminuevos/${vehicle && vehicle.slug}`}>
               <Box style={{height: 60}}>
               <a style={{ textDecoration: "none", color: "black" }}>
-                <Typography variant="h6"  className={[classes.modelFormatting]}>
-                  {`${vehicle && vehicle.vehicle ? vehicle.vehicle.model :''} ${vehicle.version} ${vehicle.year}`}
+                <Typography variant="h6" >
+                  {`${vehicle && vehicle.vehicle ? capitalCase(vehicle.vehicle.model) :''} ${capitalCase(vehicle.version.toLowerCase())} ${vehicle.year}`}
                 </Typography>
               </a>
               </Box>
