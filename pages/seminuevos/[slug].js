@@ -89,6 +89,7 @@ const Slug = ({ preowned }) => {
               { preowned && preowned.make.name && preowned.make.name !== "" ? ' ' + preowned.store.make.name + ' ' + preowned.store.name : ""  }
 
 
+
             </Typography>
           
         </Box>
