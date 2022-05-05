@@ -98,6 +98,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
   };
 
   useEffect(() => {
+    console.log(vehicle);
     if (vehicle && vehicle._id) {
       if (localStorage.getItem("favorites-seminuevos")) {
         let favs = JSON.parse(localStorage.getItem("favorites-seminuevos"));
@@ -126,7 +127,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
       <CardContent>
         {vehicle ? (
           <>
-            <Link href={`/marcas/${vehicle && vehicle.make && vehicle.make.name}`}>
+            <Link href={`/marcas/${vehicle && vehicle.vehicle.make && vehicle.vehicle.make.name}`}>
               <a style={{ textDecoration: "none", color: "black" }}>
                 <Typography
                   variant="subtitle1"
@@ -134,7 +135,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
                     [classes.modelFormatting, classes.modelFormattingUpper]
                   }
                 >
-                  {vehicle && vehicle.make && vehicle.make.name}{" "}
+                  {vehicle && vehicle.vehicle.make && vehicle.vehicle.make.name}{" "}
                 </Typography>
               </a>
             </Link>
