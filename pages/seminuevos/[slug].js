@@ -35,7 +35,7 @@ const Slug = ({ preowned }) => {
     {(preowned && preowned.isPublished)?
     <>
     <Meta
-      title={meta && meta.title ? meta.title : `${Capitalize(preowned.make.name)} ${Capitalize(preowned.version)} ${preowned.year} - Carone Group`}
+      title={meta && meta.title ? meta.title : `${Capitalize(preowned.vehicle.make.name)} ${Capitalize(preowned.version)} ${preowned.year} - Carone Group`}
       description={meta && meta.description ? meta.description  : Capitalize(preowned.fullDescription)}
       image={meta && meta.image ? meta.image : mainImage}
     />
@@ -65,10 +65,10 @@ const Slug = ({ preowned }) => {
             style={{ fontWeight: "bold", color: "#656d78" }}
           >
             {
-              preowned.version.toLowerCase().includes(preowned.make.name.toLowerCase()) ? 
+              preowned.version.toLowerCase().includes(preowned.vehicle.make.name.toLowerCase()) ? 
               `${preowned.version.toUpperCase()} ${preowned.year}`
               : 
-              `${preowned.make.name.toUpperCase()} ${preowned.version.toUpperCase()} ${preowned.year}`
+              `${preowned.vehicle.make.name.toUpperCase()} ${preowned.version.toUpperCase()} ${preowned.year}`
             }
           </Typography>
 
@@ -83,7 +83,7 @@ const Slug = ({ preowned }) => {
                 thousandSeparator={true}
                 suffix={" Kms"}
               /> 
-              {' '}| {Capitalize(preowned.transmision)} | {Capitalize(preowned.store.make.name + ' ' + preowned.store.name)}
+              {' '}| {Capitalize(preowned.transmission)} | {Capitalize(preowned.store.make.name + ' ' + preowned.store.name)}
             </Typography>
           
         </Box>
@@ -134,7 +134,7 @@ const Slug = ({ preowned }) => {
               component="h3"
               style={{ fontWeight: "bold", color: "#656d78", paddingTop: "2rem", paddingBlockEnd: "1rem"}}
              >
-                CARACTERÍSTICAS {preowned.make.name.toUpperCase()} {preowned.version.toUpperCase()} {preowned.year}
+                CARACTERÍSTICAS {preowned.vehicle.make.name.toUpperCase()} {preowned.version.toUpperCase()} {preowned.year}
              </Typography>
 
             <Divider/>
@@ -148,7 +148,7 @@ const Slug = ({ preowned }) => {
 
                     <Typography style={{paddingBlockEnd: "2rem"}}>
                     
-                    { preowned && preowned.make.name && preowned.make.name !== "" ? Capitalize(preowned.make.name) : "----"  }
+                    { preowned && preowned.vehicle.make && preowned.vehicle.make.name && preowned.vehicle.make.name !== "" ? Capitalize(preowned.vehicle.make.name) : "----"  }
 
                     </Typography>
                   </Box>
@@ -224,7 +224,7 @@ const Slug = ({ preowned }) => {
                     </Typography>
 
                     <Typography>  
-                    { preowned && preowned.transmision && preowned.transmision !== "" ? Capitalize(preowned.transmision) : "----"  }
+                    { preowned && preowned.transmission && preowned.transmission !== "" ? Capitalize(preowned.transmission) : "----"  }
                     </Typography>
                   </Box>
                 </Grid>
