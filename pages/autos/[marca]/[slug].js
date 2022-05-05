@@ -18,7 +18,10 @@ const Slug = ({ vehicle }) => {
   const router = useRouter();
 
   const url = `https://carone2021.herokuapp.com${router.asPath}`;
-  const title = (vehicle.make && vehicle.model && vehicle.year)?`${vehicle.make.name} ${vehicle.model} ${vehicle.year}`:false;
+  const title =
+    vehicle.make && vehicle.model && vehicle.year
+      ? `${vehicle.make.name} ${vehicle.model} ${vehicle.year}`
+      : false;
 
   const Capitalize = (string) => {
     if (string === undefined) return "";
@@ -37,103 +40,115 @@ const Slug = ({ vehicle }) => {
     colors,
     promotion,
     technicalSheet,
-    meta
+    meta,
   } = vehicle;
 
   return (
     <>
-    {(vehicle && vehicle.isPublished)?
-    <>
-    <Meta
-      title={meta && meta.title ? meta.title : `${Capitalize(vehicle.make.name)} ${Capitalize(vehicle.model)} ${vehicle.year} - Carone Group`}
-      description={meta && meta.description ? meta.description  : Capitalize(vehicle.fullDescription)}
-      url={url}
-      image={meta && meta.image ? meta.image : mainImage}
-    />
-    <Container maxWidth="lg">
-      {banner && (
-        <BannerAutos
-          banner={banner}
-          description={description}
-          promotion={promotion}
-          title={title}
-        />
-      )}
-    </Container>
-    <Container maxWidth="lg">
-      <BreadcrumbComponent data={vehicle} section="autos" />
-
-      <Grid container style={{ marginBottom: 50 }}>
-        <Grid item xs={12} lg={7}>
-          <Typography
-            variant="h5"
-            component="h3"
-            style={{ fontWeight: "bold", color: "#656d78" }}
-          >
-            {vehicle.make.name.toUpperCase()} {vehicle.model.toUpperCase()}
-          </Typography>
-          {vehicle.price ? (
-            <Typography
-              variant="h5"
-              component="h3"
-              style={{ marginBottom: 20, color: "#656d78" }}
-            >
-              Precio desde{" "}
-              <NumberFormat
-                style={{ fontWeight: "bold" }}
-                value={vehicle.price}
-                displayType={"text"}
-                thousandSeparator={true}
-                prefix={"$"}
-                suffix={" MXN"}
-              />
-            </Typography>
-          ) : (
-            <Typography
-              variant="h5"
-              component="h3"
-              style={{ marginBottom: 20, color: "#656d78" }}
-            >
-              Precio proximante
-            </Typography>
-          )}
-          {/* Colors Component */}
-          <ColorsComponent colors={colors} />
-        </Grid>
-        <Grid item xs={12} lg={5}>
-          <Financing vehicle={vehicle} />
-          {/* sharing */}
-          {/* <SharingComponent url={url} /> */}
-        </Grid>
-      </Grid>
-
-      <Divider style={{ marginBottom: 30 }} />
-    </Container>
-    <Container maxWidth="lg">
-      <Grid container>
-        <Grid item xs={12}>
-          {/* <CarTabs versions={versions} model={vehicle.model} /> */}
-          <VersionList versions={versions} model={vehicle.model} />
-        </Grid>
-      </Grid>
-
-      <Divider style={{ marginBottom: 40, marginTop: 20 }} />
-    </Container>
-    <Container maxWidth="lg">
-      <Grid container>
-        <Grid item xs={12}>
-          <TabsComponent
-            features={features}
-            gallery={gallery}
-            video={video}
-            technicalSheet={technicalSheet}
+      {vehicle && vehicle.isPublished ? (
+        <>
+          <Meta
+            title={
+              meta && meta.title
+                ? meta.title
+                : `${Capitalize(vehicle.make.name)} ${Capitalize(
+                    vehicle.model
+                  )} ${vehicle.year} - Carone Group`
+            }
+            description={
+              meta && meta.description
+                ? meta.description
+                : Capitalize(vehicle.fullDescription)
+            }
+            url={url}
+            image={meta && meta.image ? meta.image : mainImage}
           />
-        </Grid>
-      </Grid>
-    </Container>{" "}
-    </>
-      :
-      ''}
+          <Container maxWidth="lg">
+            {banner && (
+              <BannerAutos
+                banner={banner}
+                description={description}
+                promotion={promotion}
+                title={title}
+              />
+            )}
+          </Container>
+          <Container maxWidth="lg">
+            <BreadcrumbComponent data={vehicle} section="autos" />
+
+            <Grid container style={{ marginBottom: 50 }}>
+              <Grid item xs={12} lg={7}>
+                <Typography
+                  variant="h5"
+                  component="h3"
+                  style={{ fontWeight: "bold", color: "#656d78" }}
+                >
+                  {vehicle.make.name.toUpperCase()}{" "}
+                  {vehicle.model.toUpperCase()}
+                </Typography>
+                {vehicle.price ? (
+                  <Typography
+                    variant="h5"
+                    component="h3"
+                    style={{ marginBottom: 20, color: "#656d78" }}
+                  >
+                    Precio desde{" "}
+                    <NumberFormat
+                      style={{ fontWeight: "bold" }}
+                      value={vehicle.price}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                      prefix={"$"}
+                      suffix={" MXN"}
+                    />
+                  </Typography>
+                ) : (
+                  <Typography
+                    variant="h5"
+                    component="h3"
+                    style={{ marginBottom: 20, color: "#656d78" }}
+                  >
+                    Precio proximante
+                  </Typography>
+                )}
+                {/* Colors Component */}
+                <ColorsComponent colors={colors} />
+              </Grid>
+              <Grid item xs={12} lg={5}>
+                <Financing vehicle={vehicle} />
+                {/* sharing */}
+                {/* <SharingComponent url={url} /> */}
+              </Grid>
+            </Grid>
+
+            <Divider style={{ marginBottom: 30 }} />
+          </Container>
+          <Container maxWidth="lg">
+            <Grid container>
+              <Grid item xs={12}>
+                <CarTabs versions={versions} model={vehicle.model} />
+                {/* <VersionList versions={versions} model={vehicle.model} /> */}
+              </Grid>
+            </Grid>
+
+            <Divider style={{ marginBottom: 40, marginTop: 20 }} />
+          </Container>
+          <Container maxWidth="lg">
+            <Grid container>
+              <Grid item xs={12}>
+                <TabsComponent
+                  features={features}
+                  gallery={gallery}
+                  video={video}
+                  technicalSheet={technicalSheet}
+                />
+              </Grid>
+            </Grid>
+          </Container>{" "}
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 };
@@ -144,11 +159,14 @@ export const getServerSideProps = async (ctx) => {
 
   const vehicle = await res.json();
 
-  let currentVehicle =( (typeof vehicle.data[0] != 'undefined') && vehicle.data.length > 0) ? vehicle.data[0] : { isPublished: false };
+  let currentVehicle =
+    typeof vehicle.data[0] != "undefined" && vehicle.data.length > 0
+      ? vehicle.data[0]
+      : { isPublished: false };
 
   return {
     props: {
-      vehicle:currentVehicle
+      vehicle: currentVehicle,
     },
   };
 };
