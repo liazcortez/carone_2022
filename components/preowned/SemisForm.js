@@ -133,7 +133,6 @@ const SemisForm = ({preowned}) => {
       );
       setFormData(defaultData)
     } catch (err) {
-      console.log(err.message)
     }
   };
 
