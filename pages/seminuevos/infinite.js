@@ -74,7 +74,7 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
       >
           <Box className='vehiclesGrid'>
       
-            {infiniteVehicles.map(
+            {infiniteVehicles && infiniteVehicles.map(
                 (vehicle, index) => (
                  
                     <CarListCard key={index} vehicle={vehicle} loading={loading} />
