@@ -15,7 +15,7 @@ const SearchBarTop = ({ setQuery, query, disableTopBar, store, category, sort })
 
   const handleKeyUp = (event) => {
     if (event.keyCode === 13) {
-      getPreowneds(1, `${query}&store=${store}&modelType=${category}&prices=${sort}`)
+      getPreowneds(1, `${query}&store=${store}${category !== '-' ? `&modelType=${category}` : ''}&prices=${sort}`)
     }
   }
 

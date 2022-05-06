@@ -23,7 +23,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   useEffect(() => {
     getPreowneds(
       page,
-      `${query}${store !== '-' ? `&store=${store}` : ''}&modelType=${category}&prices=${sort}&sort=-createdAt`
+      `${query}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&prices=${sort}&sort=-createdAt`
     );
     //eslint-disable-next-line
   }, [page, store, category, sort]);
