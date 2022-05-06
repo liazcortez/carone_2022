@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "@material-ui/core";
 import SearchBarTop from "./SearchBarTopPreowned";
-import SearchBarBottom from "./SearchBarBottom";
+import SearchBarBottom from "./SearchBarBottomPreowned";
 
 const SearchBar = ({ setQuery, query, stores, categories, setCategory, setStore, category, store, disableTopBar, setPage, sort, setSort }) => {
   return (
