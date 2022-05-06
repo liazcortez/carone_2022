@@ -263,6 +263,7 @@ const index = () => {
                 <p>
                   <strong>
                   S10 MAX 2023
+                  
                   </strong>
                 </p>
                 <p>
