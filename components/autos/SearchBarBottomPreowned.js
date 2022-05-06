@@ -126,7 +126,12 @@ const SearchBarBottom = ({
           <option key={0} value={"-"}>
             Todas
           </option>
-          {stores.map((option) => {
+          {stores.sort(function(a,b) {
+          // Compare the 2 dates
+          if (a.make.name < b.make.name) return -1;
+          if (a.make.name > b.make.name) return 1;
+          return 0;
+        }).map((option) => {
             if(option._id !== '6269ae3be8436b4af342ac97')return <option key={option.name} value={option._id}>{capitalCase(option.make.name.replace("-", " ") + ' ' + option.name)}</option>
             return false;
           }
