@@ -35,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
 
 const SearchBarBottom = ({
   stores,
-  categories,
   setCategory,
   setStore,
   category,

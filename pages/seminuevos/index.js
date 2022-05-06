@@ -5,7 +5,6 @@ import SearchBar from "../../components/autos/SearchBarPreowned";
 import Meta from "../../components/Meta";
 import Pagination from "../../components/Pagination";
 import usePreowned from "../../hooks/usePreowned";
-import Banner from "../../components/Banner";
 import { baseURL } from "../../api/api";
 
 const Index = ({ preownedsSP, total, stores, categories }) => {
@@ -21,10 +20,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   const changePage = (event, value) => setPage(value);
 
   useEffect(() => {
-    getPreowneds(
-      page,
-      `${query}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&prices=${sort}&sort=-createdAt`
-    );
+    getPreowneds(page, `${query}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&prices=${sort}&sort=-createdAt`);
     //eslint-disable-next-line
   }, [page, store, category, sort]);
 
@@ -69,16 +65,13 @@ export const getStaticProps = async (context) => {
   const preowneds = await res.json();
 
   const storesRes = await fetch(`${baseURL}/stores`);
-  const categoriesRes = await fetch(`${baseURL}/categories`);
 
   const stores = await storesRes.json();
-  const categories = await categoriesRes.json();
 
   return {
     props: {
       preownedsSP: preowneds.data,
       stores: stores.data,
-      categories: categories.data,
       total: preowneds.pagination.total,
     },
   };
