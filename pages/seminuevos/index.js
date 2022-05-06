@@ -8,13 +8,13 @@ import usePreowned from "../../hooks/usePreowned";
 import Banner from "../../components/Banner";
 import { baseURL } from "../../api/api";
 
-const Index = ({ preownedsSP, total, makes, categories }) => {
+const Index = ({ preownedsSP, total, stores, categories }) => {
 
   const { preowneds, getPreowneds, loading, results } = usePreowned();
   const [disableTopBar, setDisableTopBar] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
-  const [make, setMake] = useState("-");
+  const [store, setStore] = useState("-");
   const [category, setCategory] = useState("-");
   const [sort, setSort] = useState("-");
 
@@ -23,10 +23,10 @@ const Index = ({ preownedsSP, total, makes, categories }) => {
   useEffect(() => {
     getPreowneds(
       page,
-      `${query}&make=${make}&category=${category}&prices=${sort}&sort=-createdAt`
+      `${query}${store !== '-' ? `&store=${store}` : ''}&modelType=${category}&prices=${sort}&sort=-createdAt`
     );
     //eslint-disable-next-line
-  }, [page, make, category, sort]);
+  }, [page, store, category, sort]);
 
 
   return (
@@ -37,12 +37,12 @@ const Index = ({ preownedsSP, total, makes, categories }) => {
         <SearchBar
           setQuery={setQuery}
           query={query}
-          makes={makes}
+          stores={stores}
           categories={categories}
           setCategory={setCategory}
-          setMake={setMake}
+          setStore={setStore}
           category={category}
-          make={make}
+          store={store}
           disableTopBar={disableTopBar}
           setPage={setPage}
           sort={sort}
@@ -68,16 +68,16 @@ export const getStaticProps = async (context) => {
   const res = await fetch(`${baseURL}/preowneds?page=1&limit=12&sort=-createdAt`);
   const preowneds = await res.json();
 
-  const makesRes = await fetch(`${baseURL}/makes`);
+  const storesRes = await fetch(`${baseURL}/stores`);
   const categoriesRes = await fetch(`${baseURL}/categories`);
 
-  const makes = await makesRes.json();
+  const stores = await storesRes.json();
   const categories = await categoriesRes.json();
 
   return {
     props: {
       preownedsSP: preowneds.data,
-      makes: makes.data,
+      stores: stores.data,
       categories: categories.data,
       total: preowneds.pagination.total,
     },

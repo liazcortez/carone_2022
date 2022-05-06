@@ -4,7 +4,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import usePreowned from "../../hooks/usePreowned";
 
-const SearchBarTop = ({ setQuery, query, disableTopBar, make, category, sort }) => {
+const SearchBarTop = ({ setQuery, query, disableTopBar, store, category, sort }) => {
 
   const { getPreowneds } = usePreowned();
 
@@ -15,7 +15,7 @@ const SearchBarTop = ({ setQuery, query, disableTopBar, make, category, sort }) 
 
   const handleKeyUp = (event) => {
     if (event.keyCode === 13) {
-      getPreowneds(1, `${query}&make=${make}&category=${category}&prices=${sort}`)
+      getPreowneds(1, `${query}&store=${store}&modelType=${category}&prices=${sort}`)
     }
   }
 

@@ -2,25 +2,6 @@ import React from "react";
 import { makeStyles, Grid, TextField } from "@material-ui/core";
 import { capitalCase } from "change-case";
 
-const currencies = [
-  {
-    value: "USD",
-    label: "$",
-  },
-  {
-    value: "EUR",
-    label: "€",
-  },
-  {
-    value: "BTC",
-    label: "฿",
-  },
-  {
-    value: "JPY",
-    label: "¥",
-  },
-];
-
 const sortOptions = [
   {
     name: "Menor a $150,000",
@@ -53,12 +34,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SearchBarBottom = ({
-  makes,
+  stores,
   categories,
   setCategory,
-  setMake,
+  setStore,
   category,
-  make,
+  store,
   setPage,
   sort,
   setSort,
@@ -67,7 +48,7 @@ const SearchBarBottom = ({
 
   const handleChange = (event) => {
     setPage(1);
-    setMake(event.target.value);
+    setStore(event.target.value);
   };
 
   const handleCategory = (event) => {
@@ -108,12 +89,20 @@ const SearchBarBottom = ({
           <option key={0} value={"-"}>
             Todas
           </option>
-          {categories.map((option) => (
+          { 
+            [
+              { name: 'Suv', value: 'suv' },
+              { name: 'Sedán', value: 'Sedan' },
+              { name: 'Pickup', value: 'pickup' },
+              { name: 'HB', value: 'hb' },
+              { name: 'Van', value: 'van' },
+              { name: 'Comercial', value: 'comercial' },
+            ].map((option) => (
             <option
               key={option.name}
-              value={option._id}
+              value={option.value}
             >
-              {capitalCase(option.name)}
+              {option.name}
             </option>
           ))}
         </TextField>
@@ -127,8 +116,8 @@ const SearchBarBottom = ({
           }}
           select
           fullWidth
-          label="Marca"
-          value={make}
+          label="Agencia"
+          value={store}
           onChange={handleChange}
           SelectProps={{
             native: true,
@@ -138,11 +127,11 @@ const SearchBarBottom = ({
           <option key={0} value={"-"}>
             Todas
           </option>
-          {makes.map((option) => (
-            <option key={option.name} value={option._id}>
-              {capitalCase(option.name.replace("-", " "))}
-            </option>
-          ))}
+          {stores.map((option) => {
+            if(option._id !== '6269ae3be8436b4af342ac97')return <option key={option.name} value={option._id}>{capitalCase(option.make.name.replace("-", " ") + ' ' + option.name)}</option>
+            return false;
+          }
+          )}
         </TextField>
       </Grid>
       <Grid item xs={6} sm={6} md={4} lg={4}>
