@@ -13,7 +13,7 @@ import FormComponent from "./FormComponent";
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 500,
+    // minWidth: 500,
   },
 });
 

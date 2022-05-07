@@ -84,7 +84,8 @@ const Slug = ({ vehicle }) => {
                   style={{ fontWeight: "bold", color: "#656d78" }}
                 >
                   {vehicle.make.name.toUpperCase()}{" "}
-                  {vehicle.model.toUpperCase()}
+                  {vehicle.model.toUpperCase()}{" "}
+                  {vehicle.year}
                 </Typography>
                 {vehicle.price ? (
                   <Typography
@@ -133,7 +134,7 @@ const Slug = ({ vehicle }) => {
 
             <Divider style={{ marginBottom: 40, marginTop: 20 }} />
           </Container>
-          <Container maxWidth="lg">
+          <Container style={{overflow:'scroll'}} maxWidth="lg">
             <Grid container>
               <Grid item xs={12}>
                 <TabsComponent

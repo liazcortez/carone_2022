@@ -31,12 +31,13 @@ const imageUrl =
 const BannerAut = ({ banner, description, promotion, title }) => {
   const classes = useStyles();
   return (
-    <Grid container style={{ marginBottom: 30 }}>
+    <Grid container style={{ marginBottom: 30,  }}>
       <Grid item xs={12}>
         <Paper
           className='responsiveBanner'
 
           style={{
+            maxWidth:'99vw',
             backgroundImage: `url(${banner ? banner : imageUrl})`,
           }}
         >
