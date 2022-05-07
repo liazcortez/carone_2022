@@ -69,11 +69,13 @@ const Slug = ({ preowned }) => {
                       paddingTop: "1rem",
                       paddingLeft: "10px",
                       display: "block",
+                      position: "relative",
+                      top: "18px",
                     }}
                   >
                     <Typography
                       variant="h5"
-                      style={{ fontWeight: "bold", color: "##555555" }}
+                      style={{ fontWeight: "bold", color: "#212121" }}
                     >
                       {preowned.version
                         .toLowerCase()
@@ -86,7 +88,7 @@ const Slug = ({ preowned }) => {
 
                     <Typography
                       variant="h6"
-                      style={{ color: "#555555", textTransform: "Capitalize" }}
+                      style={{ color: "#212121", textTransform: "Capitalize" }}
                     >
                       {preowned && preowned.km && preowned.km !== "" ? (
                         <NumberFormat
@@ -129,7 +131,7 @@ const Slug = ({ preowned }) => {
                   <Typography
                     style={{
                       fontSize: "35px",
-                      color: "#555",
+                      color: "#212121",
                       fontWeight: 600,
                       paddingRight: "5px",
                     }}
@@ -140,7 +142,7 @@ const Slug = ({ preowned }) => {
                   <Typography
                     style={{
                       fontSize: "35px",
-                      color: "#555",
+                      color: "#212121",
                       fontWeight: 600,
                     }}
                   >
@@ -186,7 +188,7 @@ const Slug = ({ preowned }) => {
                   variant="h6"
                   style={{
                     fontWeight: "bold",
-                    color: "#656d78",
+                    color: "#212121",
                     paddingTop: "2rem",
                     paddingBlockEnd: "1rem",
                   }}
