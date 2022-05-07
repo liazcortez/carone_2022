@@ -252,7 +252,7 @@ const Slug = ({ preowned }) => {
                     </Typography>
 
                     <Typography>
-                       {Capitalize(preowned.vehicle.modelType)}
+                       {Capitalize((preowned.modelType && preowned.modelType !== '')?preowned.modelType:"----")}
                     </Typography>
 
                   </Box>

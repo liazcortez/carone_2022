@@ -1,9 +1,9 @@
 import React from "react";
 import { Container } from "@material-ui/core";
 import SearchBarTop from "./SearchBarTopPreowned";
-import SearchBarBottom from "./SearchBarBottom";
+import SearchBarBottom from "./SearchBarBottomPreowned";
 
-const SearchBar = ({ setQuery, query, makes, categories, setCategory, setMake, category, make, disableTopBar, setPage, sort, setSort }) => {
+const SearchBar = ({ setQuery, query, stores, categories, setCategory, setStore, category, store, disableTopBar, setPage, sort, setSort }) => {
   return (
     <Container
       maxWidth="lg"
@@ -14,19 +14,19 @@ const SearchBar = ({ setQuery, query, makes, categories, setCategory, setMake, c
         setQuery={setQuery} 
         disableTopBar={disableTopBar}
         category={category}
-        make={make}
+        store={store}
         sort={sort}
       />
       <SearchBarBottom 
         setPage={setPage}
         query={query} 
         setQuery={setQuery} 
-        makes={makes} 
+        stores={stores} 
         categories={categories}
         setCategory={setCategory} 
-        setMake={setMake} 
+        setStore={setStore} 
         category={category}
-        make={make}
+        store={store}
         setSort={setSort}
         sort={sort}
         />
