@@ -62,72 +62,110 @@ const Slug = ({ preowned }) => {
               style={{ marginBottom: 50, paddingTop: "1rem" }}
               spacing={3}
             >
-             <Grid container>
-        
-        <Grid item xs={12} md={7}>
+              <Grid container>
+                <Grid item xs={12} md={7}>
+                  <Box
+                    style={{
+                      paddingTop: "1rem",
+                      paddingLeft: "10px",
+                      display: "block",
+                    }}
+                  >
+                    <Typography
+                      variant="h5"
+                      style={{ fontWeight: "bold", color: "##555555" }}
+                    >
+                      {preowned.version
+                        .toLowerCase()
+                        .includes(preowned.vehicle.make.name.toLowerCase())
+                        ? `${preowned.version.toUpperCase()} ${preowned.year}`
+                        : `${preowned.vehicle.make.name.toUpperCase()} ${preowned.version.toUpperCase()} ${
+                            preowned.year
+                          }`}
+                    </Typography>
 
-        <Box style={{ paddingTop: "1rem", paddingLeft: "10px", display: "block"}}>
+                    <Typography
+                      variant="h6"
+                      style={{ color: "#555555", textTransform: "Capitalize" }}
+                    >
+                      {preowned && preowned.km && preowned.km !== "" ? (
+                        <NumberFormat
+                          value={preowned.km}
+                          displayType={"text"}
+                          thousandSeparator={true}
+                          suffix={" Kms |"}
+                        />
+                      ) : (
+                        " "
+                      )}
 
-          <Typography
-            variant="h5"
-            style={{fontWeight: "bold", color: "#656d78" }}
-          >
-            {
-              preowned.version.toLowerCase().includes(preowned.vehicle.make.name.toLowerCase()) ? 
-              `${preowned.version.toUpperCase()} ${preowned.year}`
-              : 
-              `${preowned.vehicle.make.name.toUpperCase()} ${preowned.version.toUpperCase()} ${preowned.year}`
-            }
-          </Typography>
+                      {preowned &&
+                      preowned.transmission &&
+                      preowned.transmission !== ""
+                        ? " " + preowned.transmission + " " + "|"
+                        : "----"}
 
-          <Typography
-              variant="h6"
-              style={{color: "#656d78", textTransform: "Capitalize"}}
-            >
-              { preowned && preowned.km && preowned.km !== "" ? <NumberFormat
-                        value={preowned.km}
+                      {preowned &&
+                      preowned.make.name &&
+                      preowned.make.name !== ""
+                        ? " " +
+                          preowned.store.make.name +
+                          " " +
+                          preowned.store.name
+                        : ""}
+                    </Typography>
+                  </Box>
+                </Grid>
+
+                <Grid
+                  item
+                  xs={5}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-end",
+                    paddingLeft: "18px",
+                  }}
+                >
+                  <Typography
+                    style={{
+                      fontSize: "35px",
+                      color: "#555",
+                      fontWeight: 600,
+                      paddingRight: "5px",
+                    }}
+                  >
+                    Precio:
+                  </Typography>
+
+                  <Typography
+                    style={{
+                      fontSize: "35px",
+                      color: "#555",
+                      fontWeight: 600,
+                    }}
+                  >
+                    {preowned && preowned.km && preowned.km !== "" ? (
+                      <NumberFormat
+                        value={preowned.price}
                         displayType={"text"}
                         thousandSeparator={true}
-                        suffix={" Kms |"} 
-                      /> : " " }
-            
-             { preowned && preowned.transmission && preowned.transmission !== "" ? ' ' + preowned.transmission + ' ' + '|' : "----"  }
+                        prefix={"$"}
+                        suffix={" MXN"}
+                      />
+                    ) : (
+                      "Proximamente"
+                    )}
+                  </Typography>
+                </Grid>
+              </Grid>
 
-              { preowned && preowned.make.name && preowned.make.name !== "" ? ' ' + preowned.store.make.name + ' ' + preowned.store.name : ""  }
-
-
-
-            </Typography>
-          
-        </Box>
-
-        </Grid>
-        
-        
-        <Grid item xs={5} style={{display: "flex", alignItems:'flex-end', paddingLeft: "18px"}}>
-        <Typography style={{fontSize: "3.3vw", color:"#555", fontWeight: 600, paddingRight: "5px"}}>
-          Precio: 
-        </Typography>
-
-        <Typography style={{fontSize: "3.3vw", color:"#555", fontWeight: 600}}>
-
-        { preowned && preowned.km && preowned.km !== "" ? <NumberFormat
-               value={preowned.price}
-               displayType={"text"}
-               thousandSeparator={true}
-                prefix={"$"}
-                suffix={" MXN"}
-              /> : "Proximamente" }
-                    
-            </Typography>
-        </Grid>
-
-        </Grid>        
-
-              <Grid style={{ minHeight: "10rem" }} item xs={12}  md={7}>
+              <Grid style={{ minHeight: "10rem" }} item xs={12} md={7}>
                 {" "}
                 {/*Aqui es xs={8}*/}
-                <Grid container style={{ maxWidth:'90vw', paddingTop: "10px" }}>
+                <Grid
+                  container
+                  style={{ maxWidth: "90vw", paddingTop: "10px" }}
+                >
                   <SemisCarousel
                     medias={[
                       { image: preowned.mainImage, key: 0 },
@@ -137,7 +175,7 @@ const Slug = ({ preowned }) => {
                 </Grid>
               </Grid>
 
-              <Grid style={{ minHeight: "10rem" }} item xs={12}  md={5}>
+              <Grid style={{ minHeight: "10rem" }} item xs={12} md={5}>
                 {" "}
                 {/*Aqui es xs={4}*/}
                 <SemisForm preowned={preowned} />
@@ -147,7 +185,6 @@ const Slug = ({ preowned }) => {
                 <Typography
                   variant="h6"
                   style={{
-
                     fontWeight: "bold",
                     color: "#656d78",
                     paddingTop: "2rem",
@@ -161,7 +198,7 @@ const Slug = ({ preowned }) => {
                 <Divider />
 
                 <Grid container spacing={3} style={{ paddingTop: "1rem" }}>
-                  <Grid item xs={6}  sm={3}>
+                  <Grid item xs={6} sm={3}>
                     <Box>
                       <Typography style={{ fontWeight: 600 }}>Marca</Typography>
 
@@ -195,7 +232,7 @@ const Slug = ({ preowned }) => {
                     </Box>
                   </Grid>
 
-                  <Grid item xs={6}  sm={3}>
+                  <Grid item xs={6} sm={3}>
                     <Box>
                       <Typography style={{ fontWeight: 600 }}>
                         Modelo
@@ -229,7 +266,7 @@ const Slug = ({ preowned }) => {
                     </Box>
                   </Grid>
 
-                  <Grid item xs={6}  sm={3}>
+                  <Grid item xs={6} sm={3}>
                     <Box>
                       <Typography style={{ fontWeight: 600 }}>Año</Typography>
 
@@ -255,7 +292,7 @@ const Slug = ({ preowned }) => {
                     </Box>
                   </Grid>
 
-                  <Grid item xs={6}  sm={3}>
+                  <Grid item xs={6} sm={3}>
                     <Box>
                       <Typography style={{ fontWeight: 600 }}>
                         Agencia
