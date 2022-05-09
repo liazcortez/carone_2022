@@ -138,11 +138,14 @@ const SearchBarBottom = ({
           <option key={0} value={"-"}>
             Todas
           </option>
-          {makes.map((option) => (
-            <option key={option.name} value={option._id}>
-              {capitalCase(option.name.replace("-", " "))}
-            </option>
-          ))}
+          {makes.map((option) => {
+            if(option._id === "6269ad81e8436b4af342ac57")return false
+            return(
+              <option key={option.name} value={option._id}>
+                {capitalCase(option.name.replace("-", " "))}
+              </option>
+            )
+            })}
         </TextField>
       </Grid>
       <Grid item xs={6} sm={6} md={4} lg={4}>

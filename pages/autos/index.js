@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Container, Divider, Grid, Box } from "@material-ui/core";
-import CarList from "../../components/autos/CarList";
 import SearchBar from "../../components/autos/SearchBar";
 import Meta from "../../components/Meta";
-import Pagination from "../../components/Pagination";
 import useVehicles from "../../hooks/useVehicle";
-import Banner from "../../components/Banner";
+// import Banner from "../../components/Banner";
 import { baseURL } from "../../api/api";
 import InfiniteScroll from "react-infinite-scroll-component";
 import CarListCard from "../../components/autos/CarListCard";
