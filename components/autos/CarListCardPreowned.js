@@ -19,6 +19,9 @@ import Link from "next/link";
 import Skeleton from "@material-ui/lab/Skeleton";
 import { capitalCase } from "change-case";
 import NumberFormat from "react-number-format";
+import moment from 'moment';
+import 'moment/locale/es';
+moment.locale('es');
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   hover: {
+    cursor:'pointer',
     "&:hover": {
       border: "2px solid #556cd699",
     },
@@ -60,10 +64,18 @@ const useStyles = makeStyles((theme) => ({
 const emptyImage =
   "https://i.pinimg.com/originals/ae/8a/c2/ae8ac2fa217d23aadcc913989fcc34a2.png";
 
-const CarlistCard = ({ vehicle, setDataList }) => {
+const CarlistCard = ({ vehicle, setDataList }) => {        
   const classes = useStyles();
   const [isFavorite, setIsFavorite] = useState(false);
-  const { enqueueSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();     
+
+  const formatText = (name) =>{
+
+    // name = name.replace('days', `Dias`);
+    // name = name.replace('ago', t('atras'));
+  
+    return name;
+  }
 
   const handleAddFavorite = (vehicle) => {
     let data;
@@ -109,9 +121,10 @@ const CarlistCard = ({ vehicle, setDataList }) => {
   }, [vehicle]);
 
   return (
+    <Link href={`/seminuevos/${vehicle.slug}`}>
+
     <Card  className={(classes.root, classes.hover)}>
       {vehicle ? (
-        <Link href={`/seminuevos/${vehicle.slug}`}>
           <a>
             <CardMedia
               className={classes.media}
@@ -119,15 +132,12 @@ const CarlistCard = ({ vehicle, setDataList }) => {
               title={`${vehicle && vehicle.version && vehicle.version} ${vehicle && vehicle.year}`}
             />
           </a>
-        </Link>
       ) : (
         <Skeleton variant="rect" width="100%" height={156} />
       )}
       <CardContent>
         {vehicle ? (
           <>
-            <Link href={`/marcas/${vehicle && vehicle.vehicle.make && vehicle.vehicle.make.name}`}>
-              <a style={{ textDecoration: "none", color: "black" }}>
                 <Typography
                   variant="subtitle1"
                   className={
@@ -136,17 +146,19 @@ const CarlistCard = ({ vehicle, setDataList }) => {
                 >
                   {vehicle && vehicle.vehicle.make && vehicle.vehicle.make.name}{" "}
                 </Typography>
-              </a>
-            </Link>
+                
             <Link href={`/seminuevos/${vehicle && vehicle.slug}`}>
-              <Box style={{height: 60}}>
-              <a style={{ textDecoration: "none", color: "black" }}>
-                <Typography variant="h6" >
+              <Box  >
+              <a style={{ textDecoration: "none", color: "black"}}>
+                <Typography style={{overflow: 'hidden',whiteSpace: 'nowrap',width: 'calc(90%)',display: 'inline-block',textOverflow: 'ellipsis'}} variant="h6" >
                   {`${vehicle && vehicle.vehicle ? capitalCase(vehicle.vehicle.model) :''} ${vehicle.version} ${vehicle.year}`}
                 </Typography>
               </a>
               </Box>
             </Link>
+
+         
+
             <Typography variant="h6" gutterBottom style={{ fontSize: 17 }}>
               Desde &nbsp;
               {vehicle.price ? (
@@ -159,6 +171,11 @@ const CarlistCard = ({ vehicle, setDataList }) => {
               ) : (
                 "Precio pendiente"
               )}
+            </Typography>
+
+          
+            <Typography variant="h6" gutterBottom style={{ fontSize: 17 }}>
+            {`${(vehicle && vehicle.store && vehicle.store.make && vehicle.store.make.name ?capitalCase(vehicle.store.make.name):'')} ${(vehicle && vehicle.store && vehicle.store.name?capitalCase(vehicle.store.name):'')}`}
             </Typography>
           </>
         ) : (
@@ -185,7 +202,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
         )}
       </CardContent>
       <Divider />
-      <CardActions disableSpacing>
+      <CardActions disableSpacing style={{justifyContent:'space-between'}}>
 
         <FormControlLabel
           control={
@@ -203,9 +220,15 @@ const CarlistCard = ({ vehicle, setDataList }) => {
           onClick={(e) => handleAddFavorite(vehicle)}
 
         />
+
+             <Typography>
+            {`${formatText(moment(vehicle.createdAt, "YYYYMMDD").fromNow())}`}
+            </Typography>
         {/* <FavoriteIcon /> */}
       </CardActions>
     </Card>
+    </Link>
+
   );
 };
 
