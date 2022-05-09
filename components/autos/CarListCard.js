@@ -20,6 +20,7 @@ import Skeleton from "@material-ui/lab/Skeleton";
 import { capitalCase } from "change-case";
 import NumberFormat from "react-number-format";
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
