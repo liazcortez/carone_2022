@@ -7,7 +7,7 @@ import usePreowned from "../../hooks/usePreowned";
 import { baseURL } from "../../api/api";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Container, Divider, Grid, Box } from "@material-ui/core";
-import CarListCard from "../../components/autos/CarListCard";
+import CarListCard from "../../components/autos/CarListCardPreowned";
 import CustomLoading from "../../components/CustomLoading";
 
 
