@@ -98,7 +98,6 @@ const CarlistCard = ({ vehicle, setDataList }) => {
   };
 
   useEffect(() => {
-    console.log(vehicle);
     if (vehicle && vehicle._id) {
       if (localStorage.getItem("favorites-seminuevos")) {
         let favs = JSON.parse(localStorage.getItem("favorites-seminuevos"));
