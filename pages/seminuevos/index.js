@@ -1,62 +1,112 @@
 import React, { useState, useEffect } from "react";
-import { Container, Divider } from "@material-ui/core";
 import CarList from "../../components/autos/CarListPreowned";
 import SearchBar from "../../components/autos/SearchBarPreowned";
 import Meta from "../../components/Meta";
 import Pagination from "../../components/Pagination";
 import usePreowned from "../../hooks/usePreowned";
 import { baseURL } from "../../api/api";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { Container, Divider, Grid, Box } from "@material-ui/core";
+import CarListCard from "../../components/autos/CarListCard";
+import CustomLoading from "../../components/CustomLoading";
+
+
 
 const Index = ({ preownedsSP, total, stores, categories }) => {
 
-  const { preowneds, getPreowneds, loading, results } = usePreowned();
+  const { preowneds, getPreowneds, loading, results,clearState } = usePreowned();
   const [disableTopBar, setDisableTopBar] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [store, setStore] = useState("-");
   const [category, setCategory] = useState("-");
   const [sort, setSort] = useState("-");
+  const [infiniteVehicles, setInfiniteVehicles] = useState([]);
+
 
   const changePage = (event, value) => setPage(value);
 
   useEffect(() => {
-    getPreowneds(page, `${query}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&prices=${sort}&sort=-createdAt`);
+    handleReload();
     //eslint-disable-next-line
-  }, [page, store, category, sort]);
+  }, [store, category, sort,query]);
 
+  const handleReload = async ()=>{
+    await setInfiniteVehicles([]);
+    loadData();
+  }
+
+  // useEffect(() => {
+  //   setInfiniteVehicles([]);
+  //   loadData(true);
+  //   //eslint-disable-next-line
+  // }, [make, category, sort]);
+
+  useEffect(() => {
+    if (preowneds && preowneds.length <= 0) return;
+    setInfiniteVehicles([...infiniteVehicles, ...preowneds]);
+    clearState();
+  }, [preowneds]);
+
+  const loadData = () => {
+    getPreowneds(page, `${query}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&prices=${sort}&sort=-createdAt`);
+
+    setPage(page + 1);
+  };
 
   return (
     <>
-      <Meta title="Busca tu Auto - Car One Group" description="Busca tu Auto Seminuevo"/>
-
-      <Container maxWidth="lg">
+         
+      <Meta
+        title="Busca tu Auto - Car One Group"
+        description="Busca tu Auto Nuevo"
+      />
+     
+        <Container maxWidth="lg">
         <SearchBar
-          setQuery={setQuery}
-          query={query}
-          stores={stores}
-          categories={categories}
-          setCategory={setCategory}
-          setStore={setStore}
-          category={category}
-          store={store}
-          disableTopBar={disableTopBar}
-          setPage={setPage}
-          sort={sort}
-          setSort={setSort}
-        />
-        <Divider style={{ marginBottom: "50px" }} />
-        {preowneds ? (
-          <CarList vehicles={preowneds} loading={loading} />
-        ) : (
-          <CarList vehicles={preownedsSP} loading={loading} />
-        )}
-        <Pagination
+setQuery={setQuery}
+query={query}
+stores={stores}
+categories={categories}
+setCategory={setCategory}
+setStore={setStore}
+category={category}
+store={store}
+disableTopBar={disableTopBar}
+setPage={setPage}
+sort={sort}
+setSort={setSort}
+/>
+          <Divider style={{ marginBottom: "50px" }} />
+          <InfiniteScroll
+        dataLength={infiniteVehicles.length}
+        next={loadData}
+        hasMore={true}
+        // loader={<CustomLoading {...{ loading:true }} />}
+      >
+          <Box className='vehiclesGrid'>
+      
+            {infiniteVehicles.map(
+                (vehicle, index) => (
+                 
+                    <CarListCard key={index} vehicle={vehicle} loading={loading} />
+
+                )
+              )}
+
+          </Box>
+          </InfiniteScroll>
+          {loading &&  <CustomLoading />}
+
+
+          {/* <Pagination
           total={results !== null ? results : total}
           page={page}
           limit={12}
           changePage={changePage}
-        />
-      </Container>
+        /> */}
+        </Container>
+
     </>
   );
 };
