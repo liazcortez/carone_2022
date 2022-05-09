@@ -1,21 +1,21 @@
-import React from "react";
+import React , {useState}from "react";
 import { TextField } from "@material-ui/core";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
-import useVehicle from "../../hooks/useVehicle";
 
-const SearchBarTop = ({ setQuery, query, disableTopBar, make, category, sort }) => {
+const SearchBarTop = ({ setQuery, query, disableTopBar, make, category, sort, setPage}) => {
 
-  const { getVehicles } = useVehicle();
-
+  const [localQuery,setLocalQuery] = useState('');
   const handleChange = (event) => {
     event.preventDefault();
-    setQuery(event.target.value);
+    setLocalQuery(event.target.value);
   }
 
   const handleKeyUp = (event) => {
     if (event.keyCode === 13) {
-      getVehicles(1, `${query}&make=${make}&category=${category}&prices=${sort}`)
+      setPage(1);
+      setQuery(localQuery);
+      // getVehicles(1, `${query}&make=${make}&category=${category}&prices=${sort}`)
     }
   }
 
@@ -33,7 +33,7 @@ const SearchBarTop = ({ setQuery, query, disableTopBar, make, category, sort }) 
         onKeyUp={handleKeyUp}
         fullWidth
         disabled={disableTopBar}
-        value={query}
+        value={localQuery}
         onChange={handleChange}
         name="query"
         InputProps={{

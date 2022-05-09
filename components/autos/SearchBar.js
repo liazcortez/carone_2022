@@ -10,6 +10,7 @@ const SearchBar = ({ setQuery, query, makes, categories, setCategory, setMake, c
       style={{ paddingLeft: 0, paddingRight: 0, marginBottom: 20 }}
     >
       <SearchBarTop 
+        setPage={setPage}
         query={query} 
         setQuery={setQuery} 
         disableTopBar={disableTopBar}
