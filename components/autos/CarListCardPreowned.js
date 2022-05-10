@@ -221,7 +221,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
 
         />
 
-             <Typography>
+             <Typography style={{textTransform:'capitalize'}}>
             {`${formatText(moment(vehicle.createdAt, "YYYYMMDD").fromNow())}`}
             </Typography>
         {/* <FavoriteIcon /> */}
