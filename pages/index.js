@@ -38,7 +38,7 @@ const Home = ({ makes, categories, medias }) => {
 };
 
 export const getStaticProps = async (context) => {
-  const res = await fetch(`${baseURL}/makes/redis?isShown=true`);
+  const res = await fetch(`${baseURL}/makes?isShown=true`);
   const makes = await res.json();
 
   const resCategories = await fetch(`${baseURL}/categories`);
