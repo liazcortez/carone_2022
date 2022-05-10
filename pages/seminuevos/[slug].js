@@ -1,19 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Container, Grid, Typography, Divider, Box } from "@material-ui/core";
 import BannerAutos from "../../components/autos/BannerAutos";
-import Financing from "../../components/autos/Financing";
-import TabsComponent from "../../components/TabsComponent";
 import Meta from "../../components/Meta";
-import BreadcrumbComponent from "../../components/BreadCrums";
 import SemisCarousel from "../../components/preowned/SemisCarousel";
 import SemisForm from "../../components/preowned/SemisForm";
 import NumberFormat from "react-number-format";
-import { useRouter } from "next/router";
 import { baseURL } from "../../api/api";
 
 const Slug = ({ preowned }) => {
-  const router = useRouter();
-
   const title =
     preowned.make && preowned.version && preowned.year
       ? `${preowned.make.name} ${preowned.versions} ${preowned.year}  `
