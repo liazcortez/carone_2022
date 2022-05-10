@@ -31,7 +31,6 @@ const SelectedJob = ({ job }) => {
   const jobDescription = job.description;
   const jobDescriptionCapitalize =
     jobDescription.charAt(0).toUpperCase() + jobDescription.slice(1);
-    
   return (
 
           <Box style={{position:'sticky', top:'1rem'}}>
@@ -82,7 +81,7 @@ const SelectedJob = ({ job }) => {
                       gutterBottom
                       style={{ textTransform: "capitalize" }}
                     >
-                      {job.salaryTime === "Monthly" ? "Mensual" : "Quincenal"}
+                      {job.salaryTime === "monthly" ? "Mensual" : "Quincenal"}
                     </Typography>
                   </Box>
                 </Box>
