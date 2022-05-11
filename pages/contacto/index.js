@@ -54,7 +54,7 @@ const index = () => {
             </Typography>
             
             <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av San Jerónimo 101 Poniente, 64640 Monterrey, N.L. </Typography>
-            <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Email: carone@group.com.mx </Typography>
+            {/*<Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Email:  </Typography>*/}
             <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 81 8989 3300</Typography>
 
             </Grid>
