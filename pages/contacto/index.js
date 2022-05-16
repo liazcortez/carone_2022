@@ -263,6 +263,127 @@ const index = () => {
               </Box>
             </Grid>
 
+            <Grid item md={12}>
+              <Box sx={{display: "flex"}}>
+                <Box>
+                <img style={{ width: "116%", height: " 270px", objectFit: "cover"}} src="https://www.liderempresarial.com/wp-content/uploads/2018/06/AAF48B9F-A6AC-4500-8C11-3F33B35E928A.jpeg"/>
+                </Box>
+
+
+                <Box sx={{ paddingLeft: "7rem"}}>
+                <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Mercedes Benz Calzada del Valle </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Calz. del Valle 107, Del Valle, 66220 San Pedro Garza García, N.L. </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 09:00 - 20:00 | Sabado: 09:00 - 20:00 | Domingo: Cerrado</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 81 2133 7000</Typography>
+                </Box>
+
+              </Box>
+            </Grid>
+
+            <Grid item md={12}>
+              <Box sx={{display: "flex"}}>
+                <Box>
+                <img style={{ width: "104%", height: " 270px", objectFit: "cover"}} src="https://cdn.motor1.com/images/mgl/KN3OM/s1/en-el-garage-de-autoblog-mercedes-benz-clase-a-sedan.jpg"/>
+                </Box>
+
+
+                <Box sx={{ paddingLeft: "4rem"}}>
+                <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Mercedes Benz Gonzalitos</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> José Eleuterio Gonzalez 700, SUR, San Jeronimo, 64640 Monterrey, N.L. </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 09:00 - 20:00 | Sabado: 09:00 - 20:00 | Domingo: 09:00 - 18:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 81 8989 3100 </Typography>
+                </Box>
+
+              </Box>
+            </Grid>
+
+            <Grid item md={12}>
+              <Box sx={{display: "flex"}}>
+                <Box>
+                <img style={{ width: "90%", height: " 270px", objectFit: "cover"}} src="https://www.niveluno.mx/wp-content/uploads/2016/06/01-5.jpg"/>
+                </Box>
+
+
+                <Box sx={{ paddingLeft: "0rem"}}>
+                <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chrysler Cumbres</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Los Triunfadores 6765-8° Sector, Col. Cumbres, 64610 Monterrey, N.L. </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 09:00 - 20:00 | Sabado: 09:00 - 19:00 | Domingo: Cerrado </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 81 8888 1000</Typography>
+                </Box>
+
+              </Box>
+            </Grid>
+
+            <Grid item md={12}>
+              <Box sx={{display: "flex"}}>
+                <Box>
+                <img style={{ width: "110%", height: " 270px", objectFit: "cover"}} src="http://www.audicentercalzadadelvalle.com.mx/content/dam/iph/international/mx/MEX18510/Dealer_image/Dealer_Image_18510-920x518.jpg/jcr:content/renditions/cq5dam.thumbnail.1536.864.iph.png?imwidth=768&imdensity=1"/>
+                </Box>
+
+
+                <Box sx={{ paddingLeft: "6em"}}>
+                <Typography style={{ fontWeight: 600, fontSize: "20px"}}> MG Calzada del Valle</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Calz. del Valle 103, Col. del Valle, Del Valle, 66220 San Pedro Garza García, N.L.</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 08:00 - 20:00 | Sabado: 08:00 - 20:00 | Domingo: 10:00 - 20:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 81 3145 5000</Typography>
+                </Box>
+
+              </Box>
+            </Grid>
+
+
+            <Grid item md={12}>
+              <Box sx={{display: "flex"}}>
+                <Box>
+                <img style={{ width: "96%", height: " 270px", objectFit: "cover"}} src="https://www.niveluno.mx/wp-content/uploads/2016/06/seat-contry01.jpg"/>
+                </Box>
+
+
+                <Box sx={{ paddingLeft: "2rem"}}>
+                <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Seat Contry</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. Eugenio Garza Sada Sur 3890, Contry, 64780 Monterrey, N.L.</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 08:00 - 20:00 | Sabado: 08:00 - 20:00 | Domingo: 10:00 - 17:30 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 81 8989 3400</Typography>
+                </Box>
+
+              </Box>
+            </Grid>
+
+            <Grid item md={12}>
+              <Box sx={{display: "flex"}}>
+                <Box>
+                <img style={{ width: "125%", height: " 270px", objectFit: "cover"}} src="https://scontent.fntr3-1.fna.fbcdn.net/v/t31.18172-8/10734058_1608719822700792_4958093767813851761_o.jpg?_nc_cat=106&ccb=1-6&_nc_sid=e3f864&_nc_eui2=AeE-7Pd1F-CzlvgrQFJNnlHMSlNOukFn2kZKU066QWfaRhkC8rDyhUAsh5ydaHKCpyFJfntJdZZslEqzCJosjajF&_nc_ohc=aCebUsW16_8AX8MUSxo&_nc_ht=scontent.fntr3-1.fna&oh=00_AT8Y_s_0tSBpCqVprvRnmgkZ1S3O6EH3J6FGvneDZq1c6Q&oe=62A8598A"/>
+                </Box>
+
+
+                <Box sx={{ paddingLeft: "9rem"}}>
+                <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Seat Linda Vista</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. Miguel Alemán 4306, Col, 10 de Mayo, 67130 Monterrey, N.L.</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 08:00 - 20:00 | Sabado: 08:00 - 20:00 | Domingo: 10:00 - 18:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 81 8989 3500 </Typography>
+                </Box>
+
+              </Box>
+            </Grid>
+
+            <Grid item md={12}>
+              <Box sx={{display: "flex"}}>
+                <Box>
+                <img style={{ width: "149%", height: " 270px", objectFit: "cover"}} src="https://abcnoticias.mx/u/fotografias/m/2022/3/12/f850x638-163917_241406_5050.jpg"/>
+                </Box>
+
+
+                <Box sx={{ paddingLeft: "13rem"}}>
+                <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Alfa Romeo Calzada del Valle</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Calz. del Valle 101, Col. del Valle, Del Valle, 66220 San Pedro Garza García, N.L.</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 09:00 - 20:00 | Sabado: 09:00 - 19:00 | Domingo: 12:00 - 18:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 81 8989 3500 </Typography>
+                </Box>
+
+              </Box>
+            </Grid>
+
+
 
         </Grid>
       </Container>
