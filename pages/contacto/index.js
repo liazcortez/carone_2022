@@ -383,6 +383,42 @@ const index = () => {
               </Box>
             </Grid>
 
+            <Grid item md={12}>
+              <Box sx={{display: "flex"}}>
+                <Box>
+                <img style={{ width: "124%", height: " 270px", objectFit: "cover"}} src="https://topdriverz.nxtstatic.com/135/conversions/marca-mg-large.jpg"/>
+                </Box>
+
+
+                <Box sx={{ paddingLeft: "9rem"}}>
+                <Typography style={{ fontWeight: 600, fontSize: "20px"}}> MG Corregidora </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: P.º de la República Km 13020, 76230 Juriquilla, Qro.</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 09:00 - 19:00 | Sabado: 09:00 - 17:00 | Domingo: 9:00 - 17:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 442 800 7200 </Typography>
+                </Box>
+
+              </Box>
+            </Grid>
+
+
+            <Grid item md={12}>
+              <Box sx={{display: "flex"}}>
+                <Box>
+                <img style={{ width: "133%", height: " 270px", objectFit: "cover"}} src="https://img.remediosdigitales.com/dd0097/mg-autos-chinos-mexico/1366_2000.jpg"/>
+                </Box>
+
+
+                <Box sx={{ paddingLeft: "10rem"}}>
+                <Typography style={{ fontWeight: 600, fontSize: "20px"}}> MG Laredo </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av Reforma 4403, Campestre, 88278 Nuevo Laredo, Tamps.</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 09:00 - 20:00 | Sabado: 09:00 - 18:00 | Domingo: 10:00 - 17:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 867 234 3000 </Typography>
+                </Box>
+
+              </Box>
+            </Grid>
+
+
 
 
         </Grid>
