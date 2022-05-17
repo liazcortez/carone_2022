@@ -65,6 +65,7 @@ const emptyImage =
   "https://i.pinimg.com/originals/ae/8a/c2/ae8ac2fa217d23aadcc913989fcc34a2.png";
 
 const CarlistCard = ({ vehicle, setDataList }) => {        
+
   const classes = useStyles();
   const [isFavorite, setIsFavorite] = useState(false);
   const { enqueueSnackbar } = useSnackbar();     
@@ -144,7 +145,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
                     [classes.modelFormatting, classes.modelFormattingUpper]
                   }
                 >
-                  {vehicle && vehicle.vehicle.make && vehicle.vehicle.make.name}{" "}
+                  {vehicle && vehicle.vehicleMake.name}{" "}
                 </Typography>
                 
             <Link href={`/seminuevos/${vehicle && vehicle.slug}`}>
@@ -175,7 +176,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
 
           
             <Typography variant="h6" gutterBottom style={{ fontSize: 17 }}>
-            {`${(vehicle && vehicle.store && vehicle.store.make && vehicle.store.make.name ?capitalCase(vehicle.store.make.name):'')} ${(vehicle && vehicle.store && vehicle.store.name?capitalCase(vehicle.store.name):'')}`}
+            {`${(vehicle && vehicle.store && vehicle.storeMake && vehicle.storeMake.name ?capitalCase(vehicle.storeMake.name):'')} ${(vehicle && vehicle.store && vehicle.store.name?capitalCase(vehicle.store.name):'')}`}
             </Typography>
           </>
         ) : (
