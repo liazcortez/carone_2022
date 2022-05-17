@@ -35,6 +35,33 @@ const PreownedState = (props) => {
     }
   };
 
+  const getPreownedsV2 = async ({limit, page, query}) => {
+    setLoading();
+    try {
+      const res = await api.get(`/preowneds/getPreownedsV2?page=${page}&limit=${limit}&searchIndex=model-category-make-year&searchText=${query}&sort=-createdAt`);
+
+      // preowneds: action.payload.data,
+      // results: action.payload.pagination.total
+      let payload = {data:res.data.data,pagination:{total:100}};
+      dispatch({ type: GET_PREOWNEDS_ADVANCED_SEARCH, payload});
+    } catch (err) {
+      dispatch({ type: SET_ERROR, payload: err.response.data})
+    }
+  };
+
+   //Get Preowneds
+   const getPreowned = async (preownedId) => {
+    clearState();
+    setLoading();
+    try {
+      const res = await api.get(`/preowneds/${preownedId}`);
+      dispatch({ type: GET_PREOWNED, payload: res.data.data });
+    } catch (err) {
+      dispatch({ type: SET_ERROR, payload: err.response.data})
+
+    }
+  };
+
   //Clear State
   const clearState = () => dispatch({ type: CLEAR_STATE });
 
@@ -49,6 +76,7 @@ const PreownedState = (props) => {
         error: state.error,
         results: state.results,
         getPreowneds,
+        getPreownedsV2,
         clearState,
         setLoading,
       }}

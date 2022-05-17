@@ -140,12 +140,11 @@ const CarlistCard = ({ vehicle, setDataList }) => {
               </a>
             </Link>
             <Link href={`/autos/${vehicle && vehicle.make && vehicle.make.name}/${vehicle && vehicle.slug}`}>
-              <Box style={{height: 60}}>
+              <Box >
                 <a style={{ textDecoration: "none", color: "black" }}>
-                  <Typography variant="h6" className={classes.modelFormatting}>
-
-                    {`${vehicle && vehicle.model} ${vehicle.year}`}
-                  </Typography>
+                  <Typography style={{overflow: 'hidden',whiteSpace: 'nowrap',width: 'calc(90%)',display: 'inline-block',textOverflow: 'ellipsis'}} variant="h6" >
+                  {`${vehicle ? capitalCase(vehicle.model) :''} ${vehicle.year}`}
+                </Typography>
                 </a>
               </Box>
             </Link>
