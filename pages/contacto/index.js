@@ -78,6 +78,23 @@ const index = () => {
             <Grid item md={12}>
               <Box sx={{display: "flex",  paddingBlockEnd: "2rem"}}>
                 <Box>
+                <img style={{ width: "118%", height: " 270px", objectFit: "cover"}} src="https://www.elcarrocolombiano.com/wp-content/uploads/2018/11/20181103-KIA-SPORTAGE-2019-COLOMBIA-PRECIO-CARACTERISTICAS-VERSIONES-01.jpg"/>
+                </Box>
+
+
+                <Box sx={{ paddingLeft: "7rem"}}>
+                  <Typography style={{ fontWeight: 600, fontSize: "20px"}}> KIA Konfidence</Typography>
+                  <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av Lázaro Cárdenas #555 Jardín de Las Torres, c.p 64754, Jardín de Las Torres, 64754 Monterrey, N.L.</Typography>
+                  <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 09:00 - 20:00 | Sabado: 09:00 - 20:00 | Domingo: 10:00 - 18:00 </Typography>
+                  <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 81 8037 2015</Typography>
+                </Box>
+
+              </Box>
+            </Grid>
+
+            <Grid item md={12}>
+              <Box sx={{display: "flex",  paddingBlockEnd: "2rem"}}>
+                <Box>
                 <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://i.ytimg.com/vi/-Hh9idkH8MA/maxresdefault.jpg"/>
                 </Box>
 
@@ -249,11 +266,11 @@ const index = () => {
             <Grid item md={12}>
               <Box sx={{display: "flex",  paddingBlockEnd: "2rem"}}>
                 <Box>
-                <img style={{ width: "158%", height: " 270px", objectFit: "cover"}} src="https://lh3.googleusercontent.com/p/AF1QipNloPmLPClZH2F3kjVZmOrDKcbBcAYJgA3S-pbE=w600-k"/>
+                <img style={{ width: "155%", height: " 270px", objectFit: "cover"}} src="https://lh3.googleusercontent.com/p/AF1QipNloPmLPClZH2F3kjVZmOrDKcbBcAYJgA3S-pbE=w600-k"/>
                 </Box>
 
 
-                <Box sx={{ paddingLeft: "14rem"}}>
+                <Box sx={{ paddingLeft: "13rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chevrolet Tlalpan </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Calz. de Tlalpan No.3311, Sta. Úrsula Coapa, Coyoacán, 04850 Ciudad de México, CDMX</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 8:30 - 20:00 | Sabado: 11:00 - 17:00 | Domingo: 08:30 - 20:00 </Typography>
@@ -309,6 +326,23 @@ const index = () => {
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av Lázaro Cárdenas 2611, Burócratas Municipales, 64790 Monterrey, N.L.</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 9:00 - 20:00 | Sabado: 09:00 - 19:00 | Domingo: 10:00 - 18:00</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono:  81 8989 3000</Typography>
+                </Box>
+
+              </Box>
+            </Grid>
+
+            <Grid item md={12}>
+              <Box sx={{display: "flex",  paddingBlockEnd: "2rem"}}>
+                <Box>
+                <img style={{ width: "105%", height: " 270px", objectFit: "cover"}} src="https://i.ytimg.com/vi/piuMI2e1f4M/maxresdefault.jpg"/>
+                </Box>
+
+
+                <Box sx={{ paddingLeft: "4rem"}}>
+                <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Ford Vasconcelos </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. José Vasconcelos 1501, Los Sabinos, 66230 San Pedro Garza García, N.L.</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 9:00 - 20:00 | Sabado: 09:00 - 19:00 | Domingo: 10:00 - 18:00</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 81 8989 3600</Typography>
                 </Box>
 
               </Box>
@@ -394,6 +428,23 @@ const index = () => {
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. Miguel Alemán 6062, Valles de Linda Vista, 67130 Guadalupe, N.L. </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 07:00 - 19:00 | Sabado: 07:00 - 19:00 | Domingo: 07:00 - 18:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 81 8989 3700 </Typography>
+                </Box>
+
+              </Box>
+            </Grid>
+
+            <Grid item md={12}>
+              <Box sx={{display: "flex",  paddingBlockEnd: "2rem"}}>
+                <Box>
+                <img style={{ width: "125%", height: " 270px", objectFit: "cover"}} src="https://acnews.blob.core.windows.net/imgnews/medium/NAZ_509acbf3e75342a081f05102c15bc5a9.jpg"/>
+                </Box>
+
+
+                <Box sx={{ paddingLeft: "9rem"}}>
+                <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chrysler Contry</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. Eugenio Garza Sada Sur 3832, Más Palomas (Valle de Santiago), 64780 Monterrey, N.L.</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 08:30 - 19:00 | Sabado: 08:30 - 19:00 | Domingo: 11:00 - 19:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 81 5000 7500</Typography>
                 </Box>
 
               </Box>
