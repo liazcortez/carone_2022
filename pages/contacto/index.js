@@ -278,6 +278,7 @@ const index = () => {
 
               </Box>
             </Grid>
+            
 
             <Grid item md={12}>
               <Box sx={{display: "flex",  paddingBlockEnd: "2rem"}}>
@@ -376,6 +377,23 @@ const index = () => {
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Los Triunfadores 6765-8° Sector, Col. Cumbres, 64610 Monterrey, N.L. </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 09:00 - 20:00 | Sabado: 09:00 - 19:00 | Domingo: Cerrado </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 81 8888 1000</Typography>
+                </Box>
+
+              </Box>
+            </Grid>
+
+            <Grid item md={12}>
+              <Box sx={{display: "flex",  paddingBlockEnd: "2rem"}}>
+                <Box>
+                <img style={{ width: "91%", height: " 270px", objectFit: "cover"}} src="https://www.diariomotor.com/imagenes/picscache/1440x655c/chrysler-200-2017_1440x655c.jpg"/>
+                </Box>
+
+
+                <Box sx={{ paddingRight: "3rem"}}>
+                <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chrysler Santa Lucia</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. Miguel Alemán 6062, Valles de Linda Vista, 67130 Guadalupe, N.L. </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 07:00 - 19:00 | Sabado: 07:00 - 19:00 | Domingo: 07:00 - 18:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 81 8989 3700 </Typography>
                 </Box>
 
               </Box>
@@ -500,6 +518,41 @@ const index = () => {
 
               </Box>
             </Grid>
+
+            <Grid item md={12}>
+              <Box sx={{display: "flex",  paddingBlockEnd: "2rem"}}>
+                <Box>
+                <img style={{ width: "125%", height: " 270px", objectFit: "cover"}} src="https://img.gruporeforma.com/imagenes/960x640/6/66/5065584.jpg"/>
+                </Box>
+
+
+                <Box sx={{ paddingLeft: "9rem"}}>
+                <Typography style={{ fontWeight: 600, fontSize: "20px"}}> MG Linda Vista </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección:  Av. Miguel Alemán 6062, Torres de Linda Vista, 67130 Guadalupe, N.L.</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 09:00 - 20:00 | Sabado: 09:00 - 20:00 | Domingo: 09:00 - 20:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono:  81 2530 7000 </Typography>
+                </Box>
+
+              </Box>
+            </Grid>
+
+            <Grid item md={12}>
+              <Box sx={{display: "flex",  paddingBlockEnd: "2rem"}}>
+                <Box>
+                <img style={{ width: "106%", height: " 270px", objectFit: "cover"}} src="https://mglomasverdes.com/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-27-at-11.28.41-AM.jpeg"/>
+                </Box>
+
+
+                <Box sx={{ paddingLeft: "5rem"}}>
+                <Typography style={{ fontWeight: 600, fontSize: "20px"}}> MG Lomas Verdes </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. Jardines de San Mateo 2, El Mirador, 53150 Naucalpan de Juárez, Méx.</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horaio: Lunes a Viernes 09:00 - 19:00 | Sabado: 11:00 - 17:00 | Domingo: 09:00 - 19:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Telefono: 55 8876 8000</Typography>
+                </Box>
+
+              </Box>
+            </Grid>
+
 
 
 
