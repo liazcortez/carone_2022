@@ -51,7 +51,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "3rem"}}>
                   <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Volkswagen Gonzalitos </Typography>
                   <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av San Jerónimo 101 Poniente, 64640 Monterrey, N.L. </Typography>
-                  <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 8:00 - 20:00 | Sabado: 09:00 - 19:30 | Domingo: 10:00 - 18:30 </Typography>
+                  <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:00 - 20:00 | Sábado: 09:00 - 19:30 | Domingo: 10:00 - 18:30 </Typography>
                   <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 8989 3300</Typography>
                 </Box>
 
@@ -68,7 +68,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "3rem"}}>
                   <Typography style={{ fontWeight: 600, fontSize: "20px"}}> KIA Gonzalitos </Typography>
                   <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: José Eleuterio González # 609 Jardín del, Obispado, 64050 Monterrey, N.L. </Typography>
-                  <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 8:00 - 20:00 | Sabado: 09:00 - 20:00 | Domingo: 10:00 - 20:00 </Typography>
+                  <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:00 - 20:00 | Sábado: 09:00 - 20:00 | Domingo: 10:00 - 20:00 </Typography>
                   <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 2133 5000</Typography>
                 </Box>
 
@@ -85,7 +85,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "7rem"}}>
                   <Typography style={{ fontWeight: 600, fontSize: "20px"}}> KIA Konfidence</Typography>
                   <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av Lázaro Cárdenas #555 Jardín de Las Torres, c.p 64754, Jardín de Las Torres, 64754 Monterrey, N.L.</Typography>
-                  <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sabado: 09:00 - 20:00 | Domingo: 10:00 - 18:00 </Typography>
+                  <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 20:00 | Domingo: 10:00 - 18:00 </Typography>
                   <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 8037 2015</Typography>
                 </Box>
 
@@ -102,7 +102,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "3rem"}}>
                   <Typography style={{ fontWeight: 600, fontSize: "20px"}}> KIA Frontera</Typography>
                   <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>  Dirección: Blvd. Miguel Hidalgo No. 1000, Col. Palma Real, 88710 Reynosa, Tamps. </Typography>
-                  <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 9:00 - 20:00 | Sabado: 09:00 - 18:00 | Domingo: 10:00 - 17:00 </Typography>
+                  <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 18:00 | Domingo: 10:00 - 17:00 </Typography>
                   <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 899 171 7000</Typography>
                 </Box>
 
@@ -119,7 +119,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "7rem"}}>
                   <Typography style={{ fontWeight: 600, fontSize: "20px"}}> KIA Laredo</Typography>
                   <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av Reforma 4405, Campestre, 88275 Nuevo Laredo, Tamps. </Typography>
-                  <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 9:00 - 20:00 | Sabado: 09:00 - 18:00 | Domingo: 10:00 - 17:00 </Typography>
+                  <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 18:00 | Domingo: 10:00 - 17:00 </Typography>
                   <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 867 136 2700</Typography>
                 </Box>
 
@@ -136,7 +136,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "3rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> KIA Linda Vista</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. Miguel Alemán 6062, Torres de Linda Vista, 67130 Guadalupe, N.L. </Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 8:00 - 20:00 | Sabado: 08:00 - 20:00 | Domingo: 09:00 - 20:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:00 - 20:00 | Sábado: 08:00 - 20:00 | Domingo: 09:00 - 20:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 2133 5000</Typography>
                 </Box>
 
@@ -153,7 +153,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "3rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chevrolet Ruíz Cortines </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. Ruiz Cortines 902 Poniente, Linda Vista, 64410 Monterrey, N.L. </Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 9:00 - 20:00 | Sabado: 09:00 - 20:00 | Domingo: 10:00 - 18:00</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 20:00 | Domingo: 10:00 - 18:00</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 8150 4777 </Typography>
                 </Box>
 
@@ -170,7 +170,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "13rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chevrolet Universidad </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Avenida Universidad, Av Casa Bella 1205, Col. Residencial, 66428 San Nicolás de los Garza, N.L.</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 9:00 - 20:00 | Sabado: 09:00 - 20:00 | Domingo: 10:00 - 18:00</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 20:00 | Domingo: 10:00 - 18:00</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 8989 3884</Typography>
                 </Box>
 
@@ -187,7 +187,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "3rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chevrolet Allende</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Carretera Nacional 650, Centro de Allende, 67350 Cd de Allende, N.L. </Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 9:00 - 21:00 | Sabado: 09:00 - 21:00 | Domingo: 21:00 - 21:00</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 21:00 | Sábado: 09:00 - 21:00 | Domingo: 21:00 - 21:00</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 826 144 1000 </Typography>
                 </Box>
 
@@ -204,7 +204,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "6rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chevrolet Las Torres</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av Lázaro Cárdenas 2100, Laderas del Mirador (Fomerrey 21), 64900 Monterrey, N.L. </Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 8:00 - 19:00 | Sabado: 08:00 - 13:00 | Domingo: Cerrado</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:00 - 19:00 | Sábado: 08:00 - 13:00 | Domingo: Cerrado</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 8155 7777</Typography>
                 </Box>
 
@@ -221,7 +221,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "10rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chevrolet Las Bombas</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Calz. de las Bombas 310, Coapa, Jardines de Coyoacán, Coyoacán, 04890 Ciudad de México, CDMX</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 9:00 - 19:00 | Sabado: 08:00 - 17:00 | Domingo: 11:00 - 16:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 19:00 | Sábado: 08:00 - 17:00 | Domingo: 11:00 - 16:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 55 6382 0000</Typography>
                 </Box>
 
@@ -238,7 +238,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "3rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chevrolet Concordia</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. Concordia 5316, 66610 Cd Apodaca, N.L.</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 9:00 - 20:00 | Sabado: 20:00 - 17:00 | Domingo: 11:00 - 17:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sábado: 20:00 - 17:00 | Domingo: 11:00 - 17:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 2133 4970</Typography>
                 </Box>
 
@@ -255,7 +255,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "3rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chevrolet Fidel Velázquez </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección:  Av Fidel Velázquez #1693, Bernardo Reyes, 64280 Monterrey, N.L.</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 9:00 - 20:00 | Sabado: 20:00 - 18:00 | Domingo: 10:00 - 18:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sábado: 20:00 - 18:00 | Domingo: 10:00 - 18:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 8888 1551</Typography>
                 </Box>
 
@@ -272,7 +272,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "13rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chevrolet Tlalpan </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Calz. de Tlalpan No.3311, Sta. Úrsula Coapa, Coyoacán, 04850 Ciudad de México, CDMX</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 8:30 - 20:00 | Sabado: 11:00 - 17:00 | Domingo: 08:30 - 20:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:30 - 20:00 | Sábado: 11:00 - 17:00 | Domingo: 08:30 - 20:00 </Typography>
                 </Box>
 
               </Box>
@@ -288,7 +288,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "3rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Mitsubishi Linda Vista </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección:  Av. Miguel Alemán 6062-a Col, Torres de Linda Vista, 67120 Guadalupe, N.L. </Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:30 - 20:00 | Sabado: 08:30 - 20:00 | Domingo: 11:00 - 17:00</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:30 - 20:00 | Sábado: 08:30 - 20:00 | Domingo: 11:00 - 17:00</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 8989 3780 </Typography>
                 </Box>
 
@@ -306,7 +306,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "10rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Mitsubishi Saltillo </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Blvrd. Nazario Ortiz Garza 1720, Alpes, 25270 Saltillo, Coah. </Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:30 - 20:00 | Sabado: 09:30 - 19:00 | Domingo: 09:00 - 18:00</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:30 - 20:00 | Sábado: 09:30 - 19:00 | Domingo: 09:00 - 18:00</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 844 424 9000</Typography>
                 </Box>
 
@@ -323,7 +323,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "0rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Ford Lazaro Cardenas </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av Lázaro Cárdenas 2611, Burócratas Municipales, 64790 Monterrey, N.L.</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 9:00 - 20:00 | Sabado: 09:00 - 19:00 | Domingo: 10:00 - 18:00</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 19:00 | Domingo: 10:00 - 18:00</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono:  81 8989 3000</Typography>
                 </Box>
 
@@ -340,7 +340,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "4rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Ford Vasconcelos </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. José Vasconcelos 1501, Los Sabinos, 66230 San Pedro Garza García, N.L.</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 9:00 - 20:00 | Sabado: 09:00 - 19:00 | Domingo: 10:00 - 18:00</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 19:00 | Domingo: 10:00 - 18:00</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 8989 3600</Typography>
                 </Box>
 
@@ -357,7 +357,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "3rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Nissan SanJe </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Anillo Perif. 3000, La Otra Banda, Álvaro Obregón, 01090 Ciudad de México, CDMX </Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 07:00 - 19:00 | Sabado: 07:00 - 17:00 | Domingo: 11:00 - 16:00</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 07:00 - 19:00 | Sábado: 07:00 - 17:00 | Domingo: 11:00 - 16:00</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 55 5683 7833</Typography>
                 </Box>
 
@@ -374,7 +374,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "7rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Mercedes Benz Calzada del Valle </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Calz. del Valle 107, Del Valle, 66220 San Pedro Garza García, N.L. </Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sabado: 09:00 - 20:00 | Domingo: Cerrado</Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 20:00 | Domingo: Cerrado</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 2133 7000</Typography>
                 </Box>
 
@@ -391,7 +391,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "4rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Mercedes Benz Gonzalitos</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> José Eleuterio Gonzalez 700, SUR, San Jeronimo, 64640 Monterrey, N.L. </Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sabado: 09:00 - 20:00 | Domingo: 09:00 - 18:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 20:00 | Domingo: 09:00 - 18:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 8989 3100 </Typography>
                 </Box>
 
@@ -408,7 +408,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "0rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chrysler Cumbres</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Los Triunfadores 6765-8° Sector, Col. Cumbres, 64610 Monterrey, N.L. </Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sabado: 09:00 - 19:00 | Domingo: Cerrado </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 19:00 | Domingo: Cerrado </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 8888 1000</Typography>
                 </Box>
 
@@ -425,7 +425,7 @@ const index = () => {
                 <Box sx={{ paddingRight: "3rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chrysler Santa Lucia</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. Miguel Alemán 6062, Valles de Linda Vista, 67130 Guadalupe, N.L. </Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 07:00 - 19:00 | Sabado: 07:00 - 19:00 | Domingo: 07:00 - 18:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 07:00 - 19:00 | Sábado: 07:00 - 19:00 | Domingo: 07:00 - 18:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 8989 3700 </Typography>
                 </Box>
 
@@ -442,7 +442,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "9rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chrysler Contry</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. Eugenio Garza Sada Sur 3832, Más Palomas (Valle de Santiago), 64780 Monterrey, N.L.</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:30 - 19:00 | Sabado: 08:30 - 19:00 | Domingo: 11:00 - 19:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:30 - 19:00 | Sábado: 08:30 - 19:00 | Domingo: 11:00 - 19:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 5000 7500</Typography>
                 </Box>
 
@@ -459,7 +459,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "6em"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> MG Calzada del Valle</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Calz. del Valle 103, Col. del Valle, Del Valle, 66220 San Pedro Garza García, N.L.</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:00 - 20:00 | Sabado: 08:00 - 20:00 | Domingo: 10:00 - 20:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:00 - 20:00 | Sábado: 08:00 - 20:00 | Domingo: 10:00 - 20:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 3145 5000</Typography>
                 </Box>
 
@@ -476,7 +476,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "2rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Seat Contry</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. Eugenio Garza Sada Sur 3890, Contry, 64780 Monterrey, N.L.</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:00 - 20:00 | Sabado: 08:00 - 20:00 | Domingo: 10:00 - 17:30 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:00 - 20:00 | Sábado: 08:00 - 20:00 | Domingo: 10:00 - 17:30 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 8989 3400</Typography>
                 </Box>
 
@@ -493,7 +493,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "9rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Seat Linda Vista</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. Miguel Alemán 4306, Col, 10 de Mayo, 67130 Monterrey, N.L.</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:00 - 20:00 | Sabado: 08:00 - 20:00 | Domingo: 10:00 - 18:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:00 - 20:00 | Sábado: 08:00 - 20:00 | Domingo: 10:00 - 18:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 8989 3500 </Typography>
                 </Box>
 
@@ -510,7 +510,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "13rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Alfa Romeo Calzada del Valle</Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Calz. del Valle 101, Col. del Valle, Del Valle, 66220 San Pedro Garza García, N.L.</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sabado: 09:00 - 19:00 | Domingo: 12:00 - 18:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 19:00 | Domingo: 12:00 - 18:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 8989 3500 </Typography>
                 </Box>
 
@@ -528,7 +528,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "9rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> MG Corregidora </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: P.º de la República Km 13020, 76230 Juriquilla, Qro.</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 19:00 | Sabado: 09:00 - 17:00 | Domingo: 9:00 - 17:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 19:00 | Sábado: 09:00 - 17:00 | Domingo: 9:00 - 17:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 442 800 7200 </Typography>
                 </Box>
 
@@ -545,7 +545,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "10rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> MG Laredo </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av Reforma 4403, Campestre, 88278 Nuevo Laredo, Tamps.</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sabado: 09:00 - 18:00 | Domingo: 10:00 - 17:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 18:00 | Domingo: 10:00 - 17:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 867 234 3000 </Typography>
                 </Box>
 
@@ -562,7 +562,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "4rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> MG Las Torres </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av Lázaro Cárdenas 2100, Sin Nombre de Col 39, 64900 Monterrey, N.L.</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:00 - 20:00 | Sabado: 08:00 - 20:00 | Domingo: 09:00 - 20:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 08:00 - 20:00 | Sábado: 08:00 - 20:00 | Domingo: 09:00 - 20:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 81 2525 8000 </Typography>
                 </Box>
 
@@ -579,7 +579,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "9rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> MG Linda Vista </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección:  Av. Miguel Alemán 6062, Torres de Linda Vista, 67130 Guadalupe, N.L.</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sabado: 09:00 - 20:00 | Domingo: 09:00 - 20:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 20:00 | Domingo: 09:00 - 20:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono:  81 2530 7000 </Typography>
                 </Box>
 
@@ -596,7 +596,7 @@ const index = () => {
                 <Box sx={{ paddingLeft: "5rem"}}>
                 <Typography style={{ fontWeight: 600, fontSize: "20px"}}> MG Lomas Verdes </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Dirección: Av. Jardines de San Mateo 2, El Mirador, 53150 Naucalpan de Juárez, Méx.</Typography>
-                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 19:00 | Sabado: 11:00 - 17:00 | Domingo: 09:00 - 19:00 </Typography>
+                <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Horario: Lunes a Viernes 09:00 - 19:00 | Sábado: 11:00 - 17:00 | Domingo: 09:00 - 19:00 </Typography>
                 <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>Teléfono: 55 8876 8000</Typography>
                 </Box>
 
