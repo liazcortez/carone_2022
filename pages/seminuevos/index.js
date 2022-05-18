@@ -49,7 +49,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   }, [preowneds]);
 
   const loadData = () => {
-    getPreowneds(page, `${query}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&prices=${sort}&sort=-createdAt`);
+    getPreowneds(page, `${query}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&prices=${sort}&sort=-createdAt&isPublished=true`);
 
     setPage(page + 1);
   };
