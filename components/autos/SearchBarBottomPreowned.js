@@ -91,7 +91,7 @@ const SearchBarBottom = ({
           { 
             [
               { name: 'Suv', value: 'suv' },
-              { name: 'Sedán', value: 'Sedan' },
+              { name: 'Sedán', value: 'sedan' },
               { name: 'Pickup', value: 'pickup' },
               { name: 'HB', value: 'hb' },
               { name: 'Van', value: 'van' },
