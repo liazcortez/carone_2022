@@ -289,7 +289,9 @@ const SemisForm = ({preowned}) => {
             <Divider style={{marginTop: 20, marginBottom: 20, width: '48%'}}/>
           </Box> */}
           <center>
-            
+            <Typography variant='caption' color='textPrimary' style={{display: 'flex', alignItems: 'center', justifyContent:'center'}}>
+              O si lo prefieres, envíanos WhatsApp!
+            </Typography>
           </center>
           {
             preowned.store && preowned.store.dpxStore &&
@@ -306,13 +308,13 @@ const SemisForm = ({preowned}) => {
               `}
               style={{textDecoration: 'none'}}
             >
-              <center>
+              {/* <center>
 
               <Typography variant='caption' color='textPrimary' style={{display: 'flex', alignItems: 'center', justifyContent:'center', color: '#32873c'}}>
               O si lo prefieres, envíanos WhatsApp! <img src="/static/whatsapp.png" width={30} style={{marginLeft: 10}}/>
               </Typography>
-              </center>
-              {/* <Button
+              </center> */}
+              <Button
                 variant="contained"
                 color="primary"
                 fullWidth
@@ -320,7 +322,7 @@ const SemisForm = ({preowned}) => {
               >
              
               Whatsapp
-            </Button> */}
+            </Button>
   
             </a>
           }
