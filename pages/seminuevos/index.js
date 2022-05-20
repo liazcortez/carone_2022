@@ -62,8 +62,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
       break;
     }
 
-    console.log(category);
-    getPreownedsV2({limit:12,page, query:`${query}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}`});
+    getPreownedsV2({limit:12,page, query:`${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}`});
 
     setPage(page + 1);
   };
@@ -78,26 +77,26 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
      
         <Container maxWidth="lg">
         <SearchBar
-setQuery={setQuery}
-query={query}
-stores={stores}
-categories={categories}
-setCategory={setCategory}
-setStore={setStore}
-category={category}
-store={store}
-disableTopBar={disableTopBar}
-setPage={setPage}
-sort={sort}
-setSort={setSort}
-/>
-          <Divider style={{ marginBottom: "50px" }} />
-          <InfiniteScroll
-        dataLength={infiniteVehicles.length}
-        next={loadData}
-        hasMore={true}
-        // loader={<CustomLoading {...{ loading:true }} />}
-      >
+          setQuery={setQuery}
+          query={query}
+          stores={stores}
+          categories={categories}
+          setCategory={setCategory}
+          setStore={setStore}
+          category={category}
+          store={store}
+          disableTopBar={disableTopBar}
+          setPage={setPage}
+          sort={sort}
+          setSort={setSort}
+        />
+        <Divider style={{ marginBottom: "50px" }} />
+        <InfiniteScroll
+          dataLength={infiniteVehicles.length}
+          next={loadData}
+          hasMore={true}
+          // loader={<CustomLoading {...{ loading:true }} />}
+        >
           <Box className='vehiclesGrid'>
       
             {infiniteVehicles.map(
