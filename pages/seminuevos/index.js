@@ -62,7 +62,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
       break;
     }
 
-
+    console.log(category);
     getPreownedsV2({limit:12,page, query:`${query}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}`});
 
     setPage(page + 1);

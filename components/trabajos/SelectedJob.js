@@ -20,7 +20,10 @@ import useAuth from "../../hooks/useAuth";
 import useJob from "../../hooks/useJob";
 const SelectedJob = ({ job }) => { 
   
-
+  // useEffect(() => {
+  //   console.log(job);
+  // }, [job])
+  
   moment.locale("es-mx");
   const [openLogin, setOpenLogin] = useState(false)
   const { user, isAuthenticated, loadUser } = useAuth();
@@ -54,9 +57,11 @@ const SelectedJob = ({ job }) => {
                     >
                       {/* {job.store.make.name} {job.store.name} */}
                     </Typography>
+                   
                   </Box>
+                  <Box display='flex' justifyContent='space-between'>
                   <Box>
-                    <Typography
+                  <Typography
                       variant="h6"
                       style={{ textTransform: "capitalize", cursor: "pointer" }}
                     >
@@ -83,6 +88,15 @@ const SelectedJob = ({ job }) => {
                     >
                       {job.salaryTime === "monthly" ? "Mensual" : "Quincenal"}
                     </Typography>
+                  </Box>
+                    <Box display='flex' justifyContent='end'>
+                   {job && job.store && job.store.image &&
+                    <img
+                    src={job.store.make.image}
+                    alt='none image'
+                    style={{objectFit:'cover',height:'50px'}}
+                             />}
+                    </Box>
                   </Box>
                 </Box>
                 <Typography
