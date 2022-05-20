@@ -14,7 +14,7 @@ import CustomLoading from "../../components/CustomLoading";
 
 const Index = ({ preownedsSP, total, stores, categories }) => {
 
-  const { preowneds, getPreowneds, loading, results,clearState } = usePreowned();
+  const { preowneds, getPreownedsV2, loading, results,clearState } = usePreowned();
   const [disableTopBar, setDisableTopBar] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
@@ -49,7 +49,20 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   }, [preowneds]);
 
   const loadData = () => {
-    getPreowneds(page, `${query}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&prices=${sort}&sort=-createdAt`);
+    let pricequery ='';
+    switch(sort){
+      case 'menor150000':
+      pricequery = '&price[lt]=150000'
+      break;
+      case '150000/250000':
+      pricequery = '&price[gte]=150000&price[lt]=250000';
+      break;
+      case 'mayor250000':
+      pricequery = '&price[gte]=250000'
+      break;
+    }
+
+    getPreownedsV2({limit:12,page, query:`${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}`});
 
     setPage(page + 1);
   };
@@ -64,26 +77,26 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
      
         <Container maxWidth="lg">
         <SearchBar
-setQuery={setQuery}
-query={query}
-stores={stores}
-categories={categories}
-setCategory={setCategory}
-setStore={setStore}
-category={category}
-store={store}
-disableTopBar={disableTopBar}
-setPage={setPage}
-sort={sort}
-setSort={setSort}
-/>
-          <Divider style={{ marginBottom: "50px" }} />
-          <InfiniteScroll
-        dataLength={infiniteVehicles.length}
-        next={loadData}
-        hasMore={true}
-        // loader={<CustomLoading {...{ loading:true }} />}
-      >
+          setQuery={setQuery}
+          query={query}
+          stores={stores}
+          categories={categories}
+          setCategory={setCategory}
+          setStore={setStore}
+          category={category}
+          store={store}
+          disableTopBar={disableTopBar}
+          setPage={setPage}
+          sort={sort}
+          setSort={setSort}
+        />
+        <Divider style={{ marginBottom: "50px" }} />
+        <InfiniteScroll
+          dataLength={infiniteVehicles.length}
+          next={loadData}
+          hasMore={true}
+          // loader={<CustomLoading {...{ loading:true }} />}
+        >
           <Box className='vehiclesGrid'>
       
             {infiniteVehicles.map(
