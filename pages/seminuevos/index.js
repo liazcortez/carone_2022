@@ -62,7 +62,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
       break;
     }
 
-    getPreownedsV2({limit:12,page, query:`${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}`});
+    getPreownedsV2({limit:12,page, query:`${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}&isPublished=true&isSold=false`});
 
     setPage(page + 1);
   };
@@ -124,7 +124,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   );
 };
 export const getStaticProps = async (context) => {
-  const res = await fetch(`${baseURL}/preowneds?page=1&limit=12&sort=-createdAt`);
+  const res = await fetch(`${baseURL}/preowneds?page=1&limit=12&sort=-createdAt&isPublished=true&isSold=false`);
   const preowneds = await res.json();
 
   const storesRes = await fetch(`${baseURL}/stores`);
