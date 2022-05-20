@@ -7,31 +7,6 @@ import SemisForm from "../../components/preowned/SemisForm";
 import NumberFormat from "react-number-format";
 import { baseURL } from "../../api/api";
 
-
-
-const CapitalizeNames = (string) => {
-  if(string === undefined || string === null) return '';
-  string = string.replace(/-/, ' ')
-
-  const words = string.split(" ");
-  
-  let finalString = '';
-
-  words.map( (word, i) => {
-      if(i !== 0 && i!==(words.length)){ finalString += ' ' }
-      if(word.includes(".") || word.includes("/")){
-          finalString += word.toUpperCase();
-      }
-      else{
-          finalString += word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-      }
-      return false;
-  })
-
-  return finalString;
-
-};
-
 const Slug = ({ preowned }) => {
   const title =
     preowned.make && preowned.version && preowned.year
@@ -100,29 +75,11 @@ const Slug = ({ preowned }) => {
                         .toLowerCase()
                         .includes(preowned.vehicle.make.name.toLowerCase())
                         ? `${preowned.version.toUpperCase()} ${preowned.year}`
-                        : `${preowned.vehicle.make.name.toUpperCase()} ${preowned.version.toUpperCase()} ${
+                        : `${preowned.vehicle.make.name.toUpperCase()} ${preowned.vehicle.model.toUpperCase()} ${preowned.version.toUpperCase()} ${
                             preowned.year
                           }`}
 
-                        {
-                          preowned.store && preowned.store.dpxStore &&
-                        <a 
-                          target='_blank'
-                          rel="noreferrer"
-                          href={ `https://wa.me//${preowned.store.dpxPhone}?text=Hola! Estoy interesado en un 
-                          
-                            ${preowned.version.toLowerCase().includes(preowned.vehicle.make.name.toLowerCase()) ? 
-                              `${CapitalizeNames(preowned.version)} ${preowned.year}` : 
-                              `${CapitalizeNames(preowned.vehicle.make.name)} ${CapitalizeNames(preowned.version)} ${preowned.year}`
-                            }
-                              
-                          `}
-                          style={{textDecoration: 'none', marginLeft: 10}}
-                        >
-                          
-                          <img src="/static/whatsapp.png" width={35} style={{marginRight: 5}}/>
-                        </a>
-                        }
+                       
                     </Typography>
 
                     <Typography
