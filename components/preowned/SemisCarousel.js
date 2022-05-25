@@ -43,8 +43,8 @@ const Banner = ({
         >
           {medias && medias.length > 0 ? (
             medias.map((item, key) => (
-              <div style={{ width: "100%" }}>
-                <img src={item.image} key={key} />
+              <div style={{ height: 530 }}>
+                <img src={item.image} key={key}/>
               </div>
             ))
           ) : (

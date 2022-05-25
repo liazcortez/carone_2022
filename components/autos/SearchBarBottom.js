@@ -86,7 +86,7 @@ const SearchBarBottom = ({
       spacing={1}
       style={{ paddingLeft: 0, paddingRight: 0, marginBottom: 20 }}
     >
-      <Grid item xs={4} sm={4} md={4} lg={4}>
+      <Grid item xs={12} sm={4} md={4} lg={4}>
         <TextField
           style={{
             backgroundColor: "#f3f7f9",
@@ -118,7 +118,7 @@ const SearchBarBottom = ({
           ))}
         </TextField>
       </Grid> 
-      <Grid item xs={6} sm={6} md={4} lg={4}>
+      <Grid item xs={12} sm={6} md={4} lg={4}>
         <TextField
           style={{
             backgroundColor: "#f3f7f9",
@@ -138,14 +138,17 @@ const SearchBarBottom = ({
           <option key={0} value={"-"}>
             Todas
           </option>
-          {makes.map((option) => (
-            <option key={option.name} value={option._id}>
-              {capitalCase(option.name.replace("-", " "))}
-            </option>
-          ))}
+          {makes.map((option) => {
+            if(option._id === "6269ad81e8436b4af342ac57")return false
+            return(
+              <option key={option.name} value={option._id}>
+                {capitalCase(option.name.replace("-", " "))}
+              </option>
+            )
+            })}
         </TextField>
       </Grid>
-      <Grid item xs={6} sm={6} md={4} lg={4}>
+      <Grid item xs={12} sm={6} md={4} lg={4}>
       <TextField
           style={{
             backgroundColor: "#f3f7f9",

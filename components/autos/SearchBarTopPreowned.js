@@ -1,21 +1,23 @@
-import React from "react";
+import React , {useState}from "react";
 import { TextField } from "@material-ui/core";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
-import usePreowned from "../../hooks/usePreowned";
 
-const SearchBarTop = ({ setQuery, query, disableTopBar, store, category, sort }) => {
+const SearchBarTop = ({ setQuery, query, disableTopBar, store, category, sort,setPage}) => {
 
-  const { getPreowneds } = usePreowned();
+  const [localQuery,setLocalQuery] = useState('');
+
 
   const handleChange = (event) => {
     event.preventDefault();
-    setQuery(event.target.value);
+    setLocalQuery(event.target.value);
   }
 
   const handleKeyUp = (event) => {
     if (event.keyCode === 13) {
-      getPreowneds(1, `${query}&store=${store}${category !== '-' ? `&modelType=${category}` : ''}&prices=${sort}`)
+      setPage(1);
+      setQuery(localQuery);
+      // getPreowneds(1, `${query}&store=${store}${category !== '-' ? `&modelType=${category}` : ''}&prices=${sort}`)
     }
   }
 
@@ -33,7 +35,7 @@ const SearchBarTop = ({ setQuery, query, disableTopBar, store, category, sort })
         onKeyUp={handleKeyUp}
         fullWidth
         disabled={disableTopBar}
-        value={query}
+        value={localQuery}
         onChange={handleChange}
         name="query"
         InputProps={{

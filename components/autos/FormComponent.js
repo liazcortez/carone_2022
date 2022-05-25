@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -20,10 +20,36 @@ import {
   Checkbox,
   Box,
   Divider,
+  Avatar,
   Paper,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
+
+
+const CapitalizeNames = (string) => {
+  if(string === undefined || string === null) return '';
+  string = string.replace(/-/, ' ')
+
+  const words = string.split(" ");
+  
+  let finalString = '';
+
+  words.map( (word, i) => {
+      if(i !== 0 && i!==(words.length)){ finalString += ' ' }
+      if(word.includes(".") || word.includes("/")){
+          finalString += word.toUpperCase();
+      }
+      else{
+          finalString += word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+      }
+      return false;
+  })
+
+  return finalString;
+
+};
+
 
 const useStyles = makeStyles({
   selectedBorder: {
@@ -265,54 +291,78 @@ const FormComponent = ({ vehicle }) => {
                 <Box className={classes.makesStyles}>
                   {vehicle.availableStore &&
                     vehicle.availableStore.map((store) => (
-                      <Box
-                        className={
-                          storeIcon === store.dpxStore
-                            ? classes.selectedBorder
-                            : classes.unselectedBorder
-                        }
-                        key={store.dpxStore}
-                        onClick={() => onClickStore(store)}
-                        style={{
-                          cursor: "pointer",
-                          borderRadius: 10,
-                          padding: 5,
-                          margin: 10,
-                          marginRight: 15 
-                        }}
-                      >
-                        <Box display="flex" justifyContent="center">
-                          <StoreIcon
-                            style={{ fontSize: 50 }}
-                            color={
-                              storeIcon === store.dpxStore ? "primary" : "inherit"
-                            }
-                          />
-                        </Box>
-                        <Box display="flex" justifyContent="center">
-                          <Typography
-                            variant="body2"
-                            gutterBottom
-                            style={{ textTransform: "capitalize" }}
+                      <Box>
+                        <Box
+                        display='flex' flexDirection={'column'} justifyContent='space-between'
+                          className={
+                            storeIcon === store.dpxStore
+                              ? classes.selectedBorder
+                              : classes.unselectedBorder
+                          }
+                          key={store.dpxStore}
+                          onClick={() => onClickStore(store)}
+                          style={{
+                            cursor: "pointer",
+                            borderRadius: 10,
+                            padding: 5,
+                            margin: 10,
+                            marginRight: 15,
+                            height: 150 
+                            // height: 180 
+                          }}
+                        >
+                          <Box display="flex" justifyContent="center">
+                            <StoreIcon
+                              style={{ fontSize: 50 }}
+                              color={
+                                storeIcon === store.dpxStore ? "primary" : "inherit"
+                              }
+                            />
+                          </Box>
+                          <Box display="flex" justifyContent="center">
+                            <Typography
+                              variant="body2"
+                              gutterBottom
+                              style={{ textTransform: "capitalize" }}
+                            >
+                              {store.make.name} {store.name}
+                            </Typography>
+                          </Box>
+                          <Box display="flex" justifyContent="center">
+                            {storeIcon === store.dpxStore ? (
+                              <CheckBoxOutlinedIcon
+                                color={
+                                  storeIcon === store._id ? "primary" : "inherit"
+                                }
+                              />
+                            ) : (
+                              <CheckBoxOutlineBlankOutlinedIcon
+                                color={
+                                  storeIcon === store._id ? "primary" : "inherit"
+                                }
+                              />
+                            )}
+                          </Box>
+                        {/* {
+                          store.dpxStore &&
+                        <a 
+                          target='_blank'
+                          rel="noreferrer"
+                          href={ `https://wa.me//${store.dpxPhone}?text=Hola! Estoy interesado en un ${CapitalizeNames(vehicle.make.name)} ${CapitalizeNames(vehicle.model)} ${vehicle.year}`}
+                          style={{textDecoration: 'none', marginTop: 10}}
+                        >
+                          <Box 
+                            display='flex' 
+                            p={1}
+                            alignItems='center' 
+                            style={{color:'white', fontWeight: 600, backgroundColor: '#48c357', textTransform: 'capitalize', borderRadius: 5, width: 100}}
                           >
-                            {store.make.name} {store.name}
-                          </Typography>
+                          <img src="/static/whatsapp.png" width={15} style={{marginRight: 5}}/>Contactar
+                          </Box>
+                        </a>
+                        } */}
                         </Box>
-                        <Box display="flex" justifyContent="center">
-                          {storeIcon === store.dpxStore ? (
-                            <CheckBoxOutlinedIcon
-                              color={
-                                storeIcon === store._id ? "primary" : "inherit"
-                              }
-                            />
-                          ) : (
-                            <CheckBoxOutlineBlankOutlinedIcon
-                              color={
-                                storeIcon === store._id ? "primary" : "inherit"
-                              }
-                            />
-                          )}
-                        </Box>
+                        
                       </Box>
                     ))}
                 </Box>

@@ -94,7 +94,7 @@ const slug = ({ job }) => {
                       gutterBottom
                       style={{ textTransform: "capitalize" }}
                     >
-                      {job.salaryTime === "Monthly" ? "Mensual" : "Quincenal"}
+                      {job.salaryTime === "monthly" ? "Mensual" : "Quincenal"}
                     </Typography>
                   </Box>
                 </Box>
