@@ -14,11 +14,10 @@ const Banner = ({
   infiniteLoop = true,
   interval = 8000,
   transitionTime = 1000,
-  showThumbs = true,
+  showThumbs = false,
   showArrows = true,
   showStatus = true,
   showIndicators = true,
-  showThumbs = false,
   xs = 12,
 }) => {
   const classes = useStyles();
@@ -44,7 +43,7 @@ const Banner = ({
           {medias && medias.length > 0 ? (
             medias.map((item, key) => (
               <div style={{ height: 530 }}>
-                <img src={item.image} key={key}/>
+                <img src={item.image} key={key} />
               </div>
             ))
           ) : (
