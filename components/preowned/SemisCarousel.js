@@ -18,6 +18,7 @@ const Banner = ({
   showArrows = true,
   showStatus = true,
   showIndicators = true,
+  showThumbs = false,
   xs = 12,
 }) => {
   const classes = useStyles();
