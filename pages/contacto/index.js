@@ -697,7 +697,7 @@ const index = () => {
 
                   <Box style={{display: "flex", alignItems: "start"}}>
                   <QueryBuilderIcon style={{ fontSize: "25px", paddingTop: "5px"}}/>
-                    <Typography  style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Lunes a Viernes 07:00 - 19:00 | Sábado: 07:00 - 19:00 | Domingo: 07:00 - 18:00 </Typography>
+                    <Typography  style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 20:00 | Domingo: 10:00 - 20:00 </Typography>
                   </Box>
 
                   <Box style={{display: "flex", alignItems: "start"}}>
@@ -726,7 +726,7 @@ const index = () => {
 
                   <Box style={{display: "flex", alignItems: "start"}}>
                   <QueryBuilderIcon style={{ fontSize: "25px", paddingTop: "5px"}}/>
-                    <Typography  style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Lunes a Viernes 08:30 - 19:00 | Sábado: 08:30 - 19:00 | Domingo: 11:00 - 19:00 </Typography>
+                    <Typography  style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Lunes a Viernes 08:30 - 19:00 | Sábado: 08:30 - 19:00 | Domingo: 11:00 - 18:00 </Typography>
                   </Box>
 
                   <Box style={{display: "flex", alignItems: "start"}}>
@@ -838,7 +838,7 @@ const index = () => {
                   
                   <Box style={{display: "flex", alignItems: "start"}}>
                     <LocationOnIcon style={{ fontSize: "25px", paddingTop: "5px"}}/>
-                    <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Calz. del Valle 101, Col. del Valle, Del Valle, 66220 San Pedro Garza García, N.L.</Typography>
+                    <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Calz. del Valle 101, Col. del Valle, Del Valle, 66220 San Pedro, N.L.</Typography>
                   </Box>
 
                   <Box style={{display: "flex", alignItems: "start"}}>
