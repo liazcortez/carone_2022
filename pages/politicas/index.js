@@ -398,10 +398,10 @@ const index = () => {
             <div class="row">
               <div class="col-md-12">
               <p>
-                  <strong>Titulo Planes de financiamiento</strong>
+                  <strong>Planes de financiamiento</strong>
                 </p>
                 <p>
-                Los cotizadores de esta página son una simulación meramente informativa y no incluyen, seguro del auto, comisión por apertura para mayor información acudir a nuestras agencias. Todos nuestros precios están sujetos a cambio sin previo aviso.
+                Los cotizadores de esta página son una simulación meramente informativa y no incluyen seguro del auto, comisión por apertura para mayor información acudir a nuestras agencias. Todos nuestros precios están sujetos a cambio sin previo aviso.
                 </p>
               </div>
             </div>
