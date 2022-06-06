@@ -25,7 +25,7 @@ const PreownedState = (props) => {
     const { makeName, modelName, year } = data;
     setLoading();
     try {
-      const res = await api.get(`/preowneds/calculatePrice?marca=${makeName.toLowerCase()}&modelo=${modelName}&year=${year}`);
+      const res = await api.get(`/preowneds/calculatePrice?marca=${makeName}&modelo=${modelName}&year=${year}`);
       dispatch({ type: CALCULATE_PRICES, payload: res.data.data });
     } catch (err) {
       dispatch({ type: SET_ERROR, payload: err})
