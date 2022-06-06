@@ -21,6 +21,7 @@ import { useSnackbar } from "notistack";
 import { Skeleton } from '@material-ui/lab';
 import NumberFormat from 'react-number-format';
 import moment from 'moment'
+import numeral from 'numeral'
 import 'moment/locale/es';
 moment.locale('es');
 
@@ -150,7 +151,7 @@ const CalcPrice = () => {
                         style={{height: 55}}
                         onClick={handleSubmit}
                     >
-                        Calcular
+                        Consultar
                     </Button>
             </Box>
         </Box>
@@ -187,18 +188,29 @@ const CalcPrice = () => {
                         </Box>
 
                         <Typography variant="h6" gutterBottom style={{ fontSize: 17 }}>
-                        Desde &nbsp;
-                        {vehicle.price ? (
-                            <NumberFormat
-                            value={vehicle.price}
-                            displayType={"text"}
-                            thousandSeparator={true}
-                            prefix={"$"}
-                            />
+                        {
+                            vehicle.km &&
+                            <NumberFormat value={vehicle.km} displayType={"text"} thousandSeparator={true} suffix={" Km"}/>
+                        }
+                        </Typography>
+
+                        <Typography variant="h6" gutterBottom style={{ fontSize: 17 }}>
+                        Precio &nbsp;
+                        {
+                        vehicle.price ? (
+                            <NumberFormat value={vehicle.price} displayType={"text"} thousandSeparator={true} prefix={"$"}/>
                         ) : (
                             "Precio pendiente"
                         )}
                         </Typography>
+                        {
+                        vehicle.price && (
+                        <Typography variant="h6" gutterBottom style={{ fontSize: 17 }}>
+                            Precio de Toma &nbsp;
+                            <NumberFormat value={(vehicle.price * 0.8) * 0.8} displayType={"text"} thousandSeparator={true} prefix={"$"}/>
+                        </Typography>
+                        )
+                        }
                     </>
                 }
             </CardContent>
@@ -238,6 +250,31 @@ const CalcPrice = () => {
         </Grid>
     )
 
+    const noResults = () => (
+        <Box p={10} display='flex' justifyContent='center' style={{width: '100%'}}>
+            <Box>
+                <center>
+                <Typography variant='h5'>
+                    No se encontraron resultados de {prices && prices.title}
+                </Typography>
+                <Typography variant='caption' color='textSecondary' style={{fontSize: 18}}>
+                    Intenta de nuevo con una consulta diferente
+                </Typography>
+                </center>
+            </Box>
+        </Box>
+    )
+
+    const promedio = () => (
+        <Grid item xs={12}>
+            <Box display='flex'>
+            <Typography variant='h5' style={{marginBottom: '0.5em'}}>
+                Precio promedio {prices && numeral(prices.promedio).format('$0,00')}
+            </Typography>
+            </Box>
+        </Grid>
+    )
+
     useEffect(() => {
        getMakes()
     //    return () => clearState()
@@ -247,13 +284,21 @@ const CalcPrice = () => {
     return (
         <Container maxWidth="lg" className={classes.root}>
             {form}
-            <Grid container spacing={2}>
+            <Grid container spacing={2} style={{padding: 10}}>
             {
                 loading && new Array(8).fill(0).map(item => SkeletonCars())
             }
             {
+                prices && prices.cars && !loading &&  prices.cars.length !== 0 &&
+                promedio()
+            }
+            {
                 prices && prices.cars && !loading &&  
                 prices.cars.map(item => card(item))
+            }
+            {
+                prices && prices.cars && prices.cars.length === 0 && !loading &&  
+                noResults()
             }
             </Grid>
         </Container>
