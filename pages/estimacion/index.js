@@ -260,7 +260,7 @@ const CalcPrice = () => {
                     Toma: &nbsp;
                   </Box>
                   <NumberFormat
-                    value={(prices.promedio * 0.85).toFixed(0)}
+                    value={(vehicle.price * 0.85).toFixed(0)}
                     displayType={"text"}
                     thousandSeparator={true}
                     prefix={"$"}
