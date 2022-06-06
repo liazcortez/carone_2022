@@ -63,6 +63,8 @@ const emptyImage = "https://i.pinimg.com/originals/ae/8a/c2/ae8ac2fa217d23aadcc9
 const CalcPrice = () => {
     const classes = useStyles()
     const { enqueueSnackbar } = useSnackbar();
+    const actualYear = parseInt(moment().format('YYYY'));
+    const startYear = 1995;
 
     const { makes, getMakes } = useMake()
     const { vehicles, getVehiclesByMake } = useVehicle()
@@ -135,13 +137,26 @@ const CalcPrice = () => {
             </Box>
             <Box p={1} minWidth='25.15%'>
                 <TextField
+                    select
                     fullWidth
                     label="Año"
                     name='year'
                     value={state.year}
                     onChange={handleChange}
                     variant="outlined"
-                />
+                    SelectProps={{
+                        native: true,
+                    }}
+                >
+                    {
+                        console.log(moment().format('YYYY'))
+                    }
+                    {
+                        [...new Array(parseInt(moment().format('YYYY')) - (startYear - 1))].map((item, index) =>
+                            <option value={actualYear - index} key={index}>{actualYear - index}</option>
+                            )
+                    }
+                </TextField>
             </Box>
             <Box p={1} minWidth='25.15%'>
                     <Button
