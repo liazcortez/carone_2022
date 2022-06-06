@@ -222,7 +222,7 @@ const CalcPrice = () => {
                         vehicle.price && (
                         <Typography variant="h6" gutterBottom style={{ fontSize: 17 }}>
                             Precio de Toma &nbsp;
-                            <NumberFormat value={((vehicle.price * 0.8) * 0.8).toFixed(0)} displayType={"text"} thousandSeparator={true} prefix={"$"}/>
+                            <NumberFormat value={( ( prices.promedio - (vehicle.price * 0.2) ) * 0.8).toFixed(0)} displayType={"text"} thousandSeparator={true} prefix={"$"}/>
                         </Typography>
                         )
                         }
