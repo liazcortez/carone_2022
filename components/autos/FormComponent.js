@@ -307,7 +307,8 @@ const FormComponent = ({ vehicle }) => {
                             padding: 5,
                             margin: 10,
                             marginRight: 15,
-                            height: 180 
+                            height: 150 
+                            // height: 180 
                           }}
                         >
                           <Box display="flex" justifyContent="center">
@@ -342,7 +343,7 @@ const FormComponent = ({ vehicle }) => {
                               />
                             )}
                           </Box>
-                        {
+                        {/* {
                           store.dpxStore &&
                         <a 
                           target='_blank'
@@ -359,7 +360,7 @@ const FormComponent = ({ vehicle }) => {
                           <img src="/static/whatsapp.png" width={15} style={{marginRight: 5}}/>Contactar
                           </Box>
                         </a>
-                        }
+                        } */}
                         </Box>
                         
                       </Box>
