@@ -12,6 +12,9 @@ import {
 import { FacebookIcon, TwitterIcon, WhatsappIcon } from "react-share";
 
 const SharingComponent = ({ url }) => {
+  React.useEffect(() => {
+    console.log(url);
+  }, []);
   return (
     <>
       <Box

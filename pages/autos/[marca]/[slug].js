@@ -13,11 +13,13 @@ import { useRouter } from "next/router";
 import ColorsComponent from "../../../components/autos/ColorsComponent";
 import VersionList from "../../../components/autos/versions/VersionList";
 import { baseURL } from "../../../api/api";
+import VideoComponent from "../../../components/autos/VideoComponent";
+import SharingComponent from "../../../components/autos/SharingComponent";
 
 const Slug = ({ vehicle }) => {
   const router = useRouter();
 
-  const url = `https://carone2021.herokuapp.com${router.asPath}`;
+  const url = `https://carone.com.mx${router.asPath}`;
   const title =
     vehicle.make && vehicle.model && vehicle.year
       ? `${vehicle.make.name} ${vehicle.model} ${vehicle.year}`
@@ -84,8 +86,7 @@ const Slug = ({ vehicle }) => {
                   style={{ fontWeight: "bold", color: "#656d78" }}
                 >
                   {vehicle.make.name.toUpperCase()}{" "}
-                  {vehicle.model.toUpperCase()}{" "}
-                  {vehicle.year}
+                  {vehicle.model.toUpperCase()} {vehicle.year}
                 </Typography>
                 {vehicle.price ? (
                   <Typography
@@ -116,9 +117,9 @@ const Slug = ({ vehicle }) => {
                 <ColorsComponent colors={colors} />
               </Grid>
               <Grid item xs={12} lg={5}>
-                <Financing vehicle={vehicle} />
+                {/* <Financing vehicle={vehicle} /> */}
                 {/* sharing */}
-                {/* <SharingComponent url={url} /> */}
+                <SharingComponent url={url} />
               </Grid>
             </Grid>
 
@@ -134,7 +135,7 @@ const Slug = ({ vehicle }) => {
 
             <Divider style={{ marginBottom: 40, marginTop: 20 }} />
           </Container>
-          <Container style={{overflow:'scroll'}} maxWidth="lg">
+          <Container style={{ overflow: "scroll" }} maxWidth="lg">
             <Grid container>
               <Grid item xs={12}>
                 <TabsComponent
