@@ -7,6 +7,7 @@ import {
   SET_ERROR,
   CLEAR_STATE,
   SET_LOADING,
+  GET_VEHICLES
 } from "../types";
 
 const VehicleState = (props) => {
@@ -19,6 +20,20 @@ const VehicleState = (props) => {
 
   const [state, dispatch] = useReducer(VehicleReducer, initialState);
 
+  const getVehiclesByMake = async(make) =>{
+    setLoading();
+    try {
+      const res = await api.get(
+        `/cars/CarsMake/${make}`
+      );
+      dispatch({ type: GET_VEHICLES, payload: res.data.data });
+    } catch (err) {
+
+      dispatch({ type: SET_ERROR, payload: err})
+
+
+    }
+  }
   //Get Vehicles
   const getVehicles = async (page, query) => {
     setLoading();
@@ -50,6 +65,7 @@ const VehicleState = (props) => {
         results: state.results,
         getVehicles,
         clearState,
+        getVehiclesByMake,
         setLoading,
       }}
     >

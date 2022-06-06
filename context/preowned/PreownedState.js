@@ -7,17 +7,30 @@ import {
   SET_ERROR,
   CLEAR_STATE,
   SET_LOADING,
+  CALCULATE_PRICES
 } from "../types";
 
 const PreownedState = (props) => {
   const initialState = {
     preowneds: [],
+    prices: null,
     loading: false,
     error: null,
     results: null,
   };
 
   const [state, dispatch] = useReducer(PreownedReducer, initialState);
+
+  const calculatePrices = async(data) => {
+    const { makeName, modelName, year } = data;
+    setLoading();
+    try {
+      const res = await api.get(`/preowneds/calculatePrice?marca=${makeName.toLowerCase()}&modelo=${modelName}&year=${year}`);
+      dispatch({ type: CALCULATE_PRICES, payload: res.data.data });
+    } catch (err) {
+      dispatch({ type: SET_ERROR, payload: err})
+    }
+  }
 
   //Get Preowneds
   const getPreowneds = async (page, query) => {
@@ -75,10 +88,12 @@ const PreownedState = (props) => {
         preowneds: state.preowneds,
         error: state.error,
         results: state.results,
+        prices: state.prices,
         getPreowneds,
         getPreownedsV2,
         clearState,
         setLoading,
+        calculatePrices
       }}
     >
       {props.children}
