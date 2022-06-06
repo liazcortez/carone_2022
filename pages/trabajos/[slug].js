@@ -18,7 +18,6 @@ import GeneralModal from "../../components/GeneralModal";
 import useAuth from "../../hooks/useAuth";
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 const slug = ({ job }) => { 
-  
 
   moment.locale("es-mx");
   const createdAt = moment(job.createdAt).fromNow();
@@ -35,8 +34,8 @@ const slug = ({ job }) => {
     <>
 
       <Meta
-        title={meta && meta.title ? meta.title : "Busqueda de trabajos Car One"}
-        description={meta && meta.description ? meta.description  : "Los mejores trabajos los encuentras en Car One"}
+        title={job && job.title ? job.title : "Busqueda de trabajos Car One"}
+        description={job && job.shortDescription ? job.shortDescription  : "Los mejores trabajos los encuentras en Car One"}
         image={meta && meta.image ? meta.image : image}
       />
       <Container maxWidth="lg">
