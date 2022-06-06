@@ -178,7 +178,6 @@ const CalcPrice = () => {
             native: true,
           }}
         >
-          {console.log(moment().format("YYYY"))}
           {[
             ...new Array(parseInt(moment().format("YYYY")) - (startYear - 1)),
           ].map((item, index) => (
@@ -261,6 +260,20 @@ const CalcPrice = () => {
                   </Box>
                   <NumberFormat
                     value={(prices.promedio * 0.85).toFixed(0)}
+                    displayType={"text"}
+                    thousandSeparator={true}
+                    prefix={"$"}
+                  />
+                </Typography>
+              )}
+
+              {vehicle.price && (
+                <Typography variant="subtitle1" style={{ fontSize: 17 }}>
+                  <Box component={"span"} sx={{ fontWeight: "500" }}>
+                    Ganancia: &nbsp;
+                  </Box>
+                  <NumberFormat
+                    value={vehicle.price - (prices.promedio * 0.85).toFixed(0)}
                     displayType={"text"}
                     thousandSeparator={true}
                     prefix={"$"}
