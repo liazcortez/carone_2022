@@ -2,11 +2,20 @@ import {
   GET_VEHICLES_ADVANCED_SEARCH, 
   SET_ERROR,
   CLEAR_STATE,
-  SET_LOADING
+  SET_LOADING,
+  GET_VEHICLES
 } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
+    case GET_VEHICLES:
+      console.log(action.payload)
+      return {
+        ...state,
+        vehicles: action.payload,
+        loading: false,
+        error: null,
+      };
     case GET_VEHICLES_ADVANCED_SEARCH:
       return {
         ...state,
