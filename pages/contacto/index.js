@@ -660,6 +660,7 @@ const index = () => {
 
               <Box>
               <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chrysler Cumbres</Typography>
+              
                   
                   <Box style={{display: "flex", alignItems: "start"}}>
                     <LocationOnIcon style={{ fontSize: "25px", paddingTop: "5px"}}/>
