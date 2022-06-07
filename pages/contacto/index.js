@@ -668,7 +668,7 @@ const index = () => {
 
                   <Box style={{display: "flex", alignItems: "start"}}>
                   <QueryBuilderIcon style={{ fontSize: "25px", paddingTop: "5px"}}/>
-                    <Typography  style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 19:00 | Domingo: Cerrado </Typography>
+                    <Typography  style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 19:00 | Domingo: 11:00 am - 18:00 pm </Typography>
                   </Box>
 
                   <Box style={{display: "flex", alignItems: "start"}}>
