@@ -69,6 +69,11 @@ const CarlistCard = ({ vehicle, setDataList }) => {
   const classes = useStyles();
   const [isFavorite, setIsFavorite] = useState(false);
   const { enqueueSnackbar } = useSnackbar();     
+  const [_document, setDocument] = useState(null)
+
+  useEffect(()=>{
+    setDocument(document)
+  },[])
 
   const formatText = (name) =>{
 
@@ -212,7 +217,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
               checkedIcon={<FavoriteIcon style={{ color: "#c54065" }} />} 
               name="checkedH"
               checked={
-                process.browser && localStorage.getItem("favorites-seminuevos") &&
+                document && localStorage.getItem("favorites-seminuevos") &&
                 JSON.parse(localStorage.getItem("favorites-seminuevos")).some(
                   (d) => vehicle && d._id === vehicle._id
                 )

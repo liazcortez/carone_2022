@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
 const emptyImage =
   "https://i.pinimg.com/originals/ae/8a/c2/ae8ac2fa217d23aadcc913989fcc34a2.png";
 
-const ComparativeCarItem = ({ vehicle, setDataList }) => {
+const ComparativeCarItem = ({ vehicle, setDataList, handleDeleteFav }) => {
   const classes = useStyles();
   const [isFavorite, setIsFavorite] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
@@ -80,6 +80,7 @@ const ComparativeCarItem = ({ vehicle, setDataList }) => {
       data = JSON.parse(localStorage.getItem("favorites"));
       if (data.some((d) => d._id === vehicle._id)) {
         if (isFavorite) {
+          handleDeleteFav(vehicle._id)
           const newFavorites = data.filter((d) => d._id !== vehicle._id);
           if (setDataList) {
             setDataList(newFavorites);

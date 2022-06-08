@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import ComparativeCarItem from "./ComparativeCarItem";
 
-const ComparativeCarList = ({ vehicles, loading, setDataList }) => {
+const ComparativeCarList = ({ vehicles, loading, setDataList, handleDeleteFav = () =>{} }) => {
   return (
     <Grid container spacing={5}>
       {vehicles &&
@@ -10,6 +10,7 @@ const ComparativeCarList = ({ vehicles, loading, setDataList }) => {
           (vehicle, index) => (
             <Grid item xs={6} sm={3} md={3} lg={3} key={index}>
               <ComparativeCarItem
+                handleDeleteFav={handleDeleteFav}
                 vehicle={vehicle}
                 loading={loading}
                 setDataList={setDataList}

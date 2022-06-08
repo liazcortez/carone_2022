@@ -65,26 +65,27 @@ const useStyles = makeStyles((theme) => ({
 const emptyImage =
   "https://i.pinimg.com/originals/ae/8a/c2/ae8ac2fa217d23aadcc913989fcc34a2.png";
 
-const ComparativeCarItem = ({ vehicle, setDataList }) => {
+const ComparativeCarItem = ({ vehicle, setDataList, handleDeleteFavSemis }) => {
   const classes = useStyles();
   const [isFavorite, setIsFavorite] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
 
   const handleAddFavorite = (vehicle) => {
     let data;
-    if (!localStorage.getItem("favorites")) {
+    if (!localStorage.getItem("favorites-seminuevos")) {
       data = [vehicle];
-      localStorage.setItem("favorites", JSON.stringify(data));
+      localStorage.setItem("favorites-seminuevos", JSON.stringify(data));
       setIsFavorite(true);
-    } else if (localStorage.getItem("favorites")) {
-      data = JSON.parse(localStorage.getItem("favorites"));
+    } else if (localStorage.getItem("favorites-seminuevos")) {
+      data = JSON.parse(localStorage.getItem("favorites-seminuevos"));
       if (data.some((d) => d._id === vehicle._id)) {
         if (isFavorite) {
+          handleDeleteFavSemis(vehicle._id)
           const newFavorites = data.filter((d) => d._id !== vehicle._id);
           if (setDataList) {
             setDataList(newFavorites);
           }
-          localStorage.setItem("favorites", JSON.stringify(newFavorites));
+          localStorage.setItem("favorites-seminuevos", JSON.stringify(newFavorites));
           setIsFavorite(false);
           return;
         }
@@ -97,15 +98,15 @@ const ComparativeCarItem = ({ vehicle, setDataList }) => {
         });
       }
 
-      localStorage.setItem("favorites", JSON.stringify(newData));
+      localStorage.setItem("favorites-seminuevos", JSON.stringify(newData));
       setIsFavorite(true);
     }
   };
 
   useEffect(() => {
     if (vehicle && vehicle._id) {
-      if (localStorage.getItem("favorites")) {
-        let favs = JSON.parse(localStorage.getItem("favorites"));
+      if (localStorage.getItem("favorites-seminuevos")) {
+        let favs = JSON.parse(localStorage.getItem("favorites-seminuevos"));
         if (favs.some((d) => d._id === vehicle._id)) {
           setIsFavorite(true);
         }
@@ -239,8 +240,8 @@ const ComparativeCarItem = ({ vehicle, setDataList }) => {
             checkedIcon={<FavoriteIcon style={{ color: "#c54065" }} />}
             name="checkedH"
             checked={
-              localStorage.getItem("favorites") &&
-              JSON.parse(localStorage.getItem("favorites")).some(
+              localStorage.getItem("favorites-seminuevos") &&
+              JSON.parse(localStorage.getItem("favorites-seminuevos")).some(
                 (d) => vehicle && d._id === vehicle._id
               )
             }
