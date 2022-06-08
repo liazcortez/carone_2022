@@ -84,10 +84,8 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
                 (vehicle, index) => (
                  
                     <CarListCard key={index} vehicle={vehicle} loading={loading} />
-
                 )
               )}
-
           </Box>
           </InfiniteScroll>
 
