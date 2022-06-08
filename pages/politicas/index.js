@@ -117,6 +117,28 @@ const index = () => {
                 </p>
               </div>
             </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>
+                  TRACKER 2022
+                  </strong>
+                </p>
+                <p>
+                    <strong>
+                    MENSUALIDADES DESDE $5,999.00
+                    </strong>
+                </p>
+                <p>
+                    <strong>
+                    0% DE COMISIÓN POR APERTURA
+                    </strong>
+                </p>
+                <p>
+                Precio válido en operaciones con GMF para Chevrolet Tracker Paq. F /LS/MT 2022. El enganche de $130,865 representa el 35% del costo de la unidad. Con mensualidades desde $5,940.90 pesos, a un plazo de 60 meses, con tasa de 14.81%, comisión por apertura gratis, seguro financiado y anualidades de $21,000 pesos. Promoción válida hasta 30 de junio  2022. Las fotografías son de uso ilustrativo. calculado al 07 de junio de 2022 para fines informativos y de comparación.  Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div class="container">
@@ -173,7 +195,6 @@ const index = () => {
                 </p>
               </div>
             </div>
-
             <div class="row">
               <div class="col-md-12">
               <p>
@@ -191,7 +212,6 @@ const index = () => {
                 </p>
               </div>
             </div>
-
             <div class="row">
               <div class="col-md-12">
               <p>
@@ -209,7 +229,28 @@ const index = () => {
                 </p>
               </div>
             </div>
-
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>
+                  TRACKER 2022
+                  </strong>
+                </p>
+                <p>
+                    <strong>
+                    MENSUALIDADES DESDE $5,999.00
+                    </strong>
+                </p>
+                <p>
+                    <strong>
+                    0% DE COMISIÓN POR APERTURA
+                    </strong>
+                </p>
+                <p>
+                Precio válido en operaciones con GMF para Chevrolet Tracker Paq. F /LS/MT 2022. El enganche de $130,865 representa el 35% del costo de la unidad. Con mensualidades desde $5,940.90 pesos, a un plazo de 60 meses, con tasa de 14.81%, comisión por apertura gratis, seguro financiado y anualidades de $21,000 pesos. Promoción válida hasta 30 de junio  2022. Las fotografías son de uso ilustrativo. calculado al 07 de junio de 2022 para fines informativos y de comparación.  Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div class="container">
