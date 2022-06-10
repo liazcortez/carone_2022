@@ -67,7 +67,7 @@ const Financing = ({ vehicle }) => {
         }}
       >
         Plan de Financiamiento
-      </Typography>
+      </Typography> 
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableBody>
@@ -103,7 +103,6 @@ const Financing = ({ vehicle }) => {
                 />
               </TableCell>
             </TableRow>
-
             <TableRow>
               <TableCell component="th" scope="row">
                 <span style={{ fontWeight: "bold" }}>Enganche</span>
@@ -182,7 +181,7 @@ const Financing = ({ vehicle }) => {
           prefix={"$"}
         />{" "}
         MXN{" "}
-      </Typography>
+      </Typography> 
 
       <FormComponent vehicle={vehicle} />
       <span style={{ color: "#232323" }}>

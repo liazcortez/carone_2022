@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid, Typography, Divider } from "@material-ui/core";
+import { Container, Grid, Typography, Divider, Box } from "@material-ui/core";
 import BannerAutos from "../../../components/autos/BannerAutos";
 import Financing from "../../../components/autos/Financing";
 import TabsComponent from "../../../components/TabsComponent";
@@ -14,6 +14,7 @@ import ColorsComponent from "../../../components/autos/ColorsComponent";
 import VersionList from "../../../components/autos/versions/VersionList";
 import { baseURL } from "../../../api/api";
 import VideoComponent from "../../../components/autos/VideoComponent";
+import Form from '../../../components/autos/FormComponent'
 import SharingComponent from "../../../components/autos/SharingComponent";
 
 const Slug = ({ vehicle }) => {
@@ -79,7 +80,7 @@ const Slug = ({ vehicle }) => {
             <BreadcrumbComponent data={vehicle} section="autos" />
 
             <Grid container style={{ marginBottom: 50 }}>
-              <Grid item xs={12} lg={7}>
+              <Grid item xs={12} lg={6}>
                 <Typography
                   variant="h5"
                   component="h3"
@@ -116,10 +117,13 @@ const Slug = ({ vehicle }) => {
                 {/* Colors Component */}
                 <ColorsComponent colors={colors} />
               </Grid>
-              <Grid item xs={12} lg={5}>
+              <Grid item xs={12} lg={6}>
                 {/* <Financing vehicle={vehicle} /> */}
                 {/* sharing */}
+                <Box display='flex' flexDirection='column' justifyContent='space-between' style={{height: '100%'}}>
                 <SharingComponent url={url} />
+                <Form vehicle={vehicle}/>
+                </Box>
               </Grid>
             </Grid>
 

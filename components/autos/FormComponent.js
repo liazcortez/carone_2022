@@ -187,7 +187,7 @@ const FormComponent = ({ vehicle }) => {
   
 
   return (
-    <div style={{ marginBottom: 20 }}>
+    <div style={{ marginBottom: 20, marginTop: 20 }}>
       <Button
         variant="contained"
         color="primary"
@@ -195,6 +195,7 @@ const FormComponent = ({ vehicle }) => {
         fullWidth
         size="large"
         disabled={(dissableButton || vehicle.availableStore.length <= 0)?true:false}
+        style={{ height: 60}}
       >
         Solicitar Cotización
       </Button>
