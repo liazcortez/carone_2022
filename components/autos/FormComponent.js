@@ -151,7 +151,7 @@ const FormComponent = ({ vehicle }) => {
 
   const onHandleSubmit = async(e) => {
     e.preventDefault();
-    await setDissableButton(true);
+    setDissableButton(true);
 
     let emailValidation = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
     let phoneValidation = new RegExp(/^[0-9]{10}$/);

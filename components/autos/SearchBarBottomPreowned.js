@@ -1,6 +1,8 @@
 import React from "react";
 import { makeStyles, Grid, TextField } from "@material-ui/core";
 import { capitalCase } from "change-case";
+import _ from 'lodash'
+import useStore from '../../hooks/useStore'
 
 const sortOptions = [
   {
@@ -34,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SearchBarBottom = ({
-  stores,
   setCategory,
   setStore,
   category,
@@ -46,9 +47,18 @@ const SearchBarBottom = ({
   const classes = useStyles();
 
   const handleChange = (event) => {
+    event.preventDefault()
     setPage(1);
     setStore(event.target.value);
   };
+
+  const { getStores, stores } = useStore()
+
+  React.useEffect(() => {
+    
+    getStores()
+    //eslint-disable-next-line
+  }, []);
 
   const handleCategory = (event) => {
     setPage(1);
@@ -124,18 +134,13 @@ const SearchBarBottom = ({
           variant="outlined"
         >
           <option key={0} value={"-"}>
-            Todas
+            Todas las agencias
           </option>
-          {stores.sort(function(a,b) {
-          // Compare the 2 dates
-          if (a.make.name < b.make.name) return -1;
-          if (a.make.name > b.make.name) return 1;
-          return 0;
-        }).map((option) => {
-            if(option._id !== '6269ae3be8436b4af342ac97')return <option key={option.name} value={option._id}>{capitalCase(option.make.name.replace("-", " ") + ' ' + option.name)}</option>
-            return false;
-          }
-          )}
+          {stores.filter(s => s._id !== '6269ae3be8436b4af342ac97').sort((a,b)=> {
+
+            if(a.make.name < b.make.name) return -1
+            return 1
+          }).map((item) => <option key={item.name} value={item._id}>{capitalCase(item.make.name.replace("-", " ") + ' ' + item.name)}</option>)}
         </TextField>
       </Grid>
       <Grid item xs={12} sm={6} md={4} lg={4}>
