@@ -27,9 +27,9 @@ const BreadCrumJobs = ({ data, section }) => {
         <Link color="inherit" href="/trabajos" passHref={true}>
           <Button>{section}</Button>
         </Link>
-        <Link color="inherit" href={`/trabajos/categoria/${category.name}`} passHref={true}>
+        {/* <Link color="inherit" href={`/trabajos/categoria/${category.name}`} passHref={true}> */}
           <Button>{category.name}</Button>
-        </Link>
+        {/* </Link> */}
         <Typography color="textPrimary" style={{ textTransform: "capitalize" }}>
           <Button disabled>{title}</Button>
         </Typography>
