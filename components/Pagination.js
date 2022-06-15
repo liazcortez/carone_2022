@@ -1,6 +1,6 @@
 import React from 'react'
 import Pagination from "@material-ui/lab/Pagination"
-import { Box } from '@material-ui/core'
+import { Box } from '@mui/material'
 
 const StyledPaginatino = ({total, page, changePage, limit}) => {
     return (

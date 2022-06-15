@@ -1,4 +1,4 @@
-import { Grid, Typography, Divider } from "@material-ui/core";
+import { Grid, Typography, Divider } from "@mui/material";
 import React from "react";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import NumberFormat from "react-number-format";

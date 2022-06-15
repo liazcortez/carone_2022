@@ -1,9 +1,9 @@
 import React from "react";
-import { Container, Link, Box, Typography } from "@material-ui/core";
+import { Container, Link, Box, Typography } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles(theme=>({
   footer:{
-    marginTop: 40,
+    marginTop: 10,
     marginBottom: 20,
   },
   policy:{

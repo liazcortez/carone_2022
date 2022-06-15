@@ -18,7 +18,7 @@ import {
   Grid,
   TextField,
   TextareaAutosize,
-} from '@material-ui/core'
+} from '@mui/material'
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { capitalCase } from 'change-case';

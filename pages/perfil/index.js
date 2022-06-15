@@ -11,14 +11,14 @@ import { Box,
   Container,
   CardContent,
   Grid,
-  Avatar,
-  makeStyles} from "@material-ui/core";
+  Avatar} from "@mui/material";
 import Meta from "../../components/Meta";
 import useAuth from "../../hooks/useAuth";
 import ApplicantComponent from "../../components/profile/Curriculum"
 import Information from '../../components/profile/Information'
 import PersonalInformation from '../../components/profile/PersonalInformation'
 import { useRouter } from "next/router";
+import {makeStyles} from '@mui/styles';
 
 const useStyles = makeStyles(theme => ({
   root: {

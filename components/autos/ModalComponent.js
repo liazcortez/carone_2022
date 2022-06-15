@@ -1,11 +1,11 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import { Button, Dialog } from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
-import Slider from "@material-ui/core/Slider";
-import IconButton from "@material-ui/core/IconButton";
+import { Button, Dialog } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import Slider from "@mui/material/Slider";
+import IconButton from "@mui/material/IconButton";
 
-import TextField from "@material-ui/core/TextField";
+import TextField from "@mui/material/TextField";
 import EditIcon from "@material-ui/icons/Edit";
 
 const useStyles = makeStyles((theme) => ({

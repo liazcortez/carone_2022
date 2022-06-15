@@ -11,7 +11,7 @@ import CallToAction from "../components/main/CallToAction";
 
 const classes = {
   root: {
-    paddingBottom: 10,
+    paddingBottom: 5,
   },
 };
 

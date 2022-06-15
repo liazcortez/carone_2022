@@ -8,10 +8,9 @@ import {
   Container,
   Link,
   Typography,
-  makeStyles,
   Button,
   IconButton
-} from '@material-ui/core';
+} from '@mui/material';
 import { useSnackbar } from "notistack";
 import useAuth from '../../hooks/useAuth';
 import useApplicant from '../../hooks/useApplicant';
@@ -19,7 +18,7 @@ import DropzoneInput from '../../components/DropzoneInput';
 import { FileText, Trash2} from 'react-feather'
 import Image from 'next/image'
 import YesNoDialog from '../../components/Confirm';
-
+import {makeStyles} from '@mui/styles';
 const methodIcons = {
   Auth0: '/static/images/auth0.svg',
   FirebaseAuth: '/static/images/firebase.svg',

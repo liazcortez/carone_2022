@@ -11,25 +11,25 @@ import {
   Box,
   Grid,
   Container,
-} from "@material-ui/core";
+} from "@mui/material";
 import { useSnackbar } from "notistack";
-import { red } from "@material-ui/core/colors";
+import { red } from "@mui/material/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import { Divider } from "@material-ui/core";
+import { Divider } from "@mui/material";
 import Link from "next/link";
 import Skeleton from "@material-ui/lab/Skeleton";
 import { capitalCase } from "change-case";
 import NumberFormat from "react-number-format";
 
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "@mui/material/Tooltip";
 
 const useStyles = makeStyles((theme) => ({
   isHighlight: {

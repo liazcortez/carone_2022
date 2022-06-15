@@ -3,7 +3,7 @@ import React from "react";
 import Head from "next/head";
 import { SnackbarProvider } from 'notistack';
 import { ThemeProvider } from "@mui/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import CssBaseline from "@mui/material/CssBaseline";
 import theme from "../src/theme";
 import Layout from "../components/Layout";
 import VehicleState from "../context/vehicle/VehicleState";

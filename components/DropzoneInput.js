@@ -13,12 +13,11 @@ import {
     ListItemIcon,
     ListItemText,
     Typography,
-    makeStyles,
     IconButton
-} from '@material-ui/core';
+} from '@mui/material';
 import { X as DeleteIcon } from 'react-feather';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
-
+import {makeStyles} from '@mui/styles';
 const bytesToSize = (bytes, decimals = 2) => {
     if (bytes === 0) return '0 Bytes';
   

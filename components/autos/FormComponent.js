@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
 import StoreIcon from "@material-ui/icons/Store";
 import StoreMallDirectoryOutlinedIcon from "@material-ui/icons/StoreMallDirectoryOutlined";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 import CheckBoxOutlineBlankOutlinedIcon from "@material-ui/icons/CheckBoxOutlineBlankOutlined";
 import { useSnackbar } from "notistack";
 import CheckBoxOutlinedIcon from "@material-ui/icons/CheckBoxOutlined";
@@ -22,7 +22,7 @@ import {
   Divider,
   Avatar,
   Paper,
-} from "@material-ui/core";
+} from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import axios from "axios";
 

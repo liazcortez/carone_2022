@@ -14,18 +14,16 @@ import {
 	TextField,
 	Typography,
 	Avatar,
-	Link,
-	makeStyles
-} from '@material-ui/core';
+	Link
+} from '@mui/material';
 import useAuth from './../../hooks/useAuth';
 import useIsMountedRef from './../../hooks/useIsMountedRef';
 
-const useStyles = makeStyles(() => ({
+const classes = {
   root: {}
-}));
+}
 
 const Register = ({setOpen=false, setType, className, ...rest }) => {
-  const classes = useStyles();
   const { user,register, error } = useAuth();
   const isMountedRef = useIsMountedRef();
 

@@ -1,6 +1,6 @@
 import React , {useState}from "react";
-import { TextField } from "@material-ui/core";
-import InputAdornment from "@material-ui/core/InputAdornment";
+import { TextField } from "@mui/material";
+import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 
 const SearchBarTop = ({ setQuery, query, disableTopBar, make, category, sort, setPage}) => {

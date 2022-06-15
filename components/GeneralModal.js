@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 import { makeStyles } from '@mui/styles';
-import {Modal,Fade,Backdrop,Button,Box, Grid, Typography,Link} from '@material-ui/core';
+import {Modal,Fade,Backdrop,Button,Box, Grid, Typography,Link} from '@mui/material';
 // import Authcomponent from './AuthComponent';
 import { SportsEsports } from '@material-ui/icons';
 import AuthComponent from "./auth/AuthComponent";

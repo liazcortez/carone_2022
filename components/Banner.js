@@ -1,8 +1,8 @@
 import React from "react";
-import { Container, Grid, Button, Typography, Box } from "@material-ui/core";
-import Paper from "@material-ui/core/Paper";
+import { Container, Grid, Button, Typography, Box } from "@mui/material";
+import Paper from "@mui/material/Paper";
 import SearchIcon from "@material-ui/icons/Search";
-import TextField from "@material-ui/core/TextField";
+import TextField from "@mui/material/TextField";
 import { makeStyles } from "@mui/styles";
 
 import Link from "next/link";

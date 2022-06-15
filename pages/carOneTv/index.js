@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Box } from "@material-ui/core";
+import { Container, Box } from "@mui/material";
 import Meta from "../../components/Meta";
 import { makeStyles } from "@mui/styles";
 

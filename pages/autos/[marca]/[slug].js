@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid, Typography, Divider, Box } from "@material-ui/core";
+import { Container, Grid, Typography, Divider, Box } from "@mui/material";
 import BannerAutos from "../../../components/autos/BannerAutos";
 import Financing from "../../../components/autos/Financing";
 import TabsComponent from "../../../components/TabsComponent";

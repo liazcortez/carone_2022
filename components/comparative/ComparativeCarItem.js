@@ -11,16 +11,16 @@ import {
   Box,
   Grid,
   Container,
-} from "@material-ui/core";
+} from "@mui/material";
 import { useSnackbar } from "notistack";
-import { red } from "@material-ui/core/colors";
+import { red } from "@mui/material/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import { Divider } from "@material-ui/core";
+import { Divider } from "@mui/material";
 import Link from "next/link";
 import Skeleton from "@material-ui/lab/Skeleton";
 import { capitalCase } from "change-case";
 import NumberFormat from "react-number-format";
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "@mui/material/Tooltip";
 
 const useStyles = makeStyles((theme) => ({
   table: {

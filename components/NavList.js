@@ -4,7 +4,7 @@ import {
   Button,
   Menu,
   MenuItem,
-} from "@material-ui/core";
+} from "@mui/material";
 import Link from "next/link";
 import { Menu as MenuIcon } from 'react-feather';
 import { makeStyles } from "@mui/styles";

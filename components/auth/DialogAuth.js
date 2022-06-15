@@ -1,14 +1,13 @@
 import React from 'react';
 import {
-  makeStyles,
   Modal,
   Card
-} from '@material-ui/core';
+} from '@mui/material';
 import useAuth from '../../hooks/useAuth';
 import Login from './LoginNav'
 import Register from './RegisterNav';
 
-const useStyles = makeStyles(() => ({
+const classes = {
   root: {
     position: 'absolute',
     top: '50%',
@@ -20,13 +19,12 @@ const useStyles = makeStyles(() => ({
     overflowY: 'auto',
     maxWidth: '100ch',
   },
-}));
+};
 
 const DialogAuth = ({setOpen, open, className, ...rest }) => {
 
   const { success } = useAuth();
   const [type, setType] = React.useState('login')
-  const classes = useStyles()
   
   React.useEffect(()=>{
     if(success){

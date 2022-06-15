@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
-import Breadcrumbs from "@material-ui/core/Breadcrumbs";
-import { Container, Divider, Button, Typography } from "@material-ui/core";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import { Container, Divider, Button, Typography } from "@mui/material";
 import Meta from "../../../components/Meta";
 import CarList from "../../../components/autos/CarList";
 import { makeStyles } from "@mui/styles";

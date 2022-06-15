@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Divider, Grid, Box } from "@material-ui/core";
+import { Container, Divider, Grid, Box } from "@mui/material";
 import SearchBar from "../../components/autos/SearchBar";
 import Meta from "../../components/Meta";
 import useVehicles from "../../hooks/useVehicle";
