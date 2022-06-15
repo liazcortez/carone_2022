@@ -1,6 +1,6 @@
 import React from "react";
 import useAlert from '../hooks/useAlert';
-import { FormHelperText } from '@material-ui/core';
+import { FormHelperText } from '@mui/material';
 
 const Alerta = (props) => {
   const { alert } = useAlert();

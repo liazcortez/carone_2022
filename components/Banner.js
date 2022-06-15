@@ -3,7 +3,7 @@ import { Container, Grid, Button, Typography, Box } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 
 import Link from "next/link";
 const useStyles = makeStyles((theme) => ({
