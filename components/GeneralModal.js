@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 import {Modal,Fade,Backdrop,Button,Box, Grid, Typography,Link} from '@material-ui/core';
 // import Authcomponent from './AuthComponent';
 import { SportsEsports } from '@material-ui/icons';

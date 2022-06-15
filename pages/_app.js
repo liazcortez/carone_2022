@@ -2,7 +2,7 @@ import React from "react";
 
 import Head from "next/head";
 import { SnackbarProvider } from 'notistack';
-import { ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider } from "@mui/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../src/theme";
 import Layout from "../components/Layout";

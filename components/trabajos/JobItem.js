@@ -4,7 +4,7 @@ import moment from "moment";
 import 'moment/locale/es';
 import TextTruncate from "react-text-truncate"; // recommend
 
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import Paper from "@material-ui/core/Paper";
 import Link from "next/link";
 // import parse from "html-react-parser";

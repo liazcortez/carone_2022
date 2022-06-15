@@ -4,7 +4,7 @@ import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import { Container, Divider, Button, Typography } from "@material-ui/core";
 import Meta from "../../../components/Meta";
 import CarList from "../../../components/autos/CarList";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import Link from "next/link";
 import { baseURL } from "../../../api/api";
 

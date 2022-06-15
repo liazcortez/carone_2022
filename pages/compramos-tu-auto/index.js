@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@mui/styles';
 import clsx from 'clsx';
 import Check from '@material-ui/icons/Check';
 import Meta from "../../components/Meta";
