@@ -251,6 +251,43 @@ const index = () => {
                 </p>
               </div>
             </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>
+                  S10 2023
+                  </strong>
+                </p>
+                <p>
+                  <strong>
+                  DESEMBOLSO INICIAL DESDE $23,099.00
+                  </strong>
+                </p>
+               <p>
+               Precio válido en operaciones con GMF Leasing para Chevrolet S10 paq. B/ 4X2 2023. Inversión inicial de $23,101.90 y rentas desde $11,550.90 a un plazo de 48 meses, con un valor residual aproximado sin IVA de $141,000 y seguro financiado.  Al finalizar el término se realiza el pago total de la unidad o bien se puede realizar un refinanciamiento, si se cumple con los requisitos señalados por planta.  Calculado al 3 de junio de 2022. Promoción válida hasta el 30 de junio de 2022. Las fotografías son de uso ilustrativo. Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+               </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>
+                  CHEYENNE 2022.5
+                  </strong>
+                </p>
+                <p>
+                  <strong>
+                  RENTAS MENSUALES DESDE $22,999.00
+                  </strong>
+                </p>
+               <p>
+               Precio válido en operaciones con GMF Leasing para Chevrolet Cheyenne paq. H/ 4X4 2022.5. Inversión inicial de $55,977.54 y rentas desde $27,988.77 a un plazo de 48 meses, con un valor residual aproximado sin IVA de $395,000 y seguro financiado.  Al finalizar el término se realiza el pago total de la unidad o bien se puede realizar un refinanciamiento, si se cumple con los requisitos señalados por planta.  Calculado al 3 de junio de 2022. Promoción válida hasta el 30 de junio de 2022. Las fotografías son de uso ilustrativo. Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+               </p>
+              </div>
+            </div>
+
             
           </div>
 
