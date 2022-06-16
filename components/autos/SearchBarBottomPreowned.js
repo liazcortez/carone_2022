@@ -1,9 +1,9 @@
 import React from "react";
-import { makeStyles, Grid, TextField } from "@material-ui/core";
+import { Grid, TextField } from "@mui/material";
 import { capitalCase } from "change-case";
 import _ from 'lodash'
 import useStore from '../../hooks/useStore'
-
+import {makeStyles} from '@mui/styles';
 const sortOptions = [
   {
     name: "Menor a $150,000",

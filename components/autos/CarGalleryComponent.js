@@ -1,8 +1,8 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@material-ui/icons/ArrowForwardIosRounded";
-import { Typography, Container, Grid } from "@material-ui/core";
+import { Typography, Container, Grid } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   leftArrow: {

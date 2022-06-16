@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   Box,
   Container,
-} from "@material-ui/core";
+} from "@mui/material";
 import Link from "next/link";
 import MenuOpenIcon from "@material-ui/icons/MenuOpen";
 import MenuIcon from "@material-ui/icons/Menu";

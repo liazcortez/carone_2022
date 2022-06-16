@@ -6,7 +6,7 @@ import Pagination from "../../components/Pagination";
 import usePreowned from "../../hooks/usePreowned";
 import { baseURL } from "../../api/api";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { Container, Divider, Grid, Box } from "@material-ui/core";
+import { Container, Divider, Grid, Box } from "@mui/material";
 import CarListCard from "../../components/autos/CarListCardPreowned";
 import CustomLoading from "../../components/CustomLoading";
 

@@ -8,7 +8,7 @@ import {
   Divider,
   Button,
   Chip
-} from "@material-ui/core";
+} from "@mui/material";
 import moment from "moment";
 import parse from "html-react-parser";
 import NumberFormat from "react-number-format";

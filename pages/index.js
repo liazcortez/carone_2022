@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import Container from "@material-ui/core/Container";
-import { makeStyles } from "@material-ui/core/styles";
+import Container from "@mui/material/Container";
 import Tabs from "../components/Tabs";
 
 import MainCarousel from "../components/MainCarousel";
@@ -10,14 +9,13 @@ import { baseURL } from "../api/api";
 import useMedia from "../hooks/useMedia";
 import CallToAction from "../components/main/CallToAction";
 
-const useStyles = makeStyles((theme) => ({
+const classes = {
   root: {
-    paddingBottom: 25,
+    paddingBottom: 5,
   },
-}));
+};
 
 const Home = ({ makes, categories, medias }) => {
-  const classes = useStyles();
   const { mediasMainBanner, getMediasMainBanner } = useMedia();
 
   useEffect(() => {
@@ -27,7 +25,7 @@ const Home = ({ makes, categories, medias }) => {
   return (
     <>
       <Meta title="Car One Group" description="Autos Nuevo, Seminuevos" />
-      <Container maxWidth="lg" className={classes.root}>
+      <Container maxWidth="lg" sx={classes.root}>
         <MainCarousel medias={mediasMainBanner} />
         <Tabs categories={categories} />
         <CallToAction style={{ marginBottom: "2em" }} color="white" />

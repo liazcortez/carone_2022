@@ -7,14 +7,13 @@ import {
   Container,
   Link,
   Typography,
-  makeStyles,
   CardActions,
   Button
-} from '@material-ui/core';
+} from '@mui/material';
 import Login from './Login';
 import Register from './Register';
 import useAuth from '../../hooks/useAuth';
-
+import {makeStyles} from '@mui/styles';
 const methodIcons = {
   Auth0: '/static/images/auth0.svg',
   FirebaseAuth: '/static/images/firebase.svg',

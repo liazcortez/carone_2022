@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import CarList from "../../components/autos/CarList";
 import Meta from "../../components/Meta";
-import { Container, Divider } from "@material-ui/core";
+import { Container, Divider } from "@mui/material";
 
 const Marca = ({ vehicles }) => {
   

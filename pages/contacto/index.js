@@ -1,7 +1,7 @@
 import React from "react";
-import { Container, Box, Typography, Grid, Divider} from "@material-ui/core";
+import { Container, Box, Typography, Grid, Divider} from "@mui/material";
 import Meta from "../../components/Meta";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
 import PhoneIcon from '@material-ui/icons/Phone';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
@@ -38,7 +38,7 @@ const index = () => {
           <Typography variant="h4" style={{fontSize: "35px", fontWeight: 500, textAlign: "center"}}>
               Contacto
           </Typography>
-          <Divider style={{ border: "1px" ,marginTop: '1em', marginBottom: '1em'}}/>
+          <Divider sx={{marginTop: '1em', marginBottom: '1em'}}/>
         </Box>
 
           <Grid container spacing={2}>

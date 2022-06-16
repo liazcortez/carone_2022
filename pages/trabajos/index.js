@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid } from "@mui/material";
 import Meta from "../../components/Meta";
 import SearchBar from "../../components/trabajos/SearchBar";
 import CustomLoading from "../../components/CustomLoading";

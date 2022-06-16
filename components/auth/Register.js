@@ -15,17 +15,15 @@ import {
 	Typography,
 	Avatar,
 	Link,
-	makeStyles
-} from '@material-ui/core';
+} from '@mui/material';
 import useAuth from './../../hooks/useAuth';
 import useIsMountedRef from './../../hooks/useIsMountedRef';
 
-const useStyles = makeStyles(() => ({
+const classes = {
   root: {}
-}));
+};
 
 const Register = ({setOpen=false, className, ...rest }) => {
-  const classes = useStyles();
   const { user,register, error, clearState } = useAuth();
   const isMountedRef = useIsMountedRef();
 

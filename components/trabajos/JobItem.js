@@ -1,11 +1,11 @@
 import React from "react";
-import { Container, Grid, Typography, Box,Chip,Button } from "@material-ui/core";
+import { Container, Grid, Typography, Box,Chip,Button } from "@mui/material";
 import moment from "moment";
 import 'moment/locale/es';
 import TextTruncate from "react-text-truncate"; // recommend
 
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
+import { makeStyles } from "@mui/styles";
+import Paper from "@mui/material/Paper";
 import Link from "next/link";
 // import parse from "html-react-parser";
 import { CapitalizeFirstLetter } from "../../utils/functions";

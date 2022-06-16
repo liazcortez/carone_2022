@@ -7,14 +7,14 @@ import {
   CardContent,
   Link,
   Typography,
-  makeStyles,
   Button
-} from '@material-ui/core';
+} from '@mui/material';
 import { useSnackbar } from "notistack";
 import useAuth from '../../hooks/useAuth';
 import useApplicant from '../../hooks/useApplicant';
 import DropzoneInput from '../../components/DropzoneInput';
 import Image from 'next/image'
+import {makeStyles} from '@mui/styles';
 
 const methodIcons = {
   Auth0: '/static/images/auth0.svg',

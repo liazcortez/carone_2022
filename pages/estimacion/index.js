@@ -12,7 +12,7 @@ import {
   Typography,
   Grid,
   CardActions,
-} from "@material-ui/core";
+} from "@mui/material";
 import useMake from "../../hooks/useMake";
 import usePreowned from "../../hooks/usePreowned";
 import useVehicle from "../../hooks/useVehicle";

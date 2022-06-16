@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Grid, TextField } from "@material-ui/core";
+import { Grid, TextField } from "@mui/material";
 import { capitalCase } from "change-case";
 
 const currencies = [
@@ -36,7 +36,7 @@ const sortOptions = [
   },
 ];
 
-const useStyles = makeStyles((theme) => ({
+const classes ={
   root: {
     "& .MuiTextField-root": {
       margin: 2,
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   selectOption: {
     fontSize: 30,
   },
-}));
+};
 
 const SearchBarBottom = ({
   makes,
@@ -63,7 +63,6 @@ const SearchBarBottom = ({
   sort,
   setSort,
 }) => {
-  const classes = useStyles();
 
   const handleChange = (event) => {
     setPage(1);

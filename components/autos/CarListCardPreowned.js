@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import clsx from "clsx";
 import {
   Card,
@@ -10,11 +10,11 @@ import {
   Checkbox,
   Box,
   FormControlLabel,
-} from "@material-ui/core";
+} from "@mui/material";
 import { useSnackbar } from "notistack";
-import { red } from "@material-ui/core/colors";
+import { red } from "@mui/material/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import { Divider } from "@material-ui/core";
+import { Divider } from "@mui/material";
 import Link from "next/link";
 import Skeleton from "@material-ui/lab/Skeleton";
 import { capitalCase } from "change-case";

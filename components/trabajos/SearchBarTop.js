@@ -1,6 +1,6 @@
 import React from "react";
-import { TextField } from "@material-ui/core";
-import InputAdornment from "@material-ui/core/InputAdornment";
+import { TextField } from "@mui/material";
+import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 // import useJob from "../../hooks/useJob";
 
