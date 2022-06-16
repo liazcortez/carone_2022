@@ -1,5 +1,6 @@
 import React from "react";
-import { Container, Divider, Tabs, Tab, withStyles } from "@mui/material";
+import { Container, Divider, Tabs, Tab} from "@mui/material";
+import {withStyles} from '@mui/styles';
 import ComparativeCarList from "../components/comparative/ComparativeCarList";
 import ComparativeCarListPreowned from "../components/comparative/ComparativeCarListPreowned";
 
