@@ -23,7 +23,7 @@ const MediaState = props => {
   const getMediasMainBanner = async() => {
     setLoading();
     try {
-      const res = await api.get(`/medias?section=main-banner`);
+      const res = await api.get(`/medias?section=main-banner&ShowBanner=true`);
       dispatch({ type: GET_MEDIAS_MAIN_BANNER, payload: res.data.data });
     } catch (err) {
       dispatch({ type: SET_ERROR, payload: err.response.data})
