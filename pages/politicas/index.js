@@ -313,14 +313,14 @@ const index = () => {
                   </strong>
                 </p>
                 <p>
-                Vigencia del 1 al 31 de junio. Aplica para los modelos MG 5 2022 (1.5L DEL ELEGANCE AT) Los términos y condiciones pueden variar al momento de contratación de conformidad con el plan de financiamiento seleccionado por lo que te sugerimos consultarlos directamente con alguno de nuestros asesores. Financiamiento sujeto a estudio y aprobación de crédito. Vigencia hasta el 30 junio 2022. Plazos desde 12 y hasta 72 meses. El enganche mínimo es de 10% a 60 meses y 20 % a 72 meses. Comisión por apertura del 2.0% sin IVA y una Tasa fija anual sin IVA del 14.54% a 60 meses. Promoción válida únicamente en la República Mexicana. CAT Promedio del 24.7% sin IVA a 60 meses calculado al 30 mayo 2022 sobre un importe promedio a financiar de $238,920.00 a un plazo promedio de 60 meses con un enganche del 20.0%, comisión por apertura del 2.0% sin IVA, con póliza de seguro promedio de $9,573.97, tasa fija anual sin IVA del 14.54%. Cetelem, S.A de C.V. SOFOM E.R. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA. 
+                Vigencia del 1 al 30 de junio. Aplica para los modelos MG 5 2022 (1.5L DEL ELEGANCE AT) Los términos y condiciones pueden variar al momento de contratación de conformidad con el plan de financiamiento seleccionado por lo que te sugerimos consultarlos directamente con alguno de nuestros asesores. Financiamiento sujeto a estudio y aprobación de crédito. Vigencia hasta el 30 junio 2022. Plazos desde 12 y hasta 72 meses. El enganche mínimo es de 10% a 60 meses y 20 % a 72 meses. Comisión por apertura del 2.0% sin IVA y una Tasa fija anual sin IVA del 14.54% a 60 meses. Promoción válida únicamente en la República Mexicana. CAT Promedio del 24.7% sin IVA a 60 meses calculado al 30 mayo 2022 sobre un importe promedio a financiar de $238,920.00 a un plazo promedio de 60 meses con un enganche del 20.0%, comisión por apertura del 2.0% sin IVA, con póliza de seguro promedio de $9,573.97, tasa fija anual sin IVA del 14.54%. Cetelem, S.A de C.V. SOFOM E.R. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA. 
                 </p>
 
                 <strong>
                 MG5 2022 + Lucky Seven
                 </strong>
                 <p>
-                Vigencia del 1 al 31 de junio. Aplica para los modelos MG5 2022. Desde 10% de enganche a 60 meses y hasta 72 meses con el 20% de enganche. Sujeto a aprobación de crédito con MG Financial Services. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA. 
+                Vigencia del 1 al 30 de junio. Aplica para los modelos MG5 2022. Desde 10% de enganche a 60 meses y hasta 72 meses con el 20% de enganche. Sujeto a aprobación de crédito con MG Financial Services. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA. 
                 </p>
               </div>
             </div>
@@ -336,7 +336,7 @@ const index = () => {
                   </strong>
                 </p>
                 <p>
-                Vigencia del 1 al 31 de junio. Aplica para los modelos ZS 2022. Desde 10% de enganche a 60 meses y hasta 72 meses con el 20% de enganche. Sujeto a aprobación de crédito con MG Financial Services. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA.
+                Vigencia del 1 al 30 de junio. Aplica para los modelos ZS 2022. Desde 10% de enganche a 60 meses y hasta 72 meses con el 20% de enganche. Sujeto a aprobación de crédito con MG Financial Services. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA.
                 </p>
               </div>
             </div>
@@ -352,7 +352,7 @@ const index = () => {
                   </strong>
                 </p>
                 <p>
-                Vigencia del 1 al 31 de junio. Aplica para los modelos MG HS 2022 (1.5T COM EXCITE DCT, 2.0T LUX TROPHY DCT) Los términos y condiciones pueden variar al momento de contratación de conformidad con el plan de financiamiento seleccionado por lo que te sugerimos consultarlos con alguno de nuestros asesores. Financiamiento sujeto a estudio y aprobación de crédito. Vigencia hasta el 30 junio 2022 Plazos desde 12 y hasta 72 meses. El enganche mínimo es de 10% a 60 meses y 20 % a 72 meses. Comisión por apertura del 2.0% sin IVA y una Tasa fija anual sin IVA del 14.54% a 60 meses. Promoción válida únicamente en la República Mexicana. CAT Promedio del 21.1% sin IVA a 60 meses calculado al 30 mayo 2022 sobre un importe promedio a financiar de $454,320.00 a un plazo promedio de 60 meses con un enganche del 20.0%, comisión por apertura del 2.0% sin IVA, con póliza de seguro promedio de $10,644.14 , tasa fija anual sin IVA del 14.54% y bono de $6,000 (c/IVA) otorgado por la marca . Cetelem, S.A de C.V. SOFOM E.R. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA. 
+                Vigencia del 1 al 30 de junio. Aplica para los modelos MG HS 2022 (1.5T COM EXCITE DCT, 2.0T LUX TROPHY DCT) Los términos y condiciones pueden variar al momento de contratación de conformidad con el plan de financiamiento seleccionado por lo que te sugerimos consultarlos con alguno de nuestros asesores. Financiamiento sujeto a estudio y aprobación de crédito. Vigencia hasta el 30 junio 2022 Plazos desde 12 y hasta 72 meses. El enganche mínimo es de 10% a 60 meses y 20 % a 72 meses. Comisión por apertura del 2.0% sin IVA y una Tasa fija anual sin IVA del 14.54% a 60 meses. Promoción válida únicamente en la República Mexicana. CAT Promedio del 21.1% sin IVA a 60 meses calculado al 30 mayo 2022 sobre un importe promedio a financiar de $454,320.00 a un plazo promedio de 60 meses con un enganche del 20.0%, comisión por apertura del 2.0% sin IVA, con póliza de seguro promedio de $10,644.14 , tasa fija anual sin IVA del 14.54% y bono de $6,000 (c/IVA) otorgado por la marca . Cetelem, S.A de C.V. SOFOM E.R. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA. 
                 </p>
                 <p>
                   <strong>
@@ -360,7 +360,7 @@ const index = () => {
                   </strong>
                 </p>
                 <p>
-                Vigencia del 1 al 31 de junio. Aplica para el modelo HS TROPHY 2022. Desde 10% de enganche a 60 meses y hasta 72 meses con el 20% de enganche. Sujeto a aprobación de crédito con MG Financial Services. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA.
+                Vigencia del 1 al 30 de junio. Aplica para el modelo HS TROPHY 2022. Desde 10% de enganche a 60 meses y hasta 72 meses con el 20% de enganche. Sujeto a aprobación de crédito con MG Financial Services. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA.
                 </p>
                 <p>
                   <strong>
@@ -373,7 +373,7 @@ const index = () => {
                   </strong>
                 </p>
               <p>
-              Vigencia del 1 al 31 de junio. Aplica para el modelo HS TROPHY 2022. Desde 10% de enganche a 60 meses y hasta 72 meses con el 20% de enganche. Sujeto a aprobación de crédito con MG Financial Services. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA.
+              Vigencia del 1 al 30 de junio. Aplica para el modelo HS TROPHY 2022. Desde 10% de enganche a 60 meses y hasta 72 meses con el 20% de enganche. Sujeto a aprobación de crédito con MG Financial Services. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA.
               </p>
               </div>
             </div>
@@ -387,13 +387,13 @@ const index = () => {
                   <strong>MG GT 2022 desde $4,900 mensuales + 0% CXA + MG BONUS + Lucky Seven </strong>
                 </p>
                 <p>
-                Vigencia del 1 al 31 de junio. Aplica para los modelos MG GT 2022 (1.5T DCT STD EXCITE) Los términos y condiciones pueden variar al momento de contratación de conformidad con el plan de financiamiento seleccionado por lo que te sugerimos consultarlos con alguno de nuestros asesores. Financiamiento sujeto a estudio y aprobación de crédito. Vigencia hasta el 30 junio 2022. Plazos desde 12 y hasta 72 meses. El enganche mínimo es de 10% a 60 meses y 20 % a 72 meses. Comisión por apertura del 0.0% sin IVA y una Tasa fija anual sin IVA del 14.54% a 60 meses. Promoción válida únicamente en la República Mexicana. CAT Promedio del 25.0% sin IVA a 60 meses calculado al 30 mayo 2022 sobre un importe promedio a financiar de $345,920.00 a un plazo promedio de 60 meses con un enganche del 20.0%, comisión por apertura del 0.0% sin IVA, con póliza de seguro promedio de $17,409.33, tasa fija anual sin IVA del 14.54%. Cetelem, S.A de C.V. SOFOM E.R. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA.
+                Vigencia del 1 al 30 de junio. Aplica para los modelos MG GT 2022 (1.5T DCT STD EXCITE) Los términos y condiciones pueden variar al momento de contratación de conformidad con el plan de financiamiento seleccionado por lo que te sugerimos consultarlos con alguno de nuestros asesores. Financiamiento sujeto a estudio y aprobación de crédito. Vigencia hasta el 30 junio 2022. Plazos desde 12 y hasta 72 meses. El enganche mínimo es de 10% a 60 meses y 20 % a 72 meses. Comisión por apertura del 0.0% sin IVA y una Tasa fija anual sin IVA del 14.54% a 60 meses. Promoción válida únicamente en la República Mexicana. CAT Promedio del 25.0% sin IVA a 60 meses calculado al 30 mayo 2022 sobre un importe promedio a financiar de $345,920.00 a un plazo promedio de 60 meses con un enganche del 20.0%, comisión por apertura del 0.0% sin IVA, con póliza de seguro promedio de $17,409.33, tasa fija anual sin IVA del 14.54%. Cetelem, S.A de C.V. SOFOM E.R. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA.
                 </p>
                 <p>
                   <strong> MG GT 2022 + 0% CXA + Lucky Seven </strong>
                 </p>
                 <p>
-                Vigencia del 1 al 31 de junio. Aplica para los modelos MG GT 2022. Desde 10% de enganche a 60 meses y hasta 72 meses con el 20% de enganche. Sujeto a aprobación de crédito con MG Financial Services. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA. 
+                Vigencia del 1 al 30 de junio. Aplica para los modelos MG GT 2022. Desde 10% de enganche a 60 meses y hasta 72 meses con el 20% de enganche. Sujeto a aprobación de crédito con MG Financial Services. Imágenes de uso ilustrativo. TOMAMOS TU AUTO A CUENTA. 
                 </p>
               </div>
             </div>
