@@ -1,7 +1,7 @@
 import React from "react";
-import { Container, Box, Typography, Grid, Divider} from "@material-ui/core";
+import { Container, Box, Typography, Grid, Divider} from "@mui/material";
 import Meta from "../../components/Meta";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
 import PhoneIcon from '@material-ui/icons/Phone';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
@@ -38,7 +38,7 @@ const index = () => {
           <Typography variant="h4" style={{fontSize: "35px", fontWeight: 500, textAlign: "center"}}>
               Contacto
           </Typography>
-          <Divider style={{ border: "1px" ,marginTop: '1em', marginBottom: '1em'}}/>
+          <Divider sx={{marginTop: '1em', marginBottom: '1em'}}/>
         </Box>
 
           <Grid container spacing={2}>
@@ -75,7 +75,7 @@ const index = () => {
             <Grid item md={4}>
               <Box>
                 <Box>
-                <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://www.niveluno.mx/wp-content/uploads/2016/06/niveluno-kia-gonzalitos2-1.jpg"/>
+                <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://www.automotores-rev.com/wp-content/uploads/2019/05/niveluno-kia-gonzalitos2-1.jpg"/>
                 </Box>
 
 
@@ -251,7 +251,7 @@ const index = () => {
           <Grid item md={4}>
             <Box>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://www.niveluno.mx/wp-content/uploads/2016/08/MG_9079_baja.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwOfQdck8CFyy7Q0JbmF2P7ke1euhR-OuUlcG_CZmo87CuyH2Ax1z3t1yDFyGI_uxWJZM&usqp=CAU"/>
               </Box>
 
               <Box>
@@ -655,7 +655,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://www.niveluno.mx/wp-content/uploads/2016/06/01-5.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://motorgiga.com/cargadatos/fotos2/chrysler/300-(sedan)-2008/800px/Delantero.jpg"/>
               </Box>
 
               <Box>
@@ -773,7 +773,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://www.niveluno.mx/wp-content/uploads/2016/06/seat-contry01.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://www.autobild.es/sites/autobild.es/public/styles/main_element/public/dc/fotos/batch_New-SEAT-Leon-e-HYBRID_16_HQ.jpg?itok=W5XzI9yq"/>
               </Box>
 
               <Box>
@@ -802,7 +802,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://scontent.fntr3-1.fna.fbcdn.net/v/t31.18172-8/10734058_1608719822700792_4958093767813851761_o.jpg?_nc_cat=106&ccb=1-6&_nc_sid=e3f864&_nc_eui2=AeE-7Pd1F-CzlvgrQFJNnlHMSlNOukFn2kZKU066QWfaRhkC8rDyhUAsh5ydaHKCpyFJfntJdZZslEqzCJosjajF&_nc_ohc=aCebUsW16_8AX8MUSxo&_nc_ht=scontent.fntr3-1.fna&oh=00_AT8Y_s_0tSBpCqVprvRnmgkZ1S3O6EH3J6FGvneDZq1c6Q&oe=62A8598A"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://www.seat.mx/content/countries/mx/seat-website/es/autos-seat/precios-autos-nuevos/_jcr_content/article/singleimage_842901650/singleimageimage.resizedViewPort.noscale.assetRootXL.jpg"/>
               </Box>
 
               <Box>

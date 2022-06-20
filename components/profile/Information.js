@@ -10,9 +10,9 @@ import {
   CardActions,
   CardContent,
   Avatar,
-  Typography,
-  makeStyles
-} from '@material-ui/core';
+  Typography
+} from '@mui/material';
+import {makeStyles} from '@mui/styles';
 
 const CapitalizeNames = (string) => {
     if(string === undefined || string === null) return '';

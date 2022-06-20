@@ -1,9 +1,9 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Breadcrumbs from "@material-ui/core/Breadcrumbs";
-import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@mui/styles";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import Typography from "@mui/material/Typography";
 import Link from "next/link";
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,9 +27,9 @@ const BreadCrumJobs = ({ data, section }) => {
         <Link color="inherit" href="/trabajos" passHref={true}>
           <Button>{section}</Button>
         </Link>
-        <Link color="inherit" href={`/trabajos/categoria/${category.name}`} passHref={true}>
+        {/* <Link color="inherit" href={`/trabajos/categoria/${category.name}`} passHref={true}> */}
           <Button>{category.name}</Button>
-        </Link>
+        {/* </Link> */}
         <Typography color="textPrimary" style={{ textTransform: "capitalize" }}>
           <Button disabled>{title}</Button>
         </Typography>

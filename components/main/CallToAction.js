@@ -6,10 +6,10 @@ import {
   CardContent,
   Typography,
   Button,
-  makeStyles,
-} from "@material-ui/core";
+} from "@mui/material";
 import clsx from "clsx";
 import Link from "next/link";
+import {makeStyles} from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {},

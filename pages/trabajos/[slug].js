@@ -8,7 +8,7 @@ import {
   Divider,
   Button,
   Chip
-} from "@material-ui/core";
+} from "@mui/material";
 import moment from "moment";
 import parse from "html-react-parser";
 import NumberFormat from "react-number-format";
@@ -17,6 +17,7 @@ import BreadCrumJobs from "../../components/BreadCrumJobs";
 import GeneralModal from "../../components/GeneralModal";
 import useAuth from "../../hooks/useAuth";
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
+import ObjExist from '../../utils/ObjExist';
 const slug = ({ job }) => { 
 
   moment.locale("es-mx");
@@ -64,7 +65,8 @@ const slug = ({ job }) => {
                       variant="subtitle2"
                       style={{ textTransform: "capitalize" }}
                     >
-                      {job.store.make.name} {job.store.name}
+                     {ObjExist(job,['store','make','name'])} {ObjExist(job,['store','name'])}
+
                     </Typography>
                   </Box>
                   <Box>

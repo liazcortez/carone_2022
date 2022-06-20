@@ -271,6 +271,13 @@ display:none
   }
 }
 
+.MuiButton-text {
+  color: black!important;
+}
+
+.MuiBackdrop-root {
+  z-index:-1;
+}
 
 /* xs={12} sm={4} md={3} lg={3} */
 

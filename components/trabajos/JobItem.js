@@ -1,17 +1,18 @@
 import React from "react";
-import { Container, Grid, Typography, Box,Chip,Button } from "@material-ui/core";
+import { Container, Grid, Typography, Box,Chip,Button } from "@mui/material";
 import moment from "moment";
 import 'moment/locale/es';
 import TextTruncate from "react-text-truncate"; // recommend
 
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
+import { makeStyles } from "@mui/styles";
+import Paper from "@mui/material/Paper";
 import Link from "next/link";
 // import parse from "html-react-parser";
 import { CapitalizeFirstLetter } from "../../utils/functions";
 import NumberFormat from "react-number-format";
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import clsx from "clsx";
+import ObjExist from '../../utils/ObjExist';
 
 const JobItem = ({ job, setSelectedJob, selectedJob }) => {
   moment.locale("es");
@@ -38,12 +39,13 @@ const JobItem = ({ job, setSelectedJob, selectedJob }) => {
                 variant="subtitle2"
                 style={{ textTransform: "capitalize" }}
               >
-                {job.store.make.name} {job.store.name}
+                {ObjExist(job,['store','make','name'])} {ObjExist(job,['store','name'])}
               </Typography>
               <Typography variant="subtitle1" gutterBottom>
                 
                 <Chip size='small' icon={<LocalAtmIcon/>} style={{padding:'0 .4rem',fontSize: '.875rem!important',fontWeight: '700!important',lineHeight: '1.3125rem!important',color: '#595959'}} label={job.salary === 0 ? (
                   "Salario no mostrado por la empresa"
+
                 ) : (
                   <NumberFormat
                     thousandSeparator={true}

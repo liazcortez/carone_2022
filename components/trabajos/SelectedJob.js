@@ -8,7 +8,7 @@ import {
   Divider,
   Button,
   Chip
-} from "@material-ui/core";
+} from "@mui/material";
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import moment from "moment";
 import parse from "html-react-parser";

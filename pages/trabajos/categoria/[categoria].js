@@ -7,7 +7,7 @@ import {
   Paper,
   Divider,
   Button,
-} from "@material-ui/core";
+} from "@mui/material";
 import moment from "moment";
 import parse from "html-react-parser";
 import Meta from "../../../components/Meta";

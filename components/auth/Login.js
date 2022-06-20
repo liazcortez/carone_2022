@@ -11,18 +11,16 @@ import {
   Button,
   FormHelperText,
   TextField,
-  makeStyles,
   Avatar
-} from '@material-ui/core';
+} from '@mui/material';
 import useAuth from './../../hooks/useAuth';
 import useIsMountedRef from './../../hooks/useIsMountedRef';
 
-const useStyles = makeStyles(() => ({
+const classes = {
   root: {}
-}));
+};
 
 const Login = ({setOpen=false, className, ...rest }) => {
-  const classes = useStyles();
   const {user, login, error, clearState } = useAuth();
   const isMountedRef = useIsMountedRef();
   

@@ -1,7 +1,7 @@
 import React from "react";
-import { Container, Grid, Typography,Box} from "@material-ui/core";
-import Paper from "@material-ui/core/Paper";
-import { makeStyles } from "@material-ui/core/styles";
+import { Container, Grid, Typography,Box} from "@mui/material";
+import Paper from "@mui/material/Paper";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   responsiveBanner:{

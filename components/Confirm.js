@@ -1,11 +1,11 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import { Button } from '@material-ui/core';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogActions from '@material-ui/core/DialogActions';
+import { Button } from '@mui/material';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogActions from '@mui/material/DialogActions';
 // import { useTranslation } from 'react-i18next';
-import Dialog from '@material-ui/core/Dialog';
-import { makeStyles } from '@material-ui/core/styles';
+import Dialog from '@mui/material/Dialog';
+import { makeStyles } from '@mui/styles';
 
 const useStyles =  makeStyles(theme=>({
   centerButtons:{
