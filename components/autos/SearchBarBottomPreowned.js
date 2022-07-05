@@ -4,18 +4,35 @@ import { capitalCase } from "change-case";
 import _ from 'lodash'
 import useStore from '../../hooks/useStore'
 import {makeStyles} from '@mui/styles';
+
 const sortOptions = [
-  {
-    name: "Menor a $150,000",
-    value: "menor150000",
-  },
+  // {
+  //   name: "Menor a $150,000",
+  //   value: "menor150000",
+  // },
   {
     name: "Entre $150,000 y $250,000",
     value: "150000/250000",
   },
   {
-    name: "Mayor a $250,000",
-    value: "mayor250000",
+    name: "Entre $251,000 y $350,000",
+    value: "251000/350000",
+  },
+  {
+    name: "Entre $351,000 y $450,000",
+    value: "351000/450000",
+  },
+  {
+    name: "Entre $451,000 y $650,000",
+    value: "451000/650000",
+  },
+  {
+    name: "Entre $651,000 y $900,000",
+    value: "651000/900000",
+  },
+  {
+    name: "Mayor a $901,000",
+    value: "mayor901000",
   },
 ];
 
