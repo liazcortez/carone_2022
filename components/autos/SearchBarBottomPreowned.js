@@ -27,12 +27,12 @@ const sortOptions = [
     value: "451000/650000",
   },
   {
-    name: "Entre $651,000 y $900,000",
+    name: "Entre $650,001 y $900,000",
     value: "651000/900000",
   },
   {
-    name: "Mayor a $901,000",
-    value: "mayor901000",
+    name: "Mayor a $900,001",
+    value: "mayor900001",
   },
 ];
 
