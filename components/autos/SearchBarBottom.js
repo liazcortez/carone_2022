@@ -22,17 +22,33 @@ const currencies = [
 ];
 
 const sortOptions = [
-  {
-    name: "Menor a $150,000",
-    value: "menor150000",
-  },
+  // {
+  //   name: "Menor a $150,000",
+  //   value: "menor150000",
+  // },
   {
     name: "Entre $150,000 y $250,000",
     value: "150000/250000",
   },
   {
-    name: "Mayor a $250,000",
-    value: "mayor250000",
+    name: "Entre $250,001 y $350,000",
+    value: "250001/350000",
+  },
+  {
+    name: "Entre $350,001 y $450,000",
+    value: "350001/450000",
+  },
+  {
+    name: "Entre $450,001 y $650,000",
+    value: "450001/650000",
+  },
+  {
+    name: "Entre $650,001 y $900,000",
+    value: "650001/900000",
+  },
+  {
+    name: "Mayor a $900,001",
+    value: "mayor900001",
   },
 ];
 
