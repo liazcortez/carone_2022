@@ -280,6 +280,35 @@ const index = () => {
           <Grid item md={4}>
             <Box>
               <Box>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://siempreauto.com/wp-content/uploads/sites/9/2020/10/2020-Chevrolet-Sonic-006.jpg?quality=60&strip=all&w=1200&h=800&crop=1"/>
+              </Box>
+
+              <Box>
+              <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Chevrolet Nogalar  </Typography>
+                  
+                  <Box style={{display: "flex", alignItems: "start"}}>
+                    <LocationOnIcon style={{ fontSize: "25px", paddingTop: "5px"}}/>
+                    <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}> Av. Nogalar Sur #551-B-Sur, Antiguo Nogalar, 66484 San Nicolás de los Garza, N.L. </Typography>
+                  </Box>
+
+                  <Box style={{display: "flex", alignItems: "start"}}>
+                  <QueryBuilderIcon style={{ fontSize: "25px", paddingTop: "5px"}}/>
+                    <Typography  style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 19:00 | Domingo: 10:00 - 18:00</Typography>
+                  </Box>
+
+                  <Box style={{display: "flex", alignItems: "start"}}>
+                    <PhoneIcon style={{ fontSize: "25px", paddingTop: "5px"}}/>
+                    <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>81 1160 8501</Typography>
+                  </Box>
+                  
+              </Box>
+
+            </Box>
+          </Grid>
+
+          <Grid item md={4}>
+            <Box>
+              <Box>
               <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://i.ytimg.com/vi/YaWMTkaR9R4/maxresdefault.jpg"/>
               </Box>
               
@@ -977,7 +1006,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://mglomasverdes.com/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-27-at-11.28.41-AM.jpeg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://cdn-3.expansion.mx/dims4/default/32e89b4/2147483647/strip/true/crop/735x450+0+0/resize/1200x735!/format/webp/quality/90/?url=https%3A%2F%2Fcdn-3.expansion.mx%2Fca%2Fa3%2F130202f441dda5116020686449ea%2Fmg.jpg"/>
               </Box>
 
               <Box>
@@ -1002,6 +1031,38 @@ const index = () => {
 
             </Box>
           </Grid>
+
+
+          <Grid item md={4}>
+            <Box sx={{paddingBlockEnd: "2rem"}}>
+              <Box>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://www.vw.com/content/dam/onehub_pkw/us/en/homepage/models/VW_NGW6_Homepage_Vehicle_Small-2_new.jpg"/>
+              </Box>
+
+              <Box>
+              <Typography style={{ fontWeight: 600, fontSize: "20px"}}> Volkswagen Reynosa </Typography>
+
+                  <Box style={{display: "flex", alignItems: "start"}}>
+                    <LocationOnIcon style={{ fontSize: "25px", paddingTop: "5px"}}/>
+                    <Typography style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Blvd. Hidalgo # 1000 Fracc, Palma Real, 88710</Typography>
+                  </Box>
+
+                  <Box style={{display: "flex", alignItems: "start"}}>
+                  <QueryBuilderIcon style={{ fontSize: "25px", paddingTop: "5px"}}/>
+                    <Typography  style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 17:00 | Domingo: 11:00 - 17:00</Typography>
+                  </Box>
+
+                  <Box style={{display: "flex", alignItems: "start"}}>
+                    <PhoneIcon style={{ fontSize: "25px", paddingTop: "5px"}}/>
+                    <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>89 9261 6000</Typography>
+                  </Box>
+                  
+              </Box>
+
+            </Box>
+          </Grid>
+
+          
 
 
         </Grid>
