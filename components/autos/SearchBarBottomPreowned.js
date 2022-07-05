@@ -15,24 +15,24 @@ const sortOptions = [
     value: "150000/250000",
   },
   {
-    name: "Entre $251,000 y $350,000",
-    value: "251000/350000",
+    name: "Entre $250,001 y $350,000",
+    value: "250001/350000",
   },
   {
-    name: "Entre $351,000 y $450,000",
-    value: "351000/450000",
+    name: "Entre $350,001 y $450,000",
+    value: "350001/450000",
   },
   {
-    name: "Entre $451,000 y $650,000",
-    value: "451000/650000",
+    name: "Entre $450,001 y $650,000",
+    value: "450001/650000",
   },
   {
-    name: "Entre $651,000 y $900,000",
-    value: "651000/900000",
+    name: "Entre $650,001 y $900,000",
+    value: "650001/900000",
   },
   {
-    name: "Mayor a $901,000",
-    value: "mayor901000",
+    name: "Mayor a $900,001",
+    value: "mayor900001",
   },
 ];
 
