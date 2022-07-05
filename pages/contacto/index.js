@@ -44,7 +44,7 @@ const index = () => {
             <Grid item md={4}>
               <Box>
                 <Box>
-                <img style={{ width: "100%", height: " 270px", objectFit: "cover",}} src="https://automotive-api.s3.us-east-2.amazonaws.com/6269ae3be8436b4af342ac97/c06b3efd-7ce4-4f7c-b885-75415235cf2e/maxresdefault.jpeg"/>
+                <img style={{ width: "100%", height: " 270px", objectFit: "cover",}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/982dd1d6-27ce-4fc9-a63e-52c84a8888ac/VOLKSWAGEN_GONZALITOS_2.JPG"/>
                 </Box>
 
                 <Box>
@@ -134,7 +134,7 @@ const index = () => {
             <Grid item md={4}>
             <Box>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://i.ytimg.com/vi/-Hh9idkH8MA/maxresdefault.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/f66f7ce3-64f0-445c-9010-881e4c43a892/KIA_FRONTERA.JPG"/>
               </Box>
 
               <Box>
@@ -162,7 +162,7 @@ const index = () => {
             <Grid item md={4}>
               <Box>
                 <Box>
-                <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://liderweb.mx/wp-content/uploads/2017/09/5A-KIA.jpg"/>
+                <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/3f1eb4af-93fd-4d8c-bb43-e76739a135e6/KIA_LAREDO_1.JPG"/>
                 </Box>
 
                 <Box>
@@ -191,7 +191,7 @@ const index = () => {
             <Grid item md={4}>
               <Box sx={{paddingBlockEnd: "2rem"}}>
                 <Box>
-                <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://abcnoticias.mx/u/fotografias/m/2021/10/22/f1280x720-150110_281785_8522.png"/>
+                <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/0bb0b1c7-f030-40bc-aed3-ea371d90af13/KIA_LINDA_VISTA.jpg"/>
                 </Box>
 
                 <Box>
@@ -249,7 +249,7 @@ const index = () => {
           <Grid item md={4}>
             <Box>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwOfQdck8CFyy7Q0JbmF2P7ke1euhR-OuUlcG_CZmo87CuyH2Ax1z3t1yDFyGI_uxWJZM&usqp=CAU"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/41684437-6de9-45a6-8ff8-9d8e9d0662e8/CHEVROLET_UNIVERSIDAD.jpg"/>
               </Box>
 
               <Box>
@@ -278,7 +278,7 @@ const index = () => {
           <Grid item md={4}>
             <Box>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://siempreauto.com/wp-content/uploads/sites/9/2020/10/2020-Chevrolet-Sonic-006.jpg?quality=60&strip=all&w=1200&h=800&crop=1"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/73ed5c62-6935-4a4f-9e5b-2397d30c5857/CHEVROLET_NOGALAR_2.JPG"/>
               </Box>
 
               <Box>
@@ -394,7 +394,7 @@ const index = () => {
           <Grid item md={4}>
             <Box>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://i.ytimg.com/vi/2TjXCTI4mIo/maxresdefault.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/70e2c7de-825e-4f61-b067-8fc8821536f3/CHEVROLET_CONCORDIA.png"/>
               </Box>
 
               <Box>
@@ -423,7 +423,7 @@ const index = () => {
           <Grid item md={4}>
             <Box>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://siempreauto.com/wp-content/uploads/sites/9/2021/02/2021-silverado-ld-trims-highcountry-e1613334769457.jpg?quality=60&strip=all&w=1200"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d5ff96cf80015c78337/6a315816-a275-4a25-ba0c-56be335e4d46/CHEVROLET_FIDEL_VELÁZQUEZ.JPG"/>
               </Box>
 
               <Box>
@@ -476,7 +476,7 @@ const index = () => {
           <Grid item md={4}>
             <Box>
               <Box>
-              <img style={{ width: "102%", height: " 270px", objectFit: "cover"}} src="https://i.ytimg.com/vi/x14h6vEL0C8/maxresdefault.jpg"/>
+              <img style={{ width: "102%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/b4934d7e-78e7-4bff-a4c6-6d181eff2e83/MITSUBISHI_LINDA_VISTA.JPG"/>
               </Box>
 
 
@@ -506,7 +506,7 @@ const index = () => {
           <Grid item md={4}>
             <Box>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://mitsubishicarone.mx/wp-content/uploads/2021/06/montero.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/2f1111e3-76c7-4906-a26f-cfecb09aaf18/MITSUBISHI_SALTILLO.JPG"/>
               </Box>
 
 
@@ -594,7 +594,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://wieck-nissanao-production.s3.amazonaws.com/photos/88ead76b57f5d5dbb02954449f7b338e1708737f/preview-928x522.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/a36b6c4d-5c0c-4651-9cd4-5f338baf2a6f/NISSAN_SAN_JERÓNIMO.jpg"/>
               </Box>
 
               <Box>
@@ -624,7 +624,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://img.remediosdigitales.com/c87879/mercedes-benz-clase-a-2019_4/840_560.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/0dabbd15-719a-48e3-8f05-b80150b8bcad/MERCEDES-BENZ_VALLE.png"/>
               </Box>
               
               <Box>
@@ -653,7 +653,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://cdn.motor1.com/images/mgl/KN3OM/s1/en-el-garage-de-autoblog-mercedes-benz-clase-a-sedan.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/e60e6b19-e75c-46d3-a118-f0e626417608/MERCEDES-BENZ_GONZALITOS.png"/>
               </Box>
 
               <Box>
@@ -682,7 +682,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://motorgiga.com/cargadatos/fotos2/chrysler/300-(sedan)-2008/800px/Delantero.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/0bbbc285-3d55-46c7-8ccf-0d8ccee1e409/CHRYSLER_CUMBRES.JPG"/>
               </Box>
 
               <Box>
@@ -741,7 +741,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://acnews.blob.core.windows.net/imgnews/medium/NAZ_509acbf3e75342a081f05102c15bc5a9.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/646c2476-d246-4e59-96c9-f0e31d22c7eb/CHRYSLER_CONTRY.JPG"/>
               </Box>
 
               <Box>
@@ -771,7 +771,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://mir-s3-cdn-cf.behance.net/projects/404/31b39397861909.Y3JvcCwxMDgwLDg0NCwwLDExNw.png"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/76946e45-a8d1-4edc-b7d1-712553a89f12/MG_CALZADA_DEL_VALLE.JPG"/>
               </Box>
 
               <Box>
@@ -800,7 +800,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://www.autobild.es/sites/autobild.es/public/styles/main_element/public/dc/fotos/batch_New-SEAT-Leon-e-HYBRID_16_HQ.jpg?itok=W5XzI9yq"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/50786d7e-4825-4700-a6ba-b84d964a9619/SEAT_CONTRY_.jpg"/>
               </Box>
 
               <Box>
@@ -829,7 +829,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://www.seat.mx/content/countries/mx/seat-website/es/autos-seat/precios-autos-nuevos/_jcr_content/article/singleimage_842901650/singleimageimage.resizedViewPort.noscale.assetRootXL.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/17dfad29-a50a-462a-9c81-6284e75e8ed3/SEAT_LINDA_VISTA.JPG"/>
               </Box>
 
               <Box>
@@ -888,7 +888,7 @@ const index = () => {
             <Box sx={{paddingBlockEnd: "2rem"}}>
               
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://mir-s3-cdn-cf.behance.net/projects/404/31b39397861909.Y3JvcCwxMDgwLDg0NCwwLDExNw.png"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/6269ae3be8436b4af342ac97/d8cdbc80-52e4-469a-ab9c-f7fb2ba85b87/MG_CORREGIDORA.JPG"/>
               </Box>
 
               <Box>
@@ -917,7 +917,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://mir-s3-cdn-cf.behance.net/projects/404/31b39397861909.Y3JvcCwxMDgwLDg0NCwwLDExNw.png"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/e4b1ffc8-18e9-43f8-a58e-f168e82c7cf9/MG_LAREDO.JPG"/>
               </Box>
 
               <Box>
@@ -946,7 +946,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://acnews.blob.core.windows.net/imgnews/medium/NAZ_16ce8a64d8154b17a46c24ecf13e761c.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/cb42c0e8-d2b2-47ee-975f-4765a7acbc55/MG_LAS_TORRES.png"/>
               </Box>
 
               <Box>
@@ -975,7 +975,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://mir-s3-cdn-cf.behance.net/projects/404/31b39397861909.Y3JvcCwxMDgwLDg0NCwwLDExNw.png"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/8ba6518b-1542-4e51-9e6c-af26017f903a/MG_LINDA_VISTA.JPG"/>
               </Box>
 
               <Box>
@@ -1004,7 +1004,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://cdn-3.expansion.mx/dims4/default/32e89b4/2147483647/strip/true/crop/735x450+0+0/resize/1200x735!/format/webp/quality/90/?url=https%3A%2F%2Fcdn-3.expansion.mx%2Fca%2Fa3%2F130202f441dda5116020686449ea%2Fmg.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/e43636e7-558e-4fc7-ada4-cc21a10ba0d0/MG_LOMAS_VERDES.JPG"/>
               </Box>
 
               <Box>
@@ -1034,7 +1034,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://www.vw.com/content/dam/onehub_pkw/us/en/homepage/models/VW_NGW6_Homepage_Vehicle_Small-2_new.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/0fc42480-343b-4362-a04e-9de4b8a539cf/VOLKSWAGEN_FRONTERA.JPG"/>
               </Box>
 
               <Box>
