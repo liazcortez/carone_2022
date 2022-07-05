@@ -1054,7 +1054,7 @@ const index = () => {
 
                   <Box style={{display: "flex", alignItems: "start"}}>
                     <PhoneIcon style={{ fontSize: "25px", paddingTop: "5px"}}/>
-                    <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>8992616000</Typography>
+                    <Typography style={{fontSize: "20px", paddingBlockEnd: "2rem"}}>89 9261 6000</Typography>
                   </Box>
                   
               </Box>
