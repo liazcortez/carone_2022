@@ -567,7 +567,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://i.ytimg.com/vi/piuMI2e1f4M/maxresdefault.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://noticias.coches.com/wp-content/uploads/2011/09/ford.jpg"/>
               </Box>
 
               <Box>
@@ -596,7 +596,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://www.nissan-cdn.net/content/dam/Nissan/ar/agentes/Hero_banner_car_one.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://wieck-nissanao-production.s3.amazonaws.com/photos/88ead76b57f5d5dbb02954449f7b338e1708737f/preview-928x522.jpg"/>
               </Box>
 
               <Box>
@@ -626,7 +626,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://www.liderempresarial.com/wp-content/uploads/2018/06/AAF48B9F-A6AC-4500-8C11-3F33B35E928A.jpeg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://img.remediosdigitales.com/c87879/mercedes-benz-clase-a-2019_4/840_560.jpg"/>
               </Box>
               
               <Box>
@@ -773,7 +773,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="http://www.audicentercalzadadelvalle.com.mx/content/dam/iph/international/mx/MEX18510/Dealer_image/Dealer_Image_18510-920x518.jpg/jcr:content/renditions/cq5dam.thumbnail.1536.864.iph.png?imwidth=768&imdensity=1"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://mir-s3-cdn-cf.behance.net/projects/404/31b39397861909.Y3JvcCwxMDgwLDg0NCwwLDExNw.png"/>
               </Box>
 
               <Box>
@@ -860,7 +860,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: "270px", objectFit: "cover"}} src="https://www.portalautomotriz.com/sites/portalautomotriz.com/files/styles/pa3_400x260/public/media/photos/car_one_c_ar1.jpg?itok=gyR2cju3&timestamp=1647020220"/>
+              <img style={{ width: "100%", height: "270px", objectFit: "cover"}} src="https://www.elcarrocolombiano.com/wp-content/uploads/2019/11/Portada.jpg"/>
               </Box>
 
               <Box>
@@ -890,7 +890,7 @@ const index = () => {
             <Box sx={{paddingBlockEnd: "2rem"}}>
               
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://topdriverz.nxtstatic.com/135/conversions/marca-mg-large.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://mir-s3-cdn-cf.behance.net/projects/404/31b39397861909.Y3JvcCwxMDgwLDg0NCwwLDExNw.png"/>
               </Box>
 
               <Box>
@@ -919,7 +919,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://img.remediosdigitales.com/dd0097/mg-autos-chinos-mexico/1366_2000.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://mir-s3-cdn-cf.behance.net/projects/404/31b39397861909.Y3JvcCwxMDgwLDg0NCwwLDExNw.png"/>
               </Box>
 
               <Box>
@@ -977,7 +977,7 @@ const index = () => {
           <Grid item md={4}>
             <Box sx={{paddingBlockEnd: "2rem"}}>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://img.gruporeforma.com/imagenes/960x640/6/66/5065584.jpg"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://mir-s3-cdn-cf.behance.net/projects/404/31b39397861909.Y3JvcCwxMDgwLDg0NCwwLDExNw.png"/>
               </Box>
 
               <Box>
