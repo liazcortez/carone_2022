@@ -89,7 +89,7 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
           </Box>
           </InfiniteScroll>
 
-	  {loading &&  <CustomLoading />}
+	        {loading &&  <CustomLoading />}
 
 
 
@@ -108,7 +108,7 @@ export const getStaticProps = async (context) => {
   const res = await fetch(`${baseURL}/vehicles?page=1&limit=12&sort=index`);
   const vehicles = await res.json();
 
-  const makesRes = await fetch(`${baseURL}/makes`);
+  const makesRes = await fetch(`${baseURL}/makes?sort=name&isShown=true`);
   const categoriesRes = await fetch(`${baseURL}/categories`);
 
   const makes = await makesRes.json();
