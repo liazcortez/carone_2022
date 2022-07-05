@@ -39,7 +39,7 @@ const DialogAuth = ({setOpen, open, className, ...rest }) => {
       aria-labelledby="simple-dialog-title"
       open={open}
     >
-      <Card className={classes.root}>
+      <Card style={classes.root}>
       {
         type === 'login' ?
         <Login setOpen={setOpen} setType={setType}/> :
