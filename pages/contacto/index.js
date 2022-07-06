@@ -100,7 +100,7 @@ const index = ({ storesProps }) => {
                    style={{ fontSize: "25px", paddingTop: "5px" }}
                  />
                  <Typography
-                   style={{ fontSize: "20px", paddingBlockEnd: "1rem" }}
+                   style={{ fontSize: "20px", paddingBlockEnd: "1rem",textTransform:'capitalize'}}
                  >
                  {`${ObjExist(store,['address'])}`}
                  </Typography>
