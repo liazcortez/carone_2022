@@ -5,7 +5,7 @@ import { makeStyles } from "@mui/styles";
 import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
 import PhoneIcon from "@material-ui/icons/Phone";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
-import ObjExist from '../../utils/ObjExist'
+import ObjExist from "../../utils/ObjExist";
 const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
@@ -13,6 +13,80 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
 }));
+
+const storeRow = ({ store, index }) => (
+  <Grid item md={3} key={index}>
+    <Box sx={{ paddingBlockEnd: "2rem" }}>
+      <Box>
+        <img
+          style={{
+            width: "100%",
+            height: "270px",
+            objectFit: ObjExist(store, ["contactPhoto"], false)
+              ? "cover"
+              : "contain",
+          }}
+          src={ObjExist(
+            store,
+            ["contactPhoto"],
+            ObjExist(store, ["image"], "/static/logo.png")
+          )}
+        />
+      </Box>
+
+      <Box>
+        <Typography
+          style={{
+            fontWeight: 600,
+            fontSize: "20px",
+            textTransform: "capitalize",
+          }}
+        >
+          {`${ObjExist(store, ["make", "name"])} ${ObjExist(store, [
+            "name",
+          ])}`.replace("-", " ")}
+        </Typography>
+
+        <Box style={{ display: "flex", alignItems: "start" }}>
+          <LocationOnIcon style={{ fontSize: "25px", paddingTop: "5px" }} />
+          <Typography
+            style={{
+              fontSize: "20px",
+              paddingBlockEnd: "1rem",
+              textTransform: "capitalize",
+            }}
+          >
+            {`${ObjExist(store, ["address"])}`}
+          </Typography>
+        </Box>
+
+        <Box style={{ display: "flex", alignItems: "start" }}>
+          <QueryBuilderIcon style={{ fontSize: "25px", paddingTop: "5px" }} />
+          <Typography
+            style={{
+              fontSize: "20px",
+              paddingBlockEnd: "1rem",
+            }}
+          >
+            {`${ObjExist(store, ["schedule"])}`}
+          </Typography>
+        </Box>
+
+        <Box style={{ display: "flex", alignItems: "start" }}>
+          <PhoneIcon style={{ fontSize: "25px", paddingTop: "5px" }} />
+          <Typography
+            style={{
+              fontSize: "20px",
+              paddingBlockEnd: "2rem",
+            }}
+          >
+            {`${ObjExist(store, ["phone"])}`}
+          </Typography>
+        </Box>
+      </Box>
+    </Box>
+  </Grid>
+);
 
 const index = ({ storesProps }) => {
   const classes = useStyles();
@@ -26,14 +100,14 @@ const index = ({ storesProps }) => {
     });
   };
 
-  const [stores, setStores] = useState([]);
+  const [makes, setMakes] = useState({});
 
   useEffect(() => {
     let newStores = [];
     let makes = [];
     let makesObj = {};
 
-    let finalStores = [];
+    let finalMakes = {};
     newStores = storesProps.filter((store) => store.schedule);
 
     newStores.forEach((store) => {
@@ -57,10 +131,16 @@ const index = ({ storesProps }) => {
         }
         return 0;
       });
-      finalStores.push(...sortedStores);
+      finalMakes[make] = sortedStores;
     });
 
-    setStores(finalStores);
+    let alfa = false;
+    if(finalMakes['alfa-romeo']){
+      alfa =finalMakes['alfa-romeo']; 
+      delete finalMakes['alfa-romeo'];
+    }
+    if(alfa)finalMakes['alfa-romeo'] = alfa;
+    setMakes(finalMakes);
   }, [storesProps]);
 
   return (
@@ -79,56 +159,29 @@ const index = ({ storesProps }) => {
         </Box>
 
         <Grid container spacing={2}>
-         {stores && stores.length >=1 && stores.map((store,index)=>
-           <Grid item md={4} key={index}>
-           <Box sx={{ paddingBlockEnd: "2rem" }}>
-             <Box>
-               <img
-                 style={{ width: "100%", height: "270px", objectFit: (ObjExist(store,['contactPhoto'],false))?'cover':'contain' }}
-                 src={ObjExist(store,['contactPhoto'],ObjExist(store,['image'],'/static/logo.png'))}
-               />
-             </Box>
-
-             <Box>
-               <Typography style={{ fontWeight: 600, fontSize: "20px",textTransform:'capitalize' }}>
-
-                 {(`${ObjExist(store,['make','name'])} ${ObjExist(store,['name'])}`).replace('-',' ')}
-               </Typography>
-
-               <Box style={{ display: "flex", alignItems: "start" }}>
-                 <LocationOnIcon
-                   style={{ fontSize: "25px", paddingTop: "5px" }}
-                 />
-                 <Typography
-                   style={{ fontSize: "20px", paddingBlockEnd: "1rem",textTransform:'capitalize'}}
-                 >
-                 {`${ObjExist(store,['address'])}`}
-                 </Typography>
-               </Box>
-
-               <Box style={{ display: "flex", alignItems: "start" }}>
-                 <QueryBuilderIcon
-                   style={{ fontSize: "25px", paddingTop: "5px" }}
-                 />
-                 <Typography
-                   style={{ fontSize: "20px", paddingBlockEnd: "1rem" }}
-                 >
-                 {`${ObjExist(store,['schedule'])}`}
-                 </Typography>
-               </Box>
-
-               <Box style={{ display: "flex", alignItems: "start" }}>
-                 <PhoneIcon style={{ fontSize: "25px", paddingTop: "5px" }} />
-                 <Typography
-                   style={{ fontSize: "20px", paddingBlockEnd: "2rem" }}
-                 >
-                 {`${ObjExist(store,['phone'])}`}
-                 </Typography>
-               </Box>
-             </Box>
-           </Box>
-         </Grid>
-         )}
+          {Object.keys(makes) &&
+            Object.keys(makes).length >= 1 &&
+            Object.entries(makes).map((row, index) => {
+              let [make, stores] = row;
+              return (
+                <Grid item xs={12} key={index}>
+                  <Typography
+                    variant={"h2"}
+                    style={{
+                      fontWeight: 600,
+                      fontSize: "30px",
+                      textTransform: "capitalize",
+                      padding: "1rem 0",
+                    }}
+                  >
+                    {make.replace("-", " ")}
+                  </Typography>
+                  <Grid container spacing={2}>
+                    {stores.map((store, index) => storeRow({ store, index }))}
+                  </Grid>
+                </Grid>
+              );
+            })}
         </Grid>
       </Container>
     </>
