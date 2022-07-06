@@ -90,9 +90,9 @@ const index = ({ storesProps }) => {
              </Box>
 
              <Box>
-               <Typography style={{ fontWeight: 600, fontSize: "20px" }}>
+               <Typography style={{ fontWeight: 600, fontSize: "20px",textTransform:'capitalize' }}>
 
-                 {(`${ObjExist(store,['make','name'])} ${ObjExist(store,['name'])}`).replace('-')}
+                 {(`${ObjExist(store,['make','name'])} ${ObjExist(store,['name'])}`).replace('-',' ')}
                </Typography>
 
                <Box style={{ display: "flex", alignItems: "start" }}>
