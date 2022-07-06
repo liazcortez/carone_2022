@@ -219,7 +219,7 @@ const index = () => {
           <Grid item md={4}>
             <Box>
               <Box>
-              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://www.caronechevroletmonterrey.com.mx/content/dam/chevrolet/na/mx/es/index/about-us/AN-1.jpg?imwidth=960"/>
+              <img style={{ width: "100%", height: " 270px", objectFit: "cover"}} src="https://automotive-api.s3.us-east-2.amazonaws.com/604a9d1df96cf80015c78336/5015d040-3362-4838-b447-a16f276739ad/CHEVROLET_LAS_TORRES.jpg"/>
               </Box>
 
               <Box>
