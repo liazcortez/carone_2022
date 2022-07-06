@@ -58,7 +58,7 @@ const index = () => {
 
                   <Box style={{display: "flex", alignItems: "start"}}>
                   <QueryBuilderIcon style={{ fontSize: "25px", paddingTop: "5px"}}/>
-                    <Typography  style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 19:00 | Domingo: 4:00 - 18:00</Typography>
+                    <Typography  style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Lunes a Viernes 09:00 - 20:00 | Sábado: 09:00 - 19:00 | Domingo: 12:00 - 18:00</Typography>
                   </Box>
 
                   <Box style={{display: "flex", alignItems: "start"}}>
@@ -87,7 +87,7 @@ const index = () => {
 
                   <Box style={{display: "flex", alignItems: "start"}}>
                   <QueryBuilderIcon style={{ fontSize: "25px", paddingTop: "5px"}}/>
-                    <Typography  style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Lunes a Viernes 09:00 - 21:00 | Sábado: 09:00 - 21:00 | Domingo: 21:00 - 21:00</Typography>
+                    <Typography  style={{fontSize: "20px", paddingBlockEnd: "1rem"}}>Lunes a Viernes 09:00 - 21:00 | Sábado: 09:00 - 21:00 | Domingo: 10:00 - 21:00</Typography>
                   </Box>
 
                   <Box style={{display: "flex", alignItems: "start"}}>
