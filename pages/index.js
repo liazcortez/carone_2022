@@ -23,12 +23,12 @@ const Home = ({ makes, categories, medias }) => {
   }, []);
 
   const TitleHome = (
-    <Box mt={"1rem"} sx={{padding: "16px"}}>
-      <Typography variant="h1" sx={{fontSize: "32px", fontWeight: 600}}>
-        Venta de Autos Nuevos y Seminuevos en Monterrey
+    <Box mt={2}>
+      <Typography variant="h1" sx={{fontSize: "35px", fontWeight: 600}}>
+        Venta de autos en México
       </Typography>
       <Typography>
-        En Car One contamos con un gran inventario de Autos Nuevos y Seminuevos en Monterrey. Compruebalo hoy mismo!
+        Venta de autos nuevos y seminuevos en todo México.
       </Typography>
     </Box>
   )
@@ -36,9 +36,8 @@ const Home = ({ makes, categories, medias }) => {
   return (
     <>
       <Meta 
-        title="Car One Group" 
-        description="¿Buscas Auto en Monterrey? 
-        Encuentra entre más de 50000 clasificados la mejor oferta para tu próximo auto en Monterrey, solo en Car one." 
+        title="Venta de autos en México - Carone Group" 
+        description="Venta de autos nuevos y seminuevos en México - Carone Group" 
         url="https://carone.com.mx/"
         googlebot={"index,follow"}
         robots="all"
@@ -46,7 +45,7 @@ const Home = ({ makes, categories, medias }) => {
       
       <Container maxWidth="lg" sx={classes.root}>
         <MainCarousel medias={mediasMainBanner} />
-         {TitleHome}
+        {TitleHome}
         <Tabs categories={categories} />
         <CallToAction style={{ marginBottom: "2em" }} color="white" />
         <CarCardList title="BUSCAR POR MARCA" data={makes} />

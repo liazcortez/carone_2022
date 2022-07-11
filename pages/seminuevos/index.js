@@ -69,11 +69,11 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
 
   const TitleSemis = (
     <Box mt={"1rem"} pb={"2rem"}>
-      <Typography variant="h1" sx={{fontSize: "32px", fontWeight: 600}}>
-        Venta de Autos Seminuevos en Monterrey
+      <Typography variant="h1" sx={{fontSize: "35px", fontWeight: 600}}>
+        Venta de Autos Seminuevos en México
       </Typography>
       <Typography>
-        En Car One contamos con un gran inventario de Autos Seminuevos en Monterrey y su Área Metropolitana. Compruebalo hoy mismo!
+        En Car One contamos con un gran inventario de autos seminuevos en México. Compruebalo hoy mismo!
       </Typography>
     </Box>
   )
@@ -82,8 +82,11 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
     <>
          
       <Meta
-        title="Busca tu Auto - Car One Group"
-        description="Busca tu Auto Nuevo"
+        title="Autos seminuevos en México - Carone Group"
+        description="Venta de autos seminuevos en México - Carone Group"
+        url="https://carone.com.mx/autos"
+        googlebot={"index,follow"}
+        robots="all"
       />
      
         <Container maxWidth="lg">
