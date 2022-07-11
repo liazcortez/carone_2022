@@ -79,7 +79,7 @@ const Nav = () => {
             passHref={true}
           >
             <a>
-              <img className="mainLogo" src="" />
+              <img className="mainLogo" alt="Logo carone" width={"auto"} height={"auto"} />
             </a>
           </Link>
         </Box>

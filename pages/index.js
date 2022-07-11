@@ -24,7 +24,10 @@ const Home = ({ makes, categories, medias }) => {
 
   return (
     <>
-      <Meta title="Car One Group" description="Autos Nuevo, Seminuevos" />
+      <Meta title="Car One Group" 
+      description="Autos Nuevo y Seminuevos, piensa inteligente, piensa Car one." 
+      url="https://carone.com.mx/"/>
+
       <Container maxWidth="lg" sx={classes.root}>
         <MainCarousel medias={mediasMainBanner} />
         <Tabs categories={categories} />
