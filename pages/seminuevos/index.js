@@ -6,7 +6,7 @@ import Pagination from "../../components/Pagination";
 import usePreowned from "../../hooks/usePreowned";
 import { baseURL } from "../../api/api";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { Container, Divider, Grid, Box } from "@mui/material";
+import { Container, Divider, Grid, Box, Typography} from "@mui/material";
 import CarListCard from "../../components/autos/CarListCardPreowned";
 import CustomLoading from "../../components/CustomLoading";
 
@@ -67,6 +67,17 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
     setPage(page + 1);
   };
 
+  const TitleSemis = (
+    <Box mt={"1rem"} pb={"2rem"}>
+      <Typography variant="h1" sx={{fontSize: "32px", fontWeight: 600}}>
+        Venta de Autos Seminuevos en Monterrey
+      </Typography>
+      <Typography>
+        En Car One contamos con un gran inventario de Autos Seminuevos en Monterrey y su Área Metropolitana. Compruebalo hoy mismo!
+      </Typography>
+    </Box>
+  )
+
   return (
     <>
          
@@ -76,6 +87,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
       />
      
         <Container maxWidth="lg">
+          {TitleSemis}
         <SearchBar
           setQuery={setQuery}
           query={query}

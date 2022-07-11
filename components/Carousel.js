@@ -65,7 +65,8 @@ const CarouselComponent = ({ title, data }) => {
 
   return (
     <div style={{ marginBottom: 30, marginTop: 100 }}>
-      <Typography variant="h1" sx={{ marginBottom: "50px", textAlign: "center", fontSize: "34px", fontWeight: 600}}>{title}</Typography>
+
+      <Typography variant="h2" sx={{ marginBottom: "50px", textAlign: "center", fontSize: "34px", fontWeight: 600}}>{title}</Typography>
 
       <div className="animated fadeIn App">
         <Carousel

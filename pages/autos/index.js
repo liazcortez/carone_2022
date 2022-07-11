@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Divider, Grid, Box } from "@mui/material";
+import { Container, Divider, Grid, Box, Typography } from "@mui/material";
 import SearchBar from "../../components/autos/SearchBar";
 import Meta from "../../components/Meta";
 import useVehicles from "../../hooks/useVehicle";
@@ -46,6 +46,17 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
     setPage(page + 1);
   };
 
+  const TitleNews = (
+    <Box mt={"1rem"} pb={"2rem"}>
+      <Typography variant="h1" sx={{fontSize: "32px", fontWeight: 600}}>
+        Venta de Autos Nuevos en Monterrey
+      </Typography>
+      <Typography>
+        En Car One contamos con un gran inventario de Autos Nuevos en Monterrey y su Área Metropolitana. Compruebalo hoy mismo!
+      </Typography>
+    </Box>
+  )
+
   return (
     <>
          
@@ -55,6 +66,7 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
       />
      
         <Container maxWidth="lg">
+          {TitleNews}
         <SearchBar
           setQuery={setQuery}
           query={query}
@@ -69,8 +81,10 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
           sort={sort}
           setSort={setSort}
         />
-          
+
+         
           <Divider style={{ marginBottom: "50px" }} />
+         
           <InfiniteScroll
             style={{overflow:'hidden'}}
             dataLength={infiniteVehicles.length}
