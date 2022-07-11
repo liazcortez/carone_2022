@@ -6,13 +6,6 @@ import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
 import PhoneIcon from "@material-ui/icons/Phone";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import ObjExist from "../../utils/ObjExist";
-const useStyles = makeStyles((theme) => ({
-  container: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-}));
 
 const storeRow = ({ store, index }) => (
   <Grid item md={3} key={index}>
@@ -89,16 +82,6 @@ const storeRow = ({ store, index }) => (
 );
 
 const index = ({ storesProps }) => {
-  const classes = useStyles();
-  var player;
-  const onYouTubeIframeAPIReady = () => {
-    player = new YT.Player("live-video", {
-      events: {
-        onReady: onPlayerReady,
-        onStateChange: onPlayerStateChange,
-      },
-    });
-  };
 
   const [makes, setMakes] = useState({});
 

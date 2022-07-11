@@ -70,7 +70,6 @@ const Favoritos = () => {
   }
 
   const handleDeleteFavSemis = (id) => {
-    console.log(id)
     let arr = dataListPreowned;
     arr = arr.filter(item => item._id !== id)
     setDataListPreowned(arr)

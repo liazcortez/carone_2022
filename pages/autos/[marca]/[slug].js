@@ -118,11 +118,11 @@ const Slug = ({ vehicle }) => {
                 <ColorsComponent colors={colors} />
               </Grid>
               <Grid item xs={12} lg={6}>
-                {/* <Financing vehicle={vehicle} /> */}
-                {/* sharing */}
                 <Box display='flex' flexDirection='column' justifyContent='space-between' style={{height: '100%'}}>
                 <SharingComponent url={url} />
-                <Form vehicle={vehicle}/>
+                <Financing vehicle={vehicle} /> 
+                {/* sharing */}
+                {/* <Form vehicle={vehicle}/> */}
                 </Box>
               </Grid>
             </Grid>

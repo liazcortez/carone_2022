@@ -28,14 +28,14 @@ const ModalComponent = ({
   handleonChange,
   versions,
   handleonChangeVersion,
+  enganche = 0,
+  plazo = 12
 }) => {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [open, setOpen] = React.useState(false);
 
-  const [enganche, setEnganche] = React.useState();
-
-  const [engancheList, setEngancheList] = React.useState([
+  const engancheList =[
     {
       label: "$10,000",
       value: 10000,
@@ -68,9 +68,9 @@ const ModalComponent = ({
       label: "$100,000",
       value: 100000,
     },
-  ]);
+  ]
 
-  const [plazoList, setPlazoList] = React.useState([
+  const plazoList = [
     {
       label: "12 meses",
       value: 12,
@@ -88,7 +88,7 @@ const ModalComponent = ({
       label: "48 meses",
       value: 48,
     },
-  ]);
+  ]
 
   const handleOpen = () => {
     setOpen(true);
@@ -150,7 +150,7 @@ const ModalComponent = ({
             select
             label="Plazo"
             name="plazo"
-            value={enganche}
+            value={plazo}
             onChange={(e) => handleonChange(e)}
             SelectProps={{
               native: true,
