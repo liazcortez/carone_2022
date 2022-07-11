@@ -10,7 +10,6 @@ import {
   CardMedia,
   Typography,
   Grid,
-  CardActions,
 } from "@mui/material";
 import {makeStyles} from "@mui/styles";
 

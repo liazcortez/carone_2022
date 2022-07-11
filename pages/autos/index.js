@@ -72,11 +72,11 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
           
           <Divider style={{ marginBottom: "50px" }} />
           <InfiniteScroll
-	       style={{overflow:'hidden'}}
-        dataLength={infiniteVehicles.length}
-        next={loadData}
-        hasMore={true}
-      >
+            style={{overflow:'hidden'}}
+            dataLength={infiniteVehicles.length}
+            next={loadData}
+            hasMore={true}
+          >
 
           <Box className='vehiclesGrid'>
       

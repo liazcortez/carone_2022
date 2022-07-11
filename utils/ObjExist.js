@@ -1,7 +1,5 @@
 const ObjExist = (obj, keys = [],defaultReturn='') => {
 
-	
-
 	let value = defaultReturn;
 
 	if (!obj) return "";

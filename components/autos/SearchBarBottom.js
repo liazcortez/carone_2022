@@ -54,9 +54,12 @@ const sortOptions = [
 
 const classes ={
   root: {
-    "& .MuiTextField-root": {
+    "& .MuiTextFieldRoot": {
       margin: 2,
     },
+    paddingLeft: 0, 
+    paddingRight: 0, 
+    marginBottom: 20,
   },
 
   selectFields: {
@@ -97,9 +100,8 @@ const SearchBarBottom = ({
   return (
     <Grid
       container
-      className={classes.root}
+      style={classes.root}
       spacing={1}
-      style={{ paddingLeft: 0, paddingRight: 0, marginBottom: 20 }}
     >
       <Grid item xs={12} sm={4} md={4} lg={4}>
         <TextField

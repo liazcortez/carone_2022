@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 const Financing = ({ vehicle }) => {
   const classes = useStyles();
 
-  const { model, price, versions } = vehicle;
+  const { versions } = vehicle;
 
   const [finance, setFinance] = React.useState({
     version: {
@@ -28,16 +28,29 @@ const Financing = ({ vehicle }) => {
       precio: versions.length !== 0 ? versions[0].price : null,
     },
     plazo: 48,
-    enganche: 60000,
+    enganche: 50000,
     mensualidad: 0,
-    tasa: 1.13,
+    tasa: 14.95,
+    iva: 0.16
   });
 
-  const getQuote = (precio, enganche, plazo, tasa) => {
-    const montoFinanciar = precio - enganche + precio * 0.02;
-    const mensualidad = (montoFinanciar / plazo) * tasa;
-    return mensualidad;
-  };
+
+  const getQuote = (precio, enganche, plazo, tasa, iva) => {
+        
+    //Precio total a pagar
+    const VA = precio - enganche
+    
+    //Rango de tiempo a pagar
+    const NPER = parseInt(plazo)
+    
+    //Calcular la tasa de C1
+    const TASA = (tasa / 12) * (1 + iva)
+    
+    //Calcular el pago
+    const PAGO = VA * TASA / ( 1 - ( 1 + TASA ) ^ ( NPER * -1 ) )
+    
+    return PAGO
+  }
 
   const handleonChange = (e) => {
     setFinance({ ...finance, [e.target.name]: e.target.value });
@@ -135,7 +148,8 @@ const Financing = ({ vehicle }) => {
                         finance.version.precio,
                         finance.enganche,
                         finance.plazo,
-                        finance.tasa
+                        finance.tasa,
+                        finance.iva
                       )}
                       displayType={"text"}
                       thousandSeparator={true}
@@ -154,6 +168,8 @@ const Financing = ({ vehicle }) => {
                       handleonChange={handleonChange}
                       versions={versions}
                       handleonChangeVersion={handleonChangeVersion}
+                      plazo={finance.plazo}
+                      enganche={finance.enganche}
                     />
                   </Box>
                 </Box>

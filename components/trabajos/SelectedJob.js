@@ -20,10 +20,6 @@ import useAuth from "../../hooks/useAuth";
 import useJob from "../../hooks/useJob";
 const SelectedJob = ({ job }) => { 
   
-  // useEffect(() => {
-  //   console.log(job);
-  // }, [job])
-  
   moment.locale("es-mx");
   const [openLogin, setOpenLogin] = useState(false)
   const { user, isAuthenticated, loadUser } = useAuth();
