@@ -43,12 +43,12 @@ const Banner = ({
           {medias && medias.length > 0 ? (
             medias.map((item, key) => (
               <div>
-                <img src={item.image} key={key} />
+                <img src={item.image} key={key} alt={"Banner home"} width={"auto"} height={"auto"} title={"Banner home"} />
               </div>
             ))
           ) : (
             <div>
-              <img src={"/static/images/BannerC1.jpeg"} />
+              <img title={"Banner home"} alt={"Banner home"} src={"/static/images/BannerC1.jpeg"} />
             </div>
           )}
         </Carousel>

@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import { CapitalizeV2 } from "../utils/capitalize";
+
 // import { makeStyles } from '@mui/material';
 
 // const useStyles = makeStyles((theme)=>({
@@ -7,7 +9,7 @@ import Link from "next/link";
 //     width: "100%",
 //     height: "100px",
 //     objectFit: "cover",
-//     [theme.breakpoints.down('xs')]:{
+//     [theme.breakpoints.down('xs')]:{.
 //       height: "70px",
 //     }
 //   }
@@ -27,8 +29,11 @@ const CarCardItem = ({ data }) => {
         >
            <img
             src={data.image}
-            alt='none image'
+            alt='image logo'
+            width={"auto"}
+            height={"auto"}
             className='mobileImage'
+            title={CapitalizeV2(data.name)}
           />
         </div>
       </a>

@@ -3,7 +3,8 @@ import Carousel from "react-elastic-carousel";
 import Divider from "@mui/material/Divider";
 import { makeStyles } from "@mui/styles";
 import Link from "next/link";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
+import { Capitalize } from "../utils/capitalize";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -32,10 +33,12 @@ const Item = ({ result }) => (
     <Link href={`/categorias/${result && result.name}`}>
       <a>
         <img
+        alt="image cars"
+        width={"100%"}
+        height={"100px"}
+        title={Capitalize(result.name)}
           src={result && result.image}
           style={{
-            width: "100%",
-            height: "100px",
             objectFit: "cover",
           }}
         />
@@ -62,7 +65,7 @@ const CarouselComponent = ({ title, data }) => {
 
   return (
     <div style={{ marginBottom: 30, marginTop: 100 }}>
-      <h1 style={{ marginBottom: "50px", textAlign: "center" }}>{title}</h1>
+      <Typography variant="h1" sx={{ marginBottom: "50px", textAlign: "center", fontSize: "34px", fontWeight: 600}}>{title}</Typography>
 
       <div className="animated fadeIn App">
         <Carousel

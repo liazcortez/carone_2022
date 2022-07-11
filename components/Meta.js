@@ -13,8 +13,13 @@ const Meta = ({ title, description, url, image }) => {
     <Head>
       <meta charSet="UTF-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+      <meta name="description" content={Capitalize(description)} />
       <link rel="icon" href="/logo.ico" />
+      
+
+      {/* Canonical URL  */}
+      <link rel="canonical" href={url} />
 
       {/* Open Graph */}
       <meta property="og:title" content={Capitalize(title)} />
@@ -23,6 +28,7 @@ const Meta = ({ title, description, url, image }) => {
       <meta property="og:url" content={url} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <meta property="og:type" content="website" />
       <title>{title}</title>
     </Head>
   );

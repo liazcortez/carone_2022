@@ -220,7 +220,7 @@ const NavList = ({ setMenuOpen, logout, menuOpen }) => {
           target='_blank'
           rel='noopener noreferrer'
           >
-          <img src='https://cdn-icons-png.flaticon.com/512/174/174855.png' width={25} />
+          <img alt="logo instagram" title="instagram" src='https://cdn-icons-png.flaticon.com/512/174/174855.png' width={25} height={"auto"} />
         </a>
       </Box>
     </Box>
