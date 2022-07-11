@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 const Tabs = ({ categories }) => {
   const classes = useStyles();
   return (
-    <Container maxWidth="lg" style={{ marginTop: 20, marginBottom: 50 }}>
+    <Container maxWidth="lg" sx={{ marginTop: "25px", marginBottom: 15 }}>
       <CarouselComponent data={categories} title="TIPO DE VEHICULOS" />
     </Container>
   );
