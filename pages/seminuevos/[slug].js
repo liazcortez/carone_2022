@@ -175,6 +175,7 @@ const Slug = ({ preowned }) => {
                   style={{ maxWidth: "90vw", paddingTop: "10px" }}
                 >
                   <SemisCarousel
+                  preowned={preowned}
                     medias={[
                       { image: preowned.mainImage, key: 0 },
                       ...preowned.gallery,
