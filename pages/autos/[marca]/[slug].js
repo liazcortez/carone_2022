@@ -46,6 +46,17 @@ const Slug = ({ vehicle }) => {
     meta,
   } = vehicle;
 
+
+  const NameCar = (
+    <Box mt={2}>
+      <Typography variant="h1" sx={{fontSize: "35px", fontWeight: 600, display:"none"}}>
+        Venta de Auto {vehicle.make.name.toUpperCase()}{" "}{vehicle.model.toUpperCase()} {vehicle.year}
+      </Typography>
+    </Box>
+  )
+
+
+
   return (
     <>
       {vehicle && vehicle.isPublished ? (
@@ -66,6 +77,9 @@ const Slug = ({ vehicle }) => {
             url={url}
             image={meta && meta.image ? meta.image : mainImage}
           />
+
+          {NameCar}
+
           <Container maxWidth="lg">
             {banner && (
               <BannerAutos

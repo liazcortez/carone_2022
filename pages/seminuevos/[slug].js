@@ -20,6 +20,15 @@ const Slug = ({ preowned }) => {
   };
 
   const { description, banner, mainImage, promotion, meta } = preowned;
+
+  const NameSemi = (
+    <Box mt={2}>
+      <Typography variant="h1" sx={{fontSize: "35px", fontWeight: 600, display:"none"}}>
+        Venta de Auto Seminuevo {Capitalize(preowned.vehicle.make.name)} {Capitalize(preowned.version)} {preowned.year}
+      </Typography>
+    </Box>
+  )
+
   return (
     <>
       {preowned && preowned.isPublished ? (
@@ -40,6 +49,7 @@ const Slug = ({ preowned }) => {
             image={meta && meta.image ? meta.image : mainImage}
           />
           <Container maxWidth="lg">
+          {NameSemi}
             {banner && (
               <BannerAutos
                 banner={banner}
@@ -68,7 +78,8 @@ const Slug = ({ preowned }) => {
                     }}
                   >
                     <Typography
-                      variant="h5"
+                      variant="h2"
+                      fontSize={"30px"}
                       style={{ fontWeight: "bold", color: "#212121", display: 'flex', alignItems: 'center', padding: 0 }}
                     >
                       {preowned.version
@@ -83,8 +94,7 @@ const Slug = ({ preowned }) => {
                     </Typography>
 
                     <Typography
-                      variant="h6"
-                      style={{ color: "#212121", textTransform: "Capitalize" }}
+                      style={{ color: "#212121", textTransform: "Capitalize", fontSize:"20px"}}
                     >
                       {preowned && preowned.km && preowned.km !== "" ? (
                         <NumberFormat
@@ -181,8 +191,8 @@ const Slug = ({ preowned }) => {
 
               <Grid item xs={12}>
                 <Typography
-                  variant="h6"
                   style={{
+                    fontSize:"20px",
                     fontWeight: "bold",
                     color: "#212121",
                     paddingTop: "2rem",

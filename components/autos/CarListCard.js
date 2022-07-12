@@ -129,12 +129,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
           <>
             <Link href={`/marcas/${vehicle && vehicle.make && vehicle.make.name}`}>
               <a style={{ textDecoration: "none", color: "black" }}>
-                <Typography
-                  variant="subtitle1"
-                  className={
-                    (classes.modelFormatting, classes.modelFormattingUpper)
-                  }
-                >
+                <Typography sx={{ textTransform: "uppercase", color: "#505050"}}>
                   {vehicle && vehicle.make && vehicle.make.name}{" "}
                 </Typography>
               </a>
@@ -142,13 +137,13 @@ const CarlistCard = ({ vehicle, setDataList }) => {
             <Link href={`/autos/${vehicle && vehicle.make && vehicle.make.name}/${vehicle && vehicle.slug}`}>
               <Box >
                 <a style={{ textDecoration: "none", color: "black" }}>
-                  <Typography style={{overflow: 'hidden',whiteSpace: 'nowrap',width: 'calc(90%)',display: 'inline-block',textOverflow: 'ellipsis'}} variant="h6" >
+                  <Typography fontSize={"20px"} fontWeight={500} style={{overflow: 'hidden',whiteSpace: 'nowrap',width: 'calc(90%)',display: 'inline-block',textOverflow: 'ellipsis'}} >
                   {`${vehicle ? capitalCase(vehicle.model) :''} ${vehicle.year}`}
                 </Typography>
                 </a>
               </Box>
             </Link>
-            <Typography variant="h6" gutterBottom style={{ fontSize: 17 }}>
+            <Typography fontWeight={500} gutterBottom style={{ fontSize: 17 }}>
               Desde &nbsp;
               {vehicle.price ? (
                 <NumberFormat

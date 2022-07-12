@@ -49,7 +49,7 @@ const Calltoaction = ({ color = "white", ...rest }) => {
       <CardContent className='dontShowOnMobile' >
         <Box display="flex" justifyContent="space-between" px={10}>
           <Box pr={10}>
-            <Typography variant="h2" sx={{ margin: 0, fontSize: "28px", fontWeight: 600 }}>Car One Compra tu auto!</Typography>
+            <Typography sx={{ margin: 0, fontSize: "28px", fontWeight: 600 }}>Car One Compra tu auto!</Typography>
             <Typography variant="caption" style={{ fontSize: 16 }}>
               SIN TRABAS - SIN FRAUDES - SIN PREOCUPACIONES
             </Typography>

@@ -56,8 +56,7 @@ const BannerAut = ({ banner, description, promotion, title }) => {
                   {title}
                 </Typography>
                 <Typography
-                  variant="h5"
-                  component="h3"
+                  variant="h2"
                   style={{
                     color: "white",
                     fontSize: "35px",
@@ -68,8 +67,7 @@ const BannerAut = ({ banner, description, promotion, title }) => {
                   {description}
                 </Typography>
                 <Typography
-                  variant="h5"
-                  component="h3"
+                  variant="h2"
                   style={{
                     color: "white",
                     fontSize: "25px",
