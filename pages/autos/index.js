@@ -47,12 +47,9 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
   };
 
   const TitleNews = (
-    <Box mt={"1rem"} pb={"2rem"}>
-      <Typography variant="h1" sx={{fontSize: "35px", fontWeight: 600}}>
+    <Box>
+      <Typography variant="h1" sx={{fontSize: "35px", fontWeight: 600, display:"none"}}>
         Venta de Autos Nuevos México
-      </Typography>
-      <Typography>
-        Carone Group cuenta con un gran inventario de autos nuevos en México. Compruebalo hoy mismo!
       </Typography>
     </Box>
   )

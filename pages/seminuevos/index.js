@@ -68,12 +68,9 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   };
 
   const TitleSemis = (
-    <Box mt={"1rem"} pb={"2rem"}>
-      <Typography variant="h1" sx={{fontSize: "35px", fontWeight: 600}}>
+    <Box>
+      <Typography variant="h1" sx={{fontSize: "35px", fontWeight: 600, display:"none"}}>
         Venta de Autos Seminuevos en México
-      </Typography>
-      <Typography>
-        En Car One contamos con un gran inventario de autos seminuevos en México. Compruebalo hoy mismo!
       </Typography>
     </Box>
   )

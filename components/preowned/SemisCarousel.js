@@ -3,12 +3,14 @@ import { makeStyles } from "@mui/styles";
 import { Grid } from "@mui/material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import { CapitalizeV2 } from "../../utils/capitalize"
 
 const useStyles = makeStyles((theme) => ({
   root: {},
 }));
 
 const Banner = ({
+  preowned,
   medias,
   autoPlay = true,
   infiniteLoop = true,
@@ -43,12 +45,14 @@ const Banner = ({
           {medias && medias.length > 0 ? (
             medias.map((item, key) => (
               <div style={{ width: "100%" }}>
-                <img src={item.image} key={key} />
+                <img src={item.image} key={key} width={"auto"} height={"auto"} alt={`${CapitalizeV2(preowned.vehicle.make.name)} ${CapitalizeV2(preowned.version)} ${preowned.year}`}
+                title={`Auto ${CapitalizeV2(preowned.vehicle.make.name)} ${CapitalizeV2(preowned.version)} ${preowned.year}`}
+                />
               </div>
             ))
           ) : (
             <div>
-              <img src="" />
+              <img width={"auto"} height={"auto"} src="no img" />
             </div>
           )}
         </Carousel>

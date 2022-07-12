@@ -144,19 +144,14 @@ const CarlistCard = ({ vehicle, setDataList }) => {
       <CardContent>
         {vehicle ? (
           <>
-                <Typography
-                  variant="subtitle1"
-                  className={
-                    [classes.modelFormatting, classes.modelFormattingUpper]
-                  }
-                >
+                <Typography sx={{ textTransform: "uppercase", color: "#505050"}}>
                   {vehicle && vehicle.vehicleMake.name}{" "}
                 </Typography>
                 
             <Link href={`/seminuevos/${vehicle && vehicle.slug}`}>
               <Box  >
               <a style={{ textDecoration: "none", color: "black"}}>
-                <Typography style={{overflow: 'hidden',whiteSpace: 'nowrap',width: 'calc(90%)',display: 'inline-block',textOverflow: 'ellipsis'}} variant="h6" >
+                <Typography fontSize={"20px"} fontWeight={500} style={{overflow: 'hidden',whiteSpace: 'nowrap',width: 'calc(90%)',display: 'inline-block',textOverflow: 'ellipsis'}}>
                   {`${vehicle && vehicle.vehicle ? capitalCase(vehicle.vehicle.model) :''} ${vehicle.version} ${vehicle.year}`}
                 </Typography>
               </a>
@@ -165,7 +160,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
 
          
 
-            <Typography variant="h6" gutterBottom style={{ fontSize: 17 }}>
+            <Typography gutterBottom style={{ fontSize: 17 }}>
               Desde &nbsp;
               {vehicle.price ? (
                 <NumberFormat
@@ -180,7 +175,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
             </Typography>
 
           
-            <Typography variant="h6" gutterBottom style={{ fontSize: 17 }}>
+            <Typography fontWeight={500} gutterBottom style={{ fontSize: 17 }}>
             {`${(vehicle && vehicle.store && vehicle.storeMake && vehicle.storeMake.name ?capitalCase(vehicle.storeMake.name):'')} ${(vehicle && vehicle.store && vehicle.store.name?capitalCase(vehicle.store.name):'')}`}
             </Typography>
           </>

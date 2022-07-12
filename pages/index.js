@@ -24,11 +24,8 @@ const Home = ({ makes, categories, medias }) => {
 
   const TitleHome = (
     <Box mt={2}>
-      <Typography variant="h1" sx={{fontSize: "35px", fontWeight: 600}}>
-        Venta de autos en México
-      </Typography>
-      <Typography>
-        Venta de autos nuevos y seminuevos en todo México.
+      <Typography variant="h1" sx={{fontSize: "35px", fontWeight: 600, display:"none"}}>
+        Venta de Autos Nuevos y Seminuevos en México
       </Typography>
     </Box>
   )

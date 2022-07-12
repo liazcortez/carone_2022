@@ -20,7 +20,7 @@ const CarCardList = ({ title, data, columns }) => {
   
   return (
     <Container maxWidth="lg" style={{ marginTop: 20 }}>
-      <Typography variant="h2" sx={{ marginBottom: "70px", textAlign: "center", fontSize: "28px", fontWeight: 600}}>{title}</Typography>
+      <Typography sx={{ marginBottom: "70px", textAlign: "center", fontSize: "28px", fontWeight: 600}}>{title}</Typography>
       <Grid container spacing={5}>
         {data.map((make, index) => {
           if(make._id.toString() === '6269ad81e8436b4af342ac57') return null;

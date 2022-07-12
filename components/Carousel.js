@@ -63,21 +63,25 @@ const Item = ({ result }) => (
 const CarouselComponent = ({ title, data }) => {
   const classes = useStyles();
 
+  const modelosValidos = ['sedan','pickup', 'suv', 'urbano', 'trabajo', 'sport', 'lujoso', 'eco', 'espacio']
+
   return (
     <div style={{ marginBottom: 30, marginTop: 100 }}>
 
-      <Typography variant="h2" sx={{ marginBottom: "50px", textAlign: "center", fontSize: "28px", fontWeight: 600}}>{title}</Typography>
+      <Typography sx={{ marginBottom: "50px", textAlign: "center", fontSize: "28px", fontWeight: 600}}>{title}</Typography>
 
       <div className="animated fadeIn App">
         <Carousel
           breakPoints={breakPoints}
-          showArrows={false}
-          showEmptySlots={true}
-          pagination={true}
+          showArrows={true}
+          showEmptySlots={false}
+          pagination={false}
         >
-          {data.map((category) => (
-            <Item key={category._id} result={category} />
-          ))}
+          {data.map((category) => {
+            if(!modelosValidos.includes(category.name)) return null 
+            return(<Item key={category._id} result={category} />)
+          })}
+
         </Carousel>
       </div>
     </div>
