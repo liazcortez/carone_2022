@@ -113,13 +113,11 @@ const CarlistCard = ({ vehicle, setDataList }) => {
     <Card  className={(classes.root, classes.hover)}>
       {vehicle ? (
         <Link href={`/autos/${vehicle.make.name}/${vehicle.slug}`}>
-          <a>
             <CardMedia
               className={classes.media}
               image={vehicle.mainImage ? vehicle.mainImage : emptyImage}
               title={`${vehicle && vehicle.model && capitalCase(vehicle.model)} ${vehicle && vehicle.year}`}
             />
-          </a>
         </Link>
       ) : (
         <Skeleton variant="rect" width="100%" height={156} />
