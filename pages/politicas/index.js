@@ -503,7 +503,8 @@ const index = () => {
                   <strong>Planes de financiamiento</strong>
                 </p>
                 <p>
-                Los cotizadores de esta página son una simulación meramente informativa y no incluyen seguro del auto, comisión por apertura para mayor información acudir a nuestras agencias. Todos nuestros precios están sujetos a cambio sin previo aviso.
+                Simula tu crédito y ve en cuánto podrían quedar tus mensualidades, los resultados que se obtienen en simulador son acorde en la fase de promoción del crédito. Las diferencias que pudieran existir serán variables, de acuerdo a la tasa de interés y particularidades de los seguros, mismos que se conocen hasta la autorización del financiamiento, de igual manera pueden impactar los impuestos y derechos aplicables, así como las modificaciones en los precios de los vehículos.
+Los cálculos son para vehículos de uso particular, siempre aproximados y no podrán tomarse como definitivos u oponerse a aquellos que en su caso, presente la institución financiera al cliente como definitivos.
                 </p>
               </div>
             </div>

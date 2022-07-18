@@ -9,12 +9,19 @@ import Paper from "@mui/material/Paper";
 import { Typography, Box } from "@mui/material";
 import NumberFormat from "react-number-format";
 import ModalComponent from "./ModalComponent";
-import FormComponent from "./FormComponent";
+import Link from '@mui/material/Link'
 
 const useStyles = makeStyles({
   table: {
     // minWidth: 500,
   },
+  policy:{
+    color:'black!important',
+    textDecoration:'none',
+    '&:hover': {
+      textDecoration:'none'
+    }
+  }
 });
 
 const Financing = ({ vehicle }) => {
@@ -199,11 +206,17 @@ const Financing = ({ vehicle }) => {
         MXN{" "}
       </Typography> 
 
-      <FormComponent vehicle={vehicle} />
+      {/* <FormComponent vehicle={vehicle} />
       <span style={{ color: "#232323" }}>
         * Mensualidad estimada no incluye seguro del auto, para mas información
         consulta terminos y condiciones.
-      </span>
+      </span> */}
+      <center>
+        <Link className={classes.policy} href={'/politicas'}>
+        <strong>Términos y Condiciones</strong>
+        </Link>
+      </center>
+    
     </>
   );
 };
