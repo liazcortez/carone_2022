@@ -43,7 +43,7 @@ const Register = ({setOpen=false, setType, className, ...rest }) => {
 	  role:'applicant'
 	}}
 	validationSchema={Yup.object().shape({
-	  email: Yup.string().email(t("Yup.Email")).max(255).required(t("Yup.EmailReq")),
+	  email: Yup.string().email(t("Yup.Email")).max(255).required(t("Yup.Email is required")),
 	  name: Yup.string().max(255).required('Name is required'),
 	  password: Yup.string().min(7).max(255).required('Password is required'),
 	  policy: Yup.boolean().oneOf([true], 'This field must be checked')

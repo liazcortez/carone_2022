@@ -84,7 +84,7 @@ const GeneralSettings = ({ className, ...rest }) => {
         values
       }) => (
         <form onSubmit={handleSubmit}>
-          <Card
+          <Box
             className={clsx(classes.root, className)}
             {...rest}
           >
@@ -182,7 +182,7 @@ const GeneralSettings = ({ className, ...rest }) => {
                 Guardar
               </Button>
             </Box>
-          </Card>
+          </Box>
         </form>
       )}
     </Formik>
