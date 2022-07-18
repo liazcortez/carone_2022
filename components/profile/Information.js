@@ -44,8 +44,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1)
   },
   avatar: {
-    height: 100,
-    width: 100,
+    height: "144px",
+    width: "155px",
     cursor: 'pointer'
   },
   primaryColor: {
@@ -69,47 +69,49 @@ const ProfileDetails = ({ className, edit, ...rest}) => {
     //eslint-disable-next-line
   },[attachments])
   return (
-    <Card
+    <Box
       className={clsx(classes.root, className)}
       {...rest}
     >
-      <CardContent>
+      <Box>
         <Box
           display="flex"
-          alignItems="center"
-          flexDirection="column"
-          textAlign="center"
         >
-          {
-            edit ? 
-            <FilesDropzone 
-                setFiles={setAttachment}
-                types={'application/pdf, application/vnd.ms-excel, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-powerpoint'}
-                isProfilePicture={true}
-                content={
-                    <div>
-                        <Avatar
-                            className={classes.avatar}
-                            src={user && user.image ? user.image :''}
-                        />
-                    </div>
-                }
-            />
-            :
-            <Avatar
-                className={classes.avatar}
-                src={user && user.image ? user.image : '/app/account'}
-            />
-          }
+          <Box>
+            {
+              edit ? 
+              <FilesDropzone 
+                  setFiles={setAttachment}
+                  types={'application/pdf, application/vnd.ms-excel, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-powerpoint'}
+                  isProfilePicture={true}
+                  content={
+                      <div>
+                          <Avatar
+                              className={classes.avatar}
+                              src={user && user.image ? user.image :''}
+                          />
+                      </div>
+                  }
+              />
+              :
+              <Avatar
+                  className={classes.avatar}
+                  src={user && user.image ? user.image : '/app/account'}
+              />
+            }
+          </Box>
+
+          <Box sx={{display: "flex", alignItems: "center", paddingLeft: "2rem"}}>
+            <Typography
+              fontWeight={600}
+              color="textPrimary"
+              gutterBottom
+              variant="h5"
+            >
+              {user && CapitalizeNames(user.name)}
+            </Typography>
+          </Box>
             
-          <Typography
-            className={classes.name}
-            color="textPrimary"
-            gutterBottom
-            variant="h5"
-          >
-            {user && CapitalizeNames(user.name)}
-          </Typography>
           {/* <Typography
             color="textPrimary"
             variant="body1"
@@ -122,6 +124,10 @@ const ProfileDetails = ({ className, edit, ...rest}) => {
                   : ''}
               </span>
           </Typography> */}
+          
+        </Box>
+
+          <Box pt={"1rem"} width={"17%"}>
           {
             (edit && user && user.image !== '') ? (
             <CardActions>
@@ -135,11 +141,11 @@ const ProfileDetails = ({ className, edit, ...rest}) => {
               </Button>
             </CardActions>
             ): null
-          }
-          
-        </Box>
-      </CardContent>
-    </Card>
+          } 
+          </Box>
+
+      </Box>
+    </Box>
   );
 };
 

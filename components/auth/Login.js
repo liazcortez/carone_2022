@@ -44,7 +44,7 @@ const Login = ({setOpen=false, className, ...rest }) => {
         submit: null
       }}
       validationSchema={Yup.object().shape({
-        email: Yup.string().email(t("Yup.Email")).max(255).required(t("Yup.EmailReq")),
+        email: Yup.string().email(t("Yup.Email")).max(255).required(t("Yup.Email is required")),
         password: Yup.string().max(255).required('Password is required')
       })}
       onSubmit={async (values, {

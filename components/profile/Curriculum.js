@@ -54,7 +54,6 @@ const useStyles = makeStyles(theme => ({
     position:'relative',
     display: 'flex',
     flexDirection: 'column',
-    maxWidth: '40rem'
   },
   currentMethodIcon: {
     height: 60,
@@ -187,14 +186,16 @@ useEffect(()=>{
 },[user]);
 
 return (
-  <Card>
+  <Card
+  sx={{height: "17rem"}}
+  >
     <YesNoDialog 
      handleClose={handleDelete}
      open={openModal}
      setOpen={setOpenModal}
      message={'Eliminar Curriculum'}
     />
-    <CardContent className={classes.cardContent}>
+    <CardContent  className={classes.cardContent}>
       <Box>
         {user && user.resume && !update ? (
           <Box className={classes.documentLoaded}>
