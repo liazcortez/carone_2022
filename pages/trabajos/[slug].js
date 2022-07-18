@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   Container,
   Typography,
@@ -6,7 +6,6 @@ import {
   Box,
   Paper,
   Divider,
-  Button,
   Chip
 } from "@mui/material";
 import moment from "moment";
@@ -15,7 +14,6 @@ import NumberFormat from "react-number-format";
 import Meta from "../../components/Meta";
 import BreadCrumJobs from "../../components/BreadCrumJobs";
 import GeneralModal from "../../components/GeneralModal";
-import useAuth from "../../hooks/useAuth";
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import ObjExist from '../../utils/ObjExist';
 const slug = ({ job }) => { 

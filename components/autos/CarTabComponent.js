@@ -23,6 +23,7 @@ const CarTabComponent = ({ version, model }) => {
   return (
     <Grid container style={{ marginBottom: 50 }}>
       <Grid item xs={7}>
+        
         <Typography
           variant="h5"
           component="h3"
@@ -64,6 +65,9 @@ const CarTabComponent = ({ version, model }) => {
             objectFit: "cover",
           }}
         />
+        <Typography variant='caption' color='GrayText'>
+          La imagen mostrada es ilustrativa, y no necesariamente corresponde a la versión del vehículo.
+        </Typography>
       </Grid>
       <Grid item xs={5}>
         <div>
