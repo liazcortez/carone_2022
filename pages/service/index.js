@@ -1,36 +1,20 @@
 import * as React from "react";
-import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { TimePicker } from "@mui/x-date-pickers/TimePicker";
-import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
-import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import {
-  Avatar,
   Box,
   Button,
   Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
   Checkbox,
-  Collapse,
   Container,
   Divider,
   Grid,
-  IconButton,
   Typography,
 } from "@mui/material";
 
 import MenuItem from "@mui/material/MenuItem";
-import styled from "styled-components";
-import { red } from "@mui/material/colors";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import StarIcon from "@mui/icons-material/Star";
 import Accordion from "@mui/material/Accordion";
@@ -126,10 +110,11 @@ export default function MaterialUIPickers() {
     },
   ];
 
-  const ServiceCard = ({ service }) => {
+  const ServiceCard = ({ service, key }) => {
     return (
       <>
         <Card
+          key={key}
           elevation={0}
           sx={{
             maxWidth: "100%",
@@ -213,8 +198,8 @@ export default function MaterialUIPickers() {
               onChange={handleChangeStore}
               fullWidth
             >
-              {stores.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
+              {stores.map((option, key) => (
+                <MenuItem key={key} value={option.value}>
                   {option.value}
                 </MenuItem>
               ))}
@@ -232,8 +217,8 @@ export default function MaterialUIPickers() {
               fullWidth
               sx={{ marginBottom: "2em" }}
             >
-              {makes.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
+              {makes.map((option, key) => (
+                <MenuItem key={key} value={option.value}>
                   {option.value}
                 </MenuItem>
               ))}
@@ -248,8 +233,8 @@ export default function MaterialUIPickers() {
               fullWidth
               sx={{ marginBottom: "2em" }}
             >
-              {models.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
+              {models.map((option, key) => (
+                <MenuItem key={key} value={option.value}>
                   {option.value}
                 </MenuItem>
               ))}
@@ -264,8 +249,8 @@ export default function MaterialUIPickers() {
               fullWidth
               sx={{ marginBottom: "2em" }}
             >
-              {years.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
+              {years.map((option, key) => (
+                <MenuItem key={key} value={option.value}>
                   {option.value}
                 </MenuItem>
               ))}
@@ -301,7 +286,7 @@ export default function MaterialUIPickers() {
             <Title heading="4.Selecciona Servicio" />
 
             {services &&
-              services.map((service) => <ServiceCard service={service} />)}
+              services.map((service, key) => <ServiceCard key={key} service={service} />)}
           </Box>
           {/* Quinto Paso */}
           <Box>
