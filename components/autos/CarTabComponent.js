@@ -76,7 +76,7 @@ const CarTabComponent = ({ version, model }) => {
             component="h3"
             style={{ fontWeight: "bold", marginBottom: 20, color: "#656d78" }}
           >
-            La version {model.toUpperCase()} {version && version.name.toUpperCase()} cuenta
+            La version cuenta
             con:
           </Typography>
           <Divider style={{ marginBottom: 20 }} />
