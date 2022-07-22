@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import {
   Box,
   Button,
@@ -13,6 +14,7 @@ import {
   Grid,
   Typography,
   FormHelperText,
+  Stack,
 } from "@mui/material";
 
 import MenuItem from "@mui/material/MenuItem";
@@ -34,7 +36,10 @@ import axios from "axios";
 import NumberFormatPhone from "../../utils/masks/NumberFormatPhone";
 import NumberFormatKm from "../../utils/masks/NumberFormatKm";
 
-export default function MaterialUIPickers() {
+import { useSnackbar } from "notistack";
+import { dpxURL } from "../../api/api";
+
+export default function Service() {
   const formValues = {
     // "Elige la Agencia",
     store: { value: "", step: 0, label: "Elige Tu Agencia", select: [] },
@@ -72,7 +77,12 @@ export default function MaterialUIPickers() {
       },
     },
     // "Seleccionar Fecha y Hora",
-    firstService: { value: "", step: 2, label: "Fecha de Servicio", rowType: "firstService" },
+    date: {
+      value: "",
+      step: 2,
+      label: "Fecha de Servicio",
+      rowType: "date",
+    },
     // "Selecciona Servicio",
     service: {
       value: "",
@@ -113,6 +123,7 @@ export default function MaterialUIPickers() {
     "Agrega tus Datos Personales",
   ];
 
+  const { enqueueSnackbar } = useSnackbar();
   const [formSelects, setFormSelects] = useState({});
   const [services, setServices] = useState(false);
   const [service, setService] = useState(false);
@@ -141,7 +152,7 @@ export default function MaterialUIPickers() {
   const ChildSelects = {
     vehicle: async (make) => {
       let vehicles = await axios.get(
-        `http://localhost:5000/api/v1/vehicles?make=${make.value}`
+        `${dpxURL}/vehicles?make=${make.value}`
       );
       let vehiclesArray = vehicles?.data.data ? vehicles.data.data : [];
       setVehicles(vehiclesArray);
@@ -153,7 +164,7 @@ export default function MaterialUIPickers() {
   const CustomSelects = {
     store: async (store) => {
       let services = await axios.post(
-        "http://localhost:5000/api/v1/packages/aggregationV3",
+        `${dpxURL}/packages/aggregationV3`,
         {
           store: store.value,
         }
@@ -320,7 +331,6 @@ export default function MaterialUIPickers() {
     );
   };
 
-
   return (
     <Container maxWidth="sm" sx={{ marginBottom: 10 }}>
       <Grid container>
@@ -334,7 +344,7 @@ export default function MaterialUIPickers() {
             name: "",
             phone: "",
             email: "",
-            firstService: new Date("2014-08-18T21:11:54"),
+            date: new Date("2014-08-18T21:11:54"),
           }}
           validationSchema={Yup.object().shape({
             store: Yup.string().max(255).required("Selecciona una Agencia"),
@@ -355,32 +365,53 @@ export default function MaterialUIPickers() {
             { resetForm, setErrors, setStatus, setSubmitting }
           ) => {
             try {
+
+              console.log(values)
               if (!service)
                 return setErrors({ submit: "Selecciona Un Servicio" });
 
+              let store = stores.filter(
+                (store) => store.dpxStore === values.store
+              )[0];
+              let vehicle = vehicles.filter(
+                (vehicle) => vehicle._id === values.vehicle
+              )[0];
+              vehicle.year = values.year;
+              if(values.km !== '')vehicle.km = values.km;
+              vehicle.services = [
+                {
+                  ...service,
+                  startDate: values.date,
+                  endDate: moment(values.date).add(4, "hours"),
+                  store: { _id: store._id, name: store.name },
+                },
+              ];
 
-              let vehicle = vehicles.filter(vehicle=>vehicle._id === values.vehicle)[0]
-              let make = makes.filter(make=>make.dpxMake === values.make)[0]
-              let store = stores.filter(store=>store.dpxStore === values.store)[0]
               let newleadService = {
-                ...values
-              }
+                ...values,
+                service: service._id,
+                firstService: values.date,
+                vehicles: [vehicle],
+              };
 
-              console.log(newleadService)
-              let leadService = await axios.post(
-                `http://localhost:5000/api/v1/leadsService/website`,
+              let response = await axios.post(
+                `${dpxURL}/leadsService/website`,
                 newleadService
               );
 
+                let variant =(response.data.success)?'success':'error';
+              enqueueSnackbar(CapitalizeV2(response.data.message), {
+                variant,
+              });
 
-
-
-
-
-              // console.log(leadService);
             } catch (err) {
               setStatus({ success: false });
               setErrors({ submit: err.message });
+
+              enqueueSnackbar("Ocurrio un error Inesperado", {
+                variant: "error",
+              });
+
               //     setSubmitting(false);
             }
           }}
@@ -403,26 +434,44 @@ export default function MaterialUIPickers() {
                     let [name, Obj] = current;
                     if (Obj.step !== index) return null;
                     switch (Obj.rowType) {
-                      case "firstService":
+                      case "date":
                         return (
                           <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DesktopDatePicker
                               label="Fecha de Servicio"
-                              inputFormat="MM/dd/yyyy"
-                              // value={value}
-                              value={values.firstService}
+                              // inputFormat="MM/dd/yyyy"
+                              value={values.date}
                               onChange={(value) => {
-                                setFieldValue("firstService", new Date(value));
+                                setFieldValue("date", new Date(value));
                               }}
                               renderInput={(params) => (
                                 <TextField
+                                  sx={{ display: "none" }}
                                   {...params}
-                                  error={Boolean(touched.firstService && errors.firstService)}
-                                  helperText={touched.firstService && errors.firstService}
+                                  error={Boolean(touched.date && errors.date)}
+                                  helperText={touched.date && errors.date}
                                   fullWidth
                                 />
                               )}
                             />
+
+                            <Stack spacing={3}>
+                              <DateTimePicker
+                                label="Fecha de Servicio"
+                                renderInput={(params) => (
+                                  <TextField
+                                    {...params}
+                                    error={Boolean(touched.date && errors.date)}
+                                    helperText={touched.date && errors.date}
+                                    fullWidth
+                                  />
+                                )}
+                                value={values.date}
+                                onChange={(value) => {
+                                  setFieldValue("date", new Date(value));
+                                }}
+                              />
+                            </Stack>
                           </LocalizationProvider>
                         );
                         break;
