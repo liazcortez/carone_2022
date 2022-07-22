@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -12,6 +12,7 @@ import {
   Divider,
   Grid,
   Typography,
+  FormHelperText,
 } from "@mui/material";
 
 import MenuItem from "@mui/material/MenuItem";
@@ -21,61 +22,206 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 
-const stores = [
-  {
-    value: "Chevrolet",
-  },
-];
+import { CapitalizeV2 } from "../../utils/capitalize";
 
-const makes = [
-  {
-    value: "Chevrolet",
-  },
-];
+import moment from "moment";
 
-const models = [
-  {
-    value: "Spark",
-  },
-];
-
-const years = [
-  {
-    value: "2022",
-  },
-];
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
+import useStore from "../../hooks/useStore";
+import useMake from "../../hooks/useMake";
+import axios from "axios";
+import NumberFormatPhone from "../../utils/masks/NumberFormatPhone";
+import NumberFormatKm from "../../utils/masks/NumberFormatKm";
 
 export default function MaterialUIPickers() {
-  const [store, setStore] = React.useState("");
-  const [make, setMake] = React.useState("");
-  const [model, setModel] = React.useState("");
-  const [year, setYear] = React.useState("");
-  const [value, setValue] = React.useState(new Date("2014-08-18T21:11:54"));
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+  const formValues = {
+    // "Elige la Agencia",
+    store: { value: "", step: 0, label: "Elige Tu Agencia", select: [] },
+    // "Agrega tu Vehículo",
+    make: {
+      value: "",
+      step: 1,
+      label: "Elige Tu Marca",
+      select: [],
+      props: { sx: { marginBottom: "2em" } },
+      child: "vehicle",
+    },
+    vehicle: {
+      value: "",
+      step: 1,
+      select: [],
+      label: "Elige Tu Modelo",
+      props: { sx: { marginBottom: "2em" } },
+      parent: "make",
+    },
+    year: {
+      value: "",
+      step: 1,
+      select: [],
+      label: "Elige Tu Elige tu Año",
+      props: { sx: { marginBottom: "2em" } },
+    },
+    km: {
+      value: "",
+      step: 1,
+      label: "Kilometraje",
+      props: {
+        sx: { marginBottom: "2em" },
+        InputProps: { ...{ inputComponent: NumberFormatKm } },
+      },
+    },
+    // "Seleccionar Fecha y Hora",
+    firstService: { value: "", step: 2, label: "Fecha de Servicio", rowType: "firstService" },
+    // "Selecciona Servicio",
+    service: {
+      value: "",
+      step: 3,
+      label: "Selecciona tu Servicio (cambiar por cards)",
+      rowType: "services",
+    },
+    // "Agrega tus Datos Personales",
+    name: {
+      value: "",
+      step: 4,
+      label: "Nombre Completo",
+      props: { sx: { marginBottom: "2em" }, required: true },
+    },
+    phone: {
+      value: "",
+      step: 4,
+      label: "Telefono",
+      props: {
+        sx: { marginBottom: "2em" },
+        required: true,
+        InputProps: { ...{ inputComponent: NumberFormatPhone } },
+      },
+    },
+    email: {
+      value: "",
+      step: 4,
+      label: "Email",
+      props: { required: true },
+    },
   };
 
-  const handleChange = (newValue) => {
-    setValue(newValue);
+  const steps = [
+    "Elige la Agencia",
+    "Agrega tu Vehículo",
+    "Seleccionar Fecha y Hora",
+    "Selecciona Servicio",
+    "Agrega tus Datos Personales",
+  ];
+
+  const [formSelects, setFormSelects] = useState({});
+  const [services, setServices] = useState(false);
+  const [service, setService] = useState(false);
+  const { getStores, stores } = useStore();
+  const { makes, getMakes } = useMake();
+  const [vehicles, setVehicles] = useState([]);
+  // const { vehicles, getVehiclesByMake } = useVehicle();
+
+  useEffect(() => {
+    getStores();
+    getMakes();
+    //eslint-disable-next-line
+  }, []);
+
+  const sortNames = (a, b) => {
+    if (a.name > b.name) {
+      return 1;
+    }
+    if (a.name < b.name) {
+      return -1;
+    }
+    // a must be equal to b
   };
 
-  const handleChangeStore = (event) => {
-    setStore(event.target.value);
+  // ?Child Selects logic
+  const ChildSelects = {
+    vehicle: async (make) => {
+      let vehicles = await axios.get(
+        `http://localhost:5000/api/v1/vehicles?make=${make.value}`
+      );
+      let vehiclesArray = vehicles?.data.data ? vehicles.data.data : [];
+      setVehicles(vehiclesArray);
+      // handle dpx axios get vehicles by store
+    },
   };
 
-  const handleChangeMake = (event) => {
-    setMake(event.target.value);
+  // Custom Logic
+  const CustomSelects = {
+    store: async (store) => {
+      let services = await axios.post(
+        "http://localhost:5000/api/v1/packages/aggregationV3",
+        {
+          store: store.value,
+        }
+      );
+      let servicesArray = services?.data?.results?.data
+        ? services.data.results.data
+        : [];
+      setService(false);
+      setServices(servicesArray);
+      // handle dpx axios get services by store
+    },
   };
 
-  const handleChangeModel = (event) => {
-    setModel(event.target.value);
-  };
+  // set selects
+  useEffect(() => {
+    let newSelects = {};
+    if (stores && stores.length >= 1) {
+      let newStores = stores
+        .filter((store) => store.dpxStore)
+        .map((store) => {
+          return {
+            ["_id"]: store.dpxStore,
+            name: `${store.make.name} ${store.name}`.replace("-", " "),
+          };
+        })
+        .sort((a, b) => sortNames(a, b));
+      newSelects.store = newStores;
+    }
 
-  const handleChangeYear = (event) => {
-    setYear(event.target.value);
-  };
+    if (makes && makes.length >= 1) {
+      let newMakes = makes
+        .filter((make) => make.isShown && make.dpxMake)
+        .map((make) => {
+          return {
+            ["_id"]: make.dpxMake,
+            name: `${make.name}`.replace("-", " "),
+          };
+        })
+        .sort((a, b) => sortNames(a, b));
+
+      newSelects.make = newMakes;
+    }
+
+    if (vehicles && vehicles.length >= 1) {
+      let newVehicles = vehicles
+        .map((vehicle) => {
+          return {
+            ["_id"]: vehicle._id,
+            name: `${vehicle?.make?.name} ${vehicle.model}`.replace("-", " "),
+          };
+        })
+        .sort((a, b) => sortNames(a, b));
+
+      newSelects.vehicle = newVehicles;
+    }
+
+    let end = 1981;
+    let start = parseInt(moment().add(1, "year").format("YYYY"));
+    let finalYears = [];
+
+    for (let i = start; i >= end; i--) {
+      finalYears.push({ _id: i });
+    }
+    newSelects.year = finalYears;
+
+    setFormSelects(newSelects);
+    //eslint-disable-next-line
+  }, [stores, makes, vehicles]);
 
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -95,22 +241,7 @@ export default function MaterialUIPickers() {
     </>
   );
 
-  const services = [
-    {
-      value: " Servicio de 60,000 km",
-      price: "1,200.00",
-      isRecommended: true,
-      info: "La frecuencia de servicios para modelo 2017-2022 (excepto Captiva®, Groove y Tornado Van 2022) es cada 12 mil km o 12 meses, lo que ocurra primero.Los precios incluyen: (i) aceite de motor sintético Dexos®, (ii) refacciones originales (GM Genuine Parts® o ACDelco® según aplique) y (iii) mano de obra de acuerdo con la Póliza de Garantía y Programa de Mantenimiento del vehículo.Descargo de Responsabilidades",
-    },
-    {
-      value: " Servicio de 40,000 km",
-      price: "800.00",
-      isRecommended: false,
-      info: "",
-    },
-  ];
-
-  const ServiceCard = ({ service, key }) => {
+  const ServiceCard = ({ serviceCard, key }) => {
     return (
       <>
         <Card
@@ -129,7 +260,7 @@ export default function MaterialUIPickers() {
             }}
           >
             <Box sx={{ marginLeft: 2 }}>
-              {service.isRecommended && (
+              {serviceCard.isRecommended && (
                 <StarIcon
                   sx={{
                     position: "relative",
@@ -141,7 +272,7 @@ export default function MaterialUIPickers() {
               )}
 
               <Typography variant="p" sx={{ fontFamily: "Helvetica" }}>
-                {service.value}
+                {serviceCard.name}
               </Typography>
             </Box>
 
@@ -154,9 +285,13 @@ export default function MaterialUIPickers() {
               <Typography
                 sx={{ marginRight: 2, fontSize: "30px", fontWeight: "bold" }}
               >
-                $ {service.price}
+                $ {serviceCard.price}
               </Typography>
-              <Checkbox {...label} />
+              <Checkbox
+                {...label}
+                checked={service && service._id === serviceCard._id}
+                onChange={() => setService(serviceCard)}
+              />
             </Box>
           </Box>
 
@@ -171,7 +306,9 @@ export default function MaterialUIPickers() {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  {service.info ? service.info : "No hay información"}
+                  {serviceCard.description
+                    ? serviceCard.description
+                    : "No hay información"}
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -183,154 +320,218 @@ export default function MaterialUIPickers() {
     );
   };
 
+
   return (
     <Container maxWidth="sm" sx={{ marginBottom: 10 }}>
       <Grid container>
-        <Box sx={{ width: "100%" }}>
-          {/* Primer paso */}
-          <Box sx={{ marginBottom: "2em" }}>
-            <Title heading="1. Elige la Agencia" />
-            <TextField
-              id="outlined-select-currency"
-              select
-              label="Elige tu Agencia"
-              value={store}
-              onChange={handleChangeStore}
-              fullWidth
-            >
-              {stores.map((option, key) => (
-                <MenuItem key={key} value={option.value}>
-                  {option.value}
-                </MenuItem>
+        <Formik
+          enableReinitialize
+          initialValues={{
+            store: "",
+            make: "",
+            vehicle: "",
+            year: "",
+            name: "",
+            phone: "",
+            email: "",
+            firstService: new Date("2014-08-18T21:11:54"),
+          }}
+          validationSchema={Yup.object().shape({
+            store: Yup.string().max(255).required("Selecciona una Agencia"),
+            make: Yup.string().max(255).required("Selecciona una Marca"),
+            vehicle: Yup.string().max(255).required("Selecciona un Modelo"),
+            year: Yup.string().max(255).required("Selecciona un Año"),
+            name: Yup.string().max(255).required("Ingresa tu Nombre"),
+            phone: Yup.string()
+              .min(10, "Ingresa un Telefono con 10 Numeros")
+              .required("Ingresa tu Telefono"),
+            email: Yup.string()
+              .email("Ingresa Un Correo Valido")
+              .max(255)
+              .required("Ingresa tu Correo"),
+          })}
+          onSubmit={async (
+            values,
+            { resetForm, setErrors, setStatus, setSubmitting }
+          ) => {
+            try {
+              if (!service)
+                return setErrors({ submit: "Selecciona Un Servicio" });
+
+
+              let vehicle = vehicles.filter(vehicle=>vehicle._id === values.vehicle)[0]
+              let make = makes.filter(make=>make.dpxMake === values.make)[0]
+              let store = stores.filter(store=>store.dpxStore === values.store)[0]
+              let newleadService = {
+                ...values
+              }
+
+              console.log(newleadService)
+              let leadService = await axios.post(
+                `http://localhost:5000/api/v1/leadsService/website`,
+                newleadService
+              );
+
+
+
+
+
+
+              // console.log(leadService);
+            } catch (err) {
+              setStatus({ success: false });
+              setErrors({ submit: err.message });
+              //     setSubmitting(false);
+            }
+          }}
+        >
+          {({
+            errors,
+            handleBlur,
+            handleChange,
+            handleSubmit,
+            setFieldValue,
+            isSubmitting,
+            touched,
+            values,
+          }) => (
+            <Form>
+              {steps.map((step, index) => (
+                <Box sx={{ marginBottom: "2em" }}>
+                  <Title heading={`${index + 1}. ${step}`} />
+                  {Object.entries(formValues).map((current, indexTextField) => {
+                    let [name, Obj] = current;
+                    if (Obj.step !== index) return null;
+                    switch (Obj.rowType) {
+                      case "firstService":
+                        return (
+                          <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <DesktopDatePicker
+                              label="Fecha de Servicio"
+                              inputFormat="MM/dd/yyyy"
+                              // value={value}
+                              value={values.firstService}
+                              onChange={(value) => {
+                                setFieldValue("firstService", new Date(value));
+                              }}
+                              renderInput={(params) => (
+                                <TextField
+                                  {...params}
+                                  error={Boolean(touched.firstService && errors.firstService)}
+                                  helperText={touched.firstService && errors.firstService}
+                                  fullWidth
+                                />
+                              )}
+                            />
+                          </LocalizationProvider>
+                        );
+                        break;
+                      case "services":
+                        if (!services)
+                          return (
+                            <Box>
+                              <Typography>Selecciona una Agencia</Typography>
+                            </Box>
+                          );
+                        return services && services.length >= 1 ? (
+                          services.map((service, key) => (
+                            <ServiceCard key={key} serviceCard={service} />
+                          ))
+                        ) : (
+                          <Box>
+                            <Typography>No hay Servicios</Typography>
+                          </Box>
+                        );
+
+                        break;
+                      default:
+                        return (
+                          <TextField
+                            key={indexTextField}
+                            item
+                            {...Obj.props}
+                            disabled={Obj.parent && values[Obj.parent] === ""}
+                            fullWidth
+                            autoComplete="new-password"
+                            placeholder={Obj.placeholder ? Obj.placeholder : ""}
+                            error={Boolean(touched[name] && errors[name])}
+                            helperText={touched[name] && errors[name]}
+                            label={CapitalizeV2(Obj.label ? Obj.label : name)}
+                            name={name}
+                            onBlur={handleBlur}
+                            onChange={(e) => {
+                              let value = e.target;
+                              // handle child selects
+                              if (
+                                value &&
+                                value.name &&
+                                CustomSelects[value.name]
+                              )
+                                CustomSelects[value.name](value);
+                              if (Obj.select && Obj.child && value !== "") {
+                                ChildSelects[Obj.child](value);
+                              }
+                              handleChange(e);
+                            }}
+                            select={Obj.select ? true : false}
+                            value={values[name]}
+                            variant="outlined"
+                            type={Obj.type ? Obj.type : "text"}
+                            InputLabelProps={{
+                              shrink: values[name] !== "" || touched[name],
+                            }}
+                          >
+                            <MenuItem
+                              key={indexTextField}
+                              value={""}
+                              text={""}
+                            >{`Select a ${CapitalizeV2(name)}`}</MenuItem>
+                            {Obj &&
+                              Obj.select &&
+                              (formSelects[name]
+                                ? formSelects[name]
+                                : Obj.select
+                              ).map((select, indexTextField) => (
+                                <MenuItem
+                                  key={indexTextField}
+                                  value={select._id}
+                                  text={select.name ? select.name : select._id}
+                                >
+                                  {select.name
+                                    ? CapitalizeV2(select.name)
+                                    : CapitalizeV2(select._id)}
+                                </MenuItem>
+                              ))}
+                          </TextField>
+                        );
+                    }
+                  })}
+                </Box>
               ))}
-            </TextField>
-          </Box>
-          {/* Segundo paso */}
-          <Box sx={{ marginBottom: "2em" }}>
-            <Title heading="2. Agrega tu Vehículo" />
-            <TextField
-              id="outlined-select-currency"
-              select
-              label="Elige tu Marca"
-              value={make}
-              onChange={handleChangeMake}
-              fullWidth
-              sx={{ marginBottom: "2em" }}
-            >
-              {makes.map((option, key) => (
-                <MenuItem key={key} value={option.value}>
-                  {option.value}
-                </MenuItem>
-              ))}
-            </TextField>
+              <Button
+                disabled={!service}
+                onClick={handleSubmit}
+                variant="contained"
+                sx={{ padding: 2, marginBottom: 4 }}
+                fullWidth
+              >
+                Enviar Cita
+              </Button>
+              {errors.submit && (
+                <FormHelperText error>{errors.submit}</FormHelperText>
+              )}
 
-            <TextField
-              id="outlined-select-currency"
-              select
-              label="Elige tu Modelo"
-              value={model}
-              onChange={handleChangeModel}
-              fullWidth
-              sx={{ marginBottom: "2em" }}
-            >
-              {models.map((option, key) => (
-                <MenuItem key={key} value={option.value}>
-                  {option.value}
-                </MenuItem>
-              ))}
-            </TextField>
-
-            <TextField
-              id="outlined-select-currency"
-              select
-              label="Elige tu Año"
-              value={year}
-              onChange={handleChangeYear}
-              fullWidth
-              sx={{ marginBottom: "2em" }}
-            >
-              {years.map((option, key) => (
-                <MenuItem key={key} value={option.value}>
-                  {option.value}
-                </MenuItem>
-              ))}
-            </TextField>
-            <TextField
-              id="outlined-required"
-              label="Kilometraje (Opcional)"
-              fullWidth
-            />
-          </Box>
-          {/* Tercer paso */}
-          <Box>
-            <Title heading="3. Seleccionar Fecha y Hora" />
-
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <DesktopDatePicker
-                label="Fecha de Servicio"
-                inputFormat="MM/dd/yyyy"
-                value={value}
-                onChange={handleChange}
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    fullWidth
-                    sx={{ marginBottom: "2em" }}
-                  />
-                )}
-              />
-            </LocalizationProvider>
-          </Box>
-          {/* Cuarto Paso */}
-          <Box sx={{ marginBottom: "2em" }}>
-            <Title heading="4.Selecciona Servicio" />
-
-            {services &&
-              services.map((service, key) => <ServiceCard key={key} service={service} />)}
-          </Box>
-          {/* Quinto Paso */}
-          <Box>
-            <Title heading="5. Agrega tus Datos Personales" />
-            <TextField
-              required
-              id="outlined-required"
-              label="Nombre Completo"
-              fullWidth
-              sx={{ marginBottom: "2em" }}
-            />
-
-            <TextField
-              required
-              id="outlined-required"
-              label="Teléfono"
-              fullWidth
-              sx={{ marginBottom: "2em" }}
-            />
-
-            <TextField
-              required
-              id="outlined-required"
-              label="Email"
-              fullWidth
-              sx={{ marginBottom: "2em" }}
-            />
-          </Box>
-          <Button
-            variant="contained"
-            sx={{ padding: 2, marginBottom: 4 }}
-            fullWidth
-          >
-            Enviar Cita
-          </Button>
-
-          <Typography variant="caption">
-            Al proveernos sus datos e información usted, reconoce y acepta que
-            los mismos serán tratados de conformidad con el Aviso de Privacidad
-            de Carone Group, y que usted autoriza a Carone Group a compartir su
-            información con sus distribuidores autorizados para efectos de
-            contactarlo respecto de llamados a servicio técnico de su vehículo.
-          </Typography>
-        </Box>
+              <Typography variant="caption">
+                Al proveernos sus datos e información usted, reconoce y acepta
+                que los mismos serán tratados de conformidad con el Aviso de
+                Privacidad de Carone Group, y que usted autoriza a Carone Group
+                a compartir su información con sus distribuidores autorizados
+                para efectos de contactarlo respecto de llamados a servicio
+                técnico de su vehículo.
+              </Typography>
+            </Form>
+          )}
+        </Formik>
       </Grid>
     </Container>
   );
