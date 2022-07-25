@@ -296,7 +296,7 @@ export default function Service() {
               <Typography
                 sx={{ marginRight: 2, fontSize: "30px", fontWeight: "bold" }}
               >
-                $ {serviceCard.price}
+                $ {serviceCard.price.toLocaleString()}
               </Typography>
               <Checkbox
                 {...label}
@@ -366,34 +366,38 @@ export default function Service() {
           ) => {
             try {
 
-              console.log(values)
               if (!service)
                 return setErrors({ submit: "Selecciona Un Servicio" });
 
               let store = stores.filter(
                 (store) => store.dpxStore === values.store
-              )[0];
+              ).map(store=>({_id:store.dpxStore,name:store.name, twilioNumber:store.dpxPhone,make:{_id:store.make.dpxMake,name:store.make.name,caroneMake:store.make._id}}))[0];
+
+              let make = makes.filter(
+                (make) => make._id===store.make.caroneMake
+              ).map(make=>({_id:make.dpxMake,name:make.name}))[0];
+
               let vehicle = vehicles.filter(
                 (vehicle) => vehicle._id === values.vehicle
               )[0];
               vehicle.year = values.year;
               if(values.km !== '')vehicle.km = values.km;
-              vehicle.services = [
+              vehicle.appointments= [
                 {
-                  ...service,
+                  service,
                   startDate: values.date,
                   endDate: moment(values.date).add(4, "hours"),
-                  store: { _id: store._id, name: store.name },
+                  store: { _id: store._id, name: store.name,make },
                 },
               ];
 
               let newleadService = {
                 ...values,
-                service: service._id,
-                firstService: values.date,
+                firstAppointment: values.date,
                 vehicles: [vehicle],
               };
 
+              console.log(newleadService)
               let response = await axios.post(
                 `${dpxURL}/leadsService/website`,
                 newleadService
@@ -403,6 +407,7 @@ export default function Service() {
               enqueueSnackbar(CapitalizeV2(response.data.message), {
                 variant,
               });
+              // resetForm();
 
             } catch (err) {
               setStatus({ success: false });
@@ -428,7 +433,7 @@ export default function Service() {
           }) => (
             <Form>
               {steps.map((step, index) => (
-                <Box sx={{ marginBottom: "2em" }}>
+                <Box sx={{ marginBottom: "2em" }} key={index}>
                   <Title heading={`${index + 1}. ${step}`} />
                   {Object.entries(formValues).map((current, indexTextField) => {
                     let [name, Obj] = current;
