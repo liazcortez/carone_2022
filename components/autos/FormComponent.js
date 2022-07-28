@@ -188,17 +188,19 @@ const FormComponent = ({ vehicle }) => {
 
   return (
     <div style={{  }}>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleClickOpen}
-        fullWidth
-        size="large"
-        disabled={(dissableButton || vehicle.availableStore.length <= 0)?true:false}
-        style={{ height: 60}}
-      >
-        Solicitar Cotización
-      </Button>
+      <Box sx={{paddingBlockEnd: "15px"}}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleClickOpen}
+          fullWidth
+          size="large"
+          disabled={(dissableButton || vehicle.availableStore.length <= 0)?true:false}
+          style={{ height: 60}}
+        >
+          Solicitar Cotización
+        </Button>
+      </Box>
       <Dialog
         open={open}
         onClose={handleClose}
