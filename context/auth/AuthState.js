@@ -256,6 +256,27 @@ const deleteResume = async () => {
 }
 };
 
+  const facebookLogin = async (response) => {
+    setLoading();
+    try {
+      const res = await api.post("/auth/facebook-login", response);
+
+      res.data.avatar = `https://graph.facebook.com/${response.id}/picture?access_token=${response.accessToken}&type=large`;
+      // res.data.user.type = 'facebook';
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data,
+        facebook:response
+      });
+      loadUser();
+    } catch (err) {
+      dispatch({
+        type: LOGIN_FAIL,
+        payload: err.response.data,
+      });
+    }
+  };
+
 
 
   const setLoading = () => dispatch({ type: SET_LOADING });
@@ -271,6 +292,7 @@ const deleteResume = async () => {
         success: state.success,
         register,
         login,
+        facebookLogin,
         loadUser,
         logout,
         forgotPassword,
