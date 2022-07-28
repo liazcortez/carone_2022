@@ -9,6 +9,7 @@ import Register from './RegisterNav';
 
 const classes = {
   root: {
+    padding:'40px',
     position: 'absolute',
     top: '50%',
     left: '50%',

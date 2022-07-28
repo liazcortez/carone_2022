@@ -54,6 +54,13 @@ const JobItem = ({ job, setSelectedJob, selectedJob }) => {
                     displayType={"text"}
                   />
                 )} />
+  <Typography
+                      variant="subtitle1"
+                      gutterBottom
+                      style={{ textTransform: "capitalize" }}
+                    >
+                      {job.salaryTime === "monthly" ? "Mensual" : "Quincenal"}
+                    </Typography>
               </Typography>
             </Box>
           </Box>
