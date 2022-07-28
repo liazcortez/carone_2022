@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 import useAuth from '../../hooks/useAuth';
 import useIsMountedRef from '../../hooks/useIsMountedRef';
+import Facebook from './Facebook';
 
 const classes = {
   root: {}
@@ -146,6 +147,10 @@ const Login = ({setOpen, className, setType, ...rest }) => {
                 Ingresar
               </Button>
             </Box>
+            <Box mt={2}>
+              <Facebook register={false}/>
+            </Box>
+
           </form>
         )}
       </Formik>

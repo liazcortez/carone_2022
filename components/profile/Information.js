@@ -14,28 +14,7 @@ import {
 } from '@mui/material';
 import {makeStyles} from '@mui/styles';
 
-const CapitalizeNames = (string) => {
-    if(string === undefined || string === null) return '';
-    string = string.replace(/-/, ' ')
-
-    const words = string.split(" ");
-    
-    let finalString = '';
-
-    words.map( (word, i) => {
-        if(i !== 0 && i!==(words.length)){ finalString += ' ' }
-        if(word.includes(".") || word.includes("/")){
-            finalString += word.toUpperCase();
-        }
-        else{
-            finalString += word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-        }
-        return false;
-    })
-
-    return finalString;
-
-};
+import { CapitalizeV2 } from '../../utils/capitalize';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -58,6 +37,7 @@ const ProfileDetails = ({ className, edit, ...rest}) => {
   const [attachments, setAttachment] = useState(null);
   const { updateProfile, loading, user } = useAuth();
 
+  console.log(user)
   const removePhoto = async() =>{
     await updateProfile({image: ''}, 'info')
   }
@@ -79,7 +59,7 @@ const ProfileDetails = ({ className, edit, ...rest}) => {
         >
           <Box>
             {
-              edit ? 
+              edit && (user && user.socialType !=='facebook') ? 
               <FilesDropzone 
                   setFiles={setAttachment}
                   types={'application/pdf, application/vnd.ms-excel, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-powerpoint'}
@@ -108,7 +88,7 @@ const ProfileDetails = ({ className, edit, ...rest}) => {
               gutterBottom
               variant="h5"
             >
-              {user && CapitalizeNames(user.name)}
+              {user && CapitalizeV2(user.name)}
             </Typography>
           </Box>
             
@@ -120,7 +100,7 @@ const ProfileDetails = ({ className, edit, ...rest}) => {
             {' '}
               <span className={classes.primaryColor} variant="body2">
                 {user && user.role
-                  ? ' ' + CapitalizeNames(user.role)
+                  ? ' ' + CapitalizeV2(user.role)
                   : ''}
               </span>
           </Typography> */}
@@ -129,7 +109,7 @@ const ProfileDetails = ({ className, edit, ...rest}) => {
 
           <Box pt={"1rem"} width={"17%"}>
           {
-            (edit && user && user.image !== '') ? (
+            (edit && user && user.image !== '' && (user && user.socialType !=='facebook')) ? (
             <CardActions>
               <Button
                 fullWidth

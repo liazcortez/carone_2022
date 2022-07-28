@@ -187,7 +187,7 @@ const FormComponent = ({ vehicle }) => {
   
 
   return (
-    <div style={{ marginBottom: 20, marginTop: 20 }}>
+    <div style={{  }}>
       <Button
         variant="contained"
         color="primary"

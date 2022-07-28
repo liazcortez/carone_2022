@@ -20,13 +20,10 @@ const DashboardMenu = ({ selectedIndex }) => {
       href: "/perfil",
     },
      {
-        title: "Servicio",
-        href: "#",
-     },
-      {
-        title: "Consulta",
-        href: "#",
-     },
+        title: "Curriculum",
+        href: "/perfil/curriculum",
+     }
+ 
   ];
 
   useEffect(() => {
