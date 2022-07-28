@@ -99,7 +99,7 @@ const Slug = ({ vehicle }) => {
                   component="h3"
                   style={{ fontWeight: "bold", color: "#656d78" }}
                 >
-                  {vehicle.make.name.toUpperCase()}{" "}
+                  {vehicle.make.name.toUpperCase().replace("-", " ")}{" "}
                   {vehicle.model.toUpperCase()} {vehicle.year}
                 </Typography>
                 {vehicle.price ? (
@@ -152,6 +152,7 @@ const Slug = ({ vehicle }) => {
 
             <Divider style={{ marginBottom: 40, marginTop: 20 }} />
           </Container>
+          
           <Container style={{ overflow: "scroll" }} maxWidth="lg">
             <Grid container>
               <Grid item xs={12}>
