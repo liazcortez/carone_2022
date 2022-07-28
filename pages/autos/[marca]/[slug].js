@@ -136,7 +136,7 @@ const Slug = ({ vehicle }) => {
                 <SharingComponent url={url} />
                 <Financing vehicle={vehicle} /> 
                 {/* sharing */}
-                {/* <Form vehicle={vehicle}/> */}
+                <Form vehicle={vehicle}/>
                 </Box>
               </Grid>
             </Grid>
