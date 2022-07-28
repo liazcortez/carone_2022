@@ -14,7 +14,6 @@ import ColorsComponent from "../../../components/autos/ColorsComponent";
 import VersionList from "../../../components/autos/versions/VersionList";
 import { baseURL } from "../../../api/api";
 import VideoComponent from "../../../components/autos/VideoComponent";
-import Form from '../../../components/autos/FormComponent'
 import SharingComponent from "../../../components/autos/SharingComponent";
 
 const Slug = ({ vehicle }) => {
@@ -130,13 +129,12 @@ const Slug = ({ vehicle }) => {
                 )}
                 {/* Colors Component */}
                 <ColorsComponent colors={colors} />
+                <SharingComponent url={url} />
               </Grid>
               <Grid item xs={12} lg={6}>
-                <Box display='flex' flexDirection='column' justifyContent='space-between' style={{height: '100%'}}>
-                <SharingComponent url={url} />
+                <Box display='flex' flexDirection='column' justifyContent='space-evenly' style={{height: '100%'}}>
                 <Financing vehicle={vehicle} /> 
                 {/* sharing */}
-                <Form vehicle={vehicle}/>
                 </Box>
               </Grid>
             </Grid>
@@ -147,6 +145,7 @@ const Slug = ({ vehicle }) => {
             <Grid container>
               <Grid item xs={12}>
                 <CarTabs versions={versions} model={vehicle.model} />
+
                 {/* <VersionList versions={versions} model={vehicle.model} /> */}
               </Grid>
             </Grid>

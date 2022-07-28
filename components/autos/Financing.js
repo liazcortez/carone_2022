@@ -9,19 +9,21 @@ import Paper from "@mui/material/Paper";
 import { Typography, Box } from "@mui/material";
 import NumberFormat from "react-number-format";
 import ModalComponent from "./ModalComponent";
-import Link from '@mui/material/Link'
+import Link from "@mui/material/Link";
+
+import Form from "./FormComponent";
 
 const useStyles = makeStyles({
   table: {
     // minWidth: 500,
   },
-  policy:{
-    color:'black!important',
-    textDecoration:'none',
-    '&:hover': {
-      textDecoration:'none'
-    }
-  }
+  policy: {
+    color: "black!important",
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "none",
+    },
+  },
 });
 
 const Financing = ({ vehicle }) => {
@@ -38,26 +40,24 @@ const Financing = ({ vehicle }) => {
     enganche: 50000,
     mensualidad: 0,
     tasa: 14.95,
-    iva: 0.16
+    iva: 0.16,
   });
 
-
   const getQuote = (precio, enganche, plazo, tasa, iva) => {
-        
     //Precio total a pagar
-    const VA = precio - enganche
-    
+    const VA = precio - enganche;
+
     //Rango de tiempo a pagar
-    const NPER = parseInt(plazo)
-    
+    const NPER = parseInt(plazo);
+
     //Calcular la tasa de C1
-    const TASA = (tasa / 12) * (1 + iva)
-    
+    const TASA = (tasa / 12) * (1 + iva);
+
     //Calcular el pago
-    const PAGO = VA * TASA / ( 1 - ( 1 + TASA ) ^ ( NPER * -1 ) )
-    
-    return PAGO
-  }
+    const PAGO = (VA * TASA) / ((1 - (1 + TASA)) ^ (NPER * -1));
+
+    return PAGO;
+  };
 
   const handleonChange = (e) => {
     setFinance({ ...finance, [e.target.name]: e.target.value });
@@ -87,7 +87,7 @@ const Financing = ({ vehicle }) => {
         }}
       >
         Plan de Financiamiento
-      </Typography> 
+      </Typography>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableBody>
@@ -185,38 +185,36 @@ const Financing = ({ vehicle }) => {
           </TableBody>
         </Table>
       </TableContainer>
-      <Typography
-        variant="body1"
-        gutterBottom
-        align="center"
-        style={{
-          marginBottom: 15,
-          marginTop: 20,
-          fontWeight: "bold",
-          fontSize: 18,
-        }}
-      >
-        Financiamiento a {finance.plazo} meses con enganche de{" "}
-        <NumberFormat
-          value={finance.enganche}
-          displayType={"text"}
-          thousandSeparator={true}
-          prefix={"$"}
-        />{" "}
-        MXN{" "}
-      </Typography> 
 
+      <Box style={{textAlign:'center',display:'flex',flexDirection:'column'}}>
+      <Form vehicle={vehicle} />
+        <Typography
+          variant="caption"
+          color="GrayText"
+          gutterBottom
+          align="center"
+          style={{marginTop:'1rem'}}
+        >
+          Financiamiento a {finance.plazo} meses con enganche de{" "}
+          <NumberFormat
+            value={finance.enganche}
+            displayType={"text"}
+            thousandSeparator={true}
+            prefix={"$"}
+          />{" "}
+          MXN{" "}
+        </Typography>
+        <Link className={classes.policy} href={"/politicas"}>
+          <Typography variant="caption" color="GrayText">
+            Términos y Condiciones
+          </Typography>
+        </Link>
+      </Box>
       {/* <FormComponent vehicle={vehicle} />
       <span style={{ color: "#232323" }}>
         * Mensualidad estimada no incluye seguro del auto, para mas información
         consulta terminos y condiciones.
       </span> */}
-      <center>
-        <Link className={classes.policy} href={'/politicas'}>
-        <strong>Términos y Condiciones</strong>
-        </Link>
-      </center>
-    
     </>
   );
 };
