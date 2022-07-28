@@ -33,7 +33,7 @@ const BreadcrumbComponent = ({ data, section }) => {
           <Button>Autos</Button>
         </Link>
         <Link color="inherit" passHref={true} href={`/autos/${make && make.name}`}>
-          <Button>{make && make.name}</Button>
+          <Button>{(make && make.name).replace("-", " ")}</Button>
         </Link>
         <Typography color="textPrimary" style={{ textTransform: "capitalize" }}>
           <Button disabled>
