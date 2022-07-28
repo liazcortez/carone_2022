@@ -85,7 +85,7 @@ const Slug = ({ vehicle }) => {
                 banner={banner}
                 description={description}
                 promotion={promotion}
-                title={title}
+                title={(title).replace("-", " ")}
               />
             )}
           </Container>
