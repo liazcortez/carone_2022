@@ -12,13 +12,12 @@ import { Box,
   CardContent,
   Grid,
   Avatar} from "@mui/material";
-import Meta from "../../components/Meta";
-import useAuth from "../../hooks/useAuth";
-import Information from '../../components/profile/Information'
-import PersonalInformation from '../../components/profile/PersonalInformation'
+import Meta from "../../../components/Meta";
+import useAuth from "../../../hooks/useAuth";
+import ApplicantComponent from "../../../components/profile/Curriculum"
 import { useRouter } from "next/router";
 import {makeStyles} from '@mui/styles';
-import UserMenu from '../../components/profile/UserMenu'
+import UserMenu from '../../../components/profile/UserMenu'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -82,8 +81,8 @@ const index = () => {
     <>
     <Container maxWidth="lg">
       <Meta
-        title="Perfil de usuario"
-        description="Pagina de perfil de usuario"
+        title="Curriculum"
+        description="Editar Curriculum"
       />
 
       <Grid container spacing={3}>
@@ -94,23 +93,18 @@ const index = () => {
         <Grid item sm={4} xs={12} md={10}>
 
           <Grid pt={"1rem"} container spacing={2}>
-          <Box pl={"28px"}>
-            <Typography variant="h1" sx={{fontWeight: "700", fontSize: "25px",}}>
-              Editar Perfil 
-            </Typography>
-          </Box>
-            
+         
+
             <Grid item md={12} xs={12}>
               <Box>
-                <Information edit="true" style={{marginBottom: '1em'}}/>
+              <Typography pb={"15px"} sx={{ fontSize: "25px", fontWeight: 400}}>
+                  Cargar Curriculum
+                </Typography>
+              </Box>
+              <Box className={classes.leftCards}>
+                <ApplicantComponent />
               </Box> 
-            </Grid>
-
-            <Grid md={12} xs={12}>
-              <PersonalInformation />
             </Grid> 
-
-           
 
           </Grid>
           
