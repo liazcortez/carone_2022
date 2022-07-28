@@ -193,7 +193,6 @@ const Financing = ({ vehicle }) => {
           color="GrayText"
           gutterBottom
           align="center"
-          style={{marginTop:'1rem'}}
         >
           Financiamiento a {finance.plazo} meses con enganche de{" "}
           <NumberFormat
