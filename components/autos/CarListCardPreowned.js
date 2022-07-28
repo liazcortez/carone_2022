@@ -161,7 +161,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
          
 
             <Typography gutterBottom style={{ fontSize: 17 }}>
-              Desde &nbsp;
+              Precio: &nbsp;
               {vehicle.price ? (
                 <NumberFormat
                   value={vehicle.price}

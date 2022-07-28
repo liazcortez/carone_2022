@@ -75,6 +75,7 @@ const SelectedJob = ({ job }) => {
                     displayType={"text"}
                   />
                 )} />
+
               </Typography>
 
                     <Typography
