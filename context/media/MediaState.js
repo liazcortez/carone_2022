@@ -21,11 +21,14 @@ const MediaState = props => {
   const [state, dispatch] = useReducer(MediaReducer, initialState);
 
   const getMediasMainBanner = async() => {
+    console.log(123)
     setLoading();
     try {
       const res = await api.get(`/medias?section=main-banner&ShowBanner=true`);
+      console.log(res.data.data)
       dispatch({ type: GET_MEDIAS_MAIN_BANNER, payload: res.data.data });
     } catch (err) {
+      console.log(err)
       dispatch({ type: SET_ERROR, payload: err.response.data})
 
     }
