@@ -162,11 +162,12 @@ export default function Service() {
 
   // Custom Logic
   const CustomSelects = {
-    store: async (store) => {
+    store: async (selectedStore) => {
+      let store = stores.find(store=>store.dpxStore === selectedStore.value);
       let services = await axios.post(
         `${dpxURL}/packages/aggregationV3`,
         {
-          store: store.value,
+          make: store.make._id,
         }
       );
       let servicesArray = services?.data?.results?.data
