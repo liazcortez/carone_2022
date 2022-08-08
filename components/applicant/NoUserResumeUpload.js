@@ -24,6 +24,7 @@ import * as Yup from "yup";
 import { Formik } from "formik";
 import useIsMountedRef from "../../hooks/useIsMountedRef";
 import AlertP from "../Alert";
+import NumberFormatPhone from "../../utils/masks/NumberFormatPhone";
 
 const methodIcons = {
   Auth0: "/static/images/auth0.svg",
@@ -168,15 +169,19 @@ const NoUserResumeUpload = ({
         initialValues={{
           email: "",
           name: "",
+          phone: "",
           role: "applicant",
           password: "noPassUser",
         }}
         validationSchema={Yup.object().shape({
+          name: Yup.string().max(255).required("Nombre es Requerido"),
+          phone: Yup.string()
+            .min(10, "Ingresa un Telefono con 10 Numeros")
+            .required("Ingresa tu Telefono"),
           email: Yup.string()
-            .email(t("Yup.Email"))
+            .email("Ingresa Un Correo Valido")
             .max(255)
-            .required(t("Yup.Email is required")),
-          name: Yup.string().max(255).required("Name is required"),
+            .required("Ingresa tu Correo"),
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
@@ -187,7 +192,7 @@ const NoUserResumeUpload = ({
                 file: file[0],
               }
             );
-	    setSubmit(true)
+            setSubmit(true);
             if (setOpen) {
               setOpen(false);
             }
@@ -244,6 +249,25 @@ const NoUserResumeUpload = ({
                 type="text"
                 value={values.name}
                 variant="outlined"
+              />
+              <TextField
+                error={Boolean(touched.phone && errors.phone)}
+                fullWidth
+                helperText={touched.phone && errors.phone}
+                label={"Telefono"}
+                margin="normal"
+                name="phone"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                type="phone"
+                value={values.phone}
+                variant="outlined"
+                InputProps={{
+                  inputComponent: NumberFormatPhone,
+                }}
+                InputLabelProps={{
+                  shrink: values.phone !== "" || touched.phone,
+                }}
               />
               <TextField
                 error={Boolean(touched.email && errors.email)}
