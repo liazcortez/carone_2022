@@ -3,11 +3,11 @@ import { makeStyles } from '@mui/styles';
 import {Modal,Fade,Backdrop,Button,Box, Grid, Typography,Link} from '@mui/material';
 // import Authcomponent from './AuthComponent';
 import { SportsEsports } from '@material-ui/icons';
-import AuthComponent from "./auth/AuthComponent";
 import ApplicantComponent from "./applicant/ApplicantComponent";
 import useApplicant from '../hooks/useApplicant';
 import { useSnackbar } from "notistack";
 import useAuth from "../hooks/useAuth";
+import NoUserResumeUpload from './applicant/NoUserResumeUpload';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -39,7 +39,7 @@ const GeneralModal = ({job,fullWidth=false}) => {
     if(user && user._id){
       setSelect('resume');
     }else{
-      setSelect('auth');
+      setSelect('noUser');
     }
     setOpen(true);
   };
@@ -108,10 +108,10 @@ const handlePostulated = ()=>{
           <>
           <Grid item xs={12} >
             <Button fullWidth={fullWidth} variant="contained" color='primary' onClick={()=>{handleOpen();setLogin(true);}}>
-                Ingresa a tu cuenta
+            Aplicar
             </Button>
           </Grid>
-         {fullWidth &&
+         {/* {fullWidth &&
           <Grid item xs={12} style={{textAlign: 'center'}}>
           <Typography 
             style={{ cursor: 'pointer'}}
@@ -123,7 +123,7 @@ const handlePostulated = ()=>{
             {' '}
             <Link>Registrate!</Link>
           </Typography>
-        </Grid>}
+        </Grid>} */}
           </>
        }
        {
@@ -157,7 +157,7 @@ const handlePostulated = ()=>{
             {select==='resume'? 
             <ApplicantComponent setModalPostulated={setModalPostulated} job={job} setOpen={setOpen}/>
             :
-            <AuthComponent setOpen={setOpen} login={login} setLogin={setLogin}/>
+            <NoUserResumeUpload {...{setModalPostulated,job,setOpen}} />
             }          
           </Box>
           
