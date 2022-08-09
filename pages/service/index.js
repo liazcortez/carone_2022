@@ -162,11 +162,12 @@ export default function Service() {
 
   // Custom Logic
   const CustomSelects = {
-    store: async (store) => {
+    store: async (selectedStore) => {
+      let store = stores.find(store=>store.dpxStore === selectedStore.value);
       let services = await axios.post(
         `${dpxURL}/packages/aggregationV3`,
         {
-          store: store.value,
+          make: store.make._id,
         }
       );
       let servicesArray = services?.data?.results?.data
@@ -344,7 +345,7 @@ export default function Service() {
             name: "",
             phone: "",
             email: "",
-            date: new Date("2014-08-18T21:11:54"),
+            date: "",
           }}
           validationSchema={Yup.object().shape({
             store: Yup.string().max(255).required("Selecciona una Agencia"),
@@ -382,11 +383,12 @@ export default function Service() {
               )[0];
               vehicle.year = values.year;
               if(values.km !== '')vehicle.km = values.km;
+
               vehicle.appointments= [
                 {
                   service,
                   startDate: values.date,
-                  endDate: moment(values.date).add(4, "hours"),
+                  endDate: moment(values.date).add(1, "hours"),
                   store: { _id: store._id, name: store.name,make },
                 },
               ];
