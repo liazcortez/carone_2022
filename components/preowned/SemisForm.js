@@ -298,18 +298,13 @@ const SemisForm = ({preowned}) => {
             <a 
               target='_blank'
               rel="noreferrer"
-              href={ `https://wa.me//${preowned.store.dpxPhone}?text=Hola! Estoy interesado en un 
-              
-                ${preowned.version.toLowerCase().includes(preowned.vehicle.make.name.toLowerCase()) ? 
-                  `${CapitalizeNames(preowned.version)} ${preowned.year}` : 
-                  `${CapitalizeNames(preowned.vehicle.make.name)} ${CapitalizeNames(preowned.vehicle.model)} ${CapitalizeNames(preowned.version)} ${preowned.year}`
-                }
-                  
+              href={ `https://wa.me//${preowned.store.dpxPhone}?text=Hola! Estoy interesado en un ${preowned.version.toLowerCase().includes(preowned.vehicle.make.name.toLowerCase()) ? `${CapitalizeNames(preowned.version)} ${preowned.year}` : 
+                `${CapitalizeNames(preowned.vehicle.make.name)} ${CapitalizeNames(preowned.vehicle.model)} ${CapitalizeNames(preowned.version)} ${preowned.year}`
+                }          
               `}
               style={{textDecoration: 'none'}}
             >
               {/* <center>
-
               <Typography variant='caption' color='textPrimary' style={{display: 'flex', alignItems: 'center', justifyContent:'center', color: '#32873c'}}>
               O si lo prefieres, envíanos WhatsApp! <img src="/static/whatsapp.png" width={30} style={{marginLeft: 10}}/>
               </Typography>
@@ -320,7 +315,6 @@ const SemisForm = ({preowned}) => {
                 fullWidth
                 style={{height:"3rem", backgroundColor: '#48c357', marginTop: '1em'}}
               >
-             
               Whatsapp
             </Button>
   
