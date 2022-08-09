@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
 const CarTabComponent = ({ version, model }) => {
   const classes = useStyles();
   const { specifications } = version;
+  
   return (
     <Grid container style={{ marginBottom: 50 }}>
       <Grid item xs={7}>
