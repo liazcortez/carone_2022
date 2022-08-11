@@ -66,16 +66,34 @@ export default function Service() {
       select: [],
       label: "Elige Tu Elige tu Año",
       props: { sx: { marginBottom: "2em" } },
-    },
-    km: {
-      value: "",
-      step: 1,
-      label: "Kilometraje",
-      props: {
-        sx: { marginBottom: "2em" },
-        InputProps: { ...{ inputComponent: NumberFormatKm } },
+      km: {
+        value: "",
+        step: 1,
+        label: "Kilometraje",
+        props: {
+          sx: { marginBottom: "2em" },
+          InputProps: { ...{ inputComponent: NumberFormatKm } },
+        },
       },
     },
+   vin: {
+      value: "",
+      step: 1,
+      label: "VIN",
+      props: {
+        sx: { marginBottom: "2em" },
+      },
+    },
+
+   plate: {
+      value: "",
+      step: 1,
+      label: "PLaca",
+      props: {
+        sx: { marginBottom: "2em" },
+      },
+    },
+
     // "Seleccionar Fecha y Hora",
     date: {
       value: "",
@@ -151,9 +169,7 @@ export default function Service() {
   // ?Child Selects logic
   const ChildSelects = {
     vehicle: async (make) => {
-      let vehicles = await axios.get(
-        `${dpxURL}/vehicles?make=${make.value}`
-      );
+      let vehicles = await axios.get(`${dpxURL}/vehicles?make=${make.value}`);
       let vehiclesArray = vehicles?.data.data ? vehicles.data.data : [];
       setVehicles(vehiclesArray);
       // handle dpx axios get vehicles by store
@@ -163,13 +179,12 @@ export default function Service() {
   // Custom Logic
   const CustomSelects = {
     store: async (selectedStore) => {
-      let store = stores.find(store=>store.dpxStore === selectedStore.value);
-      let services = await axios.post(
-        `${dpxURL}/packages/aggregationV3`,
-        {
-          make: store.make._id,
-        }
+      let store = stores.find(
+        (store) => store.dpxStore === selectedStore.value
       );
+      let services = await axios.post(`${dpxURL}/packages/aggregationV3`, {
+        make: store.make._id,
+      });
       let servicesArray = services?.data?.results?.data
         ? services.data.results.data
         : [];
@@ -346,6 +361,8 @@ export default function Service() {
             phone: "",
             email: "",
             date: "",
+            vin:"",
+            plate:""
           }}
           validationSchema={Yup.object().shape({
             store: Yup.string().max(255).required("Selecciona una Agencia"),
@@ -366,30 +383,38 @@ export default function Service() {
             { resetForm, setErrors, setStatus, setSubmitting }
           ) => {
             try {
-
               if (!service)
                 return setErrors({ submit: "Selecciona Un Servicio" });
 
-              let store = stores.filter(
-                (store) => store.dpxStore === values.store
-              ).map(store=>({_id:store.dpxStore,name:store.name, twilioNumber:store.dpxPhone,make:{_id:store.make.dpxMake,name:store.make.name,caroneMake:store.make._id}}))[0];
+              let store = stores
+                .filter((store) => store.dpxStore === values.store)
+                .map((store) => ({
+                  _id: store.dpxStore,
+                  name: store.name,
+                  twilioNumber: store.dpxPhone,
+                  make: {
+                    _id: store.make.dpxMake,
+                    name: store.make.name,
+                    caroneMake: store.make._id,
+                  },
+                }))[0];
 
-              let make = makes.filter(
-                (make) => make._id===store.make.caroneMake
-              ).map(make=>({_id:make.dpxMake,name:make.name}))[0];
+              let make = makes
+                .filter((make) => make._id === store.make.caroneMake)
+                .map((make) => ({ _id: make.dpxMake, name: make.name }))[0];
 
               let vehicle = vehicles.filter(
                 (vehicle) => vehicle._id === values.vehicle
               )[0];
-              vehicle.year = values.year;
-              if(values.km !== '')vehicle.km = values.km;
+              vehicle = {...vehicle, year:values.year, vin:values.vin,plate:values.plate};
+              if (values.km !== "") vehicle.km = values.km;
 
-              vehicle.appointments= [
+              vehicle.appointments = [
                 {
                   service,
                   startDate: values.date,
                   endDate: moment(values.date).add(1, "hours"),
-                  store: { _id: store._id, name: store.name,make },
+                  store: { _id: store._id, name: store.name, make },
                 },
               ];
 
@@ -399,18 +424,17 @@ export default function Service() {
                 vehicles: [vehicle],
               };
 
-              console.log(newleadService)
+              console.log(newleadService);
               let response = await axios.post(
                 `${dpxURL}/leadsService/website`,
                 newleadService
               );
 
-                let variant =(response.data.success)?'success':'error';
+              let variant = response.data.success ? "success" : "error";
               enqueueSnackbar(CapitalizeV2(response.data.message), {
                 variant,
               });
               // resetForm();
-
             } catch (err) {
               setStatus({ success: false });
               setErrors({ submit: err.message });
