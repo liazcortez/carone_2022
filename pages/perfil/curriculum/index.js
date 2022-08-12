@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
 
 const index = () => {
   const classes = useStyles();
-  const {user} = useAuth();
+  const { user } = useAuth();
   const router = useRouter();
 
   React.useEffect(()=>{
@@ -106,7 +106,7 @@ const index = () => {
               </Box> 
             </Grid> 
 
-          </Grid>
+          </Grid> 
           
         </Grid>
       </Grid>
