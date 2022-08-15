@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === "production") {
   // baseURL = "http://localhost:5000/api/v1";
 
   // dpx url for devs
-  // dpxURL = "http://localhost:5000/api/v1";
+  dpxURL = "http://localhost:5000/api/v1";
 }
 export { baseURL, dpxURL };
 
