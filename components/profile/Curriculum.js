@@ -1,5 +1,4 @@
 import React, {useEffect,useState} from "react";
-
 import {
   Box,
   Card,
@@ -19,6 +18,7 @@ import { FileText, Trash2} from 'react-feather'
 import Image from 'next/image'
 import YesNoDialog from '../../components/Confirm';
 import {makeStyles} from '@mui/styles';
+
 const methodIcons = {
   Auth0: '/static/images/auth0.svg',
   FirebaseAuth: '/static/images/firebase.svg',
