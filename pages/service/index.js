@@ -406,7 +406,8 @@ export default function Service() {
               let vehicle = vehicles.filter(
                 (vehicle) => vehicle._id === values.vehicle
               )[0];
-              vehicle = {...vehicle, year:values.year, vin:values.vin,plate:values.plate};
+
+              vehicle = {model:{...vehicle,name:vehicle.model}, make:vehicle.make, year:values.year, vin:values.vin,plate:values.plate};
               if (values.km !== "") vehicle.km = values.km;
 
               vehicle.appointments = [
