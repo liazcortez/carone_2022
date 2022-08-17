@@ -75,7 +75,7 @@ const Financing = ({ vehicle }) => {
 
   return (
     <>
-      <Typography
+      {/* <Typography
         align="center"
         variant="h5"
         component="h3"
@@ -87,7 +87,7 @@ const Financing = ({ vehicle }) => {
         }}
       >
         Plan de Financiamiento
-      </Typography>
+      </Typography> */}
       {/* <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableBody>
