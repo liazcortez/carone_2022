@@ -76,7 +76,7 @@ export default function Service() {
         },
       },
     },
-   vin: {
+    vin: {
       value: "",
       step: 1,
       label: "VIN",
@@ -85,7 +85,7 @@ export default function Service() {
       },
     },
 
-   plate: {
+    plate: {
       value: "",
       step: 1,
       label: "PLaca",
@@ -185,6 +185,7 @@ export default function Service() {
       let services = await axios.post(`${dpxURL}/packages/aggregationV3`, {
         make: store.make._id,
       });
+
       let servicesArray = services?.data?.results?.data
         ? services.data.results.data
         : [];
@@ -361,8 +362,8 @@ export default function Service() {
             phone: "",
             email: "",
             date: "",
-            vin:"",
-            plate:""
+            vin: "",
+            plate: "",
           }}
           validationSchema={Yup.object().shape({
             store: Yup.string().max(255).required("Selecciona una Agencia"),
@@ -377,6 +378,10 @@ export default function Service() {
               .email("Ingresa Un Correo Valido")
               .max(255)
               .required("Ingresa tu Correo"),
+            date: Yup.date().min(
+              new Date(),
+              "No puedes crear una cita antes de hoy"
+            ),
           })}
           onSubmit={async (
             values,
@@ -385,6 +390,13 @@ export default function Service() {
             try {
               if (!service)
                 return setErrors({ submit: "Selecciona Un Servicio" });
+
+              if (
+                moment(values.date).format("H") < 8 ||
+                moment(values.date).format("H") > 21
+              ) {
+                return setErrors({date: "Selecciona un horario laboral" });
+              }
 
               let store = stores
                 .filter((store) => store.dpxStore === values.store)
@@ -407,7 +419,13 @@ export default function Service() {
                 (vehicle) => vehicle._id === values.vehicle
               )[0];
 
-              vehicle = {model:{...vehicle,name:vehicle.model}, make:vehicle.make, year:values.year, vin:values.vin,plate:values.plate};
+              vehicle = {
+                model: { ...vehicle, name: vehicle.model },
+                make: vehicle.make,
+                year: values.year,
+                vin: values.vin,
+                plate: values.plate,
+              };
               if (values.km !== "") vehicle.km = values.km;
 
               vehicle.appointments = [
@@ -454,6 +472,7 @@ export default function Service() {
             handleChange,
             handleSubmit,
             setFieldValue,
+            setFieldTouched,
             isSubmitting,
             touched,
             values,
@@ -490,6 +509,7 @@ export default function Service() {
                             <Stack spacing={3}>
                               <DateTimePicker
                                 label="Fecha de Servicio"
+                                disablePast
                                 renderInput={(params) => (
                                   <TextField
                                     {...params}
