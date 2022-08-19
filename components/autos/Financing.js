@@ -75,7 +75,7 @@ const Financing = ({ vehicle }) => {
 
   return (
     <>
-      <Typography
+      {/* <Typography
         align="center"
         variant="h5"
         component="h3"
@@ -87,8 +87,8 @@ const Financing = ({ vehicle }) => {
         }}
       >
         Plan de Financiamiento
-      </Typography>
-      <TableContainer component={Paper}>
+      </Typography> */}
+      {/* <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableBody>
             <TableRow>
@@ -184,11 +184,11 @@ const Financing = ({ vehicle }) => {
             </TableRow>
           </TableBody>
         </Table>
-      </TableContainer>
+      </TableContainer> */}
 
       <Box style={{textAlign:'center',display:'flex',flexDirection:'column'}}>
       <Form vehicle={vehicle} />
-        <Typography
+        {/* <Typography
           variant="caption"
           color="GrayText"
           gutterBottom
@@ -202,7 +202,7 @@ const Financing = ({ vehicle }) => {
             prefix={"$"}
           />{" "}
           MXN{" "}
-        </Typography>
+        </Typography> */}
         <Link className={classes.policy} href={"/politicas"}>
           <Typography variant="caption" color="GrayText">
             Términos y Condiciones
