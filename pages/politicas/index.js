@@ -261,7 +261,7 @@ const index = () => {
                   <strong>12 MESES SIN INTERESES</strong>
                 </p>
                 <p>
-                  Precio válido en operaciones con GMF para Chevrolet CAPTIVA
+                  Precio válido en operaciones con GMF para Chevrolet TRACKER
                   Paq.A LT 5 Pasajeros. El enganche de $172,072.18 representa el
                   35% del costo de la unidad. Con mensualidades desde $7,494.29
                   pesos, a un plazo de 60 meses, con tasa de 17.52%, comisión
@@ -324,7 +324,7 @@ const index = () => {
                   </strong>
                 </p>
                 <p>
-                  Vigencia del 1 al 30 de Junio. Aplica para los modelos MG5
+                  Vigencia del 1 al 31 de Agosto. Aplica para los modelos MG5
                   ELEGANCE AT 2022 tasa 12.99% + comisión por apertura 0.0% a 72
                   meses + Bono. CAT promedio 25.3% sin IVA. Enganche 50% a 72
                   pagos mensuales de $3,694.55, comisión por apertura del 2.0%,
@@ -343,7 +343,7 @@ const index = () => {
                   <strong> MG5 2022 + Lucky Seven</strong>
                 </p>
                 <p>
-                  Vigencia del 1 al 30 de Junio. Aplica para los modelos MG5
+                  Vigencia del 1 al 31 de Agosto. Aplica para los modelos MG5
                   2022. Desde 10% de enganche a 60 meses y hasta 72 meses con el
                   20% de enganche. Sujeto a aprobación de crédito con MG
                   Financial Services. Imágenes de uso ilustrativo. TOMAMOS TU
@@ -362,7 +362,7 @@ const index = () => {
                   </strong>
                 </p>
                 <p>
-                  Vigencia del 1 al 30 de Junio. Aplica para los modelos ZS
+                  Vigencia del 1 al 31 de Agosto. Aplica para los modelos ZS
                   EXCITE MT 2022 tasa 12.99% + comisión por apertura 2.0% a 72
                   meses + Bono. CAT promedio 22.3% sin IVA. Enganche 50% a 72
                   pagos mensuales de $3,974.68, comisión por apertura del 2.0%,
@@ -381,7 +381,7 @@ const index = () => {
                   <strong> MG ZS + Lucky Seven </strong>
                 </p>
                 <p>
-                  Vigencia del 1 al 30 de Junio. Aplica para los modelos ZS
+                  Vigencia del 1 al 31 de Agosto. Aplica para los modelos ZS
                   2022. Desde 10% de enganche a 60 meses y hasta 72 meses con el
                   20% de enganche. Sujeto a aprobación de crédito con MG
                   Financial Services. Imágenes de uso ilustrativo. TOMAMOS TU
@@ -400,7 +400,7 @@ const index = () => {
                   </strong>
                 </p>
                 <p>
-                  Vigencia del 1 al 30 de Junio. Aplica para los modelos HS
+                  Vigencia del 1 al 31 de Agosto. Aplica para los modelos HS
                   EXCITE DCT 2022 tasa 12.99% + comisión por apertura 2.0% a 72
                   meses + Bono. CAT promedio 20.6% sin IVA. Enganche 50% a 72
                   pagos mensuales de $6,335.24, comisión por apertura del 2.0%,
@@ -422,7 +422,7 @@ const index = () => {
                   </strong>
                 </p>
                 <p>
-                  Vigencia del 1 al 30 de Junio. Aplica para el modelo HS TROPHY
+                  Vigencia del 1 al 31 de Agosto. Aplica para el modelo HS TROPHY
                   2022. Desde 10% de enganche a 60 meses y hasta 72 meses con el
                   20% de enganche. Sujeto a aprobación de crédito con MG
                   Financial Services. Imágenes de uso ilustrativo. TOMAMOS TU
@@ -441,7 +441,7 @@ const index = () => {
                   </strong>
                 </p>
                 <p>
-                  Vigencia del 1 al 30 de Junio. Aplica para el modelo RX8
+                  Vigencia del 1 al 31 de Agosto. Aplica para el modelo RX8
                   ELEGANCE 2022. Desde 10% de enganche a 60 meses y hasta 72
                   meses con el 20% de enganche. Sujeto a aprobación de crédito
                   con MG Financial Services. Imágenes de uso ilustrativo.
@@ -461,7 +461,7 @@ const index = () => {
                   </strong>
                 </p>
                 <p>
-                  Vigencia del 1 al 30 de Junio. Aplica para el modelo MG GT
+                  Vigencia del 1 al 31 de Agosto. Aplica para el modelo MG GT
                   2022. Desde 10% de enganche a 60 meses y hasta 72 meses con el
                   20% de enganche. Sujeto a aprobación de crédito con MG
                   Financial Services. Imágenes de uso ilustrativo. TOMAMOS TU
