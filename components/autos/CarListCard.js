@@ -125,13 +125,13 @@ const CarlistCard = ({ vehicle, setDataList }) => {
       <CardContent>
         {vehicle ? (
           <>
-            <Link href={`/marcas/${vehicle && vehicle.make && vehicle.make.name}`}>
-              <a style={{ textDecoration: "none", color: "black" }}>
+            {/* <Link href={`/marcas/${vehicle && vehicle.make && vehicle.make.name}`}> */}
+              {/* <a style={{ textDecoration: "none", color: "black" }}> */}
                 <Typography sx={{ textTransform: "uppercase", color: "#505050"}}>
                   {(vehicle && vehicle.make && vehicle.make.name).replace("-", " ")}{" "}
                 </Typography>
-              </a>
-            </Link>
+              {/* </a> */}
+            {/* </Link> */}
             <Link href={`/autos/${vehicle && vehicle.make && vehicle.make.name}/${vehicle && vehicle.slug}`}>
               <Box >
                 <a style={{ textDecoration: "none", color: "black" }}>
