@@ -44,6 +44,7 @@ const index = () => {
               </div>
             </div>
           </div>
+
           <div class="container">
             <div class="row">
               <div class="col-md-12">
@@ -157,6 +158,88 @@ const index = () => {
               </div>
             </div>
           </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="text-center">Chevrolet Universidad</h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>ONIX 2023</strong>
+                </p>
+                <p>
+                  <strong>MENSUALIDADES DESDE $4,999.00</strong>
+                </p>
+                <p>
+                  <strong>0% CXA, 1 AÑO DE SEGURO GRATIS Y HASTA 12 MSI</strong>
+                </p>
+                <p>
+                Precio válido en operaciones con GMF para Chevrolet ONIX 2023 Paq. PREMIER El enganche de $150,000 representa el 35% del costo de la unidad. Con mensualidades desde $5,096.32 pesos, a un plazo de 72 meses, con tasa de 16.46%, con anualidades de $20,000, 0% de CXA, 1 año de seguro gratis y hasta 12 MSI. Promoción válida hasta 30 de septiembre 2022. Las fotografías son de uso ilustrativo.calculado al 01 de Septiembre de 2022 para fines informativos y de comparación. Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>AVEO 2022</strong>
+                </p>
+                <p>
+                  <strong>MENSUALIDADES DESDE $3,999.00</strong>
+                  <strnog>0% DE CXA, 1 AÑO DE SEGURO GRATIS Y HASTA 6 MSI</strnog>
+                </p>
+                <p>
+                Precio válido en operaciones con GMF para Chevrolet AVEO 2022 Paq. A LS/ TM El enganche de $100,000 representa el 37.61% del costo de la unidad. Con mensualidades desde $3,924.87 pesos, a un plazo de 60 meses, con tasa de 17.44%, con anualidades de $15,000 pesos, 0% de CXA, 1 año de seguro gratis y hasta 6MSI. Promoción válida hasta 30 de septiembre 2022. Las fotografías son de uso ilustrativo.calculado al 01 de Septiembre de 2022 para fines informativos y de comparación. Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>CAPTIVA 2023</strong>
+                </p>
+                <p>
+                  <strong>RENTA MENSUAL DE $7,299.00 EN PLAN DE LEASING O HASTA 6 MSI</strong>
+                </p>
+                <p>
+                  <strong>MTTO. 6MIL KM INCLUIDO</strong>
+                </p>
+                <p>
+                Precio válido en operaciones con GMF Leasing para Chevrolet Captiva 2023 PAQ A/LT 5 . Inversión inicial de $153,174.05 y rentas desde $7,343.09 a un plazo de 48 meses ó 6 meses sin intereses.Con un factor de arrendamiento del 14.49%, valor residual aproximado sin IVA de $176,000 y seguro financiado. Al finalizar el término se realiza el pago total de la unidad o bien se puede realizar un refinanciamiento, si se cumple con los requisitos señalados por planta. Calculado al 1 de septiembre de 2022. Promoción válida hasta el 30 de septiembre de 2022. Las fotografías son de uso ilustrativo. Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>TRACKER 2023</strong>
+                </p>
+                <p>
+                  <strong>RENTA MENSUAL DE $6,499.00 EN PLAN DE LEASING O HASTA 6 MSI</strong>
+                </p>
+                <p>
+                Precio válido en operaciones con GMF Leasing para Chevrolet Tracker 2023 PAQ B /LS/TA . Inversión inicial de $151,710.73 y rentas desde $6,544.66 a un plazo de 48 meses ó 6 meses sin intereses.Con un factor de arrendamiento del 15.56%, valor residual aproximado sin IVA de $160,000 y seguro financiado. Al finalizar el término se realiza el pago total de la unidad o bien se puede realizar un refinanciamiento, si se cumple con los requisitos señalados por planta. Calculado al 1 de septiembre de 2022. Promoción válida hasta el 30 de septiembre de 2022. Las fotografías son de uso ilustrativo. Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>SUBURBAN 2022</strong>
+                </p>
+                <p>
+                  <strong>RENTA MENSUAL DE $24,999.00 EN PLAN DE LEASING</strong>
+                  <strong>BONO DE HASTA $85,000 Y AÑO DE SEGURO GRATIS</strong>
+                </p>
+                <p>
+                Precio válido en operaciones con GMF Leasing para Chevrolet Suburban 2022 PAQ G HIGH. Inversión inicial de $710,431.11 y rentas desde $25,038.45 a un plazo de 48 meses .Con un factor de arrendamiento del 14.49%, valor residual aproximado sin IVA de $776,000. Bono de lealtad y conquista de hasta $85,0000 pesos y 1 año de seguro gratis . Al finalizar el término se realiza el pago total de la unidad o bien se puede realizar un refinanciamiento, si se cumple con los requisitos señalados por planta. Calculado al 1 de septiembre de 2022. Promoción válida hasta el 30 de septiembre de 2022. Las fotografías son de uso ilustrativo. Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div class="container">
             <div class="row">
               <div class="col-md-12">
@@ -164,6 +247,9 @@ const index = () => {
               </div>
             </div>
           </div>
+
+
+          
           <div class="container">
             <div class="row">
               <div class="col-md-12">
@@ -174,106 +260,54 @@ const index = () => {
                   <strong>ENGANCHE DESDE $30,390.00</strong>
                 </p>
                 <p>
-                  <strong>AÑO DE SEGURO GRATIS</strong>
+                  <strong>12 MESES DE SEGURO GRATIS</strong>
                 </p>
                 <p>
-                  Precio válido en operaciones con GMF para Chevrolet ONIX Paq.
-                  A LS/TM El enganche de $30,390.00 representa el 10% del costo
-                  de la unidad. Con mensualidades desde $9,469.58 pesos, a un
-                  plazo de 60 meses, con tasa de 20.14%, comisión por apertura
-                  de $9,860.04 pesos. Promoción válida hasta 31 de agosto 2022.
-                  Las fotografías son de uso ilustrativo.calculado al 02 de
-                  Agosto de 2022 para fines informativos y de comparación.
-                  Aplican términos y condiciones. Ninguna de las ofertas aplica
-                  con otras promociones ni en la compra de vehículos de
-                  flotilla. Para mayor información sobre los planes de
-                  financiamiento, requisitos de contratación y comisiones con su
-                  asesor Chevrolet Car One.
+                Precio válido en operaciones con GMF para Chevrolet Onix 2023 Paq. A LS/TM El enganche de $30,390.00 representa el 10% del costo de la unidad. Con mensualidades desde $8,417 pesos, a un plazo de 60 meses, con tasa de 20.14%, comisión por apertura de $9543.38 pesos y 1 año de seguro gratis. Promoción válida hasta 30 de septiembre 2022. Las fotografías son de uso ilustrativo.calculado al 1 de septiembre de 2022 para fines informativos y de comparación. Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
                 </p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
                 <p>
-                  <strong>CAVALIER 2022</strong>
+                  <strong>AVEO 2022</strong>
                 </p>
                 <p>
                   <strong>
-                    DESEMBOLSO INICIAL DESDE $23,099 EN PLAN DE ARRENDAMIENTO
+                  ENGANCHE DESDE $26,590.00
                   </strong>
                 </p>
                 <p>
-                  <strong>AÑO DE SEGURO GRATIS</strong>
+                  <strong>0% CXA y 1 AÑO DE SEGURO GRATIS </strong>
                 </p>
                 <p>
-                  Precio válido en operaciones con GMF para Chevrolet Cavalier
-                  Turbo Paq. A LS El enganche de $40,990.00 representa el 10%
-                  del costo de la unidad. Con mensualidades desde $12,344.97
-                  pesos, a un plazo de 60 meses, con tasa de 18.65%, comisión
-                  por apertura de $13,279.20 pesos. Promoción válida hasta 31 de
-                  agosto 2022. Las fotografías son de uso ilustrativo.calculado
-                  al 02 de Agosto de 2022 para fines informativos y de
-                  comparación. Aplican términos y condiciones. Ninguna de las
-                  ofertas aplica con otras promociones ni en la compra de
-                  vehículos de flotilla. Para mayor información sobre los planes
-                  de financiamiento, requisitos de contratación y comisiones con
-                  su asesor Chevrolet Car One.
+                Precio válido en operaciones con GMF para Chevrolet Aveo 2022 Paq. A LS/TM El enganche de $26,590.00 representa el 10% del costo de la unidad. Con mensualidades desde $7,116.00 pesos, a un plazo de 60 meses, con tasa de 20.14%, 0% comisión por apertura y 1 año de seguro gratis. Promoción válida hasta 30 de septiembre 2022. Las fotografías son de uso ilustrativo.calculado al 1 de septiembre de 2022 para fines informativos y de comparación. Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
                 </p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
                 <p>
-                  <strong>GROOVE 2022</strong>
+                  <strong>GROOVE 2023</strong>
                 </p>
                 <p>
-                  <strong>MENSUALIDADES DESDE $5,679.00</strong>
+                  <strong>MENSUALIDADES DESDE $8,699.00</strong>
                 </p>
                 <p>
-                  <strong>MTTO. 6MIL KM INCLUIDO</strong>
-                </p>
-                <p>
-                  Precio válido en operaciones con GMF para Chevrolet GROOVE
-                  Paq.B LT/TA. El enganche de $144,830.42 representa el 35% del
-                  costo de la unidad. Con mensualidades desde $5,681.79 pesos, a
-                  un plazo de 60 meses, con tasa de 17.49%, comisión por
-                  apertura de $8,597.62 pesos y anualidades de $25,000 pesos.
-                  Promoción válida hasta 31 de agosto 2022. Las fotografías son
-                  de uso ilustrativo.calculado al 02 de agosto de 2022 para
-                  fines informativos y de comparación. Aplican términos y
-                  condiciones. Ninguna de las ofertas aplica con otras
-                  promociones ni en la compra de vehículos de flotilla. Para
-                  mayor información sobre los planes de financiamiento,
-                  requisitos de contratación y comisiones con su asesor
-                  Chevrolet Car One.
+                Precio válido en operaciones con GMF para Chevrolet Groove 2023 Paq. C PREMIER El enganche de $156,340.89 representa el 35% del costo de la unidad. Con mensualidades desde $7,912.97 pesos, a un plazo de 60 meses, con tasa de 17.49%, comisión por apertura de $9,266.20 pesos . Promoción válida hasta 30 de septiembre 2022. Las fotografías son de uso ilustrativo.calculado al 1 de septiembre de 2022 para fines informativos y de comparación. Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
                 </p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
                 <p>
-                  <strong>TRACKER 2023</strong>
+                  <strong>CAPTIVA 2023</strong>
                 </p>
                 <p>
-                  <strong>MENSUALIDAD DESDE $8,670.00</strong>
+                  <strong>MENSUALIDAD DESDE $8,726.00</strong>
                 </p>
                 <p>
-                  <strong>12 MESES SIN INTERESES</strong>
-                </p>
-                <p>
-                  Precio válido en operaciones con GMF para Chevrolet TRACKER
-                  Paq.A LT 5 Pasajeros. El enganche de $172,072.18 representa el
-                  35% del costo de la unidad. Con mensualidades desde $7,494.29
-                  pesos, a un plazo de 60 meses, con tasa de 17.52%, comisión
-                  por apertura de $10,428.10 pesos con anualidades de $25,000
-                  pesos. Promoción válida hasta 31 de agosto 2022. Las
-                  fotografías son de uso ilustrativo.calculado al 02 de agosto
-                  de 2022 para fines informativos y de comparación. Aplican
-                  términos y condiciones. Ninguna de las ofertas aplica con
-                  otras promociones ni en la compra de vehículos de flotilla.
-                  Para mayor información sobre los planes de financiamiento,
-                  requisitos de contratación y comisiones con su asesor
-                  Chevrolet Car One.
+                Precio válido en operaciones con GMF para Chevrolet Captiva 2023 Paq. A LT/5 El enganche de $171,574.88 representa el 35% del costo de la unidad. Con mensualidades desde $8,726.20 pesos, a un plazo de 60 meses, con tasa de 17.49%, comisión por apertura de $10,127 pesos. Promoción válida hasta 30 de septiembre 2022. Las fotografías son de uso ilustrativo.calculado al 1 de septiembre de 2022 para fines informativos y de comparación. Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
                 </p>
               </div>
             </div>
@@ -283,29 +317,28 @@ const index = () => {
                   <strong>TORNADO VAN</strong>
                 </p>
                 <p>
-                  <strong>DESEMBOLSO INICIAL DESDE $44,499.00</strong>
+                  <strong>RENTA MENSUAL DE $6,999 EN PLAN DE LEASING</strong>
                 </p>
                 <p>
-                  <strong>MTTO. 6MIL KM INCLUIDO</strong>
-                </p>
-                <p>
-                  Precio válido en operaciones con GMF Leasing para Chevrolet
-                  TORNADO VAN PAQ.B CARGO 2023. Inversión inicial de $44,562.74
-                  y rentas desde $7,766.37 a un plazo de 48 meses, con un valor
-                  residual aproximado sin IVA de $75,000 y seguro financiado. Al
-                  finalizar el término se realiza el pago total de la unidad o
-                  bien se puede realizar un refinanciamiento, si se cumple con
-                  los requisitos señalados por planta. Calculado al 2 de agosto
-                  de 2022. Promoción válida hasta el 31 de agosto de 2022. Las
-                  fotografías son de uso ilustrativo. Aplican términos y
-                  condiciones. Ninguna de las ofertas aplica con otras
-                  promociones ni en la compra de vehículos de flotilla. Para
-                  mayor información sobre los planes de financiamiento,
-                  requisitos de contratación y comisiones con su asesor
-                  Chevrolet Car One
+                Precio válido en operaciones con GMF Leasing para Chevrolet Tornado Van 2023 PAQ B CARGO LS. Inversión inicial de $55,712.14 y rentas desde $6,993.07 a un plazo de 48 meses.Con un factor de arrendamiento del 17.74%, valor residual aproximado sin IVA de $75000 y seguro anual de contado. Al finalizar el término se realiza el pago total de la unidad o bien se puede realizar un refinanciamiento, si se cumple con los requisitos señalados por planta. Calculado al 1 de septiembre de 2022. Promoción válida hasta el 30 de septiembre de 2022. Las fotografías son de uso ilustrativo. Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
                 </p>
               </div>
             </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  <strong>TRACKER 2023</strong>
+                </p>
+                <p>
+                  <strong>MENSUALIDAD DESDE $8,149.00</strong>
+                </p>
+                <p>
+                Precio válido en operaciones con GMF para Chevrolet Tracker 2023 Paq. A LS/MT El enganche de $127,643.75 representa el 30% del costo de la unidad. Con mensualidades desde $8,153.11 pesos, a un plazo de 60 meses, con tasa de 18.49%, comisión por apertura de $9,404 pesos. Promoción válida hasta 30 de septiembre 2022. Las fotografías son de uso ilustrativo.calculado al 1 de septiembre de 2022 para fines informativos y de comparación. Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
         <div class="container">
