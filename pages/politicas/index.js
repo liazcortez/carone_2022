@@ -74,7 +74,7 @@ const index = () => {
                 </p>
                 <p>
                   <strong>MENSUALIDADES DESDE $3,999.00</strong>
-                  <strnog>0% DE CXA, 1 AÑO DE SEGURO GRATIS Y HASTA 6 MSI</strnog>
+                  <strong>0% DE CXA, 1 AÑO DE SEGURO GRATIS Y HASTA 6 MSI</strong>
                 </p>
                 <p>
                 Precio válido en operaciones con GMF para Chevrolet AVEO 2022 Paq. A LS/ TM El enganche de $100,000 representa el 37.61% del costo de la unidad. Con mensualidades desde $3,924.87 pesos, a un plazo de 60 meses, con tasa de 17.44%, con anualidades de $15,000 pesos, 0% de CXA, 1 año de seguro gratis y hasta 6MSI. Promoción válida hasta 30 de septiembre 2022. Las fotografías son de uso ilustrativo.calculado al 01 de Septiembre de 2022 para fines informativos y de comparación. Aplican términos y condiciones. Ninguna de las ofertas aplica con otras promociones ni en la compra de vehículos de flotilla. Para mayor información sobre los planes de financiamiento, requisitos de contratación y comisiones con su asesor Chevrolet Car One.
