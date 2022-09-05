@@ -7,8 +7,6 @@ if (process.env.NODE_ENV === "production") {
   baseURL = "https://apicarone.com/api/v1";
   // baseURL = "http://localhost:5000/api/v1";
 
-  // dpx url for devs
-  baseURL = "http://localhost:5000/api/v1";
 }
 export { baseURL, dpxURL };
 
