@@ -17,11 +17,18 @@ const index = () => {
   return (
     <Container maxWidth="lg">
       {
-        policies.map(item => 
-          <Fragment>
-            <Typography variant='h6'>{CapitalizeV2(item.name)}</Typography>
-            {parse(item.policy)}
-          </Fragment>
+        policies.map(item => {
+
+          if(item.policy && item.policy !== '<p></p>'){
+            return (
+              <Fragment>
+                <Typography variant='h6'>{CapitalizeV2(item.name)}</Typography>
+                {parse(item.policy)}
+              </Fragment>
+            )
+          }
+
+        }
         )
       }
     </Container>
