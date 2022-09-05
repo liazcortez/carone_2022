@@ -2,11 +2,19 @@ import {
   GET_STORES,
   SET_ERROR,
   CLEAR_STATE,
-  SET_LOADING
+  SET_LOADING,
+  GET_POLICIES
 } from '../types';
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case GET_POLICIES:
+      return {
+        ...state,
+        policies: action.payload,
+        loading: false,
+        error: null
+      };
     case GET_STORES:
       return {
         ...state,

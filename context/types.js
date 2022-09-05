@@ -44,3 +44,4 @@ export const GET_MEDIAS_MAIN_BANNER = 'GET_MEDIAS_MAIN_BANNER';
 
 // Stores
 export const GET_STORES = 'GET_STORES';
+export const GET_POLICIES = 'GET_POLICIES';

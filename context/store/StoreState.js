@@ -6,13 +6,15 @@ import {
   GET_STORES, 
   SET_ERROR, 
   CLEAR_STATE, 
-  SET_LOADING 
+  SET_LOADING,
+  GET_POLICIES
 } from '../types';
 
 const StoreState = props => {
   const initialState = {
     stores: [],
     loading: false,
+    policies: [],
     error: null
   };
 
@@ -30,6 +32,16 @@ const StoreState = props => {
     }
   };
 
+  const getPolicies = async () => {
+    setLoading();
+    try {
+      const res = await api.get(`/stores/policies`);
+      dispatch({ type: GET_POLICIES, payload: res.data.data });
+    } catch (err) {
+      dispatch({ type: SET_ERROR, payload: err})
+    }
+  };
+
   //Clear State
   const clearState = () => dispatch({ type: CLEAR_STATE });
 
@@ -42,6 +54,8 @@ const StoreState = props => {
         loading: state.loading,
         stores: state.stores,
         error: state.error,
+        policies: state.policies,
+        getPolicies,
         getStores,
         setLoading, 
         clearState
