@@ -16,6 +16,7 @@ import AlertState from "../context/alert/AlertState";
 import ApplicantState from "../context/applicant/ApplicantState";
 import StoreState from "../context/store/StoreState";
 import PreownedState from "../context/preowned/PreownedState";
+import CampaignState from "../context/campaign/CampaignState";
 
 import '../styles/styles.css'
 
@@ -52,11 +53,13 @@ export default function MyApp(props) {
                       <MakeState>
                         <JobState>
                           <CategoryState>
+                            <CampaignState>
                             <MediaState>
                               <SnackbarProvider dense maxSnack={3}>
                                 <Component {...pageProps} />
                               </SnackbarProvider>
                             </MediaState>
+                            </CampaignState>
                           </CategoryState>
                         </JobState>
                       </MakeState>
