@@ -25,12 +25,20 @@ const HandleTableCellData = ({row, tableKey, index, link}) => {
     avatar:(row,key,ObjKeys)=><Avatar alt={ ObjExist(row,[key.alt],'N/A')} src={ ObjExist(row,ObjKeys,'- - -')} />,
     date:(row,key,ObjKeys)=>moment(ObjExist(row,ObjKeys,'- - -')).format('DD MMMM YYYY'),
     boolean:(row,key,ObjKeys)=>ObjExist(row,ObjKeys) === 1 ? <Chip label={ObjExist(key,['BooleanValues','Active'],'Active')} sx={classes.success} />:<Chip  label={ObjExist(key,['BooleanValues','Inactive'],'Inactive')} color="error" />,
-    link: (row, key, ObjKeys, link) => (false
+    link: (row, key, ObjKeys, link) => 
+    (false
       // || (user && user.permissions && !ObjExist(user, ["permissions",router.asPath.split("/")[1], "u"], true))
       )?
     ObjExist(row, ObjKeys, "- - -"):
-    <Link sx={{ cursor: 'pointer',textDecoration:'none',color:'black' }} href={`/${key.link}/${ObjExist(row, ObjKeys, "- - -")}`}>{ObjExist(row, ObjKeys, "- - -")}</Link> 
+    <Link sx={{ cursor: 'pointer',textDecoration:'none',color:'black' }} href={`/${key.link}/${ObjExist(row, ObjKeys, "null")}`}>{ObjExist(row, ObjKeys, "- - -")}</Link> 
     ,
+
+    linkID: (row, key, ObjKeys, link) => 
+    (false
+      // || (user && user.permissions && !ObjExist(user, ["permissions",router.asPath.split("/")[1], "u"], true))
+      )?
+    ObjExist(row, ObjKeys, "- - -"):
+    <Link sx={{ cursor: 'pointer',textDecoration:'none',color:'black' }} href={`/${key.link}/${ObjExist(row,['_id'], "null")}`}>{ObjExist(row, ObjKeys, "- - -")}</Link> ,
     redirect: (row, key, ObjKeys, link) => <Link target="_blank" rel="noopener" href={key.link} style={{textDecoration: 'none'}}>
     <Typography style={{textTransform:'initial'}} variant="body2" color="textSecondary">
      {ObjExist(key,['link'], "- - -")}

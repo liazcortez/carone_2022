@@ -80,8 +80,8 @@ export default function List({ tableKeys = [], getData, data = [], count, userPa
 
   const handleTableCellHeader = (key) => (
     <TableCell style={{ textTransform: "capitalize" }} key={key.name}>
-      <Box display="flex" justifyContent="start" alignItems="center">
-{key.label ? key.label : key.name}
+      <Box display="flex" justifyContent="start" alignItems="center" sx={{color:'rgb(103, 119, 136)',textTransform:'uppercase'}}>
+        {key.label ? key.label : key.name}
         {key.sort && (
           <IconButton
             color="primary"
@@ -146,7 +146,7 @@ export default function List({ tableKeys = [], getData, data = [], count, userPa
     return (
       <TableRow
         key={row._id}
-        sx={{ "&:last-child td, &:last-child th": { border: 0 },height:'89px'}}
+        sx={{ "&:last-child td, &:last-child th": { border: 0 },height:'100px'}}
       >
         {tableKeys.map((tableKey, index) => (
           <HandleTableCellData

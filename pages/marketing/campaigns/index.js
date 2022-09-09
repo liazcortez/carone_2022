@@ -5,15 +5,20 @@ import CustomList from '../../../components/CustomList'
 import { Container } from '@mui/system';
 
 const tableKeys =[
-	{name:"_id",sort:'_id',label:'ID', type: 'link', link: 'marketing/campaigns'},
-  {name:'make.name',label:'make',},
-	{name:"objetive", label:'Objetive'},
-  {name:"startDate",sort:'startDate',label:'Start Date', type: 'date'},
-	{name:"endDate",sort:'endDate',label:'End Date', type: 'date'},
+	// {name:"_id",label:'ID', type: 'link', link: 'marketing/campaigns'},
+  {name:'title',label:'Titulo',type:'linkID',link: 'marketing/campaigns'},
+  {name:'store.make.name',label:'Marca',},
+  {name:'store.name',label:'Agencia',},
+	{name:"objetive", label:'Objetivo'},
+	{name:"design.image",type:'avatar', label:'design'},
+	{name:"design.exampleImage",type:'avatar', label:'example'},
+  // {name:"startDate",sort:'startDate',label:'Start Date', type: 'date'},
+	// {name:"endDate",sort:'endDate',label:'End Date', type: 'date'},
 	{name:"budget",label:'Budget', type: 'money'},
 	{name:"segmentation.name",label:'Segmentation'},
 	{name:"design.name",label:'Design'},
-  {name:"createdAt",sort:'createdAt',label:'Created At', type: 'date'},
+	{name:"user.image",type:'avatar', label:'Usuario'},
+  {name:"createdAt",label:'Created At', type: 'date'},
 ];
 
 const index = () => {
