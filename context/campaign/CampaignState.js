@@ -67,11 +67,11 @@ const CampaignState = props => {
  
 
   //Get Campaigns
-  const getCampaigns = async () => {
+  const getCampaigns = async (params) => {
     clearState();
     setLoading();
     try {
-      const res = await api.post(`/campaigns/getCampaignsV3`);
+      const res = await api.post(`/campaigns/getCampaignsV3`,params);
 
       dispatch({ type: GET_CAMPAIGNS, payload: res.data.results.data });
     } catch (err) {

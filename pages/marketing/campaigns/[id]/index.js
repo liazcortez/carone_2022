@@ -7,6 +7,8 @@ import {
   Box,
   Card,
   TextField,
+  CardMedia,
+  CardHeader,
 } from "@mui/material";
 
 import api, { baseURL } from "../../../../api/api";
@@ -76,14 +78,29 @@ const Detail = ({ campaignProp }) => {
           </Grid>
         </Grid>
         <Grid item xs={5}>
-          <Grid container>
-		{
-		campaign?.design?.mediaType === 'image'&& 
-            <Grid item>
-		{/* poner imagen */}
-	    </Grid>
-		}
-            <Grid item>
+          <Grid container spacing={2}>
+            {campaign?.design?.mediaType === "image" && campaign?.design?.image !=='' && (
+              <Grid item xs={12}>
+                {/* poner imagen */}
+                <Card>
+                  <CardHeader
+                    title={'Diseño'}
+                    sx={{
+                      color: "rgb(103, 119, 136)",
+                      textTransform: "uppercase",
+                      backgroundColor: "rgb(247, 250, 255)",
+                    }}
+                  />
+                  <CardMedia
+                    component="img"
+                    height="200"
+                    image={campaign?.design.image}
+                    alt="design"
+                  />
+                </Card>
+              </Grid>
+            )}
+            <Grid item xs={12}>
               <Info
                 {...{
                   campaign,
