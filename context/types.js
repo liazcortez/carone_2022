@@ -45,3 +45,10 @@ export const GET_MEDIAS_MAIN_BANNER = 'GET_MEDIAS_MAIN_BANNER';
 // Stores
 export const GET_STORES = 'GET_STORES';
 export const GET_POLICIES = 'GET_POLICIES';
+
+// Campaigns
+export const GET_CAMPAIGNS = 'GET_CAMPAIGNS'
+export const GET_CAMPAIGN = 'GET_CAMPAIGN'
+export const DELETE_CAMPAIGN  = 'DELETE_CAMPAIGN'
+export const CREATE_CAMPAIGN = 'CREATE_CAMPAIGN'
+export const UPDATE_CAMPAIGN = 'UPDATE_CAMPAIGN'
