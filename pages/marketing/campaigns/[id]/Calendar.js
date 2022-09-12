@@ -22,13 +22,13 @@ const Calendar = ({campaign}) => {
   const [value, setValue] = React.useState([null, null]);
   return (
           <Box sx={classes.card}>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
               <StaticDatePicker
                 value={campaign.startDate}
                 disabled
                 disableMaskedInput
               />
-            </LocalizationProvider>
+            </LocalizationProvider> */}
           </Box>
   );
 };
