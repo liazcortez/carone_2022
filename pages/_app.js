@@ -18,6 +18,10 @@ import StoreState from "../context/store/StoreState";
 import PreownedState from "../context/preowned/PreownedState";
 import CampaignState from "../context/campaign/CampaignState";
 
+import "@fullcalendar/common/main.css";
+import "@fullcalendar/daygrid/main.css";
+import "@fullcalendar/timegrid/main.css";
+
 import '../styles/styles.css'
 
 export default function MyApp(props) {
