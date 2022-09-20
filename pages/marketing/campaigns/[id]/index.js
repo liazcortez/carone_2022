@@ -79,7 +79,7 @@ const Detail = ({ campaignProp }) => {
         </Grid>
         <Grid item xs={5}>
           <Grid container spacing={2}>
-            {campaign?.design?.mediaType === "image" && campaign?.design?.image !=='' && (
+            {campaign?.design?.mediaType === "image" && campaign?.design?.image && (
               <Grid item xs={12}>
                 {/* poner imagen */}
                 <Card>
@@ -94,7 +94,7 @@ const Detail = ({ campaignProp }) => {
                   <CardMedia
                     component="img"
                     height="200"
-                    image={campaign?.design.image}
+                    image={campaign?.design?.image}
                     alt="design"
                   />
                 </Card>
