@@ -20,7 +20,7 @@ export default function Histllamadas() {
          
   
             {[0, 1, 2].map((item) => (
-              <ListItem key={`item-${sectionId}-${item}`} style={{margin:"0px", padding:"0px"}} >
+              <ListItem key={`item-${sectionId}-${item}`} style={{margin:"0px", padding:"0px 15px 0px 15px"}} >
                 <ListItemAvatar>
           <Avatar style={{backgroundColor:"#D42113"}}>
           <PhoneCallbackIcon style={{color:"#FFFFFF"}}/>
