@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import Tabs from './Tabs'
 import Teclado from './Teclado'
+import Detalles from './Detalles'
+import Historial from './Historial'
+import Dethistorial from './Dethistorial'
+import Mensajes from './Mensajes'
+import Detmensajes from './Detmensajes'
 
 const Index = () => {
 
@@ -26,7 +31,9 @@ const Index = () => {
     },
     content: {
       backgroundColor: '#fff', 
-      width: '60%'
+      width: '60%',
+      padding:"0px",
+      margin:"0px"
     },
     tabs: {
       display: 'flex',
@@ -44,8 +51,14 @@ const Index = () => {
         <Box display='flex' sx={styles.secondaryContainer}>
           <Box sx={styles.panel} p={1}>
             { value === 0 && <Teclado /> }
+            { value === 1 && <Historial /> }
+            { value === 2 && <Mensajes /> }
           </Box>
-          <Box sx={styles.content} p={1}>Contenido 3</Box>
+          <Box sx={styles.content} p={1}>
+            {value === 0 && <Detalles/>}
+            { value === 1 && <Dethistorial /> }
+            { value === 2 && <Detmensajes /> }
+            </Box>
         </Box>
       </Box>
 

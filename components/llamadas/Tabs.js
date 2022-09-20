@@ -26,6 +26,7 @@ const Tabcom = ({ value = 0, setValue = () => {} }) => {
             value={value}
             selectionFollowsFocus
             onChange={handleChange}
+            style={{color:"#FFFFFF"}}
         >
             <Tab icon={<AppsIcon style={{fontSize:"15px", color:"#FFFFFF"}}/>} label="Marcador" sx={styles.tab} />
             <Tab icon={<AccessTimeIcon style={{fontSize:"15px", color:"#FFFFFF"}}/>} label="Recientes" sx={styles.tab} />
