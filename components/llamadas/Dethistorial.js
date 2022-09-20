@@ -5,6 +5,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
+import {IconButton, Button } from '@mui/material';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
@@ -19,6 +20,20 @@ import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import StopCircleIcon from '@mui/icons-material/StopCircle';
 export default function Dethistorial() {
+    const style ={
+        large: {
+            width: "180px",
+            height: "180px",
+          },
+          button: {
+            width: 54,
+            height: 54,
+            backgroundColor:"#eceaf7",
+            borderRadius: '50%',
+            display: 'flex',
+            flexDirection: 'column',
+          }
+    }
   return (
     <Box style={{ width: '100%', minHeight:'100%', display:"flex", flexDirection:"column", margin:"0px", padding:"0px"}}>
     <Card style={{ width: '100%', minHeight:'100%', display:"flex", flexDirection:"column", margin:"0px", padding:"0px"}} display="flex" justifyContent="center" elevation={0}>
@@ -35,10 +50,10 @@ export default function Dethistorial() {
         }
         />        
         <CardContent style={{ borderRadius:"0px", margin:"0px", padding:"0px", width:"100%", height:"100%", display:"flex", flexDirection:"column", alignItems:"center"}}>
-            <Box style={{ borderRadius:"20px", margin:"10px 0px 0px 0px", padding:"25px", width:"80%", height:"100%", display:"flex", flexDirection:"column", backgroundColor:"#f8f7ff", justifyContent:"space-around"}}>
-                <Box style={{ margin:"0px", padding:"0px", borderRadius:"10px",  width:"100%", height:"100%", display:"flex"}}>
+            <Box style={{ borderRadius:"20px", margin:"10px 0px 0px 0px", padding:"0px", width:"90%", height:"100%", display:"flex", flexDirection:"column", backgroundColor:"#f8f7ff", justifyContent:"space-around"}}>
+                <Box style={{ margin:"0px", padding:"25px", borderRadius:"10px",  width:"100%", height:"100%", display:"flex", alignItems:"center"}}>
                     
-                    <Avatar sx={{width:80,height:80}}  src='https://i.pinimg.com/736x/59/61/27/596127c2ca417ea825fa7de07b7750ff.jpg'/>
+                    <Avatar src='https://i.pinimg.com/736x/59/61/27/596127c2ca417ea825fa7de07b7750ff.jpg' style={{width:"80px",height:"80px"}}/>
                     
                     
                     <Box style={{margin:"0px", padding:"0px", borderRadius:"0px", margin:"0px", padding:"0px", width:"100%", height:"100%", display:"flex", flexDirection:"column", alignItems:"center"}}>
@@ -46,11 +61,15 @@ export default function Dethistorial() {
                         <Typography style={{color:"#969bac", fontSize:"11px"}}>Te marco hace unas horas</Typography>
                     </Box>
                     <Box style={{margin:"0px", padding:"0px", borderRadius:"0px", margin:"0px", padding:"0px", width:"50%", height:"100%", display:"flex", alignItems:"center", justifyContent:"space-around"}}>
-                    <MicNoneIcon style={{color:"#969bac", fontSize:"26px"}}/>
-                    <RestoreIcon style={{color:"#969bac", fontSize:"26px"}}/>
-                    <Avatar style={{backgroundColor:"#51a16d"}}>
-                    <PhoneIcon style={{color:"#FFFFFF"}}/>
-                    </Avatar>
+                    <Button style={{borderRadius:"50%"}}>
+                        <MicNoneIcon style={{color:"#969bac", fontSize:"26px"}}/>
+                    </Button>
+                    <Button style={{borderRadius:"50%"}}>
+                        <RestoreIcon style={{color:"#969bac", fontSize:"26px"}}/>
+                    </Button>
+                    <Button sx={style.button} style={{backgroundColor: "#51a16d", borderRadius:"50%"}}>
+                        <PhoneIcon style={{color:"#FFFFFF"}}/>
+                    </Button>
                     </Box>
                 </Box>
             </Box>
@@ -65,28 +84,28 @@ export default function Dethistorial() {
                 <Box style={{width:"100%",height:"100%", alignItems:"center", display:"flex"}}><SubdirectoryArrowRightIcon style={{color:"#969bac", fontSize:"16px"}}/> <Typography style={{color:"#969bac", fontSize:"12px"}}>Duracion de llamada 1 min</Typography></Box>
                 </Box>
             </Box>
-            <Box style={{width:"95%",height:"100%", margin:"23px 0px 10px 0px",padding:"0px", minHeight:"100%"}}>
+            <Box style={{width:"95%",height:"100%", margin:"13px 0px 10px 0px",padding:"0px", minHeight:"100%"}}>
             <Typography style={{color:"#213881", textAlign:"left"}}variant="h5">Detalles de Cliente</Typography>
             </Box>
-            <Box style={{ margin:"0px 0px 15px 0px", borderRadius:"0px",  padding:"5px", width:"80%", height:"100%", display:"flex", flexDirection:"column", justifyContent:"space-around"}}>
+           {/* <Box style={{ margin:"0px", borderRadius:"0px",  padding:"5px", width:"80%", height:"100%", display:"flex", flexDirection:"column", justifyContent:"space-around"}}>
                 <Box style={{margin:"0px", padding:"0px", borderRadius:"0px", width:"100%", height:"100%", display:"flex",flexDirection:"column", justifyContent:"space-around"}}>
                     <Box style={{width:"100%", alignItems:"center", display:"flex", justifyContent:"flex-start"}}>
                         <Box style={{width:"50%", display:"flex", height:"100%" }}>
                             <Box style={{width:"100%",height:"100%" ,display:"flex", flexDirection:"column"}}>
                                 <Typography>Subir Documentos</Typography>
                                 <Box style={{width:"70%",height:"100%" ,display:"flex", justifyContent:"space-between"}}>
-                                    <Box style={{backgroundColor:"#cb999d", width:"45%", borderRadius:"0px 20px 20px 20px", alignItems:"center", height:"100%"}}>
+                                    <Button style={{backgroundColor:"#cb999d", width:"45%", borderRadius:"0px 20px 20px 20px", alignItems:"center", height:"100%"}}>
                                         <Typography style={{textAlign:"center", padding:"20px 3px 20px 3px", color:"#213881", fontSize:"13px"}}>PDF</Typography>
-                                    </Box>
-                                    <Box style={{backgroundColor:"#213881", width:"45%", borderRadius:"20px 20px 0px 20px", alignItems:"center", height:"100%"}}>
+                                    </Button>
+                                    <Button style={{backgroundColor:"#213881", width:"45%", borderRadius:"20px 20px 0px 20px", alignItems:"center", height:"100%"}}>
                                         <Typography style={{textAlign:"center", padding:"20px 3px 20px 3px", color:"#FFFFFF", fontSize:"13px"}}>DOC</Typography>
-                                    </Box>
+                                    </Button>
                                 </Box>
                             </Box>
                         </Box>
                     </Box>
                 </Box>
-            </Box>
+            </Box>*/}
             <Box style={{ margin:"0px 0px 15px 0px", borderRadius:"0px",  padding:"5px", width:"80%", height:"100%", display:"flex", flexDirection:"column", justifyContent:"space-around"}}>
                 <Box style={{width:"100%", height:"100%",alignItems:"center", display:"flex", justifyContent:"flex-start", flexDirection:"column"}}>
                     <Typography>Mensaje de llamada:</Typography>

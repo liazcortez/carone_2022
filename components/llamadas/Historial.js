@@ -5,7 +5,8 @@ import {
   Card,
   Grid,
   Divider,
-  Container
+  Container,
+  Button
 } from "@mui/material";
 import TextField from '@mui/material/TextField';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -17,31 +18,29 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Histllamadas from './Histllamadas';
+import { AddBoxSharp } from '@mui/icons-material';
 export default function Historial() {
   return (
-    <Box style={{width:'100%', height:'100%', margin:"0px", padding:"0px",  display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", borderRadius:"40px 0px 0px 40px"}}>
-      <Card style={{width:"100%", height:"100%", display:"flex", flexDirection:"column", justifyContent:"center", borderRadius:"40px 0px 0px 40px", backgroundColor:"#f8f7ff", alignItems:"center"}} elevation={0}>
-        <CardContent style={{width:'100%', height:'100%', margin:"10px", padding:"0px",  display:"flex", flexDirection:"column", justifyContent:"center"}}>
-              <Box style={{display:"flex", width:"100%", height:"100%", padding:"0px", margin:"0px", justifyContent:"space-around", alignItems:"center"}}>
-              <Box style={{display:"flex", margin:"0px", padding:"0px", borderRadius:"40px", backgroundColor:"#ecedf3", width:"60%",height:"100%", justifyContent:"space-between"}}>
-                <Box style={{display:"flex", backgroundColor:"#213881", width:"100%",height:"100%", borderRadius:"40px", justifyContent:"center", padding:"5px"}}>
+    <Box px={5} pt={2} sx={{position: 'relative'}} style={{width:'100%', height:'100%', margin:"0px", padding:"0px",  display:"flex", flexDirection:"column", justifyContent:"center", borderRadius:"40px 0px 0px 40px"}}>
+              <Box pb={1} style={{display:"flex", width:"100%", height:"30px", padding:"0px", margin:"0px", justifyContent:"space-around", alignItems:"center"}}>
+              <Box style={{display:"flex", margin:"0px", padding:"0px", borderRadius:"40px", backgroundColor:"#ecedf3", width:"60%", justifyContent:"space-between", position: 'absolute', top: 7, right: 90,}}>
+                <Button style={{display:"flex", backgroundColor:"#213881", width:"100%", borderRadius:"40px", justifyContent:"center", padding:"5px", alignItems:"center"}}>
                   <Typography style={{color:"#ffffff", textAlign:"center"}}>Todos</Typography>
-                </Box>
-                <Box style={{display:"flex", width:"100%", borderRadius:"40px", justifyContent:"center", alignItems:"center"}}>
+                </Button>
+                <Button style={{display:"flex", width:"100%", borderRadius:"40px", justifyContent:"center", alignItems:"center"}}>
                 <Typography style={{color:"#213881"}}>
                     Perdidos
                 </Typography>
-                </Box>
+                </Button>
               </Box>
-              <Avatar style={{backgroundColor: "#ecedf3"}}>
-                  <SearchIcon style={{color:"#213881"}} />
-              </Avatar>
-              </Box>
-              <Box style={{width:'100%', height:'100%', margin:"0px", padding:"0px",  display:"flex", flexDirection:"column", justifyContent:"center"}}>
+              <IconButton style={{position: 'absolute', top: 5, right: 5, backgroundColor: "#ecedf3"}}>
+                <SearchIcon style={{color:"#213881"}} />
+              </IconButton>
+              </Box><br/>
+              <Divider sx={{ marginBottom: 1.8 }} />
+              <Box style={{width:'100%', height:'450px', margin:"0px", padding:"0px",  display:"flex", flexDirection:"column", justifyContent:"flex-start"}}>
                 <Histllamadas/>
               </Box>
-        </CardContent>
-      </Card>
     </Box>
   )
 }

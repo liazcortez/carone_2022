@@ -20,7 +20,7 @@ const PhoneNumberField = styled(TextField)({
   },
 });
 
-export default function Teclado() {
+export default function Teclado() { 
 
   const styles = {
     button: {
@@ -66,63 +66,63 @@ export default function Teclado() {
         />
 
         <Box sx={styles.row}>
-          <Button sx={styles.button}>
+          <Button sx={styles.button} style={{backgroundColor: '#eceaf7', borderRadius:"50%"}}>
             <Typography sx={styles.text} variant='body1'>1</Typography>
             <Typography sx={styles.text} variant='caption'>&nbsp;</Typography>
           </Button>
-          <Button sx={styles.button}>
+          <Button sx={styles.button} style={{backgroundColor: '#eceaf7', borderRadius:"50%"}}>
             <Typography sx={styles.text} variant='body1'>2</Typography>
             <Typography sx={styles.text} variant='caption'>ABC</Typography>
           </Button>
-          <Button sx={styles.button}>
+          <Button sx={styles.button} style={{backgroundColor: '#eceaf7', borderRadius:"50%"}}>
             <Typography sx={styles.text} variant='body1'>3</Typography>
             <Typography sx={styles.text} variant='caption'>DEF</Typography>
           </Button>
         </Box>
         <Box sx={styles.row}>
-          <Button sx={styles.button}>
+          <Button sx={styles.button} style={{backgroundColor: '#eceaf7', borderRadius:"50%"}}>
             <Typography sx={styles.text} variant='body1'>4</Typography>
             <Typography sx={styles.text} variant='caption'>GHI</Typography>
           </Button>
-          <Button sx={styles.button}>
+          <Button sx={styles.button} style={{backgroundColor: '#eceaf7', borderRadius:"50%"}}>
             <Typography sx={styles.text} variant='body1'>5</Typography>
             <Typography sx={styles.text} variant='caption'>JKL</Typography>
           </Button>
-          <Button sx={styles.button}>
+          <Button sx={styles.button} style={{backgroundColor: '#eceaf7', borderRadius:"50%"}}>
             <Typography sx={styles.text} variant='body1'>6</Typography>
             <Typography sx={styles.text} variant='caption'>MNO</Typography>
           </Button>
         </Box>
         <Box sx={styles.row}>
-          <Button sx={styles.button}>
+          <Button sx={styles.button} style={{backgroundColor: '#eceaf7', borderRadius:"50%"}}>
             <Typography sx={styles.text} variant='body1'>7</Typography>
             <Typography sx={styles.text} variant='caption'>PQRS</Typography>
           </Button>
-          <Button sx={styles.button}>
+          <Button sx={styles.button} style={{backgroundColor: '#eceaf7', borderRadius:"50%"}}>
             <Typography sx={styles.text} variant='body1'>8</Typography>
             <Typography sx={styles.text} variant='caption'>TUV</Typography>
           </Button>
-          <Button sx={styles.button}>
+          <Button sx={styles.button} style={{backgroundColor: '#eceaf7', borderRadius:"50%"}}>
             <Typography sx={styles.text} variant='body1'>9</Typography>
             <Typography sx={styles.text} variant='caption'>WXYZ</Typography>
           </Button>
         </Box>
         <Box sx={styles.row}>
-          <Button sx={styles.button}>
+          <Button sx={styles.button} style={{backgroundColor: '#eceaf7', borderRadius:"50%"}}>
             <Typography sx={styles.text} variant='body1'>*</Typography>
             <Typography sx={styles.text} variant='caption'>&nbsp;</Typography>
           </Button>
-          <Button sx={styles.button}>
+          <Button sx={styles.button} style={{backgroundColor: '#eceaf7', borderRadius:"50%"}}>
             <Typography sx={styles.text} variant='body1'>0</Typography>
             <Typography sx={styles.text} variant='caption'>+</Typography>
           </Button>
-          <Button sx={styles.button}>
+          <Button sx={styles.button} style={{backgroundColor: '#eceaf7', borderRadius:"50%"}}>
             <Typography sx={styles.text} variant='caption'>#</Typography>
             <Typography sx={styles.text} variant='caption'>&nbsp;</Typography>
           </Button>
         </Box>
         <Box>
-          <Button sx={{ ...styles.button, backgroundColor: '#51a16d' }}>
+          <Button sx={{ ...styles.button, backgroundColor: '#51a16d' }} style={{backgroundColor: '#51a16d', borderRadius:"50%"}}>
             <Call style={{color:"#fff"}} />
           </Button>
         </Box>

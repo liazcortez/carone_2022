@@ -15,122 +15,39 @@ import ChatIcon from '@mui/icons-material/Chat';
 import PersonIcon from '@mui/icons-material/Person';
 export default function Listmensajes() { 
   return (
-    <Box style={{width:"100%", height:"100%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-        <List style={{width:"100%", height:"80%", display:"flex", flexDirection:"column", justifyContent:"center", backgroundColor:"#f8f7ff", alignItems:"center"}}>
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-        <Avatar alt="Mensaje" style={{backgroundColor:"#213881"}}>
-            <PersonIcon style={{color:"#ffffff"}} />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText
-          secondary={
-            <React.Fragment>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-                Ali Connors
-              </Typography>
-              {" — I'll be in your neighborhood doing errands this…"}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-        <Avatar alt="Mensaje" style={{backgroundColor:"#213881"}}>
-            <PersonIcon style={{color:"#ffffff"}} />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText
-          secondary={
-            <React.Fragment>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-                to Scott, Alex, Jennifer
-              </Typography>
-              {" — Wish I could come, but I'm out of town this…"}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt="Mensaje" style={{backgroundColor:"#213881"}}>
-            <PersonIcon style={{color:"#ffffff"}} />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText
-          secondary={
-            <React.Fragment>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-                Sandra Adams
-              </Typography>
-              {' — Do you have Paris recommendations? Have you ever…'}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt="Mensaje" style={{backgroundColor:"#213881"}}>
-            <PersonIcon style={{color:"#ffffff"}} />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText
-          secondary={
-            <React.Fragment>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-                Sandra Adams
-              </Typography>
-              {' — Do you have Paris recommendations? Have you ever…'}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt="Mensaje" style={{backgroundColor:"#213881"}}>
-            <PersonIcon style={{color:"#ffffff"}} />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText
-          secondary={
-            <React.Fragment>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-                Sandra Adams
-              </Typography>
-              {' — Do you have Paris recommendations? Have you ever…'}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
+    <Box style={{width:'100%', height:'100%', margin:"0px", padding:"0px",  display:"flex", flexDirection:"column", justifyContent:"flex-start"}}>
+        <List subheader={<li />} style={{width:'100%',height:"100%", margin:"0px", padding:"0px",  display:"flex", flexDirection:"column", justifyContent:"flex-start", overflow:"auto", position:"relative"}} >
+        {[0, 1, 2, 3, 4].map((sectionId) => (
+        <li key={`section-${sectionId}`} style={{margin:"0px", padding:"0px"}} >
+         
+  
+            {[0, 1, 2].map((item) => (
+              <ListItem key={`item-${sectionId}-${item}`} style={{margin:"0px", padding:"0px 15px 0px 15px"}} >
+                  <ListItemAvatar>
+                      <Avatar alt="Mensaje" style={{backgroundColor:"#213881"}}>
+                        <PersonIcon style={{color:"#ffffff"}} />
+                      </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                secondary={
+                <React.Fragment>
+                  <Typography
+                    sx={{ display: 'inline' }}
+                    component="span"
+                    variant="body2"
+                    color="text.primary"
+                  >
+                    Ali Connors
+                  </Typography>
+                 {" — I'll be in your neighborhood doing errands this…"}
+                </React.Fragment>
+                }
+              />
+              </ListItem>
+            ))}
+       
+        </li>
+      ))}
         </List>
     </Box>
   )
