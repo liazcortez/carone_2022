@@ -18,11 +18,11 @@ export default function Listmensajes() {
     <Box style={{width:'100%', height:'100%', margin:"0px", padding:"0px",  display:"flex", flexDirection:"column", justifyContent:"flex-start"}}>
         <List subheader={<li />} style={{width:'100%',height:"100%", margin:"0px", padding:"0px",  display:"flex", flexDirection:"column", justifyContent:"flex-start", overflow:"auto", position:"relative"}} >
         {[0, 1, 2, 3, 4].map((sectionId) => (
-        <li key={`section-${sectionId}`}>
-          <ul>
+        <li key={`section-${sectionId}`} style={{margin:"0px", padding:"0px"}} >
+         
   
             {[0, 1, 2].map((item) => (
-              <ListItem key={`item-${sectionId}-${item}`}>
+              <ListItem key={`item-${sectionId}-${item}`} style={{margin:"0px", padding:"0px"}} >
                   <ListItemAvatar>
                       <Avatar alt="Mensaje" style={{backgroundColor:"#213881"}}>
                         <PersonIcon style={{color:"#ffffff"}} />
@@ -45,7 +45,7 @@ export default function Listmensajes() {
               />
               </ListItem>
             ))}
-       </ul>
+       
         </li>
       ))}
         </List>

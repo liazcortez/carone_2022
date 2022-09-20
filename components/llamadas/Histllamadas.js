@@ -14,13 +14,13 @@ import PhoneCallbackIcon from '@mui/icons-material/PhoneCallback';
 export default function Histllamadas() {
   return (
    <Box style={{width:'100%', height:'100%', margin:"0px", padding:"0px",  display:"flex", flexDirection:"column", justifyContent:"flex-start"}}>
-     <List subheader={<li />} style={{width:'100%',height:"100%", margin:"0px", padding:"0px",  display:"flex", flexDirection:"column", justifyContent:"flex-start", overflow:"auto", position:"relative"}} >
+     <List style={{width:'100%',height:"100%", margin:"0px", padding:"0px",  display:"flex", flexDirection:"column", justifyContent:"flex-start", overflow:"auto", position:"relative"}} >
      {[0, 1, 2, 3, 4].map((sectionId) => (
-        <li key={`section-${sectionId}`}>
-          <ul>
+        <li key={`section-${sectionId}`} style={{margin:"0px", padding:"0px"}}>
+         
   
             {[0, 1, 2].map((item) => (
-              <ListItem key={`item-${sectionId}-${item}`}>
+              <ListItem key={`item-${sectionId}-${item}`} style={{margin:"0px", padding:"0px"}} >
                 <ListItemAvatar>
           <Avatar style={{backgroundColor:"#D42113"}}>
           <PhoneCallbackIcon style={{color:"#FFFFFF"}}/>
@@ -43,7 +43,7 @@ export default function Histllamadas() {
         />
               </ListItem>
             ))}
-       </ul>
+    
         </li>
       ))}
     </List>
