@@ -25,9 +25,9 @@ export default function Detalles() {
 
             action={
                 <Box style={{width:"100%", height:"100%", margin:"0px", padding:"0px", borderRadius:"0px 40px 40px 0px", flexDirection:"row", display:"flex", justifyContent:"space-around", alignItems:"center"}}>
-                <Typography style={{fontSize:"12px", margin:"0px 5px 0px 0px"}}>Bienvenido Miguel!  </Typography>
-            <Avatar src='https://img.wattpad.com/0e4bf16df2cbf9be4fb83971a50d057e6e47e62d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f6b6e3376387062676e47637872773d3d2d32362e313630643938303534613634616536303134353539303736333435302e6a7067?s=fit&w=720&h=720' />
-            </Box>
+                    <Typography style={{fontSize:"12px", margin:"0px 5px 0px 0px"}}>Bienvenido Miguel!  </Typography>
+                    <Avatar src='https://img.wattpad.com/0e4bf16df2cbf9be4fb83971a50d057e6e47e62d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f6b6e3376387062676e47637872773d3d2d32362e313630643938303534613634616536303134353539303736333435302e6a7067?s=fit&w=720&h=720' />
+                </Box>
             }
             />
              
