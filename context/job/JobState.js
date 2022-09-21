@@ -24,7 +24,7 @@ const JobState = (props) => {
     setLoading();
     try {
       const res = await api.get(
-        `/jobs/advancedResults?page=${page}&limit=12&searchText=${query}`
+        `/jobs/advancedResults?page=${page}&limit=12&searchText=${query}&isPublished=true`
       );
       dispatch({ type: GET_JOBS_ADVANCED_SEARCH, payload: res.data });
     } catch (err) {

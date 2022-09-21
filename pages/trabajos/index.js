@@ -44,7 +44,7 @@ const index = ({ jobsSP, categories, stores, total }) => {
   const loadData = (firstPage=false)=>{
     getJobs(
       page,
-      `${query}&store=${store}&category=${category}&salaries=${sort}&isPublished=true`
+      `${query}&store=${store}&category=${category}&salaries=${sort}`
     );
     setPage(page + 1);
   }
