@@ -44,7 +44,7 @@ const index = ({ jobsSP, categories, stores, total }) => {
   const loadData = (firstPage=false)=>{
     getJobs(
       page,
-      `${query}&store=${store}&category=${category}&salaries=${sort}`
+      `${query}&store=${store}&category=${category}&salaries=${sort}&isPublished=true`
     );
     setPage(page + 1);
   }
@@ -106,7 +106,7 @@ const index = ({ jobsSP, categories, stores, total }) => {
 };
 
 export const getServerSideProps = async (context) => {
-  const res = await fetch("https://apicarone.com/api/v1/jobs?page=1&limit=12");
+  const res = await fetch("https://apicarone.com/api/v1/jobs?page=1&limit=12&isPublished=true");
   const jobs = await res.json();
 
   const categoriesRes = await fetch(
