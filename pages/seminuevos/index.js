@@ -136,7 +136,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   );
 };
 export const getStaticProps = async (context) => {
-  const res = await fetch(`${baseURL}/preowneds?page=1&limit=12&sort=-createdAt&isPublished=true&isSold=false`);
+  const res = await fetch(`${baseURL}/preowneds?page=1&limit=12&sort=-createdAt&isPublished=true&isSold=false&publishedIn=both-web`);
   const preowneds = await res.json();
 
   const storesRes = await fetch(`${baseURL}/stores`);
