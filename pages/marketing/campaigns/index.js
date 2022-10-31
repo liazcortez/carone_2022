@@ -30,7 +30,7 @@ const index = () => {
   useEffect(() => {
     if(!user || !user.role || !user._id)return;
       if(['rockstar'].includes(user.role))return setUserParams({})
-      if(['designer','marketing digital'].includes(user.role))return setUserParams({['store__id']:{value:user.stores.map(store=>store._id._id)}})
+      if(['designer','marketing digital','admin'].includes(user.role))return setUserParams({['store__id']:{value:user.stores.map(store=>store._id._id)}})
       if(['admin marketing digital'].includes(user.role))return setUserParams({['store_make__id']:{value:user.makes.map(make=>make._id)}})
       // default params 
       setUserParams({['user__id']:{value:user._id}})

@@ -158,7 +158,7 @@ const Index = () => {
   useEffect(() => {
     if (!user || !user.role || !user._id) return;
     if (["rockstar"].includes(user.role)) return setUserParams({});
-    if (["designer", "marketing digital"].includes(user.role))
+    if (["designer", "marketing digital",'admin'].includes(user.role))
       return setUserParams({
         ["store__id"]: { value: user.stores.map((store) => store._id._id) },
       });

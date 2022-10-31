@@ -51,7 +51,7 @@ const PreownedState = (props) => {
   const getPreownedsV2 = async ({limit, page, query}) => {
     setLoading();
     try {
-      const res = await api.get(`/preowneds/getPreownedsV2?page=${page}&limit=${limit}&searchIndex=model-category-make-year&searchText=${query}&sort=-createdAt`);
+      const res = await api.get(`/preowneds/getPreownedsV2?page=${page}&limit=${limit}&searchIndex=model-category-make-year&searchText=${query}&sort=-createdAt&publishedIn=both-web`);
 
       // preowneds: action.payload.data,
       // results: action.payload.pagination.total
