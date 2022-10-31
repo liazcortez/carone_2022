@@ -77,10 +77,12 @@ const CarouselComponent = ({ title, data }) => {
           showEmptySlots={false}
           pagination={false}
         >
-          {data.map((category) => {
-            if(!modelosValidos.includes(category.name)) return null 
-            return(<Item key={category._id} result={category} />)
-          })}
+          {
+            data.map((category) => {
+              if(!modelosValidos.includes(category.name)) return null 
+              return(<Item key={category._id} result={category} />)
+            })
+          }
 
         </Carousel>
       </div>

@@ -153,7 +153,7 @@ const StepperView = ({...rest}) => {
   return (
     <>
     <Meta
-        title={`Compramos tu auto!`}
+        title={`¡Compramos tu auto!`}
         description={`Compramos tu auto`}
     />
       <Container maxWidth="lg" style={{height: '80vh'}}>

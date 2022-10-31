@@ -9,6 +9,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { Container, Divider, Grid, Box, Typography} from "@mui/material";
 import CarListCard from "../../components/autos/CarListCardPreowned";
 import CustomLoading from "../../components/CustomLoading";
+import Spinner from "../../components/assets/Spinner";
 
 
 
@@ -109,15 +110,32 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
           hasMore={true}
           // loader={<CustomLoading {...{ loading:true }} />}
         >
+          {
+            !loading && infiniteVehicles.length === 0 && 
+            <Box style={{width: '1000'}} display='flex' justifyContent='center'>
+              <Typography variant='h5'>
+                No se encontraron unidades seminuevas con esas especificaciones
+              </Typography>
+            </Box>
+          }
+          {
+            loading && 
+            <Box style={{width: '1000'}} display='flex' justifyContent='center'>
+              <Spinner size={48}/>
+            </Box>
+          }
           <Box className='vehiclesGrid'>
       
-            {infiniteVehicles.map(
+            {
+              infiniteVehicles.map(
                 (vehicle, index) => (
                  
                     <CarListCard key={index} vehicle={vehicle} loading={loading} />
 
                 )
-              )}
+              )
+            }
+
 
           </Box>
           </InfiniteScroll>

@@ -16,8 +16,8 @@ const Banner = ({
   transitionTime = 1000,
   showThumbs = false,
   showArrows = true,
-  showStatus = true,
-  showIndicators = true,
+  showStatus = false,
+  showIndicators = false,
   xs = 12,
 }) => {
   const classes = useStyles();
@@ -40,17 +40,18 @@ const Banner = ({
           showStatus={showStatus}
           showIndicators={showIndicators}
         >
-          {medias && medias.length > 0 ? (
-            medias.map((item, key) => (
+          {
+            medias && medias.length > 0 ? 
+            medias.map((item, key) => 
               <div>
                 <img src={item.image} key={key} alt={"Banner home"} width={"auto"} height={"auto"} title={"Banner home"} />
               </div>
-            ))
-          ) : (
+            )
+            : 
             <div>
               <img title={"Banner home"} alt={"Banner home"} src={"/static/images/BannerC1.jpeg"} />
             </div>
-          )}
+          }
         </Carousel>
       </Grid>
     </Grid>
