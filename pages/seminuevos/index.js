@@ -6,7 +6,7 @@ import Pagination from "../../components/Pagination";
 import usePreowned from "../../hooks/usePreowned";
 import { baseURL } from "../../api/api";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { Container, Divider, Grid, Box, Typography} from "@mui/material";
+import { Container, Divider, Grid, Box, Typography } from "@mui/material";
 import CarListCard from "../../components/autos/CarListCardPreowned";
 import CustomLoading from "../../components/CustomLoading";
 import Spinner from "../../components/assets/Spinner";
@@ -15,7 +15,7 @@ import Spinner from "../../components/assets/Spinner";
 
 const Index = ({ preownedsSP, total, stores, categories }) => {
 
-  const { preowneds, getPreownedsV2, loading, results,clearState } = usePreowned();
+  const { preowneds, getPreownedsV2, loading, results, clearState } = usePreowned();
   const [disableTopBar, setDisableTopBar] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
@@ -30,9 +30,9 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   useEffect(() => {
     handleReload();
     //eslint-disable-next-line
-  }, [store, category, sort,query]);
+  }, [store, category, sort, query]);
 
-  const handleReload = async ()=>{
+  const handleReload = async () => {
     await setInfiniteVehicles([]);
     loadData();
   }
@@ -50,27 +50,41 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   }, [preowneds]);
 
   const loadData = () => {
-    let pricequery ='';
-    switch(sort){
+    let pricequery = '';
+    console.log(sort)
+    switch (sort) {
       case 'menor150000':
-      pricequery = '&price[lt]=150000'
-      break;
+        pricequery = '&price[lt]=150000'
+        break;
       case '150000/250000':
-      pricequery = '&price[gte]=150000&price[lt]=250000';
-      break;
-      case 'mayor250000':
-      pricequery = '&price[gte]=250000'
-      break;
+        pricequery = '&price[gte]=150000&price[lt]=250000';
+        break;
+      case '250001/350000':
+        pricequery = '&price[gte]=250001&price[lt]=350000';
+        break;
+      case '350001/450000':
+        pricequery = '&price[gte]=350001&price[lt]=450000';
+        break;
+      case '450001/650000':
+        pricequery = '&price[gte]=450001&price[lt]=650000';
+        break;
+      case '650001/900000':
+        pricequery = '&price[gte]=650001&price[lt]=900000';
+        break;
+      case 'mayor900001':
+        pricequery = '&price[gte]=900001'
+        break;
     }
+    console.log(pricequery)
 
-    getPreownedsV2({limit:12,page, query:`${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}&isPublished=true&isSold=false`});
+    getPreownedsV2({ limit: 12, page, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}&isPublished=true&isSold=false` });
 
     setPage(page + 1);
   };
 
   const TitleSemis = (
     <Box>
-      <Typography variant="h1" sx={{fontSize: "35px", fontWeight: 600, display:"none"}}>
+      <Typography variant="h1" sx={{ fontSize: "35px", fontWeight: 600, display: "none" }}>
         Venta de Autos Seminuevos en México
       </Typography>
     </Box>
@@ -78,7 +92,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
 
   return (
     <>
-         
+
       <Meta
         title="Autos seminuevos en México - Carone Group"
         description="Venta de autos seminuevos en México - Carone Group"
@@ -86,9 +100,9 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
         googlebot={"index,follow"}
         robots="all"
       />
-     
-        <Container maxWidth="lg">
-          {TitleSemis}
+
+      <Container maxWidth="lg">
+        {TitleSemis}
         <SearchBar
           setQuery={setQuery}
           query={query}
@@ -108,29 +122,29 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
           dataLength={infiniteVehicles.length}
           next={loadData}
           hasMore={true}
-          // loader={<CustomLoading {...{ loading:true }} />}
+        // loader={<CustomLoading {...{ loading:true }} />}
         >
           {
-            !loading && infiniteVehicles.length === 0 && 
-            <Box style={{width: '1000'}} display='flex' justifyContent='center'>
+            !loading && infiniteVehicles.length === 0 &&
+            <Box style={{ width: '1000' }} display='flex' justifyContent='center'>
               <Typography variant='h5'>
                 No se encontraron unidades seminuevas con esas especificaciones
               </Typography>
             </Box>
           }
           {
-            loading && 
-            <Box style={{width: '1000'}} display='flex' justifyContent='center'>
-              <Spinner size={48}/>
+            loading &&
+            <Box style={{ width: '1000' }} display='flex' justifyContent='center'>
+              <Spinner size={48} />
             </Box>
           }
           <Box className='vehiclesGrid'>
-      
+
             {
               infiniteVehicles.map(
                 (vehicle, index) => (
-                 
-                    <CarListCard key={index} vehicle={vehicle} loading={loading} />
+
+                  <CarListCard key={index} vehicle={vehicle} loading={loading} />
 
                 )
               )
@@ -138,17 +152,17 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
 
 
           </Box>
-          </InfiniteScroll>
-          {loading &&  <CustomLoading />}
+        </InfiniteScroll>
+        {loading && <CustomLoading />}
 
 
-          {/* <Pagination
+        {/* <Pagination
           total={results !== null ? results : total}
           page={page}
           limit={12}
           changePage={changePage}
         /> */}
-        </Container>
+      </Container>
 
     </>
   );
