@@ -191,6 +191,69 @@ const SearchBarBottom = ({
           ))}
         </TextField>
       </Grid>
+      <Grid item xs={12}>
+      <TextField
+          style={{
+            backgroundColor: "#f3f7f9",
+            border: "0px solid rgb(217, 221, 233)",
+            borderRadius: 10,
+          }}
+          select
+          fullWidth
+          label="Busqueda por estado"
+        
+          SelectProps={{
+            native: true,
+          }}
+          variant="outlined"
+        >
+          <option key={0} value={"-"}>
+            Todos los Estados
+          </option>
+          { 
+            [
+              { name: 'Aguascalientes', value: 'Ags' },
+              { name: 'Baja California', value: 'BC' },
+              { name: 'Baja California Sur', value: 'BCS' },
+              { name: 'Campeche', value: 'Camp' },
+              { name: 'Chiapas', value: 'Chis' },
+              { name: 'Chihuahua', value: 'Chih' },
+              { name: 'Coahuila', value: 'Coah' },
+              { name: 'Colima', value: 'Col' },
+              { name: 'Ciudad de Mexico', value: 'CMX' },
+              { name: 'Durango', value: 'Dgo' },
+              { name: 'Guanajuato', value: 'Gto' },
+              { name: 'Guerrero', value: 'Gro' },
+              { name: 'Hidalgo', value: 'Hgo' },
+              { name: 'Jalisco', value: 'Jal' },
+              { name: 'México', value: 'Edomex' },
+              { name: 'Michoacán', value: 'Mich' },
+              { name: 'Morelos', value: 'Mor' },
+              { name: 'Nayarit', value: 'Nay' },
+              { name: 'Nuevo León', value: 'NL' },
+              { name: 'Oaxaca', value: 'Oax' },
+              { name: 'Puebla', value: 'Pue' },
+              { name: 'Querétaro', value: 'Qro' },
+              { name: 'Quintana Roo', value: 'QRoo' },
+              { name: 'San Luis Potosí', value: 'SLP' },
+              { name: 'Sinaloa', value: 'Sin' },
+              { name: 'Sonora', value: 'Son' },
+              { name: 'Tabasco', value: 'Tab' },
+              { name: 'Tamaulipas', value: 'Tamps' },
+              { name: 'Tlaxcala', value: 'Tlax' },
+              { name: 'Veracruz', value: 'Ver' },
+              { name: 'Yucatán', value: 'Yuc' },
+              { name: 'Zacatecas', value: 'Zac' },
+            ].map((option) => (
+            <option
+              key={option.name}
+              value={option.value}
+            >
+              {option.name}
+            </option>
+          ))}
+        </TextField>
+      </Grid>
     </Grid>
   );
 };
