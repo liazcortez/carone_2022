@@ -3,7 +3,7 @@ import { Container } from "@mui/material";
 import SearchBarTop from "./SearchBarTopPreowned";
 import SearchBarBottom from "./SearchBarBottomPreowned";
 
-const SearchBar = ({ setQuery, query, stores, categories, setCategory, setStore, category, store, disableTopBar, setPage, sort, setSort }) => {
+const SearchBar = ({ setQuery, query, stores, categories, setCategory, setStore, category, store, disableTopBar, setPage, sort, setSort, address, setAddress}) => {
   return (
     <Container
       maxWidth="lg"
@@ -30,6 +30,8 @@ const SearchBar = ({ setQuery, query, stores, categories, setCategory, setStore,
         store={store}
         setSort={setSort}
         sort={sort}
+        address={address}
+        setAddress={setAddress}
         />
     </Container>
   );

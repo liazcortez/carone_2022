@@ -23,14 +23,14 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   const [category, setCategory] = useState("-");
   const [sort, setSort] = useState("-");
   const [infiniteVehicles, setInfiniteVehicles] = useState([]);
-
+  const [address, setAddress] = useState("-");
 
   const changePage = (event, value) => setPage(value);
 
   useEffect(() => {
     handleReload();
     //eslint-disable-next-line
-  }, [store, category, sort, query]);
+  }, [store, category, sort, query, address]);
 
   const handleReload = async () => {
     await setInfiniteVehicles([]);
@@ -48,6 +48,12 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
     setInfiniteVehicles([...infiniteVehicles, ...preowneds]);
     clearState();
   }, [preowneds]);
+  //pasar info de la ubicacion de la store
+  useEffect(()=>{
+    setAddress([...address, stores.location]);
+    console.log(address);
+    clearState();
+  },[stores])
 
   const loadData = () => {
     let pricequery = '';
@@ -116,6 +122,8 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
           setPage={setPage}
           sort={sort}
           setSort={setSort}
+          address={address}
+          setAddress={setAddress}
         />
         <Divider style={{ marginBottom: "50px" }} />
         <InfiniteScroll

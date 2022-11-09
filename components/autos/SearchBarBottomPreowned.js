@@ -60,6 +60,8 @@ const SearchBarBottom = ({
   setPage,
   sort,
   setSort,
+  address,
+  setAddress
 }) => {
   const classes = useStyles();
 
@@ -68,8 +70,13 @@ const SearchBarBottom = ({
     setPage(1);
     setStore(event.target.value);
   };
+  const handleChangeest = (event) => {
+    event.preventDefault()
+    setPage(1);
+    setAddress(event.target.value);
+  };
 
-  const { getStores, stores } = useStore()
+  const { getStores, stores } = useStore();
 
   React.useEffect(() => {
     
@@ -201,7 +208,8 @@ const SearchBarBottom = ({
           select
           fullWidth
           label="Busqueda por estado"
-        
+          value={address}
+          onChange={handleChangeest}
           SelectProps={{
             native: true,
           }}
