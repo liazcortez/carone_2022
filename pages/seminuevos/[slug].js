@@ -1,11 +1,14 @@
 import React from "react";
-import { Container, Grid, Typography, Divider, Box } from "@mui/material";
+import { Container, Grid, Typography, Divider, Box, Table, TableBody, TableCell, TableRow, TableContainer } from "@mui/material";
 import BannerAutos from "../../components/autos/BannerAutos";
 import Meta from "../../components/Meta";
 import SemisCarousel from "../../components/preowned/SemisCarousel";
 import SemisForm from "../../components/preowned/SemisForm";
 import NumberFormat from "react-number-format";
 import { baseURL } from "../../api/api";
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
+
+
 
 const Slug = ({ preowned }) => {
   const title =
@@ -28,7 +31,16 @@ const Slug = ({ preowned }) => {
       </Typography>
     </Box>
   )
-
+    console.log(preowned);
+    const containerStyle = {
+      width: '100%',
+      height: '400px'
+    };
+    
+    const center = {
+      lat: preowned.store.location.coordinates[1],
+      lng: preowned.store.location.coordinates[0]
+    };
   return (
     <>
       {preowned && preowned.isPublished ? (
@@ -177,7 +189,7 @@ const Slug = ({ preowned }) => {
                   <SemisCarousel
                   preowned={preowned}
                     medias={[
-                      { image: preowned.mainImage, key: 0 },
+                      {image: preowned.meta.image},{ image: preowned.mainImage, key: 0 },
                       ...preowned.gallery,
                     ]}
                   />
@@ -193,11 +205,13 @@ const Slug = ({ preowned }) => {
               <Grid item xs={12}>
                 <Typography
                   style={{
-                    fontSize:"20px",
+                    fontSize:"40px",
                     fontWeight: "bold",
                     color: "#212121",
                     paddingTop: "2rem",
                     paddingBlockEnd: "1rem",
+                    justifyContent:"center",
+                    textAlign:"center"
                   }}
                 >
                   CARACTERÍSTICAS {preowned.vehicle.make.name.toUpperCase()}{" "}
@@ -207,7 +221,7 @@ const Slug = ({ preowned }) => {
                 <Divider />
 
                 <Grid container spacing={3} style={{ paddingTop: "1rem" }}>
-                  <Grid item xs={6} sm={3}>
+                  {/*<Grid item xs={6} sm={3}>
                     <Box>
                       <Typography style={{ fontWeight: 600 }}>Marca</Typography>
 
@@ -331,6 +345,151 @@ const Slug = ({ preowned }) => {
                         )}
                       </Typography>
                     </Box>
+                    
+                        </Grid>*/}
+                  <Grid item xs={12}>
+                      <TableContainer style={{width:"100%", padding:"15px"}}>
+                          <Table style={{width:"100%"}}>
+                              <TableBody>
+                                  <TableRow>
+                                    <TableCell style={{textAlign:"center", justifyContent:"center"}}>
+                                      <Typography style={{ fontWeight: 600 }}>Marca</Typography>
+                                      <Typography style={{ paddingBlockEnd: "2rem" }}>
+                                        {preowned &&
+                                        preowned.vehicle.make &&
+                                        preowned.vehicle.make.name &&
+                                        preowned.vehicle.make.name !== ""
+                                          ? Capitalize(preowned.vehicle.make.name)
+                                          : "----"}
+                                      </Typography>
+                                    </TableCell>
+                                    <TableCell style={{textAlign:"center", justifyContent:"center"}}>
+                                      <Typography style={{ fontWeight: 600 }}>
+                                        Modelo
+                                      </Typography>
+
+                                      <Typography style={{ paddingBlockEnd: "2rem" }}>
+                                        {preowned && preowned.version && preowned.version !== ""
+                                          ? Capitalize(preowned.version)
+                                          : "----"}
+                                      </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                      <Typography style={{ fontWeight: 600 }}>Año</Typography>
+                                      <Typography style={{ paddingBlockEnd: "2rem" }}>
+                                        {preowned && preowned.year && preowned.year !== ""
+                                          ? Capitalize(preowned.year)
+                                          : "----"}
+                                      </Typography>
+                                    </TableCell>
+                                  </TableRow>
+                                  <TableRow>
+                                    <TableCell style={{textAlign:"center", justifyContent:"center"}}>
+                                      <Typography style={{ fontWeight: 600 }}>Tipo</Typography>
+                                      <Typography>
+                                        {Capitalize(
+                                          preowned.modelType && preowned.modelType !== ""
+                                            ? preowned.modelType
+                                            : "----"
+                                        )}
+                                      </Typography>
+                                    </TableCell>
+                                    <TableCell style={{textAlign:"center", justifyContent:"center"}}>
+                                      <Typography style={{ fontWeight: 600 }}>
+                                        Agencia
+                                      </Typography>
+                                      <Typography style={{ paddingBlockEnd: "2rem" }}>
+                                        {preowned &&
+                                        preowned.store.make.name + " " + preowned.store.name &&
+                                        preowned.store.make.name + " " + preowned.store.name !==
+                                          ""
+                                          ? Capitalize(
+                                              preowned.store.make.name +
+                                                " " +
+                                                preowned.store.name
+                                            )
+                                          : "----"}
+                                      </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                      <Typography style={{ fontWeight: 600 }}>
+                                        Precio
+                                      </Typography>
+
+                                      <Typography>
+                                        {preowned && preowned.km && preowned.km !== "" ? (
+                                          <NumberFormat
+                                            value={preowned.price}
+                                            displayType={"text"}
+                                            thousandSeparator={true}
+                                            prefix={"$"}
+                                            suffix={" MXN"}
+                                          />
+                                        ) : (
+                                          "----"
+                                        )}
+                                      </Typography>
+                                    </TableCell>
+                                  </TableRow>
+                                  <TableRow>
+                                    <TableCell style={{textAlign:"center", justifyContent:"center"}}>
+                                      <Typography style={{ fontWeight: 600 }}>
+                                        Kilometraje
+                                      </Typography>
+
+                                      <Typography style={{ paddingBlockEnd: "2rem" }}>
+                                        {preowned && preowned.km && preowned.km !== "" ? (
+                                          <NumberFormat
+                                            value={preowned.km}
+                                            displayType={"text"}
+                                            thousandSeparator={true}
+                                            suffix={" Kms"}
+                                          />
+                                        ) : (
+                                          "----"
+                                        )}
+                                      </Typography>
+                                    </TableCell>
+                                    <TableCell style={{textAlign:"center", justifyContent:"center"}}>
+                                      <Typography style={{ fontWeight: 600 }}>
+                                        Transmisión
+                                      </Typography>
+
+                                      <Typography>
+                                        {preowned &&
+                                        preowned.transmission &&
+                                        preowned.transmission !== ""
+                                          ? Capitalize(preowned.transmission)
+                                          : "----"}
+                                      </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                      <Typography style={{ fontWeight: 600 }}>
+                                        Ubicacion de la Agencia
+                                      </Typography>
+                                      <Typography style={{ paddingBlockEnd: "2rem" }}>
+                                        {preowned &&
+                                        preowned.store && preowned.store.address
+                                          ? Capitalize(preowned.store.address)
+                                          : "----"}
+                                      </Typography>
+                                    </TableCell>
+                                  </TableRow>
+                              </TableBody>
+                          </Table>
+                      </TableContainer>
+                      <Grid item xs={12}>
+                        <LoadScript
+                          googleMapsApiKey="AIzaSyCBQjQiDVoR6fctlwY-jxgy-LdBDEh52Fo"
+                        >
+                          <GoogleMap
+                            mapContainerStyle={containerStyle}
+                            center={center}
+                            zoom={16}
+                          >
+                          </GoogleMap>
+                        </LoadScript>
+                      </Grid>
                   </Grid>
                 </Grid>
               </Grid>

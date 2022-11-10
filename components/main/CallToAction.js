@@ -55,7 +55,7 @@ const Calltoaction = ({ color = "white", ...rest }) => {
             </Typography>
           </Box>
           <Box display="flex" alignContent="center" alignItems="center">
-            <Link href={"/compramos-tu-auto"}>
+            {/*<Link href={"/compramos-tu-auto"}>*/}
               <Button
                 variant="contained"
                 color="primary"
@@ -63,7 +63,7 @@ const Calltoaction = ({ color = "white", ...rest }) => {
               >
                 Vender tu auto
               </Button>
-            </Link>
+            {/*</Link>*/}
           </Box>
         </Box>
       </CardContent>

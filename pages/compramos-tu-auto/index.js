@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState} from 'react';
 import { makeStyles, withStyles } from '@mui/styles';
 import clsx from 'clsx';
 import Check from '@material-ui/icons/Check';
@@ -23,6 +23,7 @@ import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { capitalCase } from 'change-case';
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
+import FilesDropzone from '../../components/FileDropzone';
 
 const QontoConnector = withStyles({
   alternativeLabel: {
@@ -116,9 +117,12 @@ const StepperView = ({...rest}) => {
     'Agencia de tu preferencia',
     '¿Tienes algún comentario extra relevante de la unidad?',
     '¿Con quien nos debemos poner en contacto?',
+    'Una imagen puede ayudar!'
   ];
   const { getMakes, makes } = useMake()
   const { getStores, stores } = useStore()
+  const [files, setFiles] = useState(null);
+  const [urls,setUrls] = useState([]);
 
   useEffect(()=>{
     getMakes()
@@ -149,6 +153,19 @@ const StepperView = ({...rest}) => {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
+  useEffect(()=>{
+    if(files){
+      let arrayUrls =[]
+      files.map(item=>arrayUrls.push(URL.createObjectURL(item)))
+      setUrls(arrayUrls)
+
+      console.log(arrayUrls)
+    }
+   },[files])
+   const handleSubmitFile = () =>{
+      urls.map(item => URL.revokeObjectURL(item))
+      setUrls([])
+  }
 
   return (
     <>
@@ -170,7 +187,7 @@ const StepperView = ({...rest}) => {
               store: '',
               name: '',
               email: '',
-              phone: ''
+              phone: '',
             }}
             validationSchema={Yup.object().shape({
               model: Yup.string().max(255).required('Modelo es requerido'),
@@ -406,6 +423,35 @@ const StepperView = ({...rest}) => {
                     />
                   </Grid>
                   <Grid item sm={12}>
+                    <Box mt={5} display='flex' justifyContent='space-between'>
+                      <Button color='primary' variant='contained' onClick={handleBack} style={{minWidth: '15ch'}}>Atrás</Button>
+                      <Button color='primary' variant='contained' onClick={handleNext} style={{minWidth: '15ch'}}>Siguiente</Button>
+                    </Box>
+                  </Grid>
+                </Fragment>
+              }
+              {
+                activeStep === 4 &&
+                <Fragment>
+                  <Grid item sm={12} md={12}>
+                  <Grid container spacing={2}>
+                      {
+                        urls.map((image, index)=>
+                        <Grid item xs={6} sm={6} md={2}>
+                         <img key={index} name="media" src={image} width={120} height={120}/>
+                        </Grid> 
+                        )
+                      }
+
+                    </Grid>
+                   </Grid>
+                    <Grid item xs={12}>
+                      <FilesDropzone
+                        content={<Button variant="contained" color="secondary" >Cargar Archivo</Button>}
+                        customFunction={setFiles}
+                      />
+                    </Grid>
+                    <Grid item sm={12}>
                     <Box mt={5} display='flex' justifyContent='space-between'>
                       <Button color='primary' variant='contained' onClick={handleBack} style={{minWidth: '15ch'}}>Atrás</Button>
                       <Button color='primary' variant='contained' type='submit'>Finalizar</Button>
