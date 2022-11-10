@@ -480,7 +480,7 @@ const Slug = ({ preowned }) => {
                       </TableContainer>
                       <Grid item xs={12}>
                         <LoadScript
-                          googleMapsApiKey="AIzaSyCBQjQiDVoR6fctlwY-jxgy-LdBDEh52Fo"
+                          
                         >
                           <GoogleMap
                             mapContainerStyle={containerStyle}

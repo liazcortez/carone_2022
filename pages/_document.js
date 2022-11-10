@@ -40,7 +40,8 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
           <script src="https://www.youtube.com/iframe_api"></script>
-
+          
+          <script async src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCBQjQiDVoR6fctlwY-jxgy-LdBDEh52Fo&libraries=places'></script>
         </Head>
         <body>
           <Main />
