@@ -5,7 +5,6 @@ import Meta from "../../components/Meta";
 import { Container, Divider } from "@mui/material";
 
 const Marca = ({ vehicles }) => {
-  
   const router = useRouter();
   const { marca } = router.query;
 

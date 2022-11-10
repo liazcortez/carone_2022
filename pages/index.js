@@ -24,28 +24,30 @@ const Home = ({ makes, categories, medias }) => {
 
   const TitleHome = (
     <Box mt={2}>
-      <Typography variant="h1" sx={{fontSize: "35px", fontWeight: 600, display:"none"}}>
+      <Typography
+        variant="h1"
+        sx={{ fontSize: "35px", fontWeight: 600, display: "none" }}>
         Venta de Autos Nuevos y Seminuevos en México
       </Typography>
     </Box>
-  )
+  );
 
   return (
     <>
-      <Meta 
-        title="Venta de autos en México - Carone Group" 
-        description="Venta de autos nuevos y seminuevos en México - Carone Group" 
+      <Meta
+        title="Venta de autos en México - Carone Group"
+        description="Venta de autos nuevos y seminuevos en México - Carone Group"
         url="https://carone.com.mx/"
         googlebot={"index,follow"}
         robots="all"
       />
-      
+
       <Container maxWidth="lg" sx={classes.root}>
         <MainCarousel medias={mediasMainBanner} />
         {TitleHome}
-        <Tabs categories={categories} />
-        <CallToAction style={{ marginBottom: "2em" }} color="white" />
         <CarCardList title="BUSCAR POR MARCA" data={makes} />
+        <CallToAction style={{ marginBottom: "2em" }} color="white" />
+        <Tabs categories={categories} />
       </Container>
     </>
   );
