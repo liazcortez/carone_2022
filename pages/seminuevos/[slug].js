@@ -152,7 +152,7 @@ const Slug = ({ preowned }) => {
                       fontWeight: 600,
                     }}
                   >
-                    {preowned && preowned.km && preowned.km !== "" ? (
+                    {preowned && preowned.price && preowned.price !== "" ? (
                       <NumberFormat
                         value={preowned.price}
                         displayType={"text"}
