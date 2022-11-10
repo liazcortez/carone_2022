@@ -522,7 +522,7 @@
     "@fullcalendar/daygrid" "~5.11.3"
     "tslib" "^2.1.0"
 
-"@gar/promisify@^1.0.1", "@gar/promisify@^1.1.3":
+"@gar/promisify@^1.1.3":
   "integrity" "sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw=="
   "resolved" "https://registry.npmjs.org/@gar/promisify/-/promisify-1.1.3.tgz"
   "version" "1.1.3"
@@ -843,11 +843,6 @@
   "resolved" "https://registry.npmjs.org/@next/react-refresh-utils/-/react-refresh-utils-11.1.4.tgz"
   "version" "11.1.4"
 
-"@next/swc-linux-x64-gnu@11.1.4":
-  "integrity" "sha512-QfVuXugxBkCUHN9yD/VZ1xqszcMlBDj6vrbRiQvmWuyNo39ON6HqGn3jDwVrTHc9oKo2a0XInm+0zEnQeDmjSw=="
-  "resolved" "https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-11.1.4.tgz"
-  "version" "11.1.4"
-
 "@node-rs/helper@1.2.1":
   "integrity" "sha512-R5wEmm8nbuQU0YGGmYVjEc0OHtYsuXdpRG+Ut/3wZ9XAvQWyThN08bTh2cBJgoZxHQUPtvRfeQuxcAgLuiBISg=="
   "resolved" "https://registry.npmjs.org/@node-rs/helper/-/helper-1.2.1.tgz"
@@ -940,14 +935,6 @@
   dependencies:
     "ansi-styles" "^4.3.0"
 
-"@npmcli/fs@^1.0.0":
-  "integrity" "sha512-8KG5RD0GVP4ydEzRn/I4BNDuxDtqVbOdm8675T49OIG/NGhaK0pjPX7ZcDlvKYbA+ulvVK3ztfcF4uBdOxuJbQ=="
-  "resolved" "https://registry.npmjs.org/@npmcli/fs/-/fs-1.1.1.tgz"
-  "version" "1.1.1"
-  dependencies:
-    "@gar/promisify" "^1.0.1"
-    "semver" "^7.3.5"
-
 "@npmcli/fs@^2.1.0":
   "integrity" "sha512-DmfBvNXGaetMxj9LTp8NAN9vEidXURrf5ZTslQzEAi/6GbW+4yjaLFQc6Tue5cpZ9Frlk4OBo/Snf1Bh/S7qTQ=="
   "resolved" "https://registry.npmjs.org/@npmcli/fs/-/fs-2.1.0.tgz"
@@ -997,7 +984,7 @@
     "pacote" "^13.0.3"
     "semver" "^7.3.5"
 
-"@npmcli/move-file@^1.0.1", "@npmcli/move-file@^2.0.0":
+"@npmcli/move-file@^2.0.0":
   "integrity" "sha512-UR6D5f4KEGWJV6BGPH3Qb2EtgH+t+1XQ1Tt85c7qicN6cezzuHPdZwwAxqZr4JLtnQu0LZsTza/5gmNmSl8XLg=="
   "resolved" "https://registry.npmjs.org/@npmcli/move-file/-/move-file-2.0.0.tgz"
   "version" "2.0.0"
@@ -1338,7 +1325,7 @@
   dependencies:
     "debug" "4"
 
-"agentkeepalive@^4.1.3", "agentkeepalive@^4.2.1":
+"agentkeepalive@^4.2.1":
   "integrity" "sha512-Zn4cw2NEqd+9fiSVWMscnjyQ1a8Yfoc5oBajLeo5w+YBHgDUcEBY2hS4YpTz6iN5f/2zQiktcuM6tS8x1p9dpA=="
   "resolved" "https://registry.npmjs.org/agentkeepalive/-/agentkeepalive-4.2.1.tgz"
   "version" "4.2.1"
@@ -2124,30 +2111,6 @@
     "ssri" "^6.0.1"
     "unique-filename" "^1.1.1"
     "y18n" "^4.0.0"
-
-"cacache@^15.2.0":
-  "integrity" "sha512-VVdYzXEn+cnbXpFgWs5hTT7OScegHVmLhJIR8Ufqk3iFD6A6j5iSX1KuBTfNEv4tdJWE2PzA6IVFtcLC7fN9wQ=="
-  "resolved" "https://registry.npmjs.org/cacache/-/cacache-15.3.0.tgz"
-  "version" "15.3.0"
-  dependencies:
-    "@npmcli/fs" "^1.0.0"
-    "@npmcli/move-file" "^1.0.1"
-    "chownr" "^2.0.0"
-    "fs-minipass" "^2.0.0"
-    "glob" "^7.1.4"
-    "infer-owner" "^1.0.4"
-    "lru-cache" "^6.0.0"
-    "minipass" "^3.1.1"
-    "minipass-collect" "^1.0.2"
-    "minipass-flush" "^1.0.5"
-    "minipass-pipeline" "^1.2.2"
-    "mkdirp" "^1.0.3"
-    "p-map" "^4.0.0"
-    "promise-inflight" "^1.0.1"
-    "rimraf" "^3.0.2"
-    "ssri" "^8.0.1"
-    "tar" "^6.0.2"
-    "unique-filename" "^1.1.1"
 
 "cacache@^16.0.0", "cacache@^16.0.6", "cacache@^16.1.0", "cacache@^16.1.1":
   "integrity" "sha512-VDKN+LHyCQXaaYZ7rA/qtkURU+/yYhviUdvqEv2LT6QPZU8jpyzEkEVAcKlKLt5dJ5BRp11ym8lo3NKLluEPLg=="
@@ -4894,7 +4857,7 @@
     "statuses" ">= 1.5.0 < 2"
     "toidentifier" "1.0.0"
 
-"http-proxy-agent@^4.0.1", "http-proxy-agent@^5.0.0":
+"http-proxy-agent@^5.0.0":
   "integrity" "sha512-n2hY8YdoRE1i7r6M0w9DIw5GgZN0G25P8zLCRQ8rjXtTU3vsNFBI/vWK/UIeE6g5MUUz6avwAPXmL6Fy9D/90w=="
   "resolved" "https://registry.npmjs.org/http-proxy-agent/-/http-proxy-agent-5.0.0.tgz"
   "version" "5.0.0"
@@ -6275,7 +6238,14 @@
   dependencies:
     "yallist" "^3.0.2"
 
-"lru-cache@^6.0.0", "lru-cache@^7.4.4", "lru-cache@^7.5.1", "lru-cache@^7.7.1":
+"lru-cache@^6.0.0":
+  "integrity" "sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA=="
+  "resolved" "https://registry.npmjs.org/lru-cache/-/lru-cache-6.0.0.tgz"
+  "version" "6.0.0"
+  dependencies:
+    "yallist" "^4.0.0"
+
+"lru-cache@^7.4.4", "lru-cache@^7.5.1", "lru-cache@^7.7.1":
   "version" "7.9.0"
 
 "make-dir@^1.0.0":
@@ -6319,28 +6289,6 @@
     "promise-retry" "^2.0.1"
     "socks-proxy-agent" "^7.0.0"
     "ssri" "^9.0.0"
-
-"make-fetch-happen@^9.1.0":
-  "integrity" "sha512-+zopwDy7DNknmwPQplem5lAZX/eCOzSvSNNcSKm5eVwTkOBzoktEfXsa9L23J/GIRhxRsaxzkPEhrJEpE2F4Gg=="
-  "resolved" "https://registry.npmjs.org/make-fetch-happen/-/make-fetch-happen-9.1.0.tgz"
-  "version" "9.1.0"
-  dependencies:
-    "agentkeepalive" "^4.1.3"
-    "cacache" "^15.2.0"
-    "http-cache-semantics" "^4.1.0"
-    "http-proxy-agent" "^4.0.1"
-    "https-proxy-agent" "^5.0.0"
-    "is-lambda" "^1.0.1"
-    "lru-cache" "^6.0.0"
-    "minipass" "^3.1.3"
-    "minipass-collect" "^1.0.2"
-    "minipass-fetch" "^1.3.2"
-    "minipass-flush" "^1.0.5"
-    "minipass-pipeline" "^1.2.4"
-    "negotiator" "^0.6.2"
-    "promise-retry" "^2.0.1"
-    "socks-proxy-agent" "^6.0.0"
-    "ssri" "^8.0.0"
 
 "map-cache@^0.2.2":
   "integrity" "sha1-wyq9C9ZSXZsFFkW7TyasXcmKDb8="
@@ -6568,7 +6516,7 @@
   dependencies:
     "minipass" "^3.0.0"
 
-"minipass-fetch@^1.3.2", "minipass-fetch@^2.0.3":
+"minipass-fetch@^2.0.3":
   "integrity" "sha512-H9U4UVBGXEyyWJnqYDCLp1PwD8XIkJ4akNHp1aGVI+2Ym7wQMlxDKi4IB4JbmyU+pl9pEs/cVrK6cOuvmbK4Sg=="
   "resolved" "https://registry.npmjs.org/minipass-fetch/-/minipass-fetch-2.1.0.tgz"
   "version" "2.1.0"
@@ -6594,7 +6542,7 @@
     "jsonparse" "^1.3.1"
     "minipass" "^3.0.0"
 
-"minipass-pipeline@^1.2.2", "minipass-pipeline@^1.2.4":
+"minipass-pipeline@^1.2.4":
   "integrity" "sha512-xuIq7cIOt09RPRJ19gdi4b+RiNvDFYe5JH+ggNvBqGqpQXcru3PcRmOZuHBKWK1Txf9+cQ+HMVN4d6z46LZP7A=="
   "resolved" "https://registry.npmjs.org/minipass-pipeline/-/minipass-pipeline-1.2.4.tgz"
   "version" "1.2.4"
@@ -6608,7 +6556,7 @@
   dependencies:
     "minipass" "^3.0.0"
 
-"minipass@^3.0.0", "minipass@^3.1.1", "minipass@^3.1.3", "minipass@^3.1.6":
+"minipass@^3.0.0", "minipass@^3.1.1", "minipass@^3.1.6":
   "version" "3.1.6"
   dependencies:
     "yallist" "^4.0.0"
@@ -6789,7 +6737,7 @@
   "resolved" "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   "version" "1.4.0"
 
-"negotiator@^0.6.2", "negotiator@^0.6.3":
+"negotiator@^0.6.3":
   "integrity" "sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg=="
   "resolved" "https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz"
   "version" "0.6.3"
@@ -8953,7 +8901,7 @@
     "source-map-resolve" "^0.5.0"
     "use" "^3.1.0"
 
-"socks-proxy-agent@^6.0.0", "socks-proxy-agent@^7.0.0":
+"socks-proxy-agent@^7.0.0":
   "integrity" "sha512-Fgl0YPZ902wEsAyiQ+idGd1A7rSFx/ayC1CQVMw5P+EQx2V0SgpGtf6OKFhVjPflPUl9YMmEOnmfjCdMUsygww=="
   "resolved" "https://registry.npmjs.org/socks-proxy-agent/-/socks-proxy-agent-7.0.0.tgz"
   "version" "7.0.0"
@@ -9103,13 +9051,6 @@
   "version" "6.0.2"
   dependencies:
     "figgy-pudding" "^3.5.1"
-
-"ssri@^8.0.0", "ssri@^8.0.1":
-  "integrity" "sha512-97qShzy1AiyxvPNIkLWoGua7xoQzzPjQ0HAH4B0rWKo7SZ6USuPcrUiAFrws0UH8RrbWmgq3LMTObhPIHbbBeQ=="
-  "resolved" "https://registry.npmjs.org/ssri/-/ssri-8.0.1.tgz"
-  "version" "8.0.1"
-  dependencies:
-    "minipass" "^3.1.1"
 
 "ssri@^9.0.0", "ssri@^9.0.1":
   "integrity" "sha512-o57Wcn66jMQvfHG1FlYbWeZWW/dHZhJXjpIcTfXldXEk5nz5lStPo3mK0OJQfGR3RbZUlbISexbljkJzuEj/8Q=="
@@ -9574,7 +9515,7 @@
     "to-buffer" "^1.1.1"
     "xtend" "^4.0.0"
 
-"tar@^6.0.2", "tar@^6.1.0", "tar@^6.1.11", "tar@^6.1.2":
+"tar@^6.1.0", "tar@^6.1.11", "tar@^6.1.2":
   "integrity" "sha512-an/KZQzQUkZCkuoAA64hM92X0Urb6VpRhAFllDzz44U2mcD5scmT3zBc4VgVpkugF580+DQn8eAFSyoQt0tznA=="
   "resolved" "https://registry.npmjs.org/tar/-/tar-6.1.11.tgz"
   "version" "6.1.11"
