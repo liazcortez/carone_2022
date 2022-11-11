@@ -37,20 +37,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Calltoaction = ({ color = "white", ...rest }) => {
+const Calltoaction = ({ color = "#05418b", ...rest }) => {
   const classes = useStyles();
 
   return (
     <Card 
-      className={clsx(classes[color], classes.card)}
+      className={clsx(classes.card)}
       elevation={0}
+      style={{padding:"10px 0px 10px 0px"}}
       {...rest}
     >
       <CardContent className='dontShowOnMobile' >
-        <Box display="flex" justifyContent="space-between" px={10}>
+        <Box display="flex" justifyContent="space-between" style={{padding:"40px"}}>
           <Box pr={10}>
-            <Typography sx={{ margin: 0, fontSize: "28px", fontWeight: 600 }}>¡Car One Compra tu auto!</Typography>
-            <Typography variant="caption" style={{ fontSize: 16 }}>
+            <Typography sx={{ margin: 0, fontSize: "28px", fontWeight: 600, color:"#FFFFFF"}}>¡Car One Compra tu auto!</Typography>
+            <Typography variant="caption" style={{ fontSize: 16, color:"#FFFFFF"}}>
               SIN TRABAS - SIN FRAUDES - SIN PREOCUPACIONES
             </Typography>
           </Box>
@@ -58,8 +59,10 @@ const Calltoaction = ({ color = "white", ...rest }) => {
             {/*<Link href={"/compramos-tu-auto"}>*/}
               <Button
                 variant="contained"
-                color="primary"
                 className={classes.button}
+                disableElevation
+                //color="primary"
+                style={{ padding:"0px", fontSize:"19px", backgroundColor:"#05418b", color:"#FFFFFF"}}
               >
                 Vender tu auto
               </Button>

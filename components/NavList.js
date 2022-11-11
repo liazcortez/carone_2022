@@ -133,7 +133,7 @@ const NavList = ({ setMenuOpen, logout, menuOpen }) => {
               setMenuOpen(false);
             }}
           >
-            Sobre Nosotros
+            Acerca de
           </Button>
         </Link>
       </Box>
