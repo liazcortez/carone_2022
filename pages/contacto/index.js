@@ -6,6 +6,7 @@ import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
 import PhoneIcon from "@material-ui/icons/Phone";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import ObjExist from "../../utils/ObjExist";
+import Link from "next/link";
 
 const storeRow = ({ store, index }) => (
   <Grid item md={3} key={index}>
@@ -42,6 +43,8 @@ const storeRow = ({ store, index }) => (
 
         <Box style={{ display: "flex", alignItems: "start" }}>
           <LocationOnIcon style={{ fontSize: "25px", paddingTop: "5px" }} />
+          {console.log(store.location)}
+          <a href={`https://www.google.com.mx/maps/search/${store.address}`} style={{textDecoration:"none", color:"#000000"}}>
           <Typography
             style={{
               fontSize: "20px",
@@ -51,6 +54,7 @@ const storeRow = ({ store, index }) => (
           >
             {`${ObjExist(store, ["address"])}`}
           </Typography>
+          </a>
         </Box>
 
         <Box style={{ display: "flex", alignItems: "start" }}>
@@ -67,6 +71,8 @@ const storeRow = ({ store, index }) => (
 
         <Box style={{ display: "flex", alignItems: "start" }}>
           <PhoneIcon style={{ fontSize: "25px", paddingTop: "5px" }} />
+          
+          <a href={`tel:+52${store.phone}`} style={{textDecoration:"none", color:"#000000"}}>
           <Typography
             style={{
               fontSize: "20px",
@@ -75,6 +81,7 @@ const storeRow = ({ store, index }) => (
           >
             {`${ObjExist(store, ["phone"])}`}
           </Typography>
+          </a>
         </Box>
       </Box>
     </Box>
@@ -84,6 +91,8 @@ const storeRow = ({ store, index }) => (
 const index = ({ storesProps }) => {
 
   const [makes, setMakes] = useState({});
+
+ 
 
   useEffect(() => {
     let newStores = [];

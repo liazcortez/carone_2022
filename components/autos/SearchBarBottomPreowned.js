@@ -93,6 +93,7 @@ const SearchBarBottom = ({
     setPage(1);
     setSort(event.target.value);
   };
+  console.log(address);
   return (
     <Grid
       container
