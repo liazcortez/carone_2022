@@ -4,6 +4,11 @@ import TextField from "@mui/material/TextField";
 import { useSnackbar } from "notistack";
 import axios from "axios";
 import moment from 'moment';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 const timeFrames = [
   {
@@ -163,10 +168,22 @@ const SemisForm = ({preowned}) => {
 
   const onHandleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+
 
   return (
     
     <form onSubmit={onHandleSubmit}>
+
       <Box
         style={{ padding: 20, borderRadius: 10, marginBottom: 10, border: "1px solid #dbf2ff", flexDirection: "column", borderColor: "#e2e2e2"}}>
         
@@ -276,12 +293,35 @@ const SemisForm = ({preowned}) => {
           variant="contained"
           color="primary"
           fullWidth
-          type="submit"
+          
+          onClick={handleClickOpen}
           disabled={dissableButton}
           style={{height:"3rem", marginBottom: '1em'}}
           >
           Cotizar
           </Button>
+          <Dialog
+            open={open}
+            onClose={handleClose}
+            onSubmit={onHandleSubmit}
+          >
+            <DialogTitle>
+              {"Antes de continuar"}
+            </DialogTitle>
+            <DialogContent>
+              <DialogContentText >
+                El vehiculo que selecciono es del estado de {preowned.store.location.state}, desea continuar?
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions >
+              <Button onClick={handleClose}>Regresar</Button>
+                <Button type="submit" onClick={onHandleSubmit}>
+                  Continuar
+                </Button>
+              
+            </DialogActions>
+          </Dialog>
+
           {/* <Box display='flex' flexDirection={'row'} justifyContent='center'>
 
             <Divider style={{marginTop: 20, marginBottom: 20, width: '48%'}}/>
@@ -317,9 +357,10 @@ const SemisForm = ({preowned}) => {
               >
               Whatsapp
             </Button>
-  
+              
             </a>
           }
+
         </Box>
 
     </Box>

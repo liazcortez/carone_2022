@@ -45,9 +45,9 @@ const Home = ({ makes, categories, medias }) => {
       <Container maxWidth="lg" sx={classes.root}>
         <MainCarousel medias={mediasMainBanner} />
         {TitleHome}
-        <CarCardList title="BUSCAR POR MARCA" data={makes} />
-        <CallToAction style={{ marginBottom: "2em" }} color="white" />
         <Tabs categories={categories} />
+        <CallToAction style={{ marginBottom: "2em", backgroundColor:"#05418b"}} />
+        <CarCardList title="BUSCAR POR MARCA" data={makes} />
       </Container>
     </>
   );
