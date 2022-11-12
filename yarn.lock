@@ -1699,7 +1699,7 @@
   "resolved" "https://registry.npmjs.org/atob/-/atob-2.1.2.tgz"
   "version" "2.1.2"
 
-"attr-accept@^2.2.1":
+"attr-accept@^2.2.2":
   "integrity" "sha512-7prDjvt9HmqiZ0cl5CRjtS84sEyhsHP2coDkaZKRKVfCDo9s7iw7ChVmar78Gu9pC4SoR/28wFu/G5JJhTnqEg=="
   "resolved" "https://registry.npmjs.org/attr-accept/-/attr-accept-2.2.2.tgz"
   "version" "2.2.2"
@@ -1973,6 +1973,13 @@
   "integrity" "sha1-EsJe/kCkXjwyPrhnWgoM5XsiNx8= sha512-cKV8tMCEpQs4hK/ik71d6LrPOnpkpGBR0wzxqr68g2m/LB2GxVYQroAjMJZRVM1Y4BCjCKc3vAamxSzOY2RP+w=="
   "resolved" "https://registry.npmjs.org/brorand/-/brorand-1.1.0.tgz"
   "version" "1.1.0"
+
+"browser-image-compression@^2.0.0":
+  "integrity" "sha512-kBlkZo13yOOfcmrPW0M0K/UdZPogIQj2gRvXIM3FktAnfW6VRq9aY2RI+F6O0x6DMj1Xm+WLGgWcFK8Fu/ddnw=="
+  "resolved" "https://registry.npmjs.org/browser-image-compression/-/browser-image-compression-2.0.0.tgz"
+  "version" "2.0.0"
+  dependencies:
+    "uzip" "0.20201231.0"
 
 "browserify-aes@^1.0.0", "browserify-aes@^1.0.4":
   "integrity" "sha512-+7CHXqGuspUn/Sl5aO7Ea0xWGAtETPXNSAjHo48JfLdPWcMng33Xe4znFvQweqc/uzk5zSOI3H52CYnjCfb5hA=="
@@ -4066,10 +4073,10 @@
     "loader-utils" "^1.0.2"
     "schema-utils" "^0.4.5"
 
-"file-selector@^0.2.2":
-  "integrity" "sha512-ZDsQNbrv6qRi1YTDOEWzf5J2KjZ9KMI1Q2SGeTkCJmNNW25Jg4TW4UMcmoqcg4WrAyKRcpBXdbWRxkfrOzVRbA=="
-  "resolved" "https://registry.npmjs.org/file-selector/-/file-selector-0.2.4.tgz"
-  "version" "0.2.4"
+"file-selector@^0.4.0":
+  "integrity" "sha512-iACCiXeMYOvZqlF1kTiYINzgepRBymz1wwjiuup9u9nayhb6g4fSwiyJ/6adli+EPwrWtpgQAh2PoS7HukEGEg=="
+  "resolved" "https://registry.npmjs.org/file-selector/-/file-selector-0.4.0.tgz"
+  "version" "0.4.0"
   dependencies:
     "tslib" "^2.0.3"
 
@@ -8149,14 +8156,14 @@
     "object-assign" "^4.1.1"
     "scheduler" "^0.20.2"
 
-"react-dropzone@^11.5.1":
-  "integrity" "sha512-eNhttdq4ZDe3eKbXAe54Opt+sbtqmNK5NWTHf/l5d+1TdZqShJ8gMjBrya00qx5zkI//TYxRhu1d9pemTgaWwg=="
-  "resolved" "https://registry.npmjs.org/react-dropzone/-/react-dropzone-11.5.1.tgz"
-  "version" "11.5.1"
+"react-dropzone@^11.7.1":
+  "integrity" "sha512-zxCMwhfPy1olUEbw3FLNPLhAm/HnaYH5aELIEglRbqabizKAdHs0h+WuyOpmA+v1JXn0++fpQDdNfUagWt5hJQ=="
+  "resolved" "https://registry.npmjs.org/react-dropzone/-/react-dropzone-11.7.1.tgz"
+  "version" "11.7.1"
   dependencies:
-    "attr-accept" "^2.2.1"
-    "file-selector" "^0.2.2"
-    "prop-types" "^15.7.2"
+    "attr-accept" "^2.2.2"
+    "file-selector" "^0.4.0"
+    "prop-types" "^15.8.1"
 
 "react-easy-swipe@^0.0.21":
   "integrity" "sha512-OeR2jAxdoqUMHIn/nS9fgreI5hSpgGoL5ezdal4+oO7YSSgJR8ga+PkYGJrSrJ9MKlPcQjMQXnketrD7WNmNsg=="
@@ -10238,6 +10245,11 @@
   "integrity" "sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A=="
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz"
   "version" "3.4.0"
+
+"uzip@0.20201231.0":
+  "integrity" "sha512-OZeJfZP+R0z9D6TmBgLq2LHzSSptGMGDGigGiEe0pr8UBe/7fdflgHlHBNDASTXB5jnFuxHpNaJywSg8YFeGng=="
+  "resolved" "https://registry.npmjs.org/uzip/-/uzip-0.20201231.0.tgz"
+  "version" "0.20201231.0"
 
 "v8-compile-cache@^2.0.3":
   "integrity" "sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA=="
