@@ -31,7 +31,6 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
     loadData();
   }
 
-
   useEffect(() => {
     if (vehicles && vehicles.length <= 0) return;
     setInfiniteVehicles([...infiniteVehicles, ...vehicles]);

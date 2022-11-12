@@ -1,7 +1,7 @@
 import React from "react";
-import { Grid, TextField } from "@mui/material";
+import { Grid, TextField, Menu, MenuItem, Button, Box, Typography, List, ListItem, ListItemText} from "@mui/material";
 import { capitalCase } from "change-case";
-
+import useVehicles from "../../hooks/useVehicle";
 const currencies = [
   {
     value: "USD",
@@ -51,6 +51,13 @@ const sortOptions = [
     value: "mayor900001",
   },
 ];
+const options = [
+  'No aplica',
+  'mayor precio',
+  'menor precio',
+  'mas antiguo',
+  'menos antiguo',
+];
 
 const classes ={
   root: {
@@ -83,6 +90,8 @@ const SearchBarBottom = ({
   setSort,
 }) => {
 
+  const { vehicles, getVehicles, loading, results, clearState } = useVehicles();
+
   const handleChange = (event) => {
     setPage(1);
     setMake(event.target.value);
@@ -96,6 +105,57 @@ const SearchBarBottom = ({
   const handleSort = (event) => {
     setPage(1);
     setSort(event.target.value);
+  };
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const open = Boolean(anchorEl);
+  const handleClickListItem = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuItemClick = (event, index) => {
+    setSelectedIndex(index);
+    setAnchorEl(null);
+    //mayor precio
+    if(index === 1){
+      getVehicles.sort( function(a,b) {
+        if (a.price > b.price) {
+          return 1;
+        }
+        console.log(vehicles);
+      })
+    }
+    //menor precio
+    else if(index === 2){
+      getVehicles.sort( function(a,b) {
+        if (a.price < b.price) {
+          return -1;
+        }
+        console.log(vehicles);
+      })
+    }
+    //mas antiguo
+    else if(index === 3){
+      getVehicles.sort( function(a,b) {
+        if (a.createdAt < b.createdAt) {
+          return -1;
+        }
+        console.log(vehicles);
+      })
+    }
+    //menos antiguo
+    else if(index === 4){
+      getVehicles.sort( function(a,b) {
+        if (a.createdAt > b.createdAt) {
+          return 1;
+        }
+        console.log(vehicles);
+      })
+    }
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
   };
   return (
     <Grid
@@ -195,6 +255,49 @@ const SearchBarBottom = ({
             </option>
           ))}
         </TextField>
+      </Grid>
+      <Grid item xs={12}>
+          <Box style={{width:"100%", justifyContent:"flex-end", display:"flex"}}>
+              <List
+                component="nav"
+                aria-label="Device settings"
+              >
+                <ListItem
+                  button
+                  id="lock-button"
+                  aria-haspopup="listbox"
+                  aria-controls="lock-menu"
+                  aria-label="ordenar-por"
+                  aria-expanded={open ? 'true' : undefined}
+                  onClick={handleClickListItem}
+                >
+                  <ListItemText
+                    primary="Ordenar Por:"
+                    secondary={options[selectedIndex]}
+                  />
+                </ListItem>
+              </List>
+              <Menu
+                id="lock-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  'aria-labelledby': 'lock-button',
+                  role: 'listbox',
+                }}
+              >
+                {options.map((option, index) => (
+                  <MenuItem
+                    key={option}
+                    selected={index === selectedIndex}
+                    onClick={(event) => handleMenuItemClick(event, index)}
+                  >
+                    {option}
+                  </MenuItem>
+                ))}
+              </Menu>
+          </Box>
       </Grid>
     </Grid>
   );
