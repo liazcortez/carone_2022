@@ -23,7 +23,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   // states
   const [disableTopBar, setDisableTopBar] = useState(false);
   const [infiniteVehicles, setInfiniteVehicles] = useState([]);
-  const [localStorageLoaded,setLocalStoregeLoaded] = useState(false);
+  const [localStorageLoaded,setLocalStorageLoaded] = useState(false);
 
   // search states
   const [page, setPage] = useState(1);
@@ -39,7 +39,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   useEffect(() => {
     const local = getItem(localStorageName);
     if(local)handleLocalStorage(local)
-    else setLocalStoregeLoaded(true)
+    else setLocalStorageLoaded(true)
     // setItem('algo','123')
   }, [])
 
@@ -53,7 +53,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
     if(local?.sort)await setSort(local.sort)
     if(local?.address)await setAddress(local.address)
     }
-    setLocalStoregeLoaded(true)
+    setLocalStorageLoaded(true)
   }
   
 
