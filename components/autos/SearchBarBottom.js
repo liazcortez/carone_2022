@@ -118,7 +118,7 @@ const SearchBarBottom = ({
     setAnchorEl(null);
     //mayor precio
     if(index === 1){
-      getVehicles.sort( function(a,b) {
+      vehicles.sort( function(a,b) {
         if (a.price > b.price) {
           return 1;
         }
@@ -127,7 +127,7 @@ const SearchBarBottom = ({
     }
     //menor precio
     else if(index === 2){
-      getVehicles.sort( function(a,b) {
+      vehicles.sort( function(a,b) {
         if (a.price < b.price) {
           return -1;
         }
@@ -136,7 +136,7 @@ const SearchBarBottom = ({
     }
     //mas antiguo
     else if(index === 3){
-      getVehicles.sort( function(a,b) {
+      vehicles.sort( function(a,b) {
         if (a.createdAt < b.createdAt) {
           return -1;
         }
@@ -145,7 +145,7 @@ const SearchBarBottom = ({
     }
     //menos antiguo
     else if(index === 4){
-      getVehicles.sort( function(a,b) {
+      vehicles.sort( function(a,b) {
         if (a.createdAt > b.createdAt) {
           return 1;
         }
