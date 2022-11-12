@@ -23,11 +23,12 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   const [category, setCategory] = useState("-");
   const [sort, setSort] = useState("-");
   const [infiniteVehicles, setInfiniteVehicles] = useState([]);
-  const [address, setAddress] = useState("-");
+  const [address, setAddress] = useState("");
 
   const changePage = (event, value) => setPage(value);
 
   useEffect(() => {
+    console.log({address})
     handleReload();
     //eslint-disable-next-line
   }, [store, category, sort, query, address]);
@@ -48,16 +49,14 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
     setInfiniteVehicles([...infiniteVehicles, ...preowneds]);
     clearState();
   }, [preowneds]);
-  //pasar info de la ubicacion de la store
+
   useEffect(()=>{
-    setAddress([...address, stores.location]);
-    console.log(address);
     clearState();
   },[stores])
 
   const loadData = () => {
+
     let pricequery = '';
-    console.log(sort)
     switch (sort) {
       case 'menor150000':
         pricequery = '&price[lt]=150000'
@@ -81,9 +80,9 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
         pricequery = '&price[gte]=900001'
         break;
     }
-    console.log(pricequery)
-
-    getPreownedsV2({ limit: 12, page, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}&isPublished=true&isSold=false` });
+    console.log('reload')
+    let location = (address.length >=1 ) ? `&storeLocation=${address}`:'';
+    getPreownedsV2({ limit: 12, page, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}&isPublished=true&isSold=false${location}` });
 
     setPage(page + 1);
   };

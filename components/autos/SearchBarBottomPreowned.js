@@ -93,7 +93,6 @@ const SearchBarBottom = ({
     setPage(1);
     setSort(event.target.value);
   };
-  console.log(address);
   return (
     <Grid
       container
@@ -199,7 +198,7 @@ const SearchBarBottom = ({
           ))}
         </TextField>
       </Grid>
-    {/*<Grid item xs={12}>
+    <Grid item xs={12}>
     <TextField
         style={{
           backgroundColor: "#f3f7f9",
@@ -262,7 +261,7 @@ const SearchBarBottom = ({
           </option>
         ))}
       </TextField>
-          </Grid>*/}
+          </Grid>
     </Grid>
   );
 };
