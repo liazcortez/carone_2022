@@ -10,6 +10,7 @@ import { Container, Divider, Grid, Box, Typography } from "@mui/material";
 import CarListCard from "../../components/autos/CarListCardPreowned";
 import CustomLoading from "../../components/CustomLoading";
 import Spinner from "../../components/assets/Spinner";
+import useStorage from "../../hooks/custom/useStorage";
 
 
 
@@ -24,6 +25,14 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   const [sort, setSort] = useState("-");
   const [infiniteVehicles, setInfiniteVehicles] = useState([]);
   const [address, setAddress] = useState("");
+  const {getItem,setItem} = useStorage();
+
+  useEffect(() => {
+    const local = getItem('algo');
+    console.log(local)
+    // setItem('algo','123')
+  }, [])
+  
 
   const changePage = (event, value) => setPage(value);
 
@@ -80,7 +89,6 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
         pricequery = '&price[gte]=900001'
         break;
     }
-    console.log('reload')
     let location = (address.length >=1 ) ? `&storeLocation=${address}`:'';
     getPreownedsV2({ limit: 12, page, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}&isPublished=true&isSold=false${location}` });
 
