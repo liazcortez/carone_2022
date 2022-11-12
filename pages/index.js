@@ -46,7 +46,7 @@ const Home = ({ makes, categories, medias }) => {
         <MainCarousel medias={mediasMainBanner} />
         {TitleHome}
         <Tabs categories={categories} />
-        <CallToAction style={{ marginBottom: "2em", backgroundColor:"#05418b"}} />
+        {/* <CallToAction style={{ marginBottom: "2em", backgroundColor:"#05418b"}} /> */}
         <CarCardList title="BUSCAR POR MARCA" data={makes} />
       </Container>
     </>
