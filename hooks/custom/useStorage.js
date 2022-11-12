@@ -4,12 +4,12 @@ const useStorage = () => {
   const isBrowser = (() => typeof window !== 'undefined')();
 
   const getItem = (key, type) => {
-    return isBrowser ? window[storageType(type)][key] : '';
+    return isBrowser && window?.[storageType(type)]?.[key] ? JSON.parse(window[storageType(type)][key]) : '';
   };
 
   const setItem = (key, value, type) => {
     if (isBrowser) {
-      window[storageType(type)].setItem(key, value);
+      window[storageType(type)].setItem(key,JSON.stringify(value));
       return true;
     }
 

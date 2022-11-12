@@ -16,42 +16,58 @@ import useStorage from "../../hooks/custom/useStorage";
 
 const Index = ({ preownedsSP, total, stores, categories }) => {
 
+  // hooks
   const { preowneds, getPreownedsV2, loading, results, clearState } = usePreowned();
+  const {getItem,setItem} = useStorage();
+
+  // states
   const [disableTopBar, setDisableTopBar] = useState(false);
+  const [infiniteVehicles, setInfiniteVehicles] = useState([]);
+  const [localStorageLoaded,setLocalStoregeLoaded] = useState(false);
+
+  // search states
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [store, setStore] = useState("-");
   const [category, setCategory] = useState("-");
   const [sort, setSort] = useState("-");
-  const [infiniteVehicles, setInfiniteVehicles] = useState([]);
   const [address, setAddress] = useState("");
-  const {getItem,setItem} = useStorage();
+
+  const localStorageName = 'preownedFilters';
+  const localStorageVersion = '1.0';
 
   useEffect(() => {
-    const local = getItem('algo');
-    console.log(local)
+    const local = getItem(localStorageName);
+    if(local)handleLocalStorage(local)
+    else setLocalStoregeLoaded(true)
     // setItem('algo','123')
   }, [])
+
+  const handleLocalStorage= async (local)=>{
+    if(local?.localStorageVersion === localStorageVersion){
+    // manejar la ultima pagina cargando todas las anteriores para despues
+    // if(local?.page)await setPage(local.page) this is the last page viewed
+    if(local?.query)await setQuery(local.query)
+    if(local?.store)await setStore(local.store)
+    if(local?.category)await setCategory(local.category)
+    if(local?.sort)await setSort(local.sort)
+    if(local?.address)await setAddress(local.address)
+    }
+    setLocalStoregeLoaded(true)
+  }
   
 
-  const changePage = (event, value) => setPage(value);
 
   useEffect(() => {
-    console.log({address})
+    if(!localStorageLoaded)return;
     handleReload();
     //eslint-disable-next-line
-  }, [store, category, sort, query, address]);
+  }, [store, category, sort, query, address,localStorageLoaded]);
 
   const handleReload = async () => {
     await setInfiniteVehicles([]);
     loadData();
   }
-
-  // useEffect(() => {
-  //   setInfiniteVehicles([]);
-  //   loadData(true);
-  //   //eslint-disable-next-line
-  // }, [make, category, sort]);
 
   useEffect(() => {
     if (preowneds && preowneds.length <= 0) return;
@@ -89,8 +105,10 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
         pricequery = '&price[gte]=900001'
         break;
     }
-    let location = (address.length >=1 ) ? `&storeLocation=${address}`:'';
-    getPreownedsV2({ limit: 12, page, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}&isPublished=true&isSold=false${location}` });
+    let location = (address.length >=1 && address !== '-') ? `&storeLocation=${address}`:'';
+    setItem(localStorageName,{page,store,category,sort,address,query,localStorageVersion })
+    let search = { limit: 12, page, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}&isPublished=true&isSold=false${location}`}
+    getPreownedsV2(search);
 
     setPage(page + 1);
   };

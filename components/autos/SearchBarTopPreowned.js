@@ -1,4 +1,4 @@
-import React , {useState}from "react";
+import React , {useState,useEffect}from "react";
 import { TextField } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
@@ -6,7 +6,15 @@ import SearchIcon from "@material-ui/icons/Search";
 const SearchBarTop = ({ setQuery, query, disableTopBar, store, category, sort,setPage}) => {
 
   const [localQuery,setLocalQuery] = useState('');
+  const [queryLoaded,setQueryLoaded] = useState(false)
 
+  useEffect(() => {
+    if(query === '' || queryLoaded)return
+    setLocalQuery(query);
+    setQueryLoaded(true);
+  }, [query])
+
+  
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -16,6 +24,7 @@ const SearchBarTop = ({ setQuery, query, disableTopBar, store, category, sort,se
   const handleKeyUp = (event) => {
     if (event.keyCode === 13) {
       setPage(1);
+      setQueryLoaded(true);
       setQuery(localQuery);
       // getPreowneds(1, `${query}&store=${store}${category !== '-' ? `&modelType=${category}` : ''}&prices=${sort}`)
     }
