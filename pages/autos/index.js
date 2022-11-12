@@ -8,23 +8,50 @@ import { baseURL } from "../../api/api";
 import InfiniteScroll from "react-infinite-scroll-component";
 import CarListCard from "../../components/autos/CarListCard";
 import CustomLoading from "../../components/CustomLoading";
+import useStorage from "../../hooks/custom/useStorage";
 
 const Index = ({ vehiclesSP, total, makes, categories }) => {
   const { vehicles, getVehicles, loading, results, clearState } = useVehicles();
+  const {getItem,setItem} = useStorage();
+
   const [disableTopBar, setDisableTopBar] = useState(false);
+  const [infiniteVehicles, setInfiniteVehicles] = useState([]);
+  const [localStorageLoaded,setLocalStorageLoaded] = useState(false);
+
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [make, setMake] = useState("-");
   const [category, setCategory] = useState("-");
   const [sort, setSort] = useState("-");
-  const [infiniteVehicles, setInfiniteVehicles] = useState([]);
 
-  const changePage = (event, value) => setPage(value);
+  const localStorageName = 'carFilters';
+  const localStorageVersion = '1.0';
 
   useEffect(() => {
+    const local = getItem(localStorageName);
+    if(local)handleLocalStorage(local)
+    else setLocalStorageLoaded(true)
+    
+    // setItem('algo','123')
+  }, [])
+
+  const handleLocalStorage= async (local)=>{
+    if(local?.localStorageVersion === localStorageVersion){
+    // manejar la ultima pagina cargando todas las anteriores para despues
+    // if(local?.page)await setPage(local.page) this is the last page viewed
+    if(local?.query)await setQuery(local.query)
+    if(local?.make)await setMake(local.make)
+    if(local?.category)await setCategory(local.category)
+    if(local?.sort)await setSort(local.sort)
+    }
+    setLocalStorageLoaded(true)
+  }
+
+  useEffect(() => {
+    if(!localStorageLoaded)return;
     handleReload();
     //eslint-disable-next-line
-  }, [make, category, sort,query]);
+  }, [make, category, sort,query,localStorageLoaded]);
 
   const handleReload = async ()=>{
     await setInfiniteVehicles([]);
@@ -38,6 +65,7 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
   }, [vehicles]);
 
   const loadData = () => {
+    setItem(localStorageName,{page,make,category,sort,query,localStorageVersion })
     getVehicles(
       page,
       `${query}&make=${make}&category=${category}&prices=${sort}&limit=60`
