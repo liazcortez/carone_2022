@@ -1,4 +1,4 @@
-import React , {useState}from "react";
+import React , {useState,useEffect}from "react";
 import { TextField } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
@@ -6,6 +6,15 @@ import SearchIcon from "@material-ui/icons/Search";
 const SearchBarTop = ({ setQuery, query, disableTopBar, make, category, sort, setPage}) => {
 
   const [localQuery,setLocalQuery] = useState('');
+  const [queryLoaded,setQueryLoaded] = useState(false)
+
+  useEffect(() => {
+    if(query === '' || queryLoaded)return
+    setLocalQuery(query);
+    setQueryLoaded(true);
+
+  }, [query])
+
   const handleChange = (event) => {
     event.preventDefault();
     setLocalQuery(event.target.value);
@@ -14,6 +23,7 @@ const SearchBarTop = ({ setQuery, query, disableTopBar, make, category, sort, se
   const handleKeyUp = (event) => {
     if (event.keyCode === 13) {
       setPage(1);
+      setQueryLoaded(true);
       setQuery(localQuery);
       // getVehicles(1, `${query}&make=${make}&category=${category}&prices=${sort}`)
     }
