@@ -16,7 +16,7 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
 
   const [disableTopBar, setDisableTopBar] = useState(false);
   const [infiniteVehicles, setInfiniteVehicles] = useState([]);
-  const [localStorageLoaded,setLocalStoregeLoaded] = useState(false);
+  const [localStorageLoaded,setLocalStorageLoaded] = useState(false);
 
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
@@ -30,7 +30,7 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
   useEffect(() => {
     const local = getItem(localStorageName);
     if(local)handleLocalStorage(local)
-    else setLocalStoregeLoaded(true)
+    else setLocalStorageLoaded(true)
     
     // setItem('algo','123')
   }, [])
@@ -44,7 +44,7 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
     if(local?.category)await setCategory(local.category)
     if(local?.sort)await setSort(local.sort)
     }
-    setLocalStoregeLoaded(true)
+    setLocalStorageLoaded(true)
   }
 
   useEffect(() => {
