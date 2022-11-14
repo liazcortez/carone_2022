@@ -32,7 +32,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   const [category, setCategory] = useState("-");
   const [sort, setSort] = useState("-");
   const [address, setAddress] = useState("");
-
+  const [datasort, setDatasort] = useState("-");
   const localStorageName = 'preownedFilters';
   const localStorageVersion = '1.0';
 
@@ -106,8 +106,24 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
         break;
     }
     let location = (address.length >=1 && address !== '-') ? `&storeLocation=${address}`:'';
-    setItem(localStorageName,{page,store,category,sort,address,query,localStorageVersion })
-    let search = { limit: 12, page, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}&isPublished=true&isSold=false${location}`}
+     //funcion de como se pasaran los datos del sort
+     let datos = '';
+     switch (datasort) {
+       case 'mayorPrecio':
+         datos = 'price,1';
+         break;
+       case 'menorPrecio':
+         datos = 'price,-1';
+         break;
+       case 'masReciente':
+         datos = 'createdAt,-1';
+         break;
+       case 'masAntiguo':
+         datos = 'createdAt,1';
+         break;
+     }
+    setItem(localStorageName,{page,store,category,sort,address,datos,query,localStorageVersion })
+    let search = { limit: 12, page, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=${datos}${pricequery}&isPublished=true&isSold=false${location}`}
     getPreownedsV2(search);
 
     setPage(page + 1);
@@ -149,6 +165,8 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
           setSort={setSort}
           address={address}
           setAddress={setAddress}
+          datasort={datasort}
+          setDatasort={setDatasort}
         />
         <Divider style={{ marginBottom: "50px" }} />
         <InfiniteScroll
