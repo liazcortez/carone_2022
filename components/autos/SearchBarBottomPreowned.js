@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, TextField } from "@mui/material";
+import { Grid, TextField, Box } from "@mui/material";
 import { capitalCase } from "change-case";
 import _ from 'lodash'
 import useStore from '../../hooks/useStore'
@@ -35,6 +35,25 @@ const sortOptions = [
     value: "mayor900001",
   },
 ];
+//Variables del sort 
+const options = [
+  {
+    name: "Mayor Precio",
+    value: "mayorPrecio",
+  },
+  {
+    name: "Menor Precio",
+    value: "menorPrecio",
+  },
+  {
+    name: "Mas Reciente",
+    value: "masReciente",
+  },
+  {
+    name: "Mas Antiguo",
+    value: "masAntiguo",
+  },
+];
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,7 +80,9 @@ const SearchBarBottom = ({
   sort,
   setSort,
   address,
-  setAddress
+  setAddress,
+  datasort,
+  setDatasort
 }) => {
   const classes = useStyles();
 
@@ -74,6 +95,10 @@ const SearchBarBottom = ({
     event.preventDefault()
     setPage(1);
     setAddress(event.target.value);
+  };
+  const handleData = (event) => {
+    setDatasort(event.target.value);
+    console.log(event.target.value);
   };
 
   const { getStores, stores } = useStore();
@@ -262,6 +287,41 @@ const SearchBarBottom = ({
         ))}
       </TextField>
           </Grid>
+           {/*Aqui empieza el sort */}
+      <Grid item xs={12}>
+          <Box style={{width:"100%", justifyContent:"flex-end", display:"flex"}}>
+            <TextField
+              style={{
+                backgroundColor: "#f3f7f9",
+                border: "0px solid rgb(217, 221, 233)",
+                borderRadius: 10,
+              }}
+              select
+              fullWidth
+              label="Ordenar Por:"
+              value={datasort}
+              onChange={handleData}
+              SelectProps={{
+                native: true,
+              }}
+              variant="outlined"
+            >
+              <option key={0} value={"-"}>
+                No Aplica
+              </option>
+              {options.map((option) => (
+                <option
+                  key={option.name}
+                  value={option.value}
+                  style={{ color: "#a5a5a" }}
+                >
+                  {option.name}
+                </option>
+              ))}
+            </TextField>
+          </Box>
+      </Grid>
+      {/*Aqui termina el sort */}
     </Grid>
   );
 };

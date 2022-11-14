@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid, TextField, Menu, MenuItem, Button, Box, Typography, List, ListItem, ListItemText} from "@mui/material";
 import { capitalCase } from "change-case";
-import useVehicles from "../../hooks/useVehicle";
 const currencies = [
   {
     value: "USD",
@@ -51,12 +50,24 @@ const sortOptions = [
     value: "mayor900001",
   },
 ];
+//Variables del sort 
 const options = [
-  'No aplica',
-  'mayor precio',
-  'menor precio',
-  'mas antiguo',
-  'menos antiguo',
+  {
+    name: "Mayor Precio",
+    value: "mayorPrecio",
+  },
+  {
+    name: "Menor Precio",
+    value: "menorPrecio",
+  },
+  {
+    name: "Mas Reciente",
+    value: "masReciente",
+  },
+  {
+    name: "Mas Antiguo",
+    value: "masAntiguo",
+  },
 ];
 
 const classes ={
@@ -88,9 +99,10 @@ const SearchBarBottom = ({
   setPage,
   sort,
   setSort,
+  datasort,
+  setDatasort
 }) => {
 
-  const { vehicles, getVehicles, loading, results, clearState } = useVehicles();
 
   const handleChange = (event) => {
     setPage(1);
@@ -106,57 +118,11 @@ const SearchBarBottom = ({
     setPage(1);
     setSort(event.target.value);
   };
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
-  const open = Boolean(anchorEl);
-  const handleClickListItem = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleData = (event) => {
+    setDatasort(event.target.value);
+    console.log(event.target.value);
   };
 
-  const handleMenuItemClick = (event, index) => {
-    setSelectedIndex(index);
-    setAnchorEl(null);
-    //mayor precio
-    if(index === 1){
-      vehicles.sort( function(a,b) {
-        if (a.price > b.price) {
-          return 1;
-        }
-        console.log(vehicles);
-      })
-    }
-    //menor precio
-    else if(index === 2){
-      vehicles.sort( function(a,b) {
-        if (a.price < b.price) {
-          return -1;
-        }
-        console.log(vehicles);
-      })
-    }
-    //mas antiguo
-    else if(index === 3){
-      vehicles.sort( function(a,b) {
-        if (a.createdAt < b.createdAt) {
-          return -1;
-        }
-        console.log(vehicles);
-      })
-    }
-    //menos antiguo
-    else if(index === 4){
-      vehicles.sort( function(a,b) {
-        if (a.createdAt > b.createdAt) {
-          return 1;
-        }
-        console.log(vehicles);
-      })
-    }
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
   return (
     <Grid
       container
@@ -256,49 +222,41 @@ const SearchBarBottom = ({
           ))}
         </TextField>
       </Grid>
+      {/*Aqui empieza el sort */}
       <Grid item xs={12}>
           <Box style={{width:"100%", justifyContent:"flex-end", display:"flex"}}>
-              <List
-                component="nav"
-                aria-label="Device settings"
-              >
-                <ListItem
-                  button
-                  id="lock-button"
-                  aria-haspopup="listbox"
-                  aria-controls="lock-menu"
-                  aria-label="ordenar-por"
-                  aria-expanded={open ? 'true' : undefined}
-                  onClick={handleClickListItem}
+            <TextField
+              style={{
+                backgroundColor: "#f3f7f9",
+                border: "0px solid rgb(217, 221, 233)",
+                borderRadius: 10,
+              }}
+              select
+              fullWidth
+              label="Ordenar Por:"
+              value={datasort}
+              onChange={handleData}
+              SelectProps={{
+                native: true,
+              }}
+              variant="outlined"
+            >
+              <option key={0} value={"-"}>
+                No Aplica
+              </option>
+              {options.map((option) => (
+                <option
+                  key={option.name}
+                  value={option.value}
+                  style={{ color: "#a5a5a" }}
                 >
-                  <ListItemText
-                    primary="Ordenar Por:"
-                    secondary={options[selectedIndex]}
-                  />
-                </ListItem>
-              </List>
-              <Menu
-                id="lock-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                  'aria-labelledby': 'lock-button',
-                  role: 'listbox',
-                }}
-              >
-                {options.map((option, index) => (
-                  <MenuItem
-                    key={option}
-                    selected={index === selectedIndex}
-                    onClick={(event) => handleMenuItemClick(event, index)}
-                  >
-                    {option}
-                  </MenuItem>
-                ))}
-              </Menu>
+                  {option.name}
+                </option>
+              ))}
+            </TextField>
           </Box>
       </Grid>
+      {/*Aqui termina el sort */}
     </Grid>
   );
 };
