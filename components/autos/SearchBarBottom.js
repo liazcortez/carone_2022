@@ -232,7 +232,6 @@ const SearchBarBottom = ({
                 borderRadius: 10,
               }}
               select
-              fullWidth
               label="Ordenar Por:"
               value={datasort}
               onChange={handleData}

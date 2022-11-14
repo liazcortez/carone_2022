@@ -1,9 +1,54 @@
 import React from "react";
 import { Grid, TextField, Box } from "@mui/material";
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { capitalCase } from "change-case";
 import _ from 'lodash'
 import useStore from '../../hooks/useStore'
 import {makeStyles} from '@mui/styles';
+import { styled, alpha } from '@mui/material/styles';
+const StyledMenu = styled((props) => (
+  <Menu
+    elevation={0}
+    anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'right',
+    }}
+    transformOrigin={{
+      vertical: 'top',
+      horizontal: 'right',
+    }}
+    {...props}
+  />
+))(({ theme }) => ({
+  '& .MuiPaper-root': {
+    borderRadius: 6,
+    marginTop: theme.spacing(1),
+    minWidth: 180,
+    color:
+      theme.palette.mode === 'light' ? 'rgb(55, 65, 81)' : theme.palette.grey[300],
+    boxShadow:
+      'rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
+    '& .MuiMenu-list': {
+      padding: '4px 0',
+    },
+    '& .MuiMenuItem-root': {
+      '& .MuiSvgIcon-root': {
+        fontSize: 18,
+        color: theme.palette.text.secondary,
+        marginRight: theme.spacing(1.5),
+      },
+      '&:active': {
+        backgroundColor: alpha(
+          theme.palette.primary.main,
+          theme.palette.action.selectedOpacity,
+        ),
+      },
+    },
+  },
+}));
 
 const sortOptions = [
   // {
@@ -85,6 +130,14 @@ const SearchBarBottom = ({
   setDatasort
 }) => {
   const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const handleChange = (event) => {
     event.preventDefault()
@@ -290,6 +343,7 @@ const SearchBarBottom = ({
            {/*Aqui empieza el sort */}
       <Grid item xs={12}>
           <Box style={{width:"100%", justifyContent:"flex-end", display:"flex"}}>
+              
             <TextField
               style={{
                 backgroundColor: "#f3f7f9",
@@ -297,7 +351,6 @@ const SearchBarBottom = ({
                 borderRadius: 10,
               }}
               select
-              fullWidth
               label="Ordenar Por:"
               value={datasort}
               onChange={handleData}
