@@ -46,19 +46,19 @@ const sortOptions = [
 const options = [
   {
     name: "Mayor Precio",
-    value: "mayorPrecio",
+    value: 'price,1',
   },
   {
     name: "Menor Precio",
-    value: "menorPrecio",
+    value: 'price,-1',
   },
   {
     name: "Mas Reciente",
-    value: "masReciente",
+    value:  'createdAt,-1',
   },
   {
     name: "Mas Antiguo",
-    value: "masAntiguo",
+    value: 'createdAt,1',
   },
 ];
 
