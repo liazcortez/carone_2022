@@ -16,7 +16,7 @@ const Banner = ({
   infiniteLoop = true,
   interval = 8000,
   transitionTime = 1000,
-  showThumbs = true,
+  showThumbs = false,
   showArrows = true,
   showStatus = true,
   showIndicators = true,
@@ -26,7 +26,7 @@ const Banner = ({
 
   return (
     <Grid
-      style={{ display: "flex", justifyContent: "center" }}
+      style={{ display: "flex", justifyContent: "center"}}
       className="animated fadeIn"
       container
     >
@@ -45,7 +45,7 @@ const Banner = ({
           {medias && medias.length > 0 ? (
             medias.map((item, key) => (
               <div style={{ width: "100%" }}>
-                <img src={item.image} key={key} width={"auto"} height={"auto"} alt={`${CapitalizeV2(preowned.vehicle.make.name)} ${CapitalizeV2(preowned.version)} ${preowned.year}`}
+                <img src={item.image} key={key} width={"auto"} height={"450px"} alt={`${CapitalizeV2(preowned.vehicle.make.name)} ${CapitalizeV2(preowned.version)} ${preowned.year}`}
                 title={`Auto ${CapitalizeV2(preowned.vehicle.make.name)} ${CapitalizeV2(preowned.version)} ${preowned.year}`}
                 />
               </div>

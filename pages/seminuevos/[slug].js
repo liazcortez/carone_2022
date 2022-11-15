@@ -182,7 +182,7 @@ const Slug = ({ preowned }) => {
                 {/*Aqui es xs={8}*/}
                 <Grid
                   container
-                  style={{ maxWidth: "90vw", paddingTop: "10px" }}
+                  style={{ maxWidth: "90vw", paddingTop: "10px"}}
                 >
                   <SemisCarousel
                   preowned={preowned}
