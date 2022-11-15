@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Container, Grid, Typography, Divider, Box, Table, TableBody, TableCell, TableRow, TableContainer } from "@mui/material";
 import BannerAutos from "../../components/autos/BannerAutos";
 import Meta from "../../components/Meta";
@@ -22,6 +22,15 @@ const Slug = ({ preowned }) => {
   };
 
   const { description, banner, mainImage, promotion, meta } = preowned;
+  const [gallery,setGallery] = useState([]);
+
+  useEffect(() => {
+    let newGallery = [];
+    if(preowned?.gallery)newGallery = preowned?.gallery;
+    if(preowned?.mainImage)newGallery.unshift({image:preowned.mainImage})
+    setGallery(newGallery)
+  }, [preowned])
+  
 
   const NameSemi = (
     <Box mt={2}>
