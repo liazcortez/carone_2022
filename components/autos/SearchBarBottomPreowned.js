@@ -66,7 +66,7 @@ const options = [
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
-      margin: 2,
+      margin: 1,
     },
   },
 
@@ -142,7 +142,7 @@ const SearchBarBottom = ({
       container
       className={classes.root}
       spacing={1}
-      style={{ paddingLeft: 0, paddingRight: 0, marginBottom: 20 }}
+      style={{ paddingLeft: 0, paddingRight: 0}}
     >
       <Grid item xs={12} sm={4} md={3} lg={3}>
         <TextField

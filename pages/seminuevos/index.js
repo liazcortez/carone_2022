@@ -182,7 +182,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
           datasort={datasort}
           setDatasort={setDatasort}
         />
-        <Divider style={{ marginBottom: "50px" }} />
+        <Divider style={{ marginBottom: "10px" }} />
         <InfiniteScroll
           dataLength={infiniteVehicles?.length || 0}
           next={loadData}
@@ -203,6 +203,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
               <Spinner size={48} />
             </Box>
           } */}
+          {loading && <CustomLoading />}
           <Box className='vehiclesGrid'>
             {
               infiniteVehicles && infiniteVehicles.map(
@@ -218,6 +219,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
           </Box>
         </InfiniteScroll>
         {loading && <CustomLoading />}
+        
 
 
         {/* <Pagination
