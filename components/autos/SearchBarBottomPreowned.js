@@ -1,15 +1,17 @@
 import React from "react";
-import { Grid, TextField, Box } from "@mui/material";
+import { Grid, TextField, Box, Typography } from "@mui/material";
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { capitalCase } from "change-case";
 import _ from 'lodash'
 import useStore from '../../hooks/useStore'
 import {makeStyles} from '@mui/styles';
+import { useState } from "react";
 
 
 const sortOptions = [
@@ -61,7 +63,6 @@ const options = [
     value: 'createdAt,1',
   },
 ];
-
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
@@ -94,9 +95,11 @@ const SearchBarBottom = ({
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event) => {
+  const [namedata, setNamedata] = useState("-");
+  const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -111,9 +114,10 @@ const SearchBarBottom = ({
     setPage(1);
     setAddress(event.target.value);
   };
-  const handleData = (event) => {
-    setDatasort(event.target.value);
-    console.log(event.target.value);
+  const handleData = (value, name) => {
+    setDatasort(value);
+    setNamedata(name);
+    setAnchorEl(null);
   };
 
   const { getStores, stores } = useStore();
@@ -304,37 +308,55 @@ const SearchBarBottom = ({
           </Grid>
            {/*Aqui empieza el sort */}
       <Grid item xs={12}>
-          <Box style={{width:"100%", justifyContent:"flex-end", display:"flex"}}>
-              
-            <TextField
-              style={{
-                backgroundColor: "#f3f7f9",
-                border: "0px solid rgb(217, 221, 233)",
-                borderRadius: 10,
-              }}
-              select
-              label="Ordenar Por:"
-              value={datasort}
-              onChange={handleData}
-              SelectProps={{
-                native: true,
-              }}
-              variant="outlined"
+          <Box style={{width:"100%", justifyContent:"flex-end", display:"flex", margin:"0px", padding:"0px"}}>
+            <List
+              component="nav"
+              aria-label="Ordenar"
             >
-              <option key={0} value={"-"}>
-                No Aplica
-              </option>
+              <ListItem
+                button
+                id="lock-button"
+                aria-haspopup="listbox"
+                aria-controls="lock-menu"
+                aria-label="si"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClickListItem}
+              >
+                <ListItemText
+                  primary={
+                  <Box style={{display:"flex"}}>
+                    <Typography style={{margin:"0px 3px 0px 0px"}}>Ordernar Por: </Typography>
+                    <Typography style={{color:"#05418b"}}> {namedata}</Typography>
+                    {datasort && datasort === "price,1" || datasort === "createdAt,1"
+                    ? <ArrowDropUpIcon style={{color:"#05418b"}}/> 
+                    : <ArrowDropDownIcon style={{color:"#05418b"}}/>}
+                  </Box>}
+                />
+              </ListItem>
+            </List>
+            <Menu
+              id="lock-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              onChange={handleData}
+              MenuListProps={{
+                'aria-labelledby': 'lock-button',
+                role: 'listbox',
+              }}
+            >
               {options.map((option) => (
-                <option
+                <MenuItem
                   key={option.name}
                   value={option.value}
-                  style={{ color: "#a5a5a" }}
+                  onClick={ () => handleData(option.value, option.name)}
                 >
                   {option.name}
-                </option>
+                </MenuItem>
               ))}
-            </TextField>
+            </Menu>
           </Box>
+          
       </Grid>
       {/*Aqui termina el sort */}
     </Grid>

@@ -73,7 +73,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
     if(!localStorageLoaded)return;
     handleReload();
     //eslint-disable-next-line
-  }, [store, category, sort, query, address,localStorageLoaded]);
+  }, [store, category, sort, query, address,datasort,localStorageLoaded]);
 
   const handleReload = async () => {
     if(infiniteVehicles)await setInfiniteVehicles([]);
