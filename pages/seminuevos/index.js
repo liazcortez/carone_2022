@@ -39,7 +39,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   const [datasort, setDatasort] = useState("-");
   const localStorageName = 'preownedFilters';
   const lastClickedName = 'lastClickedPreownweds';
-  const localStorageVersion = '1.0';
+  const localStorageVersion = '1.1';
 
   useEffect(() => {
     const local = getItem(localStorageName);
@@ -59,6 +59,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
     } 
     if(local?.query)await setQuery(local.query)
     if(local?.store)await setStore(local.store)
+    if(local?.dataSort)await setDatasort(local.dataSort)
     if(local?.category)await setCategory(local.category)
     if(local?.sort)await setSort(local.sort)
     if(local?.address)await setAddress(local.address)
@@ -135,8 +136,8 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
         break;
     }
     let location = (address.length >=1 && address !== '-') ? `&storeLocation=${address}`:'';
-    setItem(localStorageName,{page,store,category,sort,address,datos,query,localStorageVersion })
-    let search = { limit, page:limit === defaultLimit?page:1, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=${datos}${pricequery}&isPublished=true&isSold=false${location}`}
+    setItem(localStorageName,{page,store,category,sort,address,datasort,query,localStorageVersion })
+    let search = { limit, page:limit === defaultLimit?page:1, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=${datasort}${pricequery}&isPublished=true&isSold=false${location}`}
     getPreownedsV2(search);
     setLimit(defaultLimit);
     setPage(page + 1);
@@ -196,12 +197,12 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
               </Typography>
             </Box>
           }
-          {
+          {/* {
             loading &&
             <Box style={{ width: '1000' }} display='flex' justifyContent='center'>
               <Spinner size={48} />
             </Box>
-          }
+          } */}
           <Box className='vehiclesGrid'>
             {
               infiniteVehicles && infiniteVehicles.map(
@@ -216,7 +217,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
 
           </Box>
         </InfiniteScroll>
-        {/* {loading && <CustomLoading />} */}
+        {loading && <CustomLoading />}
 
 
         {/* <Pagination
