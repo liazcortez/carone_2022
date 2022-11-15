@@ -36,6 +36,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   const [address, setAddress] = useState("");
   const [last,setLast] = useState(false);
 
+  const [datasort, setDatasort] = useState("-");
   const localStorageName = 'preownedFilters';
   const lastClickedName = 'lastClickedPreownweds';
   const localStorageVersion = '1.0';
@@ -134,8 +135,8 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
         break;
     }
     let location = (address.length >=1 && address !== '-') ? `&storeLocation=${address}`:'';
-    setItem(localStorageName,{page,store,category,sort,address,query,localStorageVersion })
-    let search = { limit, page:limit === defaultLimit?page:1, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}&isPublished=true&isSold=false${location}`}
+    setItem(localStorageName,{page,store,category,sort,address,datos,query,localStorageVersion })
+    let search = { limit, page:limit === defaultLimit?page:1, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=${datos}${pricequery}&isPublished=true&isSold=false${location}`}
     getPreownedsV2(search);
     setLimit(defaultLimit);
     setPage(page + 1);
@@ -177,6 +178,8 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
           setSort={setSort}
           address={address}
           setAddress={setAddress}
+          datasort={datasort}
+          setDatasort={setDatasort}
         />
         <Divider style={{ marginBottom: "50px" }} />
         <InfiniteScroll

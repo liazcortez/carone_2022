@@ -1,7 +1,6 @@
 import React from "react";
-import { Grid, TextField } from "@mui/material";
+import { Grid, TextField, Menu, MenuItem, Button, Box, Typography, List, ListItem, ListItemText} from "@mui/material";
 import { capitalCase } from "change-case";
-
 const currencies = [
   {
     value: "USD",
@@ -51,6 +50,25 @@ const sortOptions = [
     value: "mayor900001",
   },
 ];
+//Variables del sort 
+const options = [
+  {
+    name: "Mayor Precio",
+    value: "mayorPrecio",
+  },
+  {
+    name: "Menor Precio",
+    value: "menorPrecio",
+  },
+  {
+    name: "Mas Reciente",
+    value: "masReciente",
+  },
+  {
+    name: "Mas Antiguo",
+    value: "masAntiguo",
+  },
+];
 
 const classes ={
   root: {
@@ -81,7 +99,10 @@ const SearchBarBottom = ({
   setPage,
   sort,
   setSort,
+  datasort,
+  setDatasort
 }) => {
+
 
   const handleChange = (event) => {
     setPage(1);
@@ -97,6 +118,11 @@ const SearchBarBottom = ({
     setPage(1);
     setSort(event.target.value);
   };
+  const handleData = (event) => {
+    setDatasort(event.target.value);
+    console.log(event.target.value);
+  };
+
   return (
     <Grid
       container
@@ -196,6 +222,40 @@ const SearchBarBottom = ({
           ))}
         </TextField>
       </Grid>
+      {/*Aqui empieza el sort */}
+      <Grid item xs={12}>
+          <Box style={{width:"100%", justifyContent:"flex-end", display:"flex"}}>
+            <TextField
+              style={{
+                backgroundColor: "#f3f7f9",
+                border: "0px solid rgb(217, 221, 233)",
+                borderRadius: 10,
+              }}
+              select
+              label="Ordenar Por:"
+              value={datasort}
+              onChange={handleData}
+              SelectProps={{
+                native: true,
+              }}
+              variant="outlined"
+            >
+              <option key={0} value={"-"}>
+                No Aplica
+              </option>
+              {options.map((option) => (
+                <option
+                  key={option.name}
+                  value={option.value}
+                  style={{ color: "#a5a5a" }}
+                >
+                  {option.name}
+                </option>
+              ))}
+            </TextField>
+          </Box>
+      </Grid>
+      {/*Aqui termina el sort */}
     </Grid>
   );
 };

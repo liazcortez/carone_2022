@@ -26,6 +26,7 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
   const [category, setCategory] = useState("-");
   const [sort, setSort] = useState("-");
   const [last,setLast] = useState(false);
+  const [datasort, setDatasort] = useState("-");
 
   const localStorageName = 'carFilters';
   const lastClickedName = 'lastClickedVehicle';
@@ -67,7 +68,6 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
     loadData();
   }
 
-
   useEffect(() => {
     if (vehicles && vehicles.length <= 0) return;
     setInfiniteVehicles([...infiniteVehicles || [], ...vehicles]);
@@ -92,6 +92,22 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
   const loadData = () => {
     if(loading)return;
     setItem(localStorageName,{page,make,category,sort,query,localStorageVersion })
+    //funcion de como se pasaran los datos del sort
+    let datos = '';
+    switch (datasort) {
+      case 'mayorPrecio':
+        datos = 'price,1';
+        break;
+      case 'menorPrecio':
+        datos = 'price,-1';
+        break;
+      case 'masReciente':
+        datos = 'createdAt,-1';
+        break;
+      case 'masAntiguo':
+        datos = 'createdAt,1';
+        break;
+    }
     getVehicles(
       limit === defaultLimit?page:1,
       `${query}&make=${make}&category=${category}&prices=${sort}&limit=${limit}`
@@ -134,6 +150,8 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
           setPage={setPage}
           sort={sort}
           setSort={setSort}
+          datasort={datasort}
+          setDatasort={setDatasort}
         />
 
          
