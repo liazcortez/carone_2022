@@ -6,7 +6,6 @@ import SemisCarousel from "../../components/preowned/SemisCarousel";
 import SemisForm from "../../components/preowned/SemisForm";
 import NumberFormat from "react-number-format";
 import { baseURL } from "../../api/api";
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 
 
@@ -31,16 +30,6 @@ const Slug = ({ preowned }) => {
       </Typography>
     </Box>
   )
-    console.log(preowned);
-    const containerStyle = {
-      width: '100%',
-      height: '400px'
-    };
-    
-    const center = {
-      lat: preowned.store.location.coordinates[1],
-      lng: preowned.store.location.coordinates[0]
-    };
   return (
     <>
       {preowned && preowned.isPublished ? (
@@ -188,10 +177,7 @@ const Slug = ({ preowned }) => {
                 >
                   <SemisCarousel
                   preowned={preowned}
-                    medias={[
-                      {image: preowned.meta.image},{ image: preowned.mainImage, key: 0 },
-                      ...preowned.gallery,
-                    ]}
+                    medias={[...preowned.gallery,]}
                   />
                 </Grid>
               </Grid>
@@ -478,18 +464,6 @@ const Slug = ({ preowned }) => {
                               </TableBody>
                           </Table>
                       </TableContainer>
-                      <Grid item xs={12}>
-                        <LoadScript
-                          
-                        >
-                          <GoogleMap
-                            mapContainerStyle={containerStyle}
-                            center={center}
-                            zoom={16}
-                          >
-                          </GoogleMap>
-                        </LoadScript>
-                      </Grid>
                   </Grid>
                 </Grid>
               </Grid>
