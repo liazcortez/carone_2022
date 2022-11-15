@@ -12,23 +12,30 @@ import useStorage from "../../hooks/custom/useStorage";
 
 const Index = ({ vehiclesSP, total, makes, categories }) => {
   const { vehicles, getVehicles, loading, results, clearState } = useVehicles();
-  const {getItem,setItem} = useStorage();
+  const {getItem,setItem,removeItem} = useStorage();
 
   const [disableTopBar, setDisableTopBar] = useState(false);
-  const [infiniteVehicles, setInfiniteVehicles] = useState([]);
+  const [infiniteVehicles, setInfiniteVehicles] = useState(false);
   const [localStorageLoaded,setLocalStorageLoaded] = useState(false);
 
+  const defaultLimit = 12;
+  const [limit, setLimit] = useState(defaultLimit);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [make, setMake] = useState("-");
   const [category, setCategory] = useState("-");
   const [sort, setSort] = useState("-");
+  const [last,setLast] = useState(false);
 
   const localStorageName = 'carFilters';
+  const lastClickedName = 'lastClickedVehicle';
   const localStorageVersion = '1.0';
 
   useEffect(() => {
     const local = getItem(localStorageName);
+    const lastClicked = getItem(lastClickedName);
+
+    if(lastClicked)setLast(lastClicked)
     if(local)handleLocalStorage(local)
     else setLocalStorageLoaded(true)
     
@@ -37,8 +44,10 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
 
   const handleLocalStorage= async (local)=>{
     if(local?.localStorageVersion === localStorageVersion){
-    // manejar la ultima pagina cargando todas las anteriores para despues
-    // if(local?.page)await setPage(local.page) this is the last page viewed
+    if(local?.page){
+    await setPage(local.page);
+    await setLimit(local.page * defaultLimit);
+    } 
     if(local?.query)await setQuery(local.query)
     if(local?.make)await setMake(local.make)
     if(local?.category)await setCategory(local.category)
@@ -54,23 +63,40 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
   }, [make, category, sort,query,localStorageLoaded]);
 
   const handleReload = async ()=>{
-    await setInfiniteVehicles([]);
+    if(infiniteVehicles)await setInfiniteVehicles([]);
     loadData();
   }
 
 
   useEffect(() => {
     if (vehicles && vehicles.length <= 0) return;
-    setInfiniteVehicles([...infiniteVehicles, ...vehicles]);
+    setInfiniteVehicles([...infiniteVehicles || [], ...vehicles]);
     clearState();
   }, [vehicles]);
 
+ useEffect(() => {
+    if (infiniteVehicles && infiniteVehicles.length <= 0) return;
+    let lastDocument = document.getElementById(last)
+    if(lastDocument && last){
+    const offsetTop = lastDocument.offsetTop - 10;
+    scroll({
+    top: offsetTop,
+    behavior: "smooth"
+    });
+      // removeItem(lastClickedName)
+      setLast(false)
+    }
+    //eslint-disable-next-line
+  }, [infiniteVehicles])
+
   const loadData = () => {
+    if(loading)return;
     setItem(localStorageName,{page,make,category,sort,query,localStorageVersion })
     getVehicles(
-      page,
-      `${query}&make=${make}&category=${category}&prices=${sort}&limit=60`
+      limit === defaultLimit?page:1,
+      `${query}&make=${make}&category=${category}&prices=${sort}&limit=${limit}`
     );
+    setLimit(defaultLimit);
     setPage(page + 1);
   };
 
@@ -115,14 +141,14 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
          
           <InfiniteScroll
             style={{overflow:'hidden'}}
-            dataLength={infiniteVehicles.length}
+            dataLength={infiniteVehicles?.length || 0}
             next={loadData}
             hasMore={true}
           >
 
           <Box className='vehiclesGrid'>
       
-            {infiniteVehicles.map(
+            {infiniteVehicles && infiniteVehicles.map(
                 (vehicle, index) => (
                  
                     <CarListCard key={index} vehicle={vehicle} loading={loading} />

@@ -18,26 +18,33 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
 
   // hooks
   const { preowneds, getPreownedsV2, loading, results, clearState } = usePreowned();
-  const {getItem,setItem} = useStorage();
+  const {getItem,setItem,removeItem} = useStorage();
 
   // states
   const [disableTopBar, setDisableTopBar] = useState(false);
-  const [infiniteVehicles, setInfiniteVehicles] = useState([]);
+  const [infiniteVehicles, setInfiniteVehicles] = useState(false);
   const [localStorageLoaded,setLocalStorageLoaded] = useState(false);
 
   // search states
+  const defaultLimit = 12;
+  const [limit, setLimit] = useState(defaultLimit);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [store, setStore] = useState("-");
   const [category, setCategory] = useState("-");
   const [sort, setSort] = useState("-");
   const [address, setAddress] = useState("");
+  const [last,setLast] = useState(false);
 
   const localStorageName = 'preownedFilters';
+  const lastClickedName = 'lastClickedPreownweds';
   const localStorageVersion = '1.0';
 
   useEffect(() => {
     const local = getItem(localStorageName);
+    const lastClicked = getItem(lastClickedName);
+
+    if(lastClicked)setLast(lastClicked)
     if(local)handleLocalStorage(local)
     else setLocalStorageLoaded(true)
     // setItem('algo','123')
@@ -45,8 +52,10 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
 
   const handleLocalStorage= async (local)=>{
     if(local?.localStorageVersion === localStorageVersion){
-    // manejar la ultima pagina cargando todas las anteriores para despues
-    // if(local?.page)await setPage(local.page) this is the last page viewed
+    if(local?.page){
+    await setPage(local.page);
+    await setLimit(local.page * defaultLimit);
+    } 
     if(local?.query)await setQuery(local.query)
     if(local?.store)await setStore(local.store)
     if(local?.category)await setCategory(local.category)
@@ -65,22 +74,41 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   }, [store, category, sort, query, address,localStorageLoaded]);
 
   const handleReload = async () => {
-    await setInfiniteVehicles([]);
+    if(infiniteVehicles)await setInfiniteVehicles([]);
     loadData();
   }
 
   useEffect(() => {
     if (preowneds && preowneds.length <= 0) return;
-    setInfiniteVehicles([...infiniteVehicles, ...preowneds]);
+    setInfiniteVehicles([...infiniteVehicles || [], ...preowneds]);
     clearState();
+    //eslint-disable-next-line
   }, [preowneds]);
+
+  useEffect(() => {
+    if (infiniteVehicles && infiniteVehicles.length <= 0) return;
+    let lastDocument = document.getElementById(last)
+    if(lastDocument && last){
+    const offsetTop = lastDocument.offsetTop - 10;
+    scroll({
+    top: offsetTop,
+    behavior: "smooth"
+    });
+      // removeItem(lastClickedName)
+      setLast(false)
+    }
+    //eslint-disable-next-line
+  }, [infiniteVehicles])
+  
 
   useEffect(()=>{
     clearState();
   },[stores])
 
+
   const loadData = () => {
 
+    if(loading)return;
     let pricequery = '';
     switch (sort) {
       case 'menor150000':
@@ -107,9 +135,9 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
     }
     let location = (address.length >=1 && address !== '-') ? `&storeLocation=${address}`:'';
     setItem(localStorageName,{page,store,category,sort,address,query,localStorageVersion })
-    let search = { limit: 12, page, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}&isPublished=true&isSold=false${location}`}
+    let search = { limit, page:limit === defaultLimit?page:1, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=-createdAt${pricequery}&isPublished=true&isSold=false${location}`}
     getPreownedsV2(search);
-
+    setLimit(defaultLimit);
     setPage(page + 1);
   };
 
@@ -152,13 +180,13 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
         />
         <Divider style={{ marginBottom: "50px" }} />
         <InfiniteScroll
-          dataLength={infiniteVehicles.length}
+          dataLength={infiniteVehicles?.length || 0}
           next={loadData}
           hasMore={true}
         // loader={<CustomLoading {...{ loading:true }} />}
         >
           {
-            !loading && infiniteVehicles.length === 0 &&
+            !loading && infiniteVehicles && infiniteVehicles?.length === 0 &&
             <Box style={{ width: '1000' }} display='flex' justifyContent='center'>
               <Typography variant='h5'>
                 No se encontraron unidades seminuevas con esas especificaciones
@@ -172,9 +200,8 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
             </Box>
           }
           <Box className='vehiclesGrid'>
-
             {
-              infiniteVehicles.map(
+              infiniteVehicles && infiniteVehicles.map(
                 (vehicle, index) => (
 
                   <CarListCard key={index} vehicle={vehicle} loading={loading} />
@@ -186,7 +213,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
 
           </Box>
         </InfiniteScroll>
-        {loading && <CustomLoading />}
+        {/* {loading && <CustomLoading />} */}
 
 
         {/* <Pagination
