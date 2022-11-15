@@ -4,7 +4,7 @@ const useStorage = () => {
   const isBrowser = (() => typeof window !== 'undefined')();
 
   const getItem = (key, type) => {
-    return isBrowser && window?.[storageType(type)]?.[key] ? JSON.parse(window[storageType(type)][key]) : '';
+    return isBrowser && window?.[storageType(type)]?.[key] ? JSON.parse(window[storageType(type)][key]) : false;
   };
 
   const setItem = (key, value, type) => {
