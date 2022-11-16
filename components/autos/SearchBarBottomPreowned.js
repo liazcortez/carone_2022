@@ -107,11 +107,13 @@ const SearchBarBottom = ({
   const handleChange = (event) => {
     event.preventDefault()
     setPage(1);
+    setAddress('-');
     setStore(event.target.value);
   };
   const handleChangeest = (event) => {
     event.preventDefault()
     setPage(1);
+    setStore('-');
     setAddress(event.target.value);
   };
   const handleData = (value, name) => {
