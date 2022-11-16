@@ -4,7 +4,7 @@ import React from "react";
 const CustomLoading = () => {
   return (
     <Box
-      style={{ marginTop: "4rem" }}
+      style={{ marginTop: "6rem"}}
       display='flex'
       justifyContent='center'
     >

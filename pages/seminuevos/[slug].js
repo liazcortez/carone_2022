@@ -6,7 +6,6 @@ import SemisCarousel from "../../components/preowned/SemisCarousel";
 import SemisForm from "../../components/preowned/SemisForm";
 import NumberFormat from "react-number-format";
 import { baseURL } from "../../api/api";
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 
 
@@ -194,11 +193,11 @@ const Slug = ({ preowned }) => {
                 {/*Aqui es xs={8}*/}
                 <Grid
                   container
-                  style={{ maxWidth: "90vw", paddingTop: "10px" }}
+                  style={{ maxWidth: "90vw", paddingTop: "10px"}}
                 >
                   <SemisCarousel
                   preowned={preowned}
-                    medias={gallery}
+                    medias={[...preowned.gallery,]}
                   />
                 </Grid>
               </Grid>
@@ -228,132 +227,6 @@ const Slug = ({ preowned }) => {
                 <Divider />
 
                 <Grid container spacing={3} style={{ paddingTop: "1rem" }}>
-                  {/*<Grid item xs={6} sm={3}>
-                    <Box>
-                      <Typography style={{ fontWeight: 600 }}>Marca</Typography>
-
-                      <Typography style={{ paddingBlockEnd: "2rem" }}>
-                        {preowned &&
-                        preowned.vehicle.make &&
-                        preowned.vehicle.make.name &&
-                        preowned.vehicle.make.name !== ""
-                          ? Capitalize(preowned.vehicle.make.name)
-                          : "----"}
-                      </Typography>
-                    </Box>
-
-                    <Box>
-                      <Typography style={{ fontWeight: 600 }}>
-                        Kilometraje
-                      </Typography>
-
-                      <Typography style={{ paddingBlockEnd: "2rem" }}>
-                        {preowned && preowned.km && preowned.km !== "" ? (
-                          <NumberFormat
-                            value={preowned.km}
-                            displayType={"text"}
-                            thousandSeparator={true}
-                            suffix={" Kms"}
-                          />
-                        ) : (
-                          "----"
-                        )}
-                      </Typography>
-                    </Box>
-                  </Grid>
-
-                  <Grid item xs={6} sm={3}>
-                    <Box>
-                      <Typography style={{ fontWeight: 600 }}>
-                        Modelo
-                      </Typography>
-
-                      <Typography style={{ paddingBlockEnd: "2rem" }}>
-                        {preowned && preowned.version && preowned.version !== ""
-                          ? Capitalize(preowned.version)
-                          : "----"}
-                      </Typography>
-                    </Box>
-
-                    <Box>
-                      <Typography style={{ fontWeight: 600 }}>
-                        Precio
-                      </Typography>
-
-                      <Typography>
-                        {preowned && preowned.km && preowned.km !== "" ? (
-                          <NumberFormat
-                            value={preowned.price}
-                            displayType={"text"}
-                            thousandSeparator={true}
-                            prefix={"$"}
-                            suffix={" MXN"}
-                          />
-                        ) : (
-                          "----"
-                        )}
-                      </Typography>
-                    </Box>
-                  </Grid>
-
-                  <Grid item xs={6} sm={3}>
-                    <Box>
-                      <Typography style={{ fontWeight: 600 }}>Año</Typography>
-
-                      <Typography style={{ paddingBlockEnd: "2rem" }}>
-                        {preowned && preowned.year && preowned.year !== ""
-                          ? Capitalize(preowned.year)
-                          : "----"}
-                      </Typography>
-                    </Box>
-
-                    <Box>
-                      <Typography style={{ fontWeight: 600 }}>
-                        Transmisión
-                      </Typography>
-
-                      <Typography>
-                        {preowned &&
-                        preowned.transmission &&
-                        preowned.transmission !== ""
-                          ? Capitalize(preowned.transmission)
-                          : "----"}
-                      </Typography>
-                    </Box>
-                  </Grid>
-
-                  <Grid item xs={6} sm={3}>
-                    <Box>
-                      <Typography style={{ fontWeight: 600 }}>
-                        Agencia
-                      </Typography>
-                      <Typography style={{ paddingBlockEnd: "2rem" }}>
-                        {preowned &&
-                        preowned.store.make.name + " " + preowned.store.name &&
-                        preowned.store.make.name + " " + preowned.store.name !==
-                          ""
-                          ? Capitalize(
-                              preowned.store.make.name +
-                                " " +
-                                preowned.store.name
-                            )
-                          : "----"}
-                      </Typography>
-                    </Box>
-
-                    <Box>
-                      <Typography style={{ fontWeight: 600 }}>Tipo</Typography>
-
-                      <Typography>
-                        {Capitalize(
-                          preowned.modelType && preowned.modelType !== ""
-                            ? preowned.modelType
-                            : "----"
-                        )}
-                      </Typography>
-                    </Box>
-                    
-                        </Grid>*/}
                   <Grid item xs={12}>
                       <TableContainer style={{width:"100%", padding:"15px"}}>
                           <Table style={{width:"100%"}}>
@@ -485,18 +358,6 @@ const Slug = ({ preowned }) => {
                               </TableBody>
                           </Table>
                       </TableContainer>
-                      <Grid item xs={12}>
-                        <LoadScript
-                          
-                        >
-                          <GoogleMap
-                            mapContainerStyle={containerStyle}
-                            center={center}
-                            zoom={16}
-                          >
-                          </GoogleMap>
-                        </LoadScript>
-                      </Grid>
                   </Grid>
                 </Grid>
               </Grid>
