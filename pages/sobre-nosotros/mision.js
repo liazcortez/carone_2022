@@ -7,7 +7,7 @@ import {
 
 export default function Mision() {
   return (
-    <Grid container spacing={2} style={{padding:"15px", marginTop:"11%"}}>
+    <Grid container spacing={2} style={{padding:"15px", marginTop:"4%"}}>
         <Grid item xs={12} md={6} style={{padding:"15px"}} sx={{ display: { xs: "none", sm: "none", md: "flex" } }}>
             <Box style={{width:"100%", padding:"2px"}}>
                 <img src="https://media.istockphoto.com/photos/wooden-signpost-values-mission-vision-picture-id520289888?k=20&m=520289888&s=170667a&w=0&h=quZftPKEaplIH0voarTAXsz-qq15IfIPp_50M7dyZcg=" style={{width:"100%"}}/>

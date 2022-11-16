@@ -7,7 +7,7 @@ import {
 
 export default function Historia() {
   return (
-    <Grid container spacing={2} style={{padding:"15px", marginTop:"2%", justifyContent:"center"}}>
+    <Grid container spacing={2} style={{padding:"15px", justifyContent:"center"}}>
         <Grid item xs={12}>
             <Box style={{width:"100%", padding:"10px", textAlign:"center"}}>
                 <Typography variant="h2" style={{fontWeight:"600", fontSize:"39px", lineHeight:"52px"}}>Conoce mas de nosotros</Typography>

@@ -13,7 +13,7 @@ import Timeline from "./timeline";
 
 export default function Nos() {
   return (
-    <Grid container spacing={2} style={{padding:"0px 70px"}}>
+    <Grid container spacing={2} style={{padding:"0px 110px"}}>
         <Grid item xs={12} md={6}>
             <Box style={{width:"100%", padding:"15px", alignItems:"center"}}>
                 <Typography variant="h1" style={{ lineHeight:"22px", letterSpacing:"5px", textTransform:"uppercase", fontWeight:"400", fontSize:"14px"}}>Car One</Typography>
