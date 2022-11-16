@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Container, Grid, Typography, Divider, Box, Table, TableBody, TableCell, TableRow, TableContainer } from "@mui/material";
 import BannerAutos from "../../components/autos/BannerAutos";
 import Meta from "../../components/Meta";
@@ -23,6 +23,15 @@ const Slug = ({ preowned }) => {
   };
 
   const { description, banner, mainImage, promotion, meta } = preowned;
+  const [gallery,setGallery] = useState([]);
+
+  useEffect(() => {
+    let newGallery = [];
+    if(preowned?.gallery)newGallery = preowned?.gallery;
+    if(preowned?.mainImage)newGallery.unshift({image:preowned.mainImage})
+    setGallery(newGallery)
+  }, [preowned])
+  
 
   const NameSemi = (
     <Box mt={2}>
@@ -31,7 +40,7 @@ const Slug = ({ preowned }) => {
       </Typography>
     </Box>
   )
-
+  
   const containerStyle = {
     width: '100%',
     height: '400px'
@@ -41,7 +50,7 @@ const Slug = ({ preowned }) => {
     lat: preowned.store.location.coordinates[1],
     lng: preowned.store.location.coordinates[0]
   };
-  
+
   return (
     <>
       {preowned && preowned.isPublished ? (
@@ -189,10 +198,7 @@ const Slug = ({ preowned }) => {
                 >
                   <SemisCarousel
                   preowned={preowned}
-                    medias={[
-                      {image: preowned.meta.image},{ image: preowned.mainImage, key: 0 },
-                      ...preowned.gallery,
-                    ]}
+                    medias={gallery}
                   />
                 </Grid>
               </Grid>

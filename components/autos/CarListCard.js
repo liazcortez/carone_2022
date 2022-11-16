@@ -19,6 +19,7 @@ import Link from "next/link";
 import Skeleton from "@material-ui/lab/Skeleton";
 import { capitalCase } from "change-case";
 import NumberFormat from "react-number-format";
+import useStorage from "../../hooks/custom/useStorage";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -65,7 +66,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
   const classes = useStyles();
   const [isFavorite, setIsFavorite] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
-
+  const { setItem } = useStorage();
   const handleAddFavorite = (vehicle) => {
     let data;
     if (!localStorage.getItem("favorites")) {
@@ -110,96 +111,102 @@ const CarlistCard = ({ vehicle, setDataList }) => {
   }, [vehicle]);
 
   return (
-    <Card  className={(classes.root, classes.hover)}>
-      {vehicle ? (
-        <Link href={`/autos/${vehicle.make.name}/${vehicle.slug}`}>
-            <CardMedia
-              className={classes.media}
-              image={vehicle.mainImage ? vehicle.mainImage : emptyImage}
-              title={`${vehicle && vehicle.model && capitalCase(vehicle.model)} ${vehicle && vehicle.year}`}
-            />
-        </Link>
-      ) : (
-        <Skeleton variant="rect" width="100%" height={156} />
-      )}
-      <CardContent>
+    <Link href={`/autos/${vehicle.make.name}/${vehicle.slug}`}>
+      <Card id={vehicle?._id} className={(classes.root, classes.hover)}
+        onClick={() => {
+          console.log(vehicle._id)
+          setItem('lastClickedVehicle', vehicle?._id)
+        }}
+
+      >
         {vehicle ? (
-          <>
-            {/* <Link href={`/marcas/${vehicle && vehicle.make && vehicle.make.name}`}> */}
-              {/* <a style={{ textDecoration: "none", color: "black" }}> */}
-                <Typography sx={{ textTransform: "uppercase", color: "#505050"}}>
-                  {(vehicle && vehicle.make && vehicle.make.name).replace("-", " ")}
-                </Typography>
-              {/* </a> */}
-            {/* </Link> */}
-            <Link href={`/autos/${vehicle && vehicle.make && vehicle.make.name}/${vehicle && vehicle.slug}`}>
-              <Box >
-                <a style={{ textDecoration: "none", color: "black" }}>
-                  <Typography fontSize={"20px"} fontWeight={500} style={{overflow: 'hidden',whiteSpace: 'nowrap',width: 'calc(90%)',display: 'inline-block',textOverflow: 'ellipsis'}} >
-                  {`${vehicle ? capitalCase(vehicle.model) :''} ${vehicle.year}`}
-                </Typography>
-                </a>
-              </Box>
-            </Link>
-            <Typography fontWeight={500} gutterBottom style={{ fontSize: 17 }}>
-              Desde &nbsp;
-              {vehicle.price ? (
-                <NumberFormat
-                  value={vehicle.price}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                />
-              ) : (
-                "Precio pendiente"
-              )}
-            </Typography>
-          </>
+          <CardMedia
+            className={classes.media}
+            image={vehicle.mainImage ? vehicle.mainImage : emptyImage}
+            title={`${vehicle && vehicle.model && capitalCase(vehicle.model)} ${vehicle && vehicle.year}`}
+          />
         ) : (
-          <Box pt={0.5}>
-            <Typography variant="subtitle1" component="div">
-              <Skeleton />
-            </Typography>
-            <Typography
-              variant="h6"
-              className={classes.modelFormatting}
-              component="div"
-            >
-              <Skeleton />
-            </Typography>
-            <Typography
-              variant="h6"
-              gutterBottom
-              style={{ fontSize: 17 }}
-              component="div"
-            >
-              <Skeleton />
-            </Typography>
-          </Box>
+          <Skeleton variant="rect" width="100%" height={156} />
         )}
-      </CardContent>
-      <Divider />
-      <CardActions disableSpacing>
+        <CardContent>
+          {vehicle ? (
+            <>
+              {/* <Link href={`/marcas/${vehicle && vehicle.make && vehicle.make.name}`}> */}
+              {/* <a style={{ textDecoration: "none", color: "black" }}> */}
+              <Typography sx={{ textTransform: "uppercase", color: "#505050" }}>
+                {(vehicle && vehicle.make && vehicle.make.name).replace("-", " ")}
+              </Typography>
+              {/* </a> */}
+              {/* </Link> */}
+              <Link href={`/autos/${vehicle && vehicle.make && vehicle.make.name}/${vehicle && vehicle.slug}`}>
+                <Box >
+                  <a style={{ textDecoration: "none", color: "black" }}>
+                    <Typography fontSize={"20px"} fontWeight={500} style={{ overflow: 'hidden', whiteSpace: 'nowrap', width: 'calc(90%)', display: 'inline-block', textOverflow: 'ellipsis' }} >
+                      {`${vehicle ? capitalCase(vehicle.model) : ''} ${vehicle.year}`}
+                    </Typography>
+                  </a>
+                </Box>
+              </Link>
+              <Typography fontWeight={500} gutterBottom style={{ fontSize: 17 }}>
+                Desde &nbsp;
+                {vehicle.price ? (
+                  <NumberFormat
+                    value={vehicle.price}
+                    displayType={"text"}
+                    thousandSeparator={true}
+                    prefix={"$"}
+                  />
+                ) : (
+                  "Precio pendiente"
+                )}
+              </Typography>
+            </>
+          ) : (
+            <Box pt={0.5}>
+              <Typography variant="subtitle1" component="div">
+                <Skeleton />
+              </Typography>
+              <Typography
+                variant="h6"
+                className={classes.modelFormatting}
+                component="div"
+              >
+                <Skeleton />
+              </Typography>
+              <Typography
+                variant="h6"
+                gutterBottom
+                style={{ fontSize: 17 }}
+                component="div"
+              >
+                <Skeleton />
+              </Typography>
+            </Box>
+          )}
+        </CardContent>
+        <Divider />
+        <CardActions disableSpacing>
 
-        <FormControlLabel
-          control={
-            <Checkbox   
-              icon={<FavoriteIcon style={{ color: "#888" }} />} 
-              checkedIcon={<FavoriteIcon style={{ color: "#c54065" }} />} 
-              name="checkedH"
-              checked={
-                process.browser && localStorage.getItem("favorites") &&
-                JSON.parse(localStorage.getItem("favorites")).some(
-                  (d) => vehicle && d._id === vehicle._id
-                )
-              }
-            />}
-          onClick={(e) => handleAddFavorite(vehicle)}
+          <FormControlLabel
+            control={
+              <Checkbox
+                icon={<FavoriteIcon style={{ color: "#888" }} />}
+                checkedIcon={<FavoriteIcon style={{ color: "#c54065" }} />}
+                name="checkedH"
+                checked={
+                  process.browser && localStorage.getItem("favorites") &&
+                  JSON.parse(localStorage.getItem("favorites")).some(
+                    (d) => vehicle && d._id === vehicle._id
+                  )
+                }
+              />}
+            onClick={(e) => handleAddFavorite(vehicle)}
 
-        />
-        {/* <FavoriteIcon /> */}
-      </CardActions>
-    </Card>
+          />
+          {/* <FavoriteIcon /> */}
+        </CardActions>
+      </Card>
+    </Link>
   );
 };
 
