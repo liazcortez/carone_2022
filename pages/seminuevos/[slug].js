@@ -31,16 +31,17 @@ const Slug = ({ preowned }) => {
       </Typography>
     </Box>
   )
-    console.log(preowned);
-    const containerStyle = {
-      width: '100%',
-      height: '400px'
-    };
-    
-    const center = {
-      lat: preowned.store.location.coordinates[1],
-      lng: preowned.store.location.coordinates[0]
-    };
+
+  const containerStyle = {
+    width: '100%',
+    height: '400px'
+  };
+  
+  const center = {
+    lat: preowned.store.location.coordinates[1],
+    lng: preowned.store.location.coordinates[0]
+  };
+  
   return (
     <>
       {preowned && preowned.isPublished ? (

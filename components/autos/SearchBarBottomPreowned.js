@@ -178,7 +178,7 @@ const SearchBarBottom = ({
       spacing={1}
       style={{ paddingLeft: 0, paddingRight: 0, marginBottom: 20 }}
     >
-      <Grid item xs={12} sm={4} md={4} lg={4}>
+      <Grid item xs={12} sm={3} md={3} lg={3}>
         <TextField
           style={{
             backgroundColor: "#f3f7f9",
@@ -218,7 +218,7 @@ const SearchBarBottom = ({
           ))}
         </TextField>
       </Grid> 
-      <Grid item xs={12} sm={6} md={4} lg={4}>
+      <Grid item xs={12} sm={3} md={3} lg={3}>
         <TextField
           style={{
             backgroundColor: "#f3f7f9",
@@ -245,7 +245,7 @@ const SearchBarBottom = ({
           }).map((item) => <option key={item.name} value={item._id}>{capitalCase(item.make.name.replace("-", " ") + ' ' + item.name)}</option>)}
         </TextField>
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={4}>
+      <Grid item xs={12} sm={3} md={3} lg={3}>
       <TextField
           style={{
             backgroundColor: "#f3f7f9",
@@ -276,7 +276,7 @@ const SearchBarBottom = ({
           ))}
         </TextField>
       </Grid>
-    <Grid item xs={12}>
+    <Grid item xs={3}>
     <TextField
         style={{
           backgroundColor: "#f3f7f9",
@@ -285,7 +285,7 @@ const SearchBarBottom = ({
         }}
         select
         fullWidth
-        label="Busqueda por estado"
+        label="Búsqueda por estado"
         value={address}
         onChange={handleChangeest}
         SelectProps={{
@@ -374,7 +374,7 @@ const SearchBarBottom = ({
             </TextField>
           </Box>
       </Grid>
-      {/*Aqui termina el sort */}
+
     </Grid>
   );
 };
