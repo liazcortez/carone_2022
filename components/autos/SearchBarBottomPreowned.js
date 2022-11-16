@@ -47,11 +47,11 @@ const sortOptions = [
 //Variables del sort 
 const options = [
   {
-    name: "Mayor Precio",
+    name: "Menor Precio",
     value: 'price,1',
   },
   {
-    name: "Menor Precio",
+    name: "Mayor Precio",
     value: 'price,-1',
   },
   {
@@ -208,7 +208,7 @@ const SearchBarBottom = ({
 
             if(a.make.name < b.make.name) return -1
             return 1
-          }).map((item) => <option key={item.name} value={item._id}>{capitalCase(item.make.name.replace("-", " ") + ' ' + item.name)}</option>)}
+          }).map((item) => <option key={item._id} value={item._id}>{capitalCase(item.make.name.replace("-", " ") + ' ' + item.name)}</option>)}
         </TextField>
       </Grid>
       <Grid item xs={12} sm={6} md={3} lg={3}>
@@ -315,10 +315,6 @@ const SearchBarBottom = ({
             >
               <ListItem
                 button
-                id="lock-button"
-                aria-haspopup="listbox"
-                aria-controls="lock-menu"
-                aria-label="si"
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClickListItem}
               >
