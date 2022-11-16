@@ -1,10 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Grid, TextField, Box, Typography } from "@mui/material";
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { capitalCase } from "change-case";
@@ -55,11 +52,11 @@ const options = [
     value: 'price,-1',
   },
   {
-    name: "Mas Reciente",
+    name: "Más Reciente",
     value:  'createdAt,-1',
   },
   {
-    name: "Mas Antiguo",
+    name: "Más Antiguo",
     value: 'createdAt,1',
   },
 ];
@@ -93,16 +90,9 @@ const SearchBarBottom = ({
   setDatasort
 }) => {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const [namedata, setNamedata] = useState("-");
-  const handleClickListItem = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const anchorEl = useRef(null)
+  const [open, setOpen] = useState(false)
+  const [namedata, setNamedata] = useState("Más Reciente");
 
   const handleChange = (event) => {
     event.preventDefault()
@@ -117,13 +107,11 @@ const SearchBarBottom = ({
   const handleData = (value, name) => {
     setDatasort(value);
     setNamedata(name);
-    setAnchorEl(null);
   };
 
   const { getStores, stores } = useStore();
 
   React.useEffect(() => {
-    
     getStores()
     //eslint-disable-next-line
   }, []);
@@ -144,7 +132,7 @@ const SearchBarBottom = ({
       spacing={1}
       style={{ paddingLeft: 0, paddingRight: 0}}
     >
-      <Grid item xs={12} sm={4} md={3} lg={3}>
+      <Grid item xs={12} sm={6} md={3} lg={3}>
         <TextField
           style={{
             backgroundColor: "#f3f7f9",
@@ -251,7 +239,7 @@ const SearchBarBottom = ({
         }}
         select
         fullWidth
-        label="Busqueda por estado"
+        label="Búsqueda por estado"
         value={address}
         onChange={handleChangeest}
         SelectProps={{
@@ -308,53 +296,36 @@ const SearchBarBottom = ({
           </Grid>
            {/*Aqui empieza el sort */}
       <Grid item xs={12}>
-          <Box style={{width:"100%", justifyContent:"flex-end", display:"flex", margin:"0px", padding:"0px"}}>
-            <List
-              component="nav"
-              aria-label="Ordenar"
-            >
-              <ListItem
-                button
-                aria-expanded={open ? 'true' : undefined}
-                onClick={handleClickListItem}
-              >
-                <ListItemText
-                  primary={
-                  <Box style={{display:"flex"}}>
-                    <Typography style={{margin:"0px 3px 0px 0px"}}>Ordernar Por: </Typography>
-                    <Typography style={{color:"#05418b"}}> {namedata}</Typography>
-                    {datasort && datasort === "price,1" || datasort === "createdAt,1"
-                    ? <ArrowDropUpIcon style={{color:"#05418b"}}/> 
-                    : <ArrowDropDownIcon style={{color:"#05418b"}}/>}
-                  </Box>}
-                />
-              </ListItem>
-            </List>
+          <Box display='flex' justifyContent='flex-end' style={{ width:"100%" }}>
+
+            <Box display='flex' ref={anchorEl} onClick={()=>setOpen(true)}>
+              <Typography variant='body1' style={{fontWeight: 500}}>Ordenar Por:</Typography>
+              <Typography variant='body1' style={{color:"#05418b", marginLeft: '0.5em'}}>{' '}{namedata}</Typography>
+              {
+                datasort.includes(',-1')
+                ? <ArrowDropUpIcon style={{color:"#05418b"}}/> 
+                : <ArrowDropDownIcon style={{color:"#05418b"}}/>
+              }
+            </Box>
+
             <Menu
-              id="lock-menu"
-              anchorEl={anchorEl}
+              anchorEl={anchorEl.current}
               open={open}
-              onClose={handleClose}
               onChange={handleData}
-              MenuListProps={{
-                'aria-labelledby': 'lock-button',
-                role: 'listbox',
-              }}
+              onClose={() => setOpen(false)}
             >
-              {options.map((option) => (
-                <MenuItem
-                  key={option.name}
-                  value={option.value}
-                  onClick={ () => handleData(option.value, option.name)}
-                >
-                  {option.name}
-                </MenuItem>
-              ))}
+              {
+                options.map((option) => 
+                  <MenuItem key={option.name} value={option.value} onClick={ () => handleData(option.value, option.name)}>
+                    {option.name}
+                  </MenuItem>
+                )
+              }
             </Menu>
           </Box>
           
       </Grid>
-      {/*Aqui termina el sort */}
+
     </Grid>
   );
 };

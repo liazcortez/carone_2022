@@ -21,11 +21,11 @@ const CarCardList = ({ title, data, columns }) => {
   return (
     <Container maxWidth="lg" style={{ marginTop: 20 }}>
       <Typography sx={{ marginBottom: "70px", textAlign: "center", fontSize: "28px", fontWeight: 600}}>{title}</Typography>
-      <Grid container spacing={5}>
+      <Grid container spacing={5} >
         {data.map((make, index) => {
           if(make._id.toString() === '6269ad81e8436b4af342ac57') return null;
           return  (
-            <Grid key={make._id} item xs={6} sm={6} md={3} lg={3} className={classes.categories}>
+            <Grid key={make._id} item xs={6} sm={6} md={3} lg={3} className={classes.categories} >
               <CarCardItem data={make} />
             </Grid>
           )
