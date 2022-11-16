@@ -7,7 +7,7 @@ const SearchBar = ({ setQuery, query, stores, categories, setCategory, setStore,
   return (
     <Container
       maxWidth="lg"
-      style={{ paddingLeft: 0, paddingRight: 0, marginBottom: 20 }}
+      style={{ paddingLeft: 0, paddingRight: 0, marginBottom: 5 }}
     >
       <SearchBarTop 
         setPage={setPage}

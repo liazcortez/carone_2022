@@ -36,7 +36,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
   const [address, setAddress] = useState("");
   const [last,setLast] = useState(false);
 
-  const [datasort, setDatasort] = useState("-");
+  const [datasort, setDatasort] = useState('createdAt,-1');
   const localStorageName = 'preownedFilters';
   const lastClickedName = 'lastClickedPreownweds';
   const localStorageVersion = '1.1';
@@ -73,7 +73,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
     if(!localStorageLoaded)return;
     handleReload();
     //eslint-disable-next-line
-  }, [store, category, sort, query, address,localStorageLoaded]);
+  }, [store, category, sort, query, address, datasort, localStorageLoaded]);
 
   const handleReload = async () => {
     if(infiniteVehicles)await setInfiniteVehicles([]);
@@ -137,7 +137,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
     }
     let location = (address.length >=1 && address !== '-') ? `&storeLocation=${address}`:'';
     setItem(localStorageName,{page,store,category,sort,address,datasort,query,localStorageVersion })
-    let search = { limit, page:limit === defaultLimit?page:1, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=${datasort}${pricequery}&isPublished=true&isSold=false${location}`}
+    let search = { limit, page:limit === defaultLimit?page:1, query: `${query.trim()}${store !== '-' ? `&store=${store}` : ''}${category !== '-' ? `&modelType=${category}` : ''}&sort=${datasort}${pricequery}&isPublished=true&isSold=false${location}`, sort: `${datasort}` }
     getPreownedsV2(search);
     setLimit(defaultLimit);
     setPage(page + 1);
@@ -182,7 +182,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
           datasort={datasort}
           setDatasort={setDatasort}
         />
-        <Divider style={{ marginBottom: "50px" }} />
+        <Divider style={{ marginBottom: "10px" }} />
         <InfiniteScroll
           dataLength={infiniteVehicles?.length || 0}
           next={loadData}
@@ -203,6 +203,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
               <Spinner size={48} />
             </Box>
           } */}
+          {loading && <CustomLoading />}
           <Box className='vehiclesGrid'>
             {
               infiniteVehicles && infiniteVehicles.map(
@@ -218,6 +219,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
           </Box>
         </InfiniteScroll>
         {loading && <CustomLoading />}
+        
 
 
         {/* <Pagination

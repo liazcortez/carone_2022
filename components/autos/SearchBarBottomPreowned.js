@@ -1,54 +1,18 @@
 import React from "react";
-import { Grid, TextField, Box } from "@mui/material";
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
+import { Grid, TextField, Box, Typography } from "@mui/material";
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Menu from '@mui/material/Menu';
 import { capitalCase } from "change-case";
 import _ from 'lodash'
 import useStore from '../../hooks/useStore'
 import {makeStyles} from '@mui/styles';
-import { styled, alpha } from '@mui/material/styles';
-const StyledMenu = styled((props) => (
-  <Menu
-    elevation={0}
-    anchorOrigin={{
-      vertical: 'bottom',
-      horizontal: 'right',
-    }}
-    transformOrigin={{
-      vertical: 'top',
-      horizontal: 'right',
-    }}
-    {...props}
-  />
-))(({ theme }) => ({
-  '& .MuiPaper-root': {
-    borderRadius: 6,
-    marginTop: theme.spacing(1),
-    minWidth: 180,
-    color:
-      theme.palette.mode === 'light' ? 'rgb(55, 65, 81)' : theme.palette.grey[300],
-    boxShadow:
-      'rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
-    '& .MuiMenu-list': {
-      padding: '4px 0',
-    },
-    '& .MuiMenuItem-root': {
-      '& .MuiSvgIcon-root': {
-        fontSize: 18,
-        color: theme.palette.text.secondary,
-        marginRight: theme.spacing(1.5),
-      },
-      '&:active': {
-        backgroundColor: alpha(
-          theme.palette.primary.main,
-          theme.palette.action.selectedOpacity,
-        ),
-      },
-    },
-  },
-}));
+import { useState } from "react";
+
 
 const sortOptions = [
   // {
@@ -83,11 +47,11 @@ const sortOptions = [
 //Variables del sort 
 const options = [
   {
-    name: "Mayor Precio",
+    name: "Menor Precio",
     value: 'price,1',
   },
   {
-    name: "Menor Precio",
+    name: "Mayor Precio",
     value: 'price,-1',
   },
   {
@@ -99,11 +63,10 @@ const options = [
     value: 'createdAt,1',
   },
 ];
-
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
-      margin: 2,
+      margin: 1,
     },
   },
 
@@ -132,9 +95,11 @@ const SearchBarBottom = ({
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event) => {
+  const [namedata, setNamedata] = useState("-");
+  const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -149,9 +114,10 @@ const SearchBarBottom = ({
     setPage(1);
     setAddress(event.target.value);
   };
-  const handleData = (event) => {
-    setDatasort(event.target.value);
-    console.log(event.target.value);
+  const handleData = (value, name) => {
+    setDatasort(value);
+    setNamedata(name);
+    setAnchorEl(null);
   };
 
   const { getStores, stores } = useStore();
@@ -176,9 +142,9 @@ const SearchBarBottom = ({
       container
       className={classes.root}
       spacing={1}
-      style={{ paddingLeft: 0, paddingRight: 0, marginBottom: 20 }}
+      style={{ paddingLeft: 0, paddingRight: 0}}
     >
-      <Grid item xs={12} sm={4} md={4} lg={4}>
+      <Grid item xs={12} sm={4} md={3} lg={3}>
         <TextField
           style={{
             backgroundColor: "#f3f7f9",
@@ -218,7 +184,7 @@ const SearchBarBottom = ({
           ))}
         </TextField>
       </Grid> 
-      <Grid item xs={12} sm={6} md={4} lg={4}>
+      <Grid item xs={12} sm={6} md={3} lg={3}>
         <TextField
           style={{
             backgroundColor: "#f3f7f9",
@@ -242,10 +208,10 @@ const SearchBarBottom = ({
 
             if(a.make.name < b.make.name) return -1
             return 1
-          }).map((item) => <option key={item.name} value={item._id}>{capitalCase(item.make.name.replace("-", " ") + ' ' + item.name)}</option>)}
+          }).map((item) => <option key={item._id} value={item._id}>{capitalCase(item.make.name.replace("-", " ") + ' ' + item.name)}</option>)}
         </TextField>
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={4}>
+      <Grid item xs={12} sm={6} md={3} lg={3}>
       <TextField
           style={{
             backgroundColor: "#f3f7f9",
@@ -276,7 +242,7 @@ const SearchBarBottom = ({
           ))}
         </TextField>
       </Grid>
-    <Grid item xs={12}>
+    <Grid item xs={12} sm={6} md={3} lg={3}>
     <TextField
         style={{
           backgroundColor: "#f3f7f9",
@@ -342,37 +308,51 @@ const SearchBarBottom = ({
           </Grid>
            {/*Aqui empieza el sort */}
       <Grid item xs={12}>
-          <Box style={{width:"100%", justifyContent:"flex-end", display:"flex"}}>
-              
-            <TextField
-              style={{
-                backgroundColor: "#f3f7f9",
-                border: "0px solid rgb(217, 221, 233)",
-                borderRadius: 10,
-              }}
-              select
-              label="Ordenar Por:"
-              value={datasort}
-              onChange={handleData}
-              SelectProps={{
-                native: true,
-              }}
-              variant="outlined"
+          <Box style={{width:"100%", justifyContent:"flex-end", display:"flex", margin:"0px", padding:"0px"}}>
+            <List
+              component="nav"
+              aria-label="Ordenar"
             >
-              <option key={0} value={"-"}>
-                No Aplica
-              </option>
+              <ListItem
+                button
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClickListItem}
+              >
+                <ListItemText
+                  primary={
+                  <Box style={{display:"flex"}}>
+                    <Typography style={{margin:"0px 3px 0px 0px"}}>Ordernar Por: </Typography>
+                    <Typography style={{color:"#05418b"}}> {namedata}</Typography>
+                    {datasort && datasort === "price,1" || datasort === "createdAt,1"
+                    ? <ArrowDropUpIcon style={{color:"#05418b"}}/> 
+                    : <ArrowDropDownIcon style={{color:"#05418b"}}/>}
+                  </Box>}
+                />
+              </ListItem>
+            </List>
+            <Menu
+              id="lock-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              onChange={handleData}
+              MenuListProps={{
+                'aria-labelledby': 'lock-button',
+                role: 'listbox',
+              }}
+            >
               {options.map((option) => (
-                <option
+                <MenuItem
                   key={option.name}
                   value={option.value}
-                  style={{ color: "#a5a5a" }}
+                  onClick={ () => handleData(option.value, option.name)}
                 >
                   {option.name}
-                </option>
+                </MenuItem>
               ))}
-            </TextField>
+            </Menu>
           </Box>
+          
       </Grid>
       {/*Aqui termina el sort */}
     </Grid>
