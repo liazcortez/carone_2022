@@ -13,12 +13,12 @@ import Timeline from "./timeline";
 
 export default function Nos() {
   return (
-    <Grid container spacing={2} style={{padding:"0px 110px"}}>
+    <Grid container spacing={2} width="83%" style={{margin:"auto"}}>
         <Grid item xs={12} md={6}>
-            <Box style={{width:"100%", padding:"15px", alignItems:"center"}}>
+            <Box style={{width:"100%", alignItems:"center"}}>
                 <Typography variant="h1" style={{ lineHeight:"22px", letterSpacing:"5px", textTransform:"uppercase", fontWeight:"400", fontSize:"14px"}}>Car One</Typography>
-                <Typography variant="h2" style={{ fontWeight:"600", fontSize:"46px", lineHeight:"52px"}}>Ayudando a que tengas una mejor experiencia automotriz desde 1997</Typography>
-                <Typography variant='body2' style={{ fontSize:"17px", lineHeight:"1.9"}}>
+                <Typography variant="h2" style={{fontSize:"46px"}}>Ayudando a que tengas una mejor experiencia automotriz desde 1997</Typography>
+                <Typography variant='body2' style={{ fontSize:"17px"}}>
                   CAR ONE tiene todos los coches, pick-ups y SUVs para la región. Estamos aquí para responder a todas sus preguntas, y queremos compartir nuestros conocimientos y nuestra experiencia para ayudarle a escoger el coche que corresponda a sus necesidades. Si usted busca un auto nuevo o usado, puede mandarnos un correo a contaccenter@carone.com.mx
                 </Typography>
             </Box>

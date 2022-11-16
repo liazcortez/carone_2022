@@ -39,16 +39,7 @@ const Slug = ({ preowned }) => {
       </Typography>
     </Box>
   )
-  
-  const containerStyle = {
-    width: '100%',
-    height: '400px'
-  };
-  
-  const center = {
-    lat: preowned.store.location.coordinates[1],
-    lng: preowned.store.location.coordinates[0]
-  };
+
 
   return (
     <>
@@ -254,7 +245,7 @@ const Slug = ({ preowned }) => {
                                           : "----"}
                                       </Typography>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell style={{textAlign:"center", justifyContent:"center"}}>
                                       <Typography style={{ fontWeight: 600 }}>Año</Typography>
                                       <Typography style={{ paddingBlockEnd: "2rem" }}>
                                         {preowned && preowned.year && preowned.year !== ""
@@ -291,7 +282,7 @@ const Slug = ({ preowned }) => {
                                           : "----"}
                                       </Typography>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell style={{textAlign:"center", justifyContent:"center"}}>
                                       <Typography style={{ fontWeight: 600 }}>
                                         Precio
                                       </Typography>
@@ -330,7 +321,7 @@ const Slug = ({ preowned }) => {
                                         )}
                                       </Typography>
                                     </TableCell>
-                                    <TableCell style={{textAlign:"center", justifyContent:"center"}}>
+                                    <TableCell style={{textAlign:"center", justifyContent:"center", width:"33%"}}>
                                       <Typography style={{ fontWeight: 600 }}>
                                         Transmisión
                                       </Typography>
@@ -343,7 +334,7 @@ const Slug = ({ preowned }) => {
                                           : "----"}
                                       </Typography>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell style={{textAlign:"center", justifyContent:"center", width:"33%"}}>
                                       <Typography style={{ fontWeight: 600 }}>
                                         Ubicacion de la Agencia
                                       </Typography>
