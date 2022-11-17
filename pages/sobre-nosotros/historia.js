@@ -10,7 +10,7 @@ export default function Historia() {
     <Grid container spacing={2}>
         <Grid item xs={12}>
             <Box style={{width:"100%", padding:"10px", textAlign:"center"}}>
-                <Typography variant="h2" style={{fontSize:"39px", fontWeight: "bold"}}>Conoce mas de nosotros</Typography>
+                <Typography variant="h2" style={{fontSize:"39px", fontWeight: "bold"}}>Conoce más de nosotros</Typography>
             </Box>
         </Grid>
         <Grid item xs={12} md={6}>
