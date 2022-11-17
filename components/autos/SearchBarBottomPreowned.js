@@ -302,7 +302,7 @@ const SearchBarBottom = ({
 
             <Box display='flex' ref={anchorEl} onClick={()=>setOpen(true)}>
               <Typography variant='body1' style={{fontWeight: 500}}>Ordenar Por:</Typography>
-              <Typography variant='body1' style={{color:"#05418b", marginLeft: '0.5em'}}>{' '}{namedata}</Typography>
+              <Typography variant='body1' style={{color:"#05418b", marginLeft: '0.5em', cursor:"pointer"}}>{' '}{namedata}</Typography>
               {
                 datasort.includes(',-1')
                 ? <ArrowDropUpIcon style={{color:"#05418b"}}/> 
@@ -315,6 +315,7 @@ const SearchBarBottom = ({
               open={open}
               onChange={handleData}
               onClose={() => setOpen(false)}
+              style={{marginLeft:"6%"}}
             >
               {
                 options.map((option) => 
