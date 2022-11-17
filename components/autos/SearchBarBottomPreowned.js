@@ -300,30 +300,31 @@ const SearchBarBottom = ({
       <Grid item xs={12}>
         <Box display='flex' justifyContent='flex-end' style={{ width: "100%" }}>
 
-          <Box display='flex' ref={anchorEl} onClick={() => setOpen(true)}>
-            <Typography variant='body1' style={{ fontWeight: 500 }}>Ordenar Por:</Typography>
-            <Typography variant='body1' style={{ color: "#05418b", marginLeft: '0.5em' }}>{' '}{namedata}</Typography>
-            {
-              datasort.includes(',-1')
-                ? <ArrowDropUpIcon style={{ color: "#05418b" }} />
-                : <ArrowDropDownIcon style={{ color: "#05418b" }} />
-            }
-          </Box>
+            <Box display='flex' ref={anchorEl} onClick={()=>setOpen(true)}>
+              <Typography variant='body1' style={{fontWeight: 500}}>Ordenar Por:</Typography>
+              <Typography variant='body1' style={{color:"#05418b", marginLeft: '0.5em', cursor:"pointer"}}>{' '}{namedata}</Typography>
+              {
+                datasort.includes(',-1')
+                ? <ArrowDropUpIcon style={{color:"#05418b"}}/> 
+                : <ArrowDropDownIcon style={{color:"#05418b"}}/>
+              }
+            </Box>
 
-          <Menu
-            anchorEl={anchorEl.current}
-            open={open}
-            onChange={handleData}
-            onClose={() => setOpen(false)}
-          >
-            {
-              options.map((option) =>
-                <MenuItem key={option.name} value={option.value} onClick={() => handleData(option.value, option.name)}>
-                  {option.name}
-                </MenuItem>
-              )
-            }
-          </Menu>
+            <Menu
+              anchorEl={anchorEl.current}
+              open={open}
+              onChange={handleData}
+              onClose={() => setOpen(false)}
+              style={{marginLeft:"6%"}}
+            >
+              {
+                options.map((option) => 
+                  <MenuItem key={option.name} value={option.value} onClick={ () => handleData(option.value, option.name)}>
+                    {option.name}
+                  </MenuItem>
+                )
+              }
+            </Menu>
         </Box>
 
       </Grid>
