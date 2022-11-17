@@ -14,7 +14,7 @@ export default function Mision() {
             </Box>
         </Grid>
         <Grid item xs={12} md={6} style={{padding:"15px"}}>
-            <Box style={{textAlign:"center"}}><Typography variant="h2"style={{fontSize:"36px"}}>Nuestra Mision</Typography></Box>
+            <Box style={{textAlign:"center"}}><Typography variant="h2"style={{fontSize:"36px", fontWeight: "bold"}}>Nuestra Mision</Typography></Box>
             <Typography variant="body2" style={{fontSize:"17px"}}>
             Posicionar a Car One en el mercado automotriz mediante el ofrecimiento de productos de calidad, precio, garantía, oportunidad y servicio a nuestros clientes (público, compañías aseguradoras, talleres y agencias automotrices).
             Mejores condiciones de trabajo a sus colaboradores, así como generar rendimientos equitativos para los socios que depositan su confianza en nuestra empresa.

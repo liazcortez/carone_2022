@@ -28,7 +28,7 @@ const CarouselComponent = () => {
         <Grid item xs={12}>
         <div style={{ marginBottom: 30, width:"100%"}}>
   
-            <Typography variant="h2" style={{fontSize:"39px", marginBottom:"50px", textAlign:"center"}}>Nuestra Historia</Typography>
+            <Typography variant="h2" style={{fontSize:"39px", marginBottom:"50px", textAlign:"center", fontWeight: "bold"}}>Nuestra Historia</Typography>
 
             <div className="animated fadeIn App">
                 <Carousel
