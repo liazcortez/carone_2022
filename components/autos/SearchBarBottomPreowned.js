@@ -7,7 +7,7 @@ import Menu from '@mui/material/Menu';
 import { capitalCase } from "change-case";
 import _ from 'lodash'
 import useStore from '../../hooks/useStore'
-import {makeStyles} from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import { useState } from "react";
 
 
@@ -53,7 +53,7 @@ const options = [
   },
   {
     name: "Más Reciente",
-    value:  'createdAt,-1',
+    value: 'createdAt,-1',
   },
   {
     name: "Más Antiguo",
@@ -132,7 +132,7 @@ const SearchBarBottom = ({
       container
       className={classes.root}
       spacing={1}
-      style={{ paddingLeft: 0, paddingRight: 0}}
+      style={{ paddingLeft: 0, paddingRight: 0 }}
     >
       <Grid item xs={12} sm={6} md={3} lg={3}>
         <TextField
@@ -156,7 +156,7 @@ const SearchBarBottom = ({
           <option key={0} value={"-"}>
             Todas
           </option>
-          { 
+          {
             [
               { name: 'Suv', value: 'suv' },
               { name: 'Sedán', value: 'sedan' },
@@ -165,15 +165,15 @@ const SearchBarBottom = ({
               { name: 'Van', value: 'van' },
               { name: 'Comercial', value: 'comercial' },
             ].map((option) => (
-            <option
-              key={option.name}
-              value={option.value}
-            >
-              {option.name}
-            </option>
-          ))}
+              <option
+                key={option.name}
+                value={option.value}
+              >
+                {option.name}
+              </option>
+            ))}
         </TextField>
-      </Grid> 
+      </Grid>
       <Grid item xs={12} sm={6} md={3} lg={3}>
         <TextField
           style={{
@@ -194,15 +194,15 @@ const SearchBarBottom = ({
           <option key={0} value={"-"}>
             Todas las agencias
           </option>
-          {stores.filter(s => s._id !== '6269ae3be8436b4af342ac97').sort((a,b)=> {
+          {stores.filter(s => s._id !== '6269ae3be8436b4af342ac97').sort((a, b) => {
 
-            if(a.make.name < b.make.name) return -1
+            if (a.make.name < b.make.name) return -1
             return 1
           }).map((item) => <option key={item._id} value={item._id}>{capitalCase(item.make.name.replace("-", " ") + ' ' + item.name)}</option>)}
         </TextField>
       </Grid>
       <Grid item xs={12} sm={6} md={3} lg={3}>
-      <TextField
+        <TextField
           style={{
             backgroundColor: "#f3f7f9",
             border: "0px solid rgb(217, 221, 233)",
@@ -219,7 +219,7 @@ const SearchBarBottom = ({
           variant="outlined"
         >
           <option key={0} value={"-"}>
-          Todos
+            Todos
           </option>
           {sortOptions.map((option) => (
             <option
@@ -232,73 +232,73 @@ const SearchBarBottom = ({
           ))}
         </TextField>
       </Grid>
-    <Grid item xs={12} sm={6} md={3} lg={3}>
-    <TextField
-        style={{
-          backgroundColor: "#f3f7f9",
-          border: "0px solid rgb(217, 221, 233)",
-          borderRadius: 10,
-        }}
-        select
-        fullWidth
-        label="Búsqueda por estado"
-        value={address}
-        onChange={handleChangeest}
-        SelectProps={{
-          native: true,
-        }}
-        variant="outlined"
-      >
-        <option key={0} value={"-"}>
-          Todos los Estados
-        </option>
-        { 
-          [
-            { name: 'Aguascalientes', value: 'Ags' },
-            { name: 'Baja California', value: 'BC' },
-            { name: 'Baja California Sur', value: 'BCS' },
-            { name: 'Campeche', value: 'Camp' },
-            { name: 'Chiapas', value: 'Chis' },
-            { name: 'Chihuahua', value: 'Chih' },
-            { name: 'Coahuila', value: 'Coah' },
-            { name: 'Colima', value: 'Col' },
-            { name: 'Ciudad de Mexico', value: 'CMX' },
-            { name: 'Durango', value: 'Dgo' },
-            { name: 'Guanajuato', value: 'Gto' },
-            { name: 'Guerrero', value: 'Gro' },
-            { name: 'Hidalgo', value: 'Hgo' },
-            { name: 'Jalisco', value: 'Jal' },
-            { name: 'México', value: 'Edomex' },
-            { name: 'Michoacán', value: 'Mich' },
-            { name: 'Morelos', value: 'Mor' },
-            { name: 'Nayarit', value: 'Nay' },
-            { name: 'Nuevo León', value: 'NL' },
-            { name: 'Oaxaca', value: 'Oax' },
-            { name: 'Puebla', value: 'Pue' },
-            { name: 'Querétaro', value: 'Qro' },
-            { name: 'Quintana Roo', value: 'QRoo' },
-            { name: 'San Luis Potosí', value: 'SLP' },
-            { name: 'Sinaloa', value: 'Sin' },
-            { name: 'Sonora', value: 'Son' },
-            { name: 'Tabasco', value: 'Tab' },
-            { name: 'Tamaulipas', value: 'Tamps' },
-            { name: 'Tlaxcala', value: 'Tlax' },
-            { name: 'Veracruz', value: 'Ver' },
-            { name: 'Yucatán', value: 'Yuc' },
-            { name: 'Zacatecas', value: 'Zac' },
-          ].map((option) => (
-          <option
-            key={option.name}
-            value={option.value}
-          >
-            {option.name}
+      <Grid item xs={12} sm={6} md={3} lg={3}>
+        <TextField
+          style={{
+            backgroundColor: "#f3f7f9",
+            border: "0px solid rgb(217, 221, 233)",
+            borderRadius: 10,
+          }}
+          select
+          fullWidth
+          label="Búsqueda por estado"
+          value={address}
+          onChange={handleChangeest}
+          SelectProps={{
+            native: true,
+          }}
+          variant="outlined"
+        >
+          <option key={0} value={"-"}>
+            Todos los Estados
           </option>
-        ))}
-      </TextField>
-          </Grid>
-           {/*Aqui empieza el sort */}
+          {
+            [
+              { name: 'Aguascalientes', value: 'Ags' },
+              { name: 'Baja California', value: 'BC' },
+              { name: 'Baja California Sur', value: 'BCS' },
+              { name: 'Campeche', value: 'Camp' },
+              { name: 'Chiapas', value: 'Chis' },
+              { name: 'Chihuahua', value: 'Chih' },
+              { name: 'Coahuila', value: 'Coah' },
+              { name: 'Colima', value: 'Col' },
+              { name: 'Ciudad de Mexico', value: 'CMX' },
+              { name: 'Durango', value: 'Dgo' },
+              { name: 'Guanajuato', value: 'Gto' },
+              { name: 'Guerrero', value: 'Gro' },
+              { name: 'Hidalgo', value: 'Hgo' },
+              { name: 'Jalisco', value: 'Jal' },
+              { name: 'México', value: 'Edomex' },
+              { name: 'Michoacán', value: 'Mich' },
+              { name: 'Morelos', value: 'Mor' },
+              { name: 'Nayarit', value: 'Nay' },
+              { name: 'Nuevo León', value: 'NL' },
+              { name: 'Oaxaca', value: 'Oax' },
+              { name: 'Puebla', value: 'Pue' },
+              { name: 'Querétaro', value: 'Qro' },
+              { name: 'Quintana Roo', value: 'QRoo' },
+              { name: 'San Luis Potosí', value: 'SLP' },
+              { name: 'Sinaloa', value: 'Sin' },
+              { name: 'Sonora', value: 'Son' },
+              { name: 'Tabasco', value: 'Tab' },
+              { name: 'Tamaulipas', value: 'Tamps' },
+              { name: 'Tlaxcala', value: 'Tlax' },
+              { name: 'Veracruz', value: 'Ver' },
+              { name: 'Yucatán', value: 'Yuc' },
+              { name: 'Zacatecas', value: 'Zac' },
+            ].map((option) => (
+              <option
+                key={option.name}
+                value={option.value}
+              >
+                {option.name}
+              </option>
+            ))}
+        </TextField>
+      </Grid>
+      {/*Aqui empieza el sort */}
       <Grid item xs={12}>
-          <Box display='flex' justifyContent='flex-end' style={{ width:"100%" }}>
+        <Box display='flex' justifyContent='flex-end' style={{ width: "100%" }}>
 
             <Box display='flex' ref={anchorEl} onClick={()=>setOpen(true)}>
               <Typography variant='body1' style={{fontWeight: 500}}>Ordenar Por:</Typography>
@@ -325,8 +325,8 @@ const SearchBarBottom = ({
                 )
               }
             </Menu>
-          </Box>
-          
+        </Box>
+
       </Grid>
 
     </Grid>
