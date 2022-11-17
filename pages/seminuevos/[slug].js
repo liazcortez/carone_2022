@@ -83,7 +83,7 @@ const Slug = ({ preowned }) => {
                   <Box
                     style={{
                       paddingTop: "1rem",
-                      paddingLeft: "10px",
+                      paddingLeft: "40px",
                       display: "block",
                       position: "relative",
                       top: "18px",
@@ -143,7 +143,7 @@ const Slug = ({ preowned }) => {
                   style={{
                     display: "flex",
                     alignItems: "flex-end",
-                    paddingLeft: "18px",
+                    paddingLeft: "20px",
                   }}
                 >
                   <Typography
@@ -184,7 +184,7 @@ const Slug = ({ preowned }) => {
                 {/*Aqui es xs={8}*/}
                 <Grid
                   container
-                  style={{ width: "100%", paddingTop: "10px"}}
+                  style={{ width: "100%", paddingTop: "10px", paddingLeft:"18px"}}
                 >
                   <SemisCarousel
                   preowned={preowned}
