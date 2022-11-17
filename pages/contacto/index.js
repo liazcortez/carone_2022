@@ -34,8 +34,7 @@ const storeRow = ({ store, index }) => (
             fontWeight: 600,
             fontSize: "20px",
             textTransform: "capitalize",
-          }}
-        >
+          }}>
           {`${ObjExist(store, ["make", "name"])} ${ObjExist(store, [
             "name",
           ])}`.replace("-", " ")}
@@ -44,16 +43,19 @@ const storeRow = ({ store, index }) => (
         <Box style={{ display: "flex", alignItems: "start" }}>
           <LocationOnIcon style={{ fontSize: "25px", paddingTop: "5px" }} />
           {console.log(store.location)}
-          <a href={`https://www.google.com.mx/maps/search/${store.address}`}  target="_blank" rel="noopener noreferrer" style={{textDecoration:"none", color:"#000000"}}>
-          <Typography
-            style={{
-              fontSize: "20px",
-              paddingBlockEnd: "1rem",
-              textTransform: "capitalize",
-            }}
-          >
-            {`${ObjExist(store, ["address"])}`}
-          </Typography>
+          <a
+            href={`https://www.google.com.mx/maps/search/${store.address}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none", color: "#000000" }}>
+            <Typography
+              style={{
+                fontSize: "20px",
+                paddingBlockEnd: "1rem",
+                textTransform: "capitalize",
+              }}>
+              {`${ObjExist(store, ["address"])}`}
+            </Typography>
           </a>
         </Box>
 
@@ -63,24 +65,24 @@ const storeRow = ({ store, index }) => (
             style={{
               fontSize: "20px",
               paddingBlockEnd: "1rem",
-            }}
-          >
+            }}>
             {`${ObjExist(store, ["schedule"])}`}
           </Typography>
         </Box>
 
         <Box style={{ display: "flex", alignItems: "start" }}>
           <PhoneIcon style={{ fontSize: "25px", paddingTop: "5px" }} />
-          
-          <a href={`tel:+52${store.phone}`} style={{textDecoration:"none", color:"#000000"}}>
-          <Typography
-            style={{
-              fontSize: "20px",
-              paddingBlockEnd: "2rem",
-            }}
-          >
-            {`${ObjExist(store, ["phone"])}`}
-          </Typography>
+
+          <a
+            href={`tel:+52${store.phone}`}
+            style={{ textDecoration: "none", color: "#000000" }}>
+            <Typography
+              style={{
+                fontSize: "20px",
+                paddingBlockEnd: "2rem",
+              }}>
+              {`${ObjExist(store, ["phone"])}`}
+            </Typography>
           </a>
         </Box>
       </Box>
@@ -89,10 +91,7 @@ const storeRow = ({ store, index }) => (
 );
 
 const index = ({ storesProps }) => {
-
   const [makes, setMakes] = useState({});
-
- 
 
   useEffect(() => {
     let newStores = [];
@@ -127,11 +126,11 @@ const index = ({ storesProps }) => {
     });
 
     let alfa = false;
-    if(finalMakes['alfa-romeo']){
-      alfa =finalMakes['alfa-romeo']; 
-      delete finalMakes['alfa-romeo'];
+    if (finalMakes["alfa-romeo"]) {
+      alfa = finalMakes["alfa-romeo"];
+      delete finalMakes["alfa-romeo"];
     }
-    if(alfa)finalMakes['alfa-romeo'] = alfa;
+    if (alfa) finalMakes["alfa-romeo"] = alfa;
     setMakes(finalMakes);
   }, [storesProps]);
 
@@ -141,13 +140,12 @@ const index = ({ storesProps }) => {
 
       <Container className="VideoContainer" maxWidth="lg">
         <Box style={{ paddingBlockEnd: "1rem" }}>
+          <Divider sx={{ marginTop: "1em", marginBottom: "1em" }} />
           <Typography
             variant="h4"
-            style={{ fontSize: "35px", fontWeight: 500, textAlign: "center" }}
-          >
+            style={{ fontSize: "35px", fontWeight: 500, textAlign: "center" }}>
             Contacto
           </Typography>
-          <Divider sx={{ marginTop: "1em", marginBottom: "1em" }} />
         </Box>
 
         <Grid container spacing={2}>
@@ -164,8 +162,7 @@ const index = ({ storesProps }) => {
                       fontSize: "30px",
                       textTransform: "capitalize",
                       padding: "1rem 0",
-                    }}
-                  >
+                    }}>
                     {make.replace("-", " ")}
                   </Typography>
                   <Grid container spacing={2}>

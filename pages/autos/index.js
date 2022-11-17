@@ -12,11 +12,11 @@ import useStorage from "../../hooks/custom/useStorage";
 
 const Index = ({ vehiclesSP, total, makes, categories }) => {
   const { vehicles, getVehicles, loading, results, clearState } = useVehicles();
-  const {getItem,setItem,removeItem} = useStorage();
+  const { getItem, setItem, removeItem } = useStorage();
 
   const [disableTopBar, setDisableTopBar] = useState(false);
   const [infiniteVehicles, setInfiniteVehicles] = useState(false);
-  const [localStorageLoaded,setLocalStorageLoaded] = useState(false);
+  const [localStorageLoaded, setLocalStorageLoaded] = useState(false);
 
   const defaultLimit = 12;
   const [limit, setLimit] = useState(defaultLimit);
@@ -25,91 +25,98 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
   const [make, setMake] = useState("-");
   const [category, setCategory] = useState("-");
   const [sort, setSort] = useState("-");
-  const [last,setLast] = useState(false);
+  const [last, setLast] = useState(false);
   const [datasort, setDatasort] = useState("-");
 
-  const localStorageName = 'carFilters';
-  const lastClickedName = 'lastClickedVehicle';
-  const localStorageVersion = '1.0';
+  const localStorageName = "carFilters";
+  const lastClickedName = "lastClickedVehicle";
+  const localStorageVersion = "1.0";
 
   useEffect(() => {
     const local = getItem(localStorageName);
     const lastClicked = getItem(lastClickedName);
 
-    if(lastClicked)setLast(lastClicked)
-    if(local)handleLocalStorage(local)
-    else setLocalStorageLoaded(true)
-    
-    // setItem('algo','123')
-  }, [])
+    if (lastClicked) setLast(lastClicked);
+    if (local) handleLocalStorage(local);
+    else setLocalStorageLoaded(true);
 
-  const handleLocalStorage= async (local)=>{
-    if(local?.localStorageVersion === localStorageVersion){
-    if(local?.page){
-    await setPage(local.page);
-    await setLimit(local.page * defaultLimit);
-    } 
-    if(local?.query)await setQuery(local.query)
-    if(local?.make)await setMake(local.make)
-    if(local?.category)await setCategory(local.category)
-    if(local?.sort)await setSort(local.sort)
+    // setItem('algo','123')
+  }, []);
+
+  const handleLocalStorage = async (local) => {
+    if (local?.localStorageVersion === localStorageVersion) {
+      if (local?.page) {
+        await setPage(local.page);
+        await setLimit(local.page * defaultLimit);
+      }
+      if (local?.query) await setQuery(local.query);
+      if (local?.make) await setMake(local.make);
+      if (local?.category) await setCategory(local.category);
+      if (local?.sort) await setSort(local.sort);
     }
-    setLocalStorageLoaded(true)
-  }
+    setLocalStorageLoaded(true);
+  };
 
   useEffect(() => {
-    if(!localStorageLoaded)return;
+    if (!localStorageLoaded) return;
     handleReload();
     //eslint-disable-next-line
-  }, [make, category, sort,query,localStorageLoaded]);
+  }, [make, category, sort, query, localStorageLoaded]);
 
-  const handleReload = async ()=>{
-    if(infiniteVehicles)await setInfiniteVehicles([]);
+  const handleReload = async () => {
+    if (infiniteVehicles) await setInfiniteVehicles([]);
     loadData();
-  }
+  };
 
   useEffect(() => {
     if (vehicles && vehicles.length <= 0) return;
-    setInfiniteVehicles([...infiniteVehicles || [], ...vehicles]);
+    setInfiniteVehicles([...(infiniteVehicles || []), ...vehicles]);
     clearState();
   }, [vehicles]);
 
- useEffect(() => {
+  useEffect(() => {
     if (infiniteVehicles && infiniteVehicles.length <= 0) return;
-    let lastDocument = document.getElementById(last)
-    if(lastDocument && last){
-    const offsetTop = lastDocument.offsetTop - 10;
-    scroll({
-    top: offsetTop,
-    behavior: "smooth"
-    });
+    let lastDocument = document.getElementById(last);
+    if (lastDocument && last) {
+      const offsetTop = lastDocument.offsetTop - 10;
+      scroll({
+        top: offsetTop,
+        behavior: "smooth",
+      });
       // removeItem(lastClickedName)
-      setLast(false)
+      setLast(false);
     }
     //eslint-disable-next-line
-  }, [infiniteVehicles])
+  }, [infiniteVehicles]);
 
   const loadData = () => {
-    if(loading)return;
-    setItem(localStorageName,{page,make,category,sort,query,localStorageVersion })
+    if (loading) return;
+    setItem(localStorageName, {
+      page,
+      make,
+      category,
+      sort,
+      query,
+      localStorageVersion,
+    });
     //funcion de como se pasaran los datos del sort
-    let datos = '';
+    let datos = "";
     switch (datasort) {
-      case 'mayorPrecio':
-        datos = 'price,1';
+      case "mayorPrecio":
+        datos = "price,1";
         break;
-      case 'menorPrecio':
-        datos = 'price,-1';
+      case "menorPrecio":
+        datos = "price,-1";
         break;
-      case 'masReciente':
-        datos = 'createdAt,-1';
+      case "masReciente":
+        datos = "createdAt,-1";
         break;
-      case 'masAntiguo':
-        datos = 'createdAt,1';
+      case "masAntiguo":
+        datos = "createdAt,1";
         break;
     }
     getVehicles(
-      limit === defaultLimit?page:1,
+      limit === defaultLimit ? page : 1,
       `${query}&make=${make}&category=${category}&prices=${sort}&limit=${limit}`
     );
     setLimit(defaultLimit);
@@ -118,15 +125,16 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
 
   const TitleNews = (
     <Box>
-      <Typography variant="h1" sx={{fontSize: "35px", fontWeight: 600, display:"none"}}>
+      <Typography
+        variant="h1"
+        sx={{ fontSize: "35px", fontWeight: 600, display: "none" }}>
         Venta de Autos Nuevos México
       </Typography>
     </Box>
-  )
+  );
 
   return (
     <>
-         
       <Meta
         title="Autos nuevos en México - Carone Group"
         description="Venta de autos nuevos en México - Carone Group"
@@ -134,9 +142,10 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
         googlebot={"index,follow"}
         robots="all"
       />
-     
-        <Container maxWidth="lg">
-          {TitleNews}
+
+      <Container maxWidth="lg">
+        <Divider style={{ marginBottom: "50px" }} />
+        {TitleNews}
         <SearchBar
           setQuery={setQuery}
           query={query}
@@ -154,39 +163,28 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
           setDatasort={setDatasort}
         />
 
-         
-          <Divider style={{ marginBottom: "50px" }} />
-         
-          <InfiniteScroll
-            style={{overflow:'hidden'}}
-            dataLength={infiniteVehicles?.length || 0}
-            next={loadData}
-            hasMore={true}
-          >
-
-          <Box className='vehiclesGrid'>
-      
-            {infiniteVehicles && infiniteVehicles.map(
-                (vehicle, index) => (
-                 
-                    <CarListCard key={index} vehicle={vehicle} loading={loading} />
-                )
-              )}
+        <InfiniteScroll
+          style={{ overflow: "hidden" }}
+          dataLength={infiniteVehicles?.length || 0}
+          next={loadData}
+          hasMore={true}>
+          <Box className="vehiclesGrid">
+            {infiniteVehicles &&
+              infiniteVehicles.map((vehicle, index) => (
+                <CarListCard key={index} vehicle={vehicle} loading={loading} />
+              ))}
           </Box>
-          </InfiniteScroll>
+        </InfiniteScroll>
 
-	        {loading &&  <CustomLoading />}
+        {loading && <CustomLoading />}
 
-
-
-          {/* <Pagination
+        {/* <Pagination
           total={results !== null ? results : total}
           page={page}
           limit={12}
           changePage={changePage}
         /> */}
-        </Container>
-
+      </Container>
     </>
   );
 };
