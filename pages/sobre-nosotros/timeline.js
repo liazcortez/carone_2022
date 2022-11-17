@@ -26,9 +26,9 @@ const CarouselComponent = () => {
     return (
       <Grid container spacing={2} style={{padding:"15px"}}>
         <Grid item xs={12}>
-        <div style={{ marginBottom: 30, marginTop: 100, width:"100%"}}>
+        <div style={{ marginBottom: 30, width:"100%"}}>
   
-            <Typography variant="h2" sx={{ marginBottom: "50px", textAlign: "center", fontSize: "28px", fontWeight: 600}}>Nuestra Historia</Typography>
+            <Typography variant="h2" style={{fontSize:"39px", marginBottom:"50px", textAlign:"center", fontWeight: "bold"}}>Nuestra Historia</Typography>
 
             <div className="animated fadeIn App">
                 <Carousel
@@ -45,8 +45,8 @@ const CarouselComponent = () => {
                             alt="si"
                         />
                         <CardContent>
-                            <Typography variant="h2" style={{fontWeight:"600", fontSize:"23px", lineHeight:"52px"}}>1997</Typography>
-                            <Typography variant="body2" style={{fontSize:"17px", lineHeight:"1.5"}}>Fue fundada Car One por el Sr. Manuel Antelo, quien fue capaz de detectar un factor clave en el proceso de compra-venta de usados</Typography>
+                            <Typography variant="h2" style={{fontSize:"23px"}}>1997</Typography>
+                            <Typography variant="body2" style={{fontSize:"17px"}}>Fue fundada Car One por el Sr. Manuel Antelo, quien fue capaz de detectar un factor clave en el proceso de compra-venta de usados</Typography>
                         </CardContent>
                     </Card>
                     <Card style={{width:"100%", padding:"15px"}}>
@@ -57,8 +57,8 @@ const CarouselComponent = () => {
                             alt="si"
                         />
                         <CardContent>
-                            <Typography variant="h2" style={{fontWeight:"600", fontSize:"23px", lineHeight:"52px"}}>Noviembre de 2020</Typography>
-                            <Typography variant="body2" style={{fontSize:"17px", lineHeight:"1.5"}}>Car One hizo el Test Drive más grande de la historia</Typography>
+                            <Typography variant="h2" style={{fontSize:"23px"}}>Noviembre 2020</Typography>
+                            <Typography variant="body2" style={{fontSize:"17px"}}>Car One hizo el Test Drive más grande de la historia</Typography>
                         </CardContent>
                     </Card>
                     <Card style={{width:"100%", padding:"15px"}}>
@@ -69,8 +69,8 @@ const CarouselComponent = () => {
                             alt="si"
                         />
                         <CardContent>
-                            <Typography variant="h2" style={{fontWeight:"600", fontSize:"23px", lineHeight:"52px"}}>Enero 2021</Typography>
-                            <Typography variant="body2" style={{fontSize:"17px", lineHeight:"1.5"}}>El empresario Manuel Antelo, fundador de la firma en 1997, vendió el 51% al grupo Pochat-Ksairi, con fuerte presencia en la Costa Atlántica.</Typography>
+                            <Typography variant="h2" style={{fontSize:"23px"}}>Enero 2021</Typography>
+                            <Typography variant="body2" style={{fontSize:"17px"}}>El empresario Manuel Antelo, fundador de la firma en 1997, vendió el 51% al grupo Pochat-Ksairi, con fuerte presencia en la Costa Atlántica.</Typography>
                         </CardContent>
                     </Card>
                     <Card style={{width:"100%", padding:"15px"}}>
@@ -81,8 +81,8 @@ const CarouselComponent = () => {
                             alt="si"
                         />
                         <CardContent>
-                            <Typography variant="h2" style={{fontWeight:"600", fontSize:"23px", lineHeight:"52px"}}>Junio de 2022</Typography>
-                            <Typography variant="body2" style={{fontSize:"17px", lineHeight:"1.5"}}>Car One marcó historia al realizar la primer venta de un auto con criptomonedas.</Typography>
+                            <Typography variant="h2" style={{fontSize:"23px"}}>Junio de 2022</Typography>
+                            <Typography variant="body2" style={{fontSize:"17px"}}>Car One marcó historia al realizar la primer venta de un auto con criptomonedas.</Typography>
                         </CardContent>
                     </Card>
                 </Carousel>
