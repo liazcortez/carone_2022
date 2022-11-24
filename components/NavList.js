@@ -126,7 +126,7 @@ const NavList = ({ setMenuOpen, logout, menuOpen }) => {
           </Button>
         </Link>
       </Box>
-      <Box m={1} display='flex' justifyContent={'center'}>
+      {/* <Box m={1} display='flex' justifyContent={'center'}>
         <Link href="/sobre-nosotros" passHref={true}>
           <Button
             onClick={() => {
@@ -136,7 +136,7 @@ const NavList = ({ setMenuOpen, logout, menuOpen }) => {
             Acerca de
           </Button>
         </Link>
-      </Box>
+      </Box> */}
       {
         !menuOpen &&
         <Box m={1} display='flex' justifyContent={'center'} className={classes.hideOnMobile}>
