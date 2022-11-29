@@ -13,7 +13,7 @@ export default function AboutUs() {
             googlebot={"index,follow"}
             robots="all"
         />
-        <Container maxWidth="lg" style={{paddingBottom: 5}}>
+        <Container maxWidth="lg" style={{paddingBottom: 5, paddingTop:5}}>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                     <Typography variant="h1" sx={{ fontSize: "35px", fontWeight: 600}}>El origen...</Typography>
@@ -28,7 +28,7 @@ export default function AboutUs() {
                         <img src="./static/images/PortadaCarOne.jpeg" style={{width:"100%"}}/>
                     </Box>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} style={{marginTop:10}}>
                     <center>
                         <Typography variant="h1" sx={{ fontSize: "35px", fontWeight: 600}}>Nuestra Historia</Typography>
                     </center>
