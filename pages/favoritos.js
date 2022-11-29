@@ -76,34 +76,32 @@ const Favoritos = () => {
   }
 
   return (
-    <Container>
-      <Container maxWidth="lg">
-        <Divider style={{ marginBottom: "50px" }} />
-        <AntTabs value={currentTab} style={{marginBottom: '2em'}}>
-          <AntTab value='nuevos' onClick={()=>setCurrentTab('nuevos')} label='Nuevos'/>
-          <AntTab value='semis' onClick={()=>setCurrentTab('semis')} label='Seminuevos'/>
-        </AntTabs>
+    <Container maxWidth="lg">
+      <Divider/>
+      <AntTabs value={currentTab} style={{marginBottom: '2em'}}>
+        <AntTab value='nuevos' onClick={()=>setCurrentTab('nuevos')} label='Nuevos'/>
+        <AntTab value='semis' onClick={()=>setCurrentTab('semis')} label='Seminuevos'/>
+      </AntTabs>
 
-        {
-          currentTab === 'nuevos' ? (
-            dataList.length !== 0 ? (
-              <ComparativeCarList vehicles={dataList} setDataList={setDataList} handleDeleteFav={handleDeleteFav}/>
+      {
+        currentTab === 'nuevos' ? (
+          dataList.length !== 0 ? (
+            <ComparativeCarList vehicles={dataList} setDataList={setDataList} handleDeleteFav={handleDeleteFav}/>
+          ) : (
+            <p style={{marginTop: 50}}>No tienes autos nuevos para comparar. Por favor agrega hasta 4 autos</p>
+          )
+        ) : false
+      }
+
+      {
+        currentTab === 'semis' ? (
+          dataListPreowned.length !== 0 ? (
+            <ComparativeCarListPreowned vehicles={dataListPreowned} setDataList={setDataList} handleDeleteFavSemis={handleDeleteFavSemis}/>
             ) : (
-              <p style={{marginTop: 50}}>No tienes autos nuevos para comparar. Por favor agrega hasta 4 autos</p>
-            )
-          ) : false
-        }
-
-        {
-          currentTab === 'semis' ? (
-            dataListPreowned.length !== 0 ? (
-              <ComparativeCarListPreowned vehicles={dataListPreowned} setDataList={setDataList} handleDeleteFavSemis={handleDeleteFavSemis}/>
-              ) : (
-                <p style={{marginTop: 50}}>No tienes autos seminuevos para comparar. Por favor agrega hasta 4 autos</p>
-                )
-          ) : false
-        }
-      </Container>
+              <p style={{marginTop: 50}}>No tienes autos seminuevos para comparar. Por favor agrega hasta 4 autos</p>
+              )
+        ) : false
+      }
     </Container>
   );
 };

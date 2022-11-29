@@ -8,6 +8,7 @@ import { baseURL } from "../api/api";
 import useMedia from "../hooks/useMedia";
 import CallToAction from "../components/main/CallToAction";
 import { Grid, Box, Typography } from "@mui/material";
+import axios from 'axios'
 
 const classes = {
   root: {

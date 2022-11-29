@@ -139,15 +139,7 @@ const index = ({ storesProps }) => {
       <Meta title="Car One TV - Car One Group" description="Car One TV" />
 
       <Container className="VideoContainer" maxWidth="lg">
-        <Box style={{ paddingBlockEnd: "1rem" }}>
-          <Divider sx={{ marginTop: "1em", marginBottom: "1em" }} />
-          <Typography
-            variant="h4"
-            style={{ fontSize: "35px", fontWeight: 500, textAlign: "center" }}>
-            Contacto
-          </Typography>
-        </Box>
-
+      <Divider sx={{ marginBottom: "1em" }} />
         <Grid container spacing={2}>
           {Object.keys(makes) &&
             Object.keys(makes).length >= 1 &&

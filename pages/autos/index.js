@@ -144,7 +144,7 @@ const Index = ({ vehiclesSP, total, makes, categories }) => {
       />
 
       <Container maxWidth="lg">
-        <Divider style={{ marginBottom: "50px" }} />
+        <Divider style={{ marginBottom: "1em" }} />
         {TitleNews}
         <SearchBar
           setQuery={setQuery}

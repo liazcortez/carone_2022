@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from "@mui/material/Container";
-import { Grid, Box, Typography } from "@mui/material";
+import { Grid, Box, Typography, Divider } from "@mui/material";
 import Meta from "../../components/Meta";
 
 export default function AboutUs() {
@@ -13,7 +13,8 @@ export default function AboutUs() {
             googlebot={"index,follow"}
             robots="all"
         />
-        <Container maxWidth="lg" style={{paddingBottom: 5, paddingTop:5}}>
+        <Container maxWidth="lg">
+            <Divider style={{ marginBottom: "10px" }} />
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                     <Typography variant="h1" sx={{ fontSize: "35px", fontWeight: 600}}>El origen...</Typography>
