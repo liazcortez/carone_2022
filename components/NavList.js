@@ -126,6 +126,17 @@ const NavList = ({ setMenuOpen, logout, menuOpen }) => {
           </Button>
         </Link>
       </Box>
+      <Box m={1} display='flex' justifyContent={'center'}>
+        <Link href="/sobre-nosotros" passHref={true}>
+          <Button
+            onClick={() => {
+              setMenuOpen(false);
+            }}
+          >
+            Acerca de
+          </Button>
+        </Link>
+      </Box>
       {/* <Box m={1} display='flex' justifyContent={'center'}>
         <Link href="/sobre-nosotros" passHref={true}>
           <Button
