@@ -321,44 +321,34 @@ const SemisForm = ({preowned}) => {
               
             </DialogActions>
           </Dialog>
-
-          {/* <Box display='flex' flexDirection={'row'} justifyContent='center'>
-
-            <Divider style={{marginTop: 20, marginBottom: 20, width: '48%'}}/>
-            <Typography variant='caption' color='textSecondary' style={{marginLeft: 5, marginRight: 5, marginTop: 10}}>o</Typography>
-            <Divider style={{marginTop: 20, marginBottom: 20, width: '48%'}}/>
-          </Box> */}
-          <center>
-            <Typography variant='caption' color='textPrimary' style={{display: 'flex', alignItems: 'center', justifyContent:'center'}}>
-              O si lo prefieres, envíanos WhatsApp!
-            </Typography>
-          </center>
           {
-            preowned.store && preowned.store.dpxStore &&
-            <a 
-              target='_blank'
-              rel="noreferrer"
-              href={ `https://wa.me//${preowned.store.dpxPhone}?text=Hola! Estoy interesado en un ${preowned.version.toLowerCase().includes(preowned.vehicle.make.name.toLowerCase()) ? `${CapitalizeNames(preowned.version)} ${preowned.year}` : 
-                `${CapitalizeNames(preowned.vehicle.make.name)} ${CapitalizeNames(preowned.vehicle.model)} ${CapitalizeNames(preowned.version)} ${preowned.year}`
-                }          
-              `}
-              style={{textDecoration: 'none'}}
-            >
-              {/* <center>
-              <Typography variant='caption' color='textPrimary' style={{display: 'flex', alignItems: 'center', justifyContent:'center', color: '#32873c'}}>
-              O si lo prefieres, envíanos WhatsApp! <img src="/static/whatsapp.png" width={30} style={{marginLeft: 10}}/>
-              </Typography>
-              </center> */}
-              <Button
-                variant="contained"
-                color="primary"
-                fullWidth
-                style={{height:"3rem", backgroundColor: '#48c357', marginTop: '1em'}}
+            preowned.store && preowned.store.dpxStore && preowned.store.dpxPhonePreowned&&
+            <>
+              <center>
+                <Typography variant='caption' color='textPrimary' style={{display: 'flex', alignItems: 'center', justifyContent:'center'}}>
+                  O si lo prefieres, envíanos WhatsApp!
+                </Typography>
+              </center>
+              <a 
+                target='_blank'
+                rel="noreferrer"
+                href={ `https://wa.me//${preowned.store.dpxPhonePreowned}?text=Hola! Estoy interesado en un ${preowned.version.toLowerCase().includes(preowned.vehicle.make.name.toLowerCase()) ? `${CapitalizeNames(preowned.version)} ${preowned.year}` : 
+                  `${CapitalizeNames(preowned.vehicle.make.name)} ${CapitalizeNames(preowned.vehicle.model)} ${CapitalizeNames(preowned.version)} ${preowned.year}`
+                  }          
+                `}
+                style={{textDecoration: 'none'}}
               >
-              Whatsapp
-            </Button>
-              
-            </a>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                  style={{height:"3rem", backgroundColor: '#48c357', marginTop: '1em'}}
+                >
+                Whatsapp
+              </Button>
+                
+              </a>
+            </>
           }
 
         </Box>
