@@ -322,7 +322,7 @@ const SemisForm = ({preowned}) => {
             </DialogActions>
           </Dialog>
           {
-            preowned.store && preowned.store.dpxStore && preowned.store.dpxPhonePreowed &&
+            preowned.store && preowned.store.dpxStore && preowned.store.dpxPhonePreowned&&
             <>
               <center>
                 <Typography variant='caption' color='textPrimary' style={{display: 'flex', alignItems: 'center', justifyContent:'center'}}>
@@ -332,7 +332,7 @@ const SemisForm = ({preowned}) => {
               <a 
                 target='_blank'
                 rel="noreferrer"
-                href={ `https://wa.me//${preowned.store.dpxPhonePreowed}?text=Hola! Estoy interesado en un ${preowned.version.toLowerCase().includes(preowned.vehicle.make.name.toLowerCase()) ? `${CapitalizeNames(preowned.version)} ${preowned.year}` : 
+                href={ `https://wa.me//${preowned.store.dpxPhonePreowned}?text=Hola! Estoy interesado en un ${preowned.version.toLowerCase().includes(preowned.vehicle.make.name.toLowerCase()) ? `${CapitalizeNames(preowned.version)} ${preowned.year}` : 
                   `${CapitalizeNames(preowned.vehicle.make.name)} ${CapitalizeNames(preowned.vehicle.model)} ${CapitalizeNames(preowned.version)} ${preowned.year}`
                   }          
                 `}
