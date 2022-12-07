@@ -174,7 +174,7 @@ const Index = ({ preownedsSP, total, stores, categories }) => {
       />
 
       <Container maxWidth="lg">
-        <Divider style={{ marginBottom: "10px" }} />
+        <Divider style={{ marginBottom: '1em' }} />
         {TitleSemis}
         <SearchBar
           setQuery={setQuery}

@@ -54,7 +54,7 @@ const index = ({ jobsSP, categories, stores, total }) => {
       />
 
       <Container maxWidth="lg">
-        <Divider style={{ marginBottom: "50px" }} />
+        <Divider style={{ marginBottom: "1em" }} />
         <SearchBar
           setQuery={setQuery}
           query={query}
