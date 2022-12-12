@@ -83,7 +83,7 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
   .responsiveBanner {
     height: 15vh;
   }
@@ -116,7 +116,7 @@
     content: url("/static/logoMobile.png");
   }
 }
-@media only screen and (min-width: 401px) and (max-width: 700px) {
+@media only screen and (min-width: 401px) and (max-width: 900px) {
   .mainLogo {
     max-width: 100px;
   }
@@ -154,7 +154,7 @@
   transition: all 0.4s ease-in-out;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
   .navListDesktop {
     background: white;
     position: fixed;
