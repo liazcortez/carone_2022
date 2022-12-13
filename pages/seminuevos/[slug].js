@@ -186,29 +186,18 @@ const Slug = ({ preowned }) => {
               </Grid>
 
               <Grid style={{ minHeight: "10rem" }} item xs={12} md={7}>
- 
-                {/*Aqui es xs={8}*/}
-                <Grid
-                  container
-                  style={{ width: "100%", paddingTop: "10px"}}
-                >
                   <SemisCarousel
                     preowned={preowned}
                     medias={[...preowned.gallery,]}
                   />
-                </Grid>
               </Grid>
-
               <Grid style={{ minHeight: "10rem" }} item xs={12} md={5}>
-                {" "}
-                {/*Aqui es xs={4}*/}
                 <SemisForm preowned={preowned} />
               </Grid>
 
               <Grid item xs={12}>
                 <Typography
                   style={{
-                    fontSize:"40px",
                     fontWeight: "bold",
                     color: "#212121",
                     paddingTop: "2rem",
@@ -216,6 +205,7 @@ const Slug = ({ preowned }) => {
                     justifyContent:"center",
                     textAlign:"center"
                   }}
+                  sx={{fontSize: {xs:"20px", md:"40px"}}}
                 >
                   CARACTERÍSTICAS {preowned.vehicle.make.name.toUpperCase()}{" "}
                   {preowned.version.toUpperCase()} {preowned.year}
