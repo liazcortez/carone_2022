@@ -78,21 +78,22 @@ const Slug = ({ preowned }) => {
               style={{ marginBottom: 50, paddingTop: "1rem" }}
               spacing={3}
             >
-              <Grid container>
+              <Grid container style={{justifyContent:"center"}}>
                 <Grid item xs={12} md={7}>
                   <Box
                     style={{
                       paddingTop: "1rem",
-                      paddingLeft: "40px",
+                      alignItems:"center",
                       display: "block",
                       position: "relative",
                       top: "18px",
+                      justifyContent:"center"
                     }}
                   >
                     <Typography
                       variant="h2"
-                      fontSize={"30px"}
-                      style={{ fontWeight: "bold", color: "#212121", display: 'flex', alignItems: 'center', padding: 0 }}
+                      sx={{fontSize:{xs:"20px", md:"30px"}}}
+                      style={{ fontWeight: "bold", color: "#212121", display: 'flex', alignItems: 'center', padding: 0, justifyContent:"center"}}
                     >
                       {preowned.version
                         .toLowerCase()
@@ -106,7 +107,8 @@ const Slug = ({ preowned }) => {
                     </Typography>
 
                     <Typography
-                      style={{ color: "#212121", textTransform: "Capitalize", fontSize:"20px"}}
+                      style={{ color: "#212121", textTransform: "Capitalize"}}
+                      sx={{fontSize:{xs:"15px", md:"20px"}}}
                     >
                       {preowned && preowned.km && preowned.km !== "" ? (
                         <NumberFormat
@@ -139,30 +141,32 @@ const Slug = ({ preowned }) => {
 
                 <Grid
                   item
-                  xs={5}
+                  xs={12} md={5}
                   style={{
                     display: "flex",
-                    alignItems: "flex-end",
-                    paddingLeft: "20px",
+                    alignItems: "center",
+                    justifyContent:"center",
+                    paddingTop:"20px"
                   }}
                 >
                   <Typography
                     style={{
-                      fontSize: "35px",
+                      
                       color: "#212121",
                       fontWeight: 600,
                       paddingRight: "5px",
                     }}
+                    sx={{fontSize: {xs:"15px", md:"33px"}}}
                   >
                     Precio:
                   </Typography>
 
                   <Typography
                     style={{
-                      fontSize: "35px",
                       color: "#212121",
                       fontWeight: 600,
                     }}
+                    sx={{fontSize: {xs:"15px", md:"33px"}}}
                   >
                     {preowned && preowned.price && preowned.price !== "" ? (
                       <NumberFormat
@@ -180,14 +184,14 @@ const Slug = ({ preowned }) => {
               </Grid>
 
               <Grid style={{ minHeight: "10rem" }} item xs={12} md={7}>
-                {" "}
+ 
                 {/*Aqui es xs={8}*/}
                 <Grid
                   container
                   style={{ width: "100%", paddingTop: "10px"}}
                 >
                   <SemisCarousel
-                  preowned={preowned}
+                    preowned={preowned}
                     medias={[...preowned.gallery,]}
                   />
                 </Grid>
