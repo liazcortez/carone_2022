@@ -26,12 +26,12 @@ const Banner = ({
 
   return (
     <Grid
-      style={{ display: "flex", justifyContent: "center" }}
+      style={{ display: "flex", justifyContent: "center", padding:"20px"}}
       className="animated fadeIn"
       container
     >
       {xs === 10 && <Grid item xs={1} />}
-      <Grid item xs={xs}>
+      <Grid item xs={12}>
         <Carousel
           autoPlay={autoPlay}
           infiniteLoop={infiniteLoop}
