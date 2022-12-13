@@ -23,7 +23,7 @@ const CarTabComponent = ({ version, model }) => {
   
   return (
     <Grid container style={{ marginBottom: 50 }}>
-      <Grid item xs={7}>
+      <Grid item xs={12} md={7}>
         
         <Typography
           variant="h5"
@@ -70,7 +70,7 @@ const CarTabComponent = ({ version, model }) => {
           La imagen mostrada es ilustrativa, y no necesariamente corresponde a la versión del vehículo.
         </Typography>
       </Grid>
-      <Grid item xs={5}>
+      <Grid item xs={12} md={5}>
         <div>
           <Typography
             variant="h5"
@@ -83,7 +83,7 @@ const CarTabComponent = ({ version, model }) => {
           <Divider style={{ marginBottom: 20 }} />
           <Grid container>
             {specifications.map((spec) => (
-              <Grid key={spec._id} item xs={5} style={{ marginRight: 40 }}>
+              <Grid key={spec._id} item xs={5} style={{ marginRight: 20 }}>
                 <Typography
                   variant="body1"
                   gutterBottom
@@ -95,7 +95,7 @@ const CarTabComponent = ({ version, model }) => {
                   <CheckCircleIcon
                     style={{
                       marginTop: 2,
-                      marginRight: 14,
+                      marginRight: 10,
                       fontSize: 18,
                       color: "#576b9f",
                     }}

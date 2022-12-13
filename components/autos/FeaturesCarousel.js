@@ -22,11 +22,11 @@ const breakPoints = [
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
-    marginRight: 30,
+    margin:"auto"
   },
   media: {
     height: 140,
-    minWidth: 270
+    minWidth: "100%"
   },
   categories: {
     display: "none",

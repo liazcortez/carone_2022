@@ -95,12 +95,11 @@ const ColorsComponent = ({ colors }) => {
                   p={1}
                   bgcolor={color.color}
                   style={{
-                    height: 40,
-                    width: 40,
-                    marginRight: 20,
+                    marginRight:15,
                     borderRadius: 50,
                     border: "1px solid #888888",
                   }}
+                  sx={{ width:{xs:20, md:40}, height:{xs:20, md:40}}}
                   onClick={() => currentSlide(index)}
                 />
               ))}

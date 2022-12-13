@@ -40,8 +40,6 @@ const CarTabs = ({ versions, model }) => {
       <Tabs
         value={value}
         onChange={handleChange}
-        variant="scrollable"
-        scrollButtons={false}
         style={{ backgroundColor: "white", color: "#02216e", marginBottom: 30 }}
         indicatorColor="primary"
         centered

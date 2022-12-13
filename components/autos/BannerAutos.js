@@ -37,7 +37,7 @@ const BannerAut = ({ banner, description, promotion, title }) => {
           className='responsiveBanner'
 
           style={{
-            maxWidth:'99vw',
+            
             backgroundImage: `url(${banner ? banner : imageUrl})`,
           }}
         >
