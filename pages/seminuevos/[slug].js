@@ -185,7 +185,7 @@ const Slug = ({ preowned }) => {
                 </Grid>
               </Grid>
 
-              <Grid style={{ minHeight: "10rem" }} item xs={12} md={7}>
+              <Grid style={{ minHeight: "10rem"}} sx={{padding:{xs:"0px", md:"30px 0px 0px 50px"}}} item xs={12} md={7}>
                   <SemisCarousel
                     preowned={preowned}
                     medias={[...preowned.gallery,]}
