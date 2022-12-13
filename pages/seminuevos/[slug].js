@@ -106,6 +106,7 @@ const Slug = ({ preowned }) => {
                        
                     </Typography>
 
+                    <center>
                     <Typography
                       style={{ color: "#212121", textTransform: "Capitalize"}}
                       sx={{fontSize:{xs:"15px", md:"20px"}}}
@@ -136,6 +137,7 @@ const Slug = ({ preowned }) => {
                           preowned.store.name
                         : ""}
                     </Typography>
+                    </center>
                   </Box>
                 </Grid>
 
@@ -223,7 +225,7 @@ const Slug = ({ preowned }) => {
 
                 <Grid container spacing={3} style={{ paddingTop: "1rem" }}>
                   <Grid item xs={12}>
-                      <TableContainer style={{width:"100%", padding:"15px"}}>
+                      <TableContainer style={{width:"100%"}}>
                           <Table style={{width:"100%"}}>
                               <TableBody>
                                   <TableRow>
