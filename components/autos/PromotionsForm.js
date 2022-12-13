@@ -151,7 +151,7 @@ const FormComponent = ({ vehicle }) => {
   
 
   return (
-    <div style={{  }}>
+    <div style={{}}>
       <Card>
         <CardContent>
         <Typography variant="h6" style={{ textAlign: "center" }}>
@@ -226,8 +226,8 @@ const FormComponent = ({ vehicle }) => {
                             cursor: "pointer",
                             borderRadius: 10,
                             padding: 5,
-                            margin: 10,
-                            marginRight: 15,
+                            margin: 0,
+                            marginRight: 0,
                             height: 150 
                             // height: 180 
                           }}
