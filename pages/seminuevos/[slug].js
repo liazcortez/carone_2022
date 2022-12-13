@@ -213,10 +213,10 @@ const Slug = ({ preowned }) => {
 
                 <Divider />
 
-                <Grid container spacing={3} style={{ paddingTop: "1rem" }}>
-                  <Grid item xs={12}>
-                      <TableContainer style={{width:"100%"}}>
-                          <Table style={{width:"100%"}}>
+                <Grid container spacing={3} style={{ padding: "20px 0px 0px 0px"}}>
+                  <Grid item xs={12} style={{padding:"0px"}}>
+                      <TableContainer style={{width:"100%", padding:"0px"}}>
+                          <Table style={{width:"100%", padding:"0px"}}>
                               <TableBody>
                                   <TableRow>
                                     <TableCell style={{textAlign:"center", justifyContent:"center"}}>

@@ -26,7 +26,8 @@ const Banner = ({
 
   return (
     <Grid
-      style={{ display: "flex", justifyContent: "center", padding:"20px"}}
+      style={{ display: "flex", justifyContent: "center"}}
+      
       className="animated fadeIn"
       container
     >
