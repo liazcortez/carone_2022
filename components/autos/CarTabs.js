@@ -40,15 +40,17 @@ const CarTabs = ({ versions, model }) => {
       <Tabs
         value={value}
         onChange={handleChange}
-        style={{ backgroundColor: "white", color: "#02216e", marginBottom: 30 }}
+        style={{ backgroundColor: "white", color: "#02216e", marginBottom: 30, width:"100%"}}
         indicatorColor="primary"
-        centered
+        variant="scrollable"
+        scrollButtons={false}
       >
         {versions &&
           versions.map((version) => (
             <Tab key={version._id} label={version.name} />
           ))}
       </Tabs>
+
 
       {versions &&
         versions.map((version, i) => (

@@ -132,7 +132,7 @@ const Slug = ({ vehicle }) => {
                 <SharingComponent url={url} />
               </Grid>
               <Grid item xs={12} lg={6}>
-                <Box display='flex' flexDirection='column' justifyContent='end' style={{height: '100%'}}>
+                <Box display='flex' flexDirection='column' justifyContent='end' style={{height: '100%', padding:"0px"}}>
                 <Financing vehicle={vehicle} /> 
                 {/* sharing */}
                 </Box>

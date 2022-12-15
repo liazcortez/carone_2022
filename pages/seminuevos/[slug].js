@@ -90,9 +90,10 @@ const Slug = ({ preowned }) => {
                       justifyContent:"center"
                     }}
                   >
+                    <center>
                     <Typography
                       variant="h2"
-                      sx={{fontSize:{xs:"20px", md:"30px"}}}
+                      sx={{fontSize:{xs:"18px", md:"30px"}}}
                       style={{ fontWeight: "bold", color: "#212121", display: 'flex', alignItems: 'center', padding: 0, justifyContent:"center"}}
                     >
                       {preowned.version
@@ -105,6 +106,7 @@ const Slug = ({ preowned }) => {
 
                        
                     </Typography>
+                    </center>
 
                     <center>
                     <Typography

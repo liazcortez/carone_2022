@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
 
 function handleClick(event) {
   event.preventDefault();
-  console.info("You clicked a breadcrumb.");
 }
 
 const BreadcrumbComponent = ({ data, section }) => {

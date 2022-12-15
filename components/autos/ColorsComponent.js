@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   rightArrow: {
     position: "absolute",
     top: "50%",
-    right: "32px",
+    right: "2%",
     fontSize: "3rem",
     color: "#000",
     zIndex: 10,
@@ -33,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   image: {
-    width: "1000px",
-    height: "600px",
+    width: "900px",
+    height: "500px",
     borderRadius: "10px",
   },
   slide: {
@@ -95,7 +95,7 @@ const ColorsComponent = ({ colors }) => {
                   p={1}
                   bgcolor={color.color}
                   style={{
-                    marginRight:15,
+                    marginRight:'1%',
                     borderRadius: 50,
                     border: "1px solid #888888",
                   }}

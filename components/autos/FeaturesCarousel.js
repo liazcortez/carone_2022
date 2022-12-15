@@ -21,7 +21,7 @@ const breakPoints = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: "100%",
     margin:"auto"
   },
   media: {
