@@ -95,7 +95,7 @@ const CarTabComponent = ({ version, model }) => {
                   <CheckCircleIcon
                     style={{
                       marginTop: 2,
-                      marginRight: 10,
+                      marginRight: "1%",
                       fontSize: 18,
                       color: "#576b9f",
                     }}
