@@ -1,12 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { makeStyles } from "@mui/styles";
-import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import { Grid } from "@mui/material";
 import CarTabComponent from "./CarTabComponent";
 
 function TabPanel(props) {
@@ -45,16 +40,17 @@ const CarTabs = ({ versions, model }) => {
       <Tabs
         value={value}
         onChange={handleChange}
-        aria-label="simple tabs example"
-        style={{ backgroundColor: "white", color: "#02216e", marginBottom: 30 }}
+        style={{ backgroundColor: "white", color: "#02216e", marginBottom: 30, width:"100%"}}
         indicatorColor="primary"
-        centered
+        variant="scrollable"
+        scrollButtons={false}
       >
         {versions &&
           versions.map((version) => (
             <Tab key={version._id} label={version.name} />
           ))}
       </Tabs>
+
 
       {versions &&
         versions.map((version, i) => (

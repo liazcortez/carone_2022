@@ -26,7 +26,7 @@ const Banner = ({
 
   return (
     <Grid
-      style={{ display: "flex", justifyContent: "center" }}
+      style={{ display: "flex", justifyContent: "center"}}
       className="animated fadeIn"
       container
     >
@@ -45,8 +45,8 @@ const Banner = ({
           {
             medias && medias.length > 0 ? (
             medias.map((item, key) => (
-              <div style={{ width: "100%" }}>
-                <img src={item.image} key={key} width={"auto"} height={"auto"} alt={`${CapitalizeV2(vehicle.make.name)} ${vehicle.year}`}/>
+              <div style={{ width: "100%", padding:"0px", margin:"0px" }}>
+                <img src={item.image} key={key} width={"100%"} alt={`${CapitalizeV2(vehicle.make.name)} ${vehicle.year}`}/>
               </div>
             ))
           ) : (

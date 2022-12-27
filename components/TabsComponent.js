@@ -60,20 +60,21 @@ const TabsComponent = ({ features, gallery, video,technicalSheet }) => {
       <Tabs
         value={value}
         onChange={handleChange}
-        aria-label="simple tabs example"
         style={{
           backgroundColor: "white",
           color: "#02216e",
           marginBottom: 30,
         }}
         indicatorColor="primary"
-        centered
+        variant="scrollable"
+        scrollButtons={false}
       >
         <Tab label="Caracteristicas" />
         <Tab label="Galeria" />
         <Tab label="Car One TV" />
         <Tab label="Ficha Técnica" />
       </Tabs>
+
 
       <TabPanel value={value} index={0}>
         <FeaturesCarousel data={features} />

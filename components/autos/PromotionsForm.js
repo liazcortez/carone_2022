@@ -151,7 +151,7 @@ const FormComponent = ({ vehicle }) => {
   
 
   return (
-    <div style={{  }}>
+    <div style={{}}>
       <Card>
         <CardContent>
         <Typography variant="h6" style={{ textAlign: "center" }}>
@@ -209,6 +209,7 @@ const FormComponent = ({ vehicle }) => {
                 >
                   2. Selecciona la Agencia de Preferencia
                 </Typography>
+                <center>
                 <Box className={classes.makesStyles}>
                   {vehicle.availableStore &&
                     vehicle.availableStore.map((store) => (
@@ -226,11 +227,12 @@ const FormComponent = ({ vehicle }) => {
                             cursor: "pointer",
                             borderRadius: 10,
                             padding: 5,
-                            margin: 10,
-                            marginRight: 15,
+                            margin: 0,
+                            marginRight: 5,
                             height: 150 
                             // height: 180 
                           }}
+                          sx={{width:{xs:"90%", md:"100%"}}}
                         >
                           <Box display="flex" justifyContent="center">
                             <StoreIcon
@@ -268,7 +270,8 @@ const FormComponent = ({ vehicle }) => {
                         
                       </Box>
                     ))}
-                </Box>
+                    </Box>
+                </center>
               </Box>
               <Box
                 style={{

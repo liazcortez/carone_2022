@@ -30,7 +30,7 @@ const Slug = ({ vehicle }) => {
 
 
   return (
-    <>
+    <Container maxWidth="lg">
       {
       vehicle && vehicle.isPublished && vehicle.promotions && vehicle.promotions.length > 0 &&
         <>
@@ -50,9 +50,6 @@ const Slug = ({ vehicle }) => {
             url={url}
             image={meta && meta.image ? meta.image : mainImage}
           />
-
-          
-          <Container maxWidth="lg">
             <Grid container spacing={3}>
               <Grid item xs={12} md={6}>
                 <Carousel vehicle={vehicle} medias={promotions || []}/>
@@ -62,10 +59,9 @@ const Slug = ({ vehicle }) => {
                 <Form vehicle={vehicle} />
               </Grid>
             </Grid>
-          </Container>
         </>
       }
-    </>
+    </Container>
   );
 };
 

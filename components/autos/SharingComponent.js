@@ -22,11 +22,12 @@ const SharingComponent = ({ url }) => {
         alignItems="center"
         p={1}
         m={1}
+        style={{margin:"0px", padding:"0px"}}
       >
         <Box p={1}>Compartir</Box>
         <Box p={1}>
           <FacebookShareButton url={url}>
-            <FacebookIcon size={32} round={true} />
+            <FacebookIcon size={32} round={true}/>
           </FacebookShareButton>
         </Box>
         <Box p={1}>
