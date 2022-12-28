@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Box, Container, Grid } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import Meta from "../../components/Meta";
 import Form from "../../components/autos/PromotionsForm";
-import { makeStyles } from "@mui/styles";
 import { useRouter } from "next/router";
 import { baseURL } from "../../api/api";
 import Carousel from "../../components/vehicles/Carousel";
 
-const useStyles = makeStyles({
+const styles = {
   container: {
     position: "absolute",
     top: "26%",
@@ -22,12 +21,11 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     margin: 10,
-  },
-});
+  }
+}
 
 const Slug = ({ promotion }) => {
   const router = useRouter();
-  const classes = useStyles();
   const [currPromotion, setCurrPromotion] = useState("");
 
   const url = `https://carone.com.mx${router.asPath}`;
@@ -52,10 +50,10 @@ const Slug = ({ promotion }) => {
 
   return (
     <>
-      <Container className={classes.container} maxWidth="xs">
+      <Container style={styles.container} maxWidth="xs">
         <Box ty={2}>
           <Carousel
-            className={classes.formAndCarrouselContent}
+            style={styles.formAndCarrouselContent}
             vehicle={promotion.vehicle}
             medias={[{ image: promotion.image }]}
           />
