@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 import { Grid } from "@mui/material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import { CapitalizeV2 } from "../../utils/capitalize"
+import { CapitalizeV2 } from "../../utils/capitalize";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -28,8 +28,7 @@ const Banner = ({
     <Grid
       style={{ display: "flex", justifyContent: "center" }}
       className="animated fadeIn"
-      container
-    >
+      container>
       {xs === 10 && <Grid item xs={1} />}
       <Grid item xs={xs}>
         <Carousel
@@ -40,13 +39,17 @@ const Banner = ({
           showThumbs={showThumbs}
           showArrows={showArrows}
           showStatus={showStatus}
-          showIndicators={showIndicators}
-        >
-          {
-            medias && medias.length > 0 ? (
+          showIndicators={showIndicators}>
+          {medias && medias.length > 0 ? (
             medias.map((item, key) => (
               <div style={{ width: "100%" }}>
-                <img src={item.image} key={key} width={"auto"} height={"auto"} alt={`${CapitalizeV2(vehicle.make.name)} ${vehicle.year}`}/>
+                <img
+                  src={item.image}
+                  key={key}
+                  width={"auto"}
+                  height={"auto"}
+                  alt={`${CapitalizeV2(vehicle.make.name)} ${vehicle.year}`}
+                />
               </div>
             ))
           ) : (

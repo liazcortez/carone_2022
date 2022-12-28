@@ -1,12 +1,14 @@
 import React from "react";
 
 import Head from "next/head";
-import { SnackbarProvider } from 'notistack';
+import { SnackbarProvider } from "notistack";
 import { ThemeProvider } from "@mui/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "../src/theme";
-import Layout from "../components/Layout";
+import MainLayout from "../components/Layout";
+import PromotionsLayout from "../components/PromotionsLayout";
 import VehicleState from "../context/vehicle/VehicleState";
+import PromotionState from "../context/promotions/promotionsState";
 import CategoryState from "../context/category/CategoryState";
 import MakeState from "../context/make/MakeState";
 import JobState from "../context/job/JobState";
@@ -22,7 +24,7 @@ import "@fullcalendar/common/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 
-import '../styles/styles.css'
+import "../styles/styles.css";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -34,6 +36,15 @@ export default function MyApp(props) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
+
+  const layouts = {
+    MainLayout: MainLayout,
+    PromotionsLayout: PromotionsLayout,
+  };
+
+  const Layout =
+    layouts[Component.layout ? Component.layout : "MainLayout"] ||
+    ((children) => <Fragment>{children}</Fragment>);
 
   return (
     <React.Fragment>
@@ -53,21 +64,23 @@ export default function MyApp(props) {
               <ApplicantState>
                 <StoreState>
                   <VehicleState>
-                    <PreownedState>
-                      <MakeState>
-                        <JobState>
-                          <CategoryState>
-                            <CampaignState>
-                            <MediaState>
-                              <SnackbarProvider dense maxSnack={3}>
-                                <Component {...pageProps} />
-                              </SnackbarProvider>
-                            </MediaState>
-                            </CampaignState>
-                          </CategoryState>
-                        </JobState>
-                      </MakeState>
-                    </PreownedState>
+                    <PromotionState>
+                      <PreownedState>
+                        <MakeState>
+                          <JobState>
+                            <CategoryState>
+                              <CampaignState>
+                                <MediaState>
+                                  <SnackbarProvider dense maxSnack={3}>
+                                    <Component {...pageProps} />
+                                  </SnackbarProvider>
+                                </MediaState>
+                              </CampaignState>
+                            </CategoryState>
+                          </JobState>
+                        </MakeState>
+                      </PreownedState>
+                    </PromotionState>
                   </VehicleState>
                 </StoreState>
               </ApplicantState>
@@ -78,5 +91,3 @@ export default function MyApp(props) {
     </React.Fragment>
   );
 }
-
-

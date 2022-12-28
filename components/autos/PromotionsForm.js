@@ -1,95 +1,93 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import StoreIcon from "@material-ui/icons/Store";
-import CheckBoxOutlineBlankOutlinedIcon from "@material-ui/icons/CheckBoxOutlineBlankOutlined";
 import { useSnackbar } from "notistack";
-import CheckBoxOutlinedIcon from "@material-ui/icons/CheckBoxOutlined";
-import {
-  Card,
-  CardContent,
-  Typography,
-  Box,
-} from "@mui/material";
+import { Card, CardContent, Typography, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import parse from "html-react-parser";
 import axios from "axios";
 
 const useStyles = makeStyles({
   selectedBorder: {
     border: "1px solid #5e72e4",
   },
-  input: {
-  },
+  input: {},
   unselectedBorder: {
     border: "1px solid #252525",
   },
-  makesStyles:{
-    color: '#363784',
-    textAlign:'center',
-    gridTemplateColumns: '1fr 1fr 1fr 1fr',
-    display:'grid'
-  }
+  makesStyles: {
+    color: "#363784",
+    textAlign: "center",
+    gridTemplateColumns: "1fr 1fr 1fr 1fr",
+    display: "grid",
+  },
 });
 const timeFrames = [
   {
     id: 0,
-    value: "Solo quiero información"
+    value: "Solicito Información",
   },
   {
     id: 1,
-    value: "1 mes o menos"
+    value: "1 mes o menos",
   },
   {
     id: 2,
-    value: "2 meses"
+    value: "2 meses",
   },
   {
     id: 3,
-    value: "3 meses o más"
+    value: "3 meses o más",
   },
-]
+];
 
-const FormComponent = ({ vehicle }) => {
+const FormComponent = ({ vehicle, promotion }) => {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
-  const [dissableButton,setDissableButton] = React.useState(false);
+
+  const [dissableButton, setDissableButton] = React.useState(false);
   const { enqueueSnackbar } = useSnackbar();
 
-  const [storeIcon, setStoreIcon] = React.useState("");
-  const defaultData = {
+  let defaultData = {
     name: "",
     email: "",
     phone: "",
-    timeFrame: "Solo quiero información",
+    timeFrame: "Solicito Información",
     downPayment: 0,
+    source: "605b5446020c150355aac5e9",
+    vehicle: "",
+    modelType: "",
+    vehicleModel: "",
+    make: "",
+    year: "",
     store: "",
-    vehicle: vehicle,
-    modelType: vehicle.modelType,
-    vehicleModel: vehicle.model,
-    make: vehicle.make._id,
-    year: vehicle.year,
-    source: "605b541a020c150355aac5e6",
   };
 
   const [formData, setFormData] = React.useState(defaultData);
-  
-  const { name, email, phone, timeFrame, downPayment } = formData;
 
-  const onClickStore = (store) => {
-    setStoreIcon(store.dpxStore);
-    setFormData({ ...formData, store: store.dpxStore });
-  };
+  let { name, email, phone, timeFrame, downPayment } = formData;
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  React.useEffect(() => {
+    if (promotion) {
+      setFormData({
+        ...formData,
+        vehicle: promotion.vehicle._id,
+        modelType: promotion.vehicle.modelType,
+        vehicleModel: promotion.vehicle.model,
+        make: promotion.store.make,
+        year: promotion.vehicle.year,
+        store: promotion.store.dpxStore,
+      });
+    }
+  }, [promotion]);
 
   const handleClose = () => {
     setOpen(false);
   };
 
-  const onHandleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onHandleChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const sendLead = async (lead) => {
     const config = {
@@ -101,19 +99,18 @@ const FormComponent = ({ vehicle }) => {
       enqueueSnackbar("Formulario Completado Correctamente", {
         variant: "info",
       });
-      handleClose()
+      handleClose();
       const response = await axios.post(
         "https://dealerproxapi.com/api/v1/leads/website",
-        // "http://localhost:5000/api/v1/leads/website",
+        //"http://localhost:5001/api/v1/leads/website",
         lead,
         config
       );
-      setFormData(defaultData)
-    } catch (err) {
-    }
+      setFormData(defaultData);
+    } catch (err) {}
   };
 
-  const onHandleSubmit = async(e) => {
+  const onHandleSubmit = async (e) => {
     e.preventDefault();
     setDissableButton(true);
 
@@ -121,168 +118,92 @@ const FormComponent = ({ vehicle }) => {
     let phoneValidation = new RegExp(/^[0-9]{10}$/);
     let downPaymentValidation = new RegExp(/^[0-9]+$/);
 
-    if(formData.name === '' || formData.email === '' || formData.phone === '' || storeIcon === ''){
+    if (
+      formData.name === "" ||
+      formData.email === "" ||
+      formData.phone === ""
+    ) {
       return enqueueSnackbar("Por favor llena todos los campos", {
         variant: "error",
       });
-    }else if(!emailValidation.test(formData.email)){
+    } else if (!emailValidation.test(formData.email)) {
       return enqueueSnackbar("Por favor utiliza un email válido", {
-      variant: "error",
-    });
-    }else if(!phoneValidation.test(formData.phone)){
-      return enqueueSnackbar("Por favor utiliza un télefono válido (10 Dpigitos)", {
         variant: "error",
       });
-    }else if(!downPaymentValidation.test(formData.downPayment)){
+    } else if (!phoneValidation.test(formData.phone)) {
+      return enqueueSnackbar(
+        "Por favor utiliza un télefono válido (10 Digitos)",
+        {
+          variant: "error",
+        }
+      );
+    } else if (!downPaymentValidation.test(formData.downPayment)) {
       return enqueueSnackbar("Ingresa un enganche válido (Solo números)", {
         variant: "error",
       });
-    }else{
-      
+    } else {
       await sendLead(formData);
-        setDissableButton(false);
-        return enqueueSnackbar("Se ha enviado tu información, en breve un asesor se pondrá en contacto contigo.", {
+      return enqueueSnackbar(
+        "Se ha enviado tu información, en breve un asesor se pondrá en contacto contigo.",
+        {
           variant: "success",
-        });
-      
+        }
+      );
     }
   };
 
-  
-
   return (
-    <div style={{  }}>
+    <div>
       <Card>
         <CardContent>
-        <Typography variant="h6" style={{ textAlign: "center" }}>
-          Contactar un Asesor
-        </Typography>
+          <Typography variant="h1" sx={{ fontSize: 32, fontWeight: 700 }}>
+            {promotion && promotion.title}
+          </Typography>
+          {promotion && promotion.content && parse(promotion.content)}
           <Box>
             <form onSubmit={onHandleSubmit}>
               <Box
                 style={{
-                  marginBottom: '1em',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.5em'
-                }}
-              >
-                <Typography variant="h6">
-                  1. Datos Personales
-                </Typography>
+                  marginBottom: "1em",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.5em",
+                }}>
+                <Typography variant="h6">Contacta con un asesor</Typography>
                 <TextField
                   label="Nombre"
                   variant="outlined"
                   fullWidth
                   name="name"
                   value={name}
-                  inputProps={{className: classes.input}}
+                  inputProps={{ className: classes.input }}
                   onChange={onHandleChange}
                 />
-                <Box display={'flex'} gap='0.5em'>
-                  <TextField
-                    label="Email"
-                    variant="outlined"
-                    name="email"
-                    value={email}
-                    onChange={onHandleChange}
-                    fullWidth
-                    inputProps={{className: classes.input}}
-                  />
-                  <TextField
-                    label="Télefono"
-                    variant="outlined"
-                    name="phone"
-                    value={phone}
-                    onChange={onHandleChange}
-                    fullWidth
-                    inputProps={{className: classes.input}}
-                  />
-                </Box>
+                <TextField
+                  label="Email"
+                  variant="outlined"
+                  name="email"
+                  value={email}
+                  onChange={onHandleChange}
+                  fullWidth
+                  inputProps={{ className: classes.input }}
+                />
+                <TextField
+                  label="Télefono"
+                  variant="outlined"
+                  name="phone"
+                  value={phone}
+                  onChange={onHandleChange}
+                  fullWidth
+                  inputProps={{ className: classes.input }}
+                />
               </Box>
 
-              <Box>
-                <Typography
-                  variant="h6"
-                  component="p"
-                  style={{ marginBottom: 10 }}
-                >
-                  2. Selecciona la Agencia de Preferencia
-                </Typography>
-                <Box className={classes.makesStyles}>
-                  {vehicle.availableStore &&
-                    vehicle.availableStore.map((store) => (
-                      <Box>
-                        <Box
-                        display='flex' flexDirection={'column'} justifyContent='space-between'
-                          className={
-                            storeIcon === store.dpxStore
-                              ? classes.selectedBorder
-                              : classes.unselectedBorder
-                          }
-                          key={store.dpxStore}
-                          onClick={() => onClickStore(store)}
-                          style={{
-                            cursor: "pointer",
-                            borderRadius: 10,
-                            padding: 5,
-                            margin: 10,
-                            marginRight: 15,
-                            height: 150 
-                            // height: 180 
-                          }}
-                        >
-                          <Box display="flex" justifyContent="center">
-                            <StoreIcon
-                              style={{ fontSize: 50 }}
-                              color={
-                                storeIcon === store.dpxStore ? "primary" : "inherit"
-                              }
-                            />
-                          </Box>
-                          <Box display="flex" justifyContent="center">
-                            <Typography
-                              variant="body2"
-                              gutterBottom
-                              style={{ textTransform: "capitalize" }}
-                            >
-                              {store.make.name} {store.name}
-                            </Typography>
-                          </Box>
-                          <Box display="flex" justifyContent="center">
-                            {storeIcon === store.dpxStore ? (
-                              <CheckBoxOutlinedIcon
-                                color={
-                                  storeIcon === store._id ? "primary" : "inherit"
-                                }
-                              />
-                            ) : (
-                              <CheckBoxOutlineBlankOutlinedIcon
-                                color={
-                                  storeIcon === store._id ? "primary" : "inherit"
-                                }
-                              />
-                            )}
-                          </Box>
-                        </Box>
-                        
-                      </Box>
-                    ))}
-                </Box>
-              </Box>
               <Box
                 style={{
                   borderRadius: 10,
                   marginBottom: 10,
-                }}
-              >
-                <Typography
-                  variant="h6"
-                  component="p"
-                  style={{ marginBottom: 10 }}
-                >
-                  3. Datos de Compra
-                </Typography>
+                }}>
                 <TextField
                   id="outlined-basic"
                   label="Tiempo de compra"
@@ -291,14 +212,14 @@ const FormComponent = ({ vehicle }) => {
                   value={timeFrame}
                   onChange={onHandleChange}
                   fullWidth
-                  select 
+                  select
                   SelectProps={{ native: true }}
                   style={{
                     marginBottom: 10,
                     borderRadius: 10,
-                  }}
-                >
-                {timeFrames && timeFrames.map(timeFrame => (
+                  }}>
+                  {timeFrames &&
+                    timeFrames.map((timeFrame) => (
                       <option key={timeFrame.id} value={timeFrame.value}>
                         {timeFrame.value}
                       </option>
@@ -322,9 +243,7 @@ const FormComponent = ({ vehicle }) => {
                 variant="contained"
                 color="primary"
                 fullWidth
-                type="submit"
-                disabled={(dissableButton || vehicle.availableStore.length <= 0)?true:false}
-              >
+                type="submit">
                 Cotizar
               </Button>
             </form>
