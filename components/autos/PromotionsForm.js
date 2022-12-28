@@ -60,8 +60,8 @@ const FormComponent = ({ vehicle, promotion }) => {
     modelType: "",
     vehicleModel: "",
     make: "",
-    year: "",
     store: "",
+    year: "",
   };
 
   const [formData, setFormData] = React.useState(defaultData);
