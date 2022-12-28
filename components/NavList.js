@@ -1,12 +1,7 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  Menu,
-  MenuItem,
-} from "@mui/material";
+import { Box, Button, Menu, MenuItem } from "@mui/material";
 import Link from "next/link";
-import { Menu as MenuIcon } from 'react-feather';
+import { Menu as MenuIcon } from "react-feather";
 import { makeStyles } from "@mui/styles";
 import useAuth from "../hooks/useAuth";
 import Login from "./auth/DialogAuth";
@@ -30,30 +25,30 @@ const useStyles = makeStyles((theme) => ({
   },
   showOnMobile: {
     display: "none",
-    flexDirection:'column',
+    flexDirection: "column",
     [theme.breakpoints.down("xs")]: {
       display: "flex",
     },
   },
   link: {
-    textDecoration: 'none',
-    '&:hover': {
-      textDecoration: 'none',
-    }
-  }
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "none",
+    },
+  },
 }));
 
 const NavList = ({ setMenuOpen, logout, menuOpen }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   // const navigate = useNavigate()
   const actionRef = React.useRef(null);
-  const { user } = useAuth()
-  const [login, setLogin] = React.useState(false)
-  const [open, setOpen] = React.useState(false)
+  const { user } = useAuth();
+  const [login, setLogin] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
   const handleClick = (event) => {
     // setAnchorEl(event.currentTarget);
-    setMenuOpen(true)
+    setMenuOpen(true);
   };
 
   const handleClose = () => {
@@ -67,72 +62,73 @@ const NavList = ({ setMenuOpen, logout, menuOpen }) => {
   const classes = useStyles();
 
   return (
-    <Box className='navListContainer' style={{marginRight: -15}}>
-      <Box m={1} display='flex' justifyContent={'center'}>
+    <Box className="navListContainer" style={{ marginRight: -15 }}>
+      <Box m={1} display="flex" justifyContent={"center"}>
         <Link href="/autos" passHref={true}>
-          <Button onClick={() => {setMenuOpen(false)}}>
+          <Button
+            onClick={() => {
+              setMenuOpen(false);
+            }}>
             Autos
           </Button>
         </Link>
       </Box>
-      <Box m={1} display='flex' justifyContent={'center'}>
+      <Box m={1} display="flex" justifyContent={"center"}>
         <Link href="/seminuevos" passHref={true}>
-          <Button onClick={() => {setMenuOpen(false)}}>
+          <Button
+            onClick={() => {
+              setMenuOpen(false);
+            }}>
             Seminuevos
           </Button>
         </Link>
       </Box>
-      <Box m={1} display='flex' justifyContent={'center'}>
+      <Box m={1} display="flex" justifyContent={"center"}>
         <Link href="/favoritos" passHref={true}>
           <Button
             onClick={() => {
               setMenuOpen(false);
-            }}
-          >
+            }}>
             Favoritos
           </Button>
         </Link>
       </Box>
-      <Box m={1} display='flex' justifyContent={'center'}>
+      <Box m={1} display="flex" justifyContent={"center"}>
         <Link href="/trabajos" passHref={true}>
           <Button
             onClick={() => {
               setMenuOpen(false);
-            }}
-          >
+            }}>
             Bolsa de Trabajo
           </Button>
         </Link>
       </Box>
-      <Box m={1} display='flex' justifyContent={'center'}>
+      <Box m={1} display="flex" justifyContent={"center"}>
         <Link href="/carOneTv" passHref={true}>
           <Button
             onClick={() => {
               setMenuOpen(false);
-            }}
-          >
+            }}>
             Car One Tv
           </Button>
         </Link>
       </Box>
-      <Box m={1} display='flex' justifyContent={'center'}>
+      <Box m={1} display="flex" justifyContent={"center"}>
         <Link href="/contacto" passHref={true}>
           <Button
             onClick={() => {
               setMenuOpen(false);
-            }}
-          >
+            }}>
             Contacto
           </Button>
         </Link>
       </Box>
-      <Box m={1} display='flex' justifyContent={'center'}>
+      <Box m={1} display="flex" justifyContent={"center"}>
         <Link href="/sobre-nosotros" passHref={true}>
           <Button
             onClick={() => {
               setMenuOpen(false);
-            }}
-          >
+            }}>
             Acerca de
           </Button>
         </Link>
@@ -148,13 +144,13 @@ const NavList = ({ setMenuOpen, logout, menuOpen }) => {
           </Button>
         </Link>
       </Box> */}
-      {
-        !menuOpen &&
-        <Box m={1} display='flex' justifyContent={'center'} className={classes.hideOnMobile}>
-          <Button
-            ref={actionRef}
-            onClick={() => setOpen(true)}
-          >
+      {!menuOpen && (
+        <Box
+          m={1}
+          display="flex"
+          justifyContent={"center"}
+          className={classes.hideOnMobile}>
+          <Button ref={actionRef} onClick={() => setOpen(true)}>
             <MenuIcon />
           </Button>
           <Menu
@@ -163,86 +159,87 @@ const NavList = ({ setMenuOpen, logout, menuOpen }) => {
             open={open}
             getContentAnchorEl={null}
             anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'center'
+              vertical: "bottom",
+              horizontal: "center",
             }}
             transformOrigin={{
-              vertical: 'top',
-              horizontal: 'center'
-            }}
-          >
-            {
-              user && user._id &&
+              vertical: "top",
+              horizontal: "center",
+            }}>
+            {user && user._id && (
               <>
-              <Link href='/perfil'>
+                <Link href="/perfil">
+                  <MenuItem
+                    onClick={(e) => {
+                      setMenuOpen(false);
+                    }}>
+                    Perfil
+                  </MenuItem>
+                </Link>
                 <MenuItem
-                  onClick={e => {
-                    setMenuOpen(false)
-                  }}
-                  >
-                  Perfil
+                  onClick={(e) => {
+                    logout();
+                  }}>
+                  Logout
                 </MenuItem>
-              </Link>
-              <MenuItem
-                onClick={e => {
-                  logout()
-                }}
-                >
-                Logout
-              </MenuItem>
               </>
-            }
-          
-            {
-              user && user._id === undefined &&
-              <MenuItem onClick={e => setLogin(true)}>
-                Login
-              </MenuItem>
-            }
+            )}
+
+            {user && user._id === undefined && (
+              <MenuItem onClick={(e) => setLogin(true)}>Login</MenuItem>
+            )}
           </Menu>
-          <Login setOpen={setLogin} open={login}/>
+          <Login setOpen={setLogin} open={login} />
         </Box>
-      }
-      {
-        menuOpen && user && user._id &&
+      )}
+      {menuOpen && user && user._id && (
         <>
-          <Link href='/perfil'>
-            <Box display='flex' justifyContent={'center'} >
+          <Link href="/perfil">
+            <Box display="flex" justifyContent={"center"}>
               <Button
-              onClick={e => {
-                setMenuOpen(false);
-                setMenuOpen(false)
-              }}>
+                onClick={(e) => {
+                  setMenuOpen(false);
+                  setMenuOpen(false);
+                }}>
                 Perfil
               </Button>
             </Box>
           </Link>
-          <Box display='flex' justifyContent={'center'}>
-            <Button onClick={e => {logout()}}>
+          <Box display="flex" justifyContent={"center"}>
+            <Button
+              onClick={(e) => {
+                logout();
+              }}>
               Logout
             </Button>
           </Box>
-          </>
-      }
-      
-      {
-        menuOpen &&  user && user._id === undefined &&
-        <Box display='flex' justifyContent={'center'} >
-        <Button onClick={e => {
-          setLogin(true); setMenuOpen(false);
-          }}>
-          Login
-        </Button>
+        </>
+      )}
+
+      {menuOpen && user && user._id === undefined && (
+        <Box display="flex" justifyContent={"center"}>
+          <Button
+            onClick={(e) => {
+              setLogin(true);
+              setMenuOpen(false);
+            }}>
+            Login
+          </Button>
         </Box>
-      }
-      
-      <Box display='flex' justifyContent={'center'} style={{paddingTop:5}}>
+      )}
+
+      <Box display="flex" justifyContent={"center"} style={{ paddingTop: 5 }}>
         <a
           href="https://instagram.com/caronegroup_oficial?igshid=YmMyMTA2M2Y="
-          target='_blank'
-          rel='noopener noreferrer'
-          >
-          <img alt="logo instagram" title="instagram" src='https://cdn-icons-png.flaticon.com/512/174/174855.png' width={25} height={"auto"} />
+          target="_blank"
+          rel="noopener noreferrer">
+          <img
+            alt="logo instagram"
+            title="instagram"
+            src="https://cdn-icons-png.flaticon.com/512/174/174855.png"
+            width={25}
+            height={"auto"}
+          />
         </a>
       </Box>
     </Box>

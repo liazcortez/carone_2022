@@ -1,19 +1,36 @@
-import React from "react";
-import { Container, Grid, Typography } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { Box, Container, Grid } from "@mui/material";
 import Meta from "../../components/Meta";
-import Form from "../../components/autos/PromotionsForm"
+import Form from "../../components/autos/PromotionsForm";
+import { makeStyles } from "@mui/styles";
 import { useRouter } from "next/router";
 import { baseURL } from "../../api/api";
-import Carousel from "../../components/vehicles/Carousel"
+import Carousel from "../../components/vehicles/Carousel";
 
-const Slug = ({ vehicle }) => {
+const useStyles = makeStyles({
+  container: {
+    position: "absolute",
+    top: "26%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    outline: "none",
+    width: 410,
+    maxHeight: "50%",
+    maxWidth: "50%",
+  },
+  formAndCarrouselContent: {
+    display: "flex",
+    flexDirection: "column",
+    margin: 10,
+  },
+});
+
+const Slug = ({ promotion }) => {
   const router = useRouter();
+  const classes = useStyles();
+  const [currPromotion, setCurrPromotion] = useState("");
 
   const url = `https://carone.com.mx${router.asPath}`;
-  const title =
-    vehicle.make && vehicle.model && vehicle.year
-      ? `${vehicle.make.name} ${vehicle.model} ${vehicle.year}`
-      : false;
 
   const Capitalize = (string) => {
     if (string === undefined) return "";
@@ -21,64 +38,44 @@ const Slug = ({ vehicle }) => {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
   };
 
-  const {
-    promotions,
-    mainImage,
-    meta,
-  } = vehicle;
+  useEffect(() => {
+    if (promotion) setCurrPromotion(promotion);
+  }, [promotion]);
 
-
+  if (!currPromotion._id) return null;
+  if (
+    currPromotion &&
+    currPromotion.vehicle &&
+    !currPromotion.vehicle.isPublished
+  )
+    return null;
 
   return (
-    <Container maxWidth="lg">
-      {
-      vehicle && vehicle.isPublished && vehicle.promotions && vehicle.promotions.length > 0 &&
-        <>
-          <Meta
-            title={
-              meta && meta.title
-                ? meta.title
-                : `${Capitalize(vehicle.make.name)} ${Capitalize(
-                    vehicle.model
-                  )} ${vehicle.year} - Carone Group`
-            }
-            description={
-              meta && meta.description
-                ? meta.description
-                : Capitalize(vehicle.fullDescription)
-            }
-            url={url}
-            image={meta && meta.image ? meta.image : mainImage}
+    <>
+      <Container className={classes.container} maxWidth="xs">
+        <Box ty={2}>
+          <Carousel
+            className={classes.formAndCarrouselContent}
+            vehicle={promotion.vehicle}
+            medias={[{ image: promotion.image }]}
           />
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={6}>
-                <Carousel vehicle={vehicle} medias={promotions || []}/>
-              </Grid>
-
-              <Grid item xs={12} md={6}>
-                <Form vehicle={vehicle} />
-              </Grid>
-            </Grid>
-        </>
-      }
-    </Container>
+          <Form vehicle={promotion.vehicle} promotion={promotion} />
+        </Box>
+      </Container>
+    </>
   );
 };
 
+Slug.layout = "PromotionsLayout";
+
 export const getServerSideProps = async (ctx) => {
-  // `https://apicarone.com/api/v1/vehicles?slug=${ctx.params.slug}`
-  const res = await fetch(`${baseURL}/vehicles?slug=${ctx.params.slug}`);
-
-  const vehicle = await res.json();
-
-  let currentVehicle =
-    typeof vehicle.data[0] != "undefined" && vehicle.data.length > 0
-      ? vehicle.data[0]
-      : { isPublished: false };
+  // `https://apicarone.com/api/v1/promotions?slug${ctx.params.slug}`
+  const res = await fetch(`${baseURL}/promotions/slug/${ctx.params.slug}`);
+  const responsePromotion = await res.json();
 
   return {
     props: {
-      vehicle: currentVehicle,
+      promotion: responsePromotion.data,
     },
   };
 };
