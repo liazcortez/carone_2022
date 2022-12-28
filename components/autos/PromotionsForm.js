@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 const timeFrames = [
   {
     id: 0,
-    value: "Solo Información",
+    value: "Solo Quiero Informacion",
   },
   {
     id: 1,
@@ -53,7 +53,7 @@ const FormComponent = ({ vehicle, promotion }) => {
     name: "",
     email: "",
     phone: "",
-    timeFrame: "Solo Información",
+    timeFrame: "Solo Quiero Informacion",
     downPayment: 0,
     source: "605b5446020c150355aac5e9",
     vehicle: "",
@@ -101,12 +101,19 @@ const FormComponent = ({ vehicle, promotion }) => {
       });
       handleClose();
       const response = await axios.post(
-        //"https://dealerproxapi.com/api/v1/leads/website",
-        "http://localhost:5001/api/v1/leads/website",
+        "https://dealerproxapi.com/api/v1/leads/website",
+        //"http://localhost:5000/api/v1/leads/website",
         lead,
         config
       );
-      setFormData(defaultData);
+      setFormData({
+        ...formData,
+        name: "",
+        email: "",
+        phone: "",
+        downPayment: "",
+        timeFrame: "Solo Quiero Informacion",
+      });
     } catch (err) {}
   };
 
