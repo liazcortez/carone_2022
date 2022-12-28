@@ -42,12 +42,11 @@ const Banner = ({
           showIndicators={showIndicators}>
           {medias && medias.length > 0 ? (
             medias.map((item, key) => (
-              <div style={{ width: "100%" }}>
+              <div style={{ width: "100%", padding: "0px", margin: "0px" }}>
                 <img
                   src={item.image}
                   key={key}
-                  width={"auto"}
-                  height={"auto"}
+                  width={"100%"}
                   alt={`${CapitalizeV2(vehicle.make.name)} ${vehicle.year}`}
                 />
               </div>
