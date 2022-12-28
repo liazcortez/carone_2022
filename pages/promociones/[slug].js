@@ -69,7 +69,7 @@ const Slug = ({ promotion }) => {
 Slug.layout = "PromotionsLayout";
 
 export const getServerSideProps = async (ctx) => {
-  // `https://apicarone.com/api/v1/promotions?slug=${ctx.params.slug}`
+  // `https://apicarone.com/api/v1/promotions?slug${ctx.params.slug}`
   const res = await fetch(`${baseURL}/promotions/slug/${ctx.params.slug}`);
   const responsePromotion = await res.json();
 
