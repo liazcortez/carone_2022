@@ -50,7 +50,7 @@ const Slug = ({ promotion }) => {
 
   return (
     <>
-      <Container style={styles.container} maxWidth="xs">
+      <Container style={styles.container}>
         <Box ty={2}>
           <Carousel
             style={styles.formAndCarrouselContent}
