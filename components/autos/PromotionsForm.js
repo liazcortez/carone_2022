@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 const timeFrames = [
   {
     id: 0,
-    value: "Solicito Información",
+    value: "Solo Información",
   },
   {
     id: 1,
@@ -53,7 +53,7 @@ const FormComponent = ({ vehicle, promotion }) => {
     name: "",
     email: "",
     phone: "",
-    timeFrame: "Solicito Información",
+    timeFrame: "Solo Información",
     downPayment: 0,
     source: "605b5446020c150355aac5e9",
     vehicle: "",
@@ -101,8 +101,8 @@ const FormComponent = ({ vehicle, promotion }) => {
       });
       handleClose();
       const response = await axios.post(
-        "https://dealerproxapi.com/api/v1/leads/website",
-        //"http://localhost:5001/api/v1/leads/website",
+        //"https://dealerproxapi.com/api/v1/leads/website",
+        "http://localhost:5001/api/v1/leads/website",
         lead,
         config
       );
