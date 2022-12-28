@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { CapitalizeV2 } from "../../utils/capitalize"
@@ -27,11 +27,12 @@ const Banner = ({
   return (
     <Grid
       style={{ display: "flex", justifyContent: "center"}}
+      
       className="animated fadeIn"
       container
     >
       {xs === 10 && <Grid item xs={1} />}
-      <Grid item xs={xs}>
+      <Grid item xs={12}>
         <Carousel
           autoPlay={autoPlay}
           infiniteLoop={infiniteLoop}
@@ -45,9 +46,11 @@ const Banner = ({
           {medias && medias.length > 0 ? (
             medias.map((item, key) => (
               <div style={{ width: "100%" }}>
-                <img src={item.image} key={key} width={"auto"} height={"450px"} alt={`${CapitalizeV2(preowned.vehicle.make.name)} ${CapitalizeV2(preowned.version)} ${preowned.year}`}
-                title={`Auto ${CapitalizeV2(preowned.vehicle.make.name)} ${CapitalizeV2(preowned.version)} ${preowned.year}`}
-                />
+                <Box sx={{ height: {sx:'250px',sm:'350px',md:'450px'} }} >
+                  <img src={item.image} key={key} width={"auto"} height={"100%"} alt={`${CapitalizeV2(preowned.vehicle.make.name)} ${CapitalizeV2(preowned.version)} ${preowned.year}`}
+                    title={`Auto ${CapitalizeV2(preowned.vehicle.make.name)} ${CapitalizeV2(preowned.version)} ${preowned.year}`}
+                  />
+                </Box>
               </div>
             ))
           ) : (
