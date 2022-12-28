@@ -25,13 +25,7 @@ const Banner = ({
   const classes = useStyles();
 
   return (
-    <Grid
-      style={{ display: "flex", justifyContent: "center" }}
-      className="animated fadeIn"
-      container
-    >
-      {xs === 10 && <Grid item xs={1} />}
-      <Grid item xs={xs}>
+
         <Carousel
           autoPlay={autoPlay}
           infiniteLoop={infiniteLoop}
@@ -45,7 +39,7 @@ const Banner = ({
           {
             medias && medias.length > 0 ? (
             medias.map((item, key) => (
-              <div style={{ width: "100%" }}>
+              <div style={{ border: 'solid red 10px' }}>
                 <img src={item.image} key={key} width={"auto"} height={"auto"} alt={`${CapitalizeV2(vehicle.make.name)} ${vehicle.year}`}/>
               </div>
             ))
@@ -55,8 +49,6 @@ const Banner = ({
             </div>
           )}
         </Carousel>
-      </Grid>
-    </Grid>
   );
 };
 

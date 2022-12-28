@@ -51,17 +51,17 @@ const Slug = ({ vehicle }) => {
             image={meta && meta.image ? meta.image : mainImage}
           />
 
-          
-          <Container maxWidth="lg">
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={6}>
+          <Container>
+
+          <Grid container>
+              <Grid item xs={12} sm={6}>
                 <Carousel vehicle={vehicle} medias={promotions || []}/>
               </Grid>
 
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} sm={6}>
                 <Form vehicle={vehicle} />
               </Grid>
-            </Grid>
+          </Grid>
           </Container>
         </>
       }

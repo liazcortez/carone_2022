@@ -38,6 +38,7 @@ export default (state, action) => {
         isAuthenticated: true,
         loading: false,
         user: action.payload,
+        gallet: action.galleta,
         error: null
       };
     case SET_ERROR:
