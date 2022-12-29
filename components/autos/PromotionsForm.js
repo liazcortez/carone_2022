@@ -284,6 +284,7 @@ const FormComponent = ({ vehicle, promotion }) => {
               style={{ backgroundColor: "#4BC558" }}
               fullWidth
               href={`https://wa.me/${promotion.store.dpxPhone}?text=${parseMessage}`}
+              target="_blank"
             >
               Chat on WhatsApp
             </Button>
