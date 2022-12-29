@@ -51,7 +51,7 @@ const Slug = ({ promotion }) => {
           />
         </Grid>
         <Grid item xs={12} md={5}>
-          <Form vehicle={promotion.vehicle} promotion={promotion} />
+          <Form vehicle={promotion.vehicle} promotion={promotion} url={url} />
         </Grid>
       </Grid>
 

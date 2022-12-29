@@ -42,7 +42,7 @@ const timeFrames = [
   },
 ];
 
-const FormComponent = ({ vehicle, promotion }) => {
+const FormComponent = ({ vehicle, promotion, url }) => {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
@@ -50,7 +50,8 @@ const FormComponent = ({ vehicle, promotion }) => {
   const [dissableButton, setDissableButton] = React.useState(false);
   const { enqueueSnackbar } = useSnackbar();
 
-  const message = `Hola estoy interesado en esta promocion: ${promotion.title}`;
+  const message = `Hola estoy interesado en esta promocion: ${promotion.title}
+-  ${url}`;
   const parseMessage = encodeURIComponent(message);
 
   let defaultData = {
