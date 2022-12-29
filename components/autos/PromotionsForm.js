@@ -120,7 +120,12 @@ const FormComponent = ({ vehicle, promotion, url }) => {
         downPayment: "",
         timeFrame: "Solo Quiero Informacion",
       });
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+      enqueueSnackbar("Ocurrio un error Inesperado", {
+        variant: "error",
+      });
+    }
   };
 
   const onHandleSubmit = async (e) => {
