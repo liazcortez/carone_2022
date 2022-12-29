@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import { useSnackbar } from "notistack";
 import { Card, CardContent, Typography, Box, Divider } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import NumberFormatPrice from "../../utils/masks/NumberFormatPrice";
 import parse from "html-react-parser";
 import axios from "axios";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -59,7 +60,7 @@ const FormComponent = ({ vehicle, promotion, url }) => {
     email: "",
     phone: "",
     timeFrame: "Solo Quiero Informacion",
-    downPayment: 0,
+    downPayment: "",
     source: "605b5446020c150355aac5e9",
     vehicle: "",
     modelType: "",
@@ -179,8 +180,7 @@ const FormComponent = ({ vehicle, promotion, url }) => {
                 display: "flex",
                 flexDirection: "column",
                 gap: "0.5em",
-              }}
-            >
+              }}>
               <Typography variant="h6">Contacta con un asesor</Typography>
               <TextField
                 label="Nombre"
@@ -221,8 +221,7 @@ const FormComponent = ({ vehicle, promotion, url }) => {
               style={{
                 borderRadius: 10,
                 marginBottom: 10,
-              }}
-            >
+              }}>
               <TextField
                 margin="dense"
                 id="outlined-basic"
@@ -238,8 +237,7 @@ const FormComponent = ({ vehicle, promotion, url }) => {
                 style={{
                   marginBottom: 10,
                   borderRadius: 10,
-                }}
-              >
+                }}>
                 {timeFrames &&
                   timeFrames.map((timeFrame) => (
                     <option key={timeFrame.id} value={timeFrame.value}>
@@ -261,6 +259,9 @@ const FormComponent = ({ vehicle, promotion, url }) => {
                   borderRadius: 10,
                 }}
                 helperText="Por favor selecciona el enganche que quieres dar"
+                InputProps={{
+                  inputComponent: NumberFormatPrice,
+                }}
               />
             </Box>
             <Button
@@ -268,8 +269,7 @@ const FormComponent = ({ vehicle, promotion, url }) => {
               color="primary"
               fullWidth
               type="submit"
-              style={{ marginBottom: 20 }}
-            >
+              style={{ marginBottom: 20 }}>
               Solicita información
             </Button>
 
@@ -285,8 +285,7 @@ const FormComponent = ({ vehicle, promotion, url }) => {
               style={{ backgroundColor: "#4BC558" }}
               fullWidth
               href={`https://wa.me/${promotion.store.dpxPhone}?text=${parseMessage}`}
-              target="_blank"
-            >
+              target="_blank">
               Chat on WhatsApp
             </Button>
           </form>
