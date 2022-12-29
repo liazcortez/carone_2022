@@ -28,7 +28,8 @@ const Banner = ({
     <Grid
       style={{ display: "flex", justifyContent: "center" }}
       className="animated fadeIn"
-      container>
+      container
+    >
       {xs === 10 && <Grid item xs={1} />}
       <Grid item xs={xs}>
         <Carousel
@@ -39,10 +40,14 @@ const Banner = ({
           showThumbs={showThumbs}
           showArrows={showArrows}
           showStatus={showStatus}
-          showIndicators={showIndicators}>
+          showIndicators={showIndicators}
+        >
           {medias && medias.length > 0 ? (
             medias.map((item, key) => (
-              <div style={{ width: "100%", padding: "0px", margin: "0px" }}>
+              <div
+                style={{ width: "100%", padding: "0px", margin: "0px" }}
+                key={key}
+              >
                 <img
                   src={item.image}
                   key={key}

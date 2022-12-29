@@ -1,28 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Box, Container } from "@mui/material";
-import Meta from "../../components/Meta";
-import Form from "../../components/autos/PromotionsForm";
 import { useRouter } from "next/router";
 import { baseURL } from "../../api/api";
+import { Box, Container, Divider, Grid, Typography } from "@mui/material";
 import Carousel from "../../components/vehicles/Carousel";
-
-const styles = {
-  container: {
-    position: "absolute",
-    top: "26%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    outline: "none",
-    width: 410,
-    maxHeight: "50%",
-    maxWidth: "50%",
-  },
-  formAndCarrouselContent: {
-    display: "flex",
-    flexDirection: "column",
-    margin: 10,
-  }
-}
+import Meta from "../../components/Meta";
+import Form from "../../components/autos/PromotionsForm";
+import parse from "html-react-parser";
 
 const Slug = ({ promotion }) => {
   const router = useRouter();
@@ -49,21 +32,35 @@ const Slug = ({ promotion }) => {
     return null;
 
   return (
-    <>
-      <Container style={styles.container}>
-        <Box ty={2}>
+    <Container maxWidth="lg">
+      <Box style={{ marginBottom: 30, marginTop: 25, textAlign: "center" }}>
+        <img className="mainLogo" alt="Logo carone" />
+        <Divider sx={{ marginTop: 2 }} />
+      </Box>
+      <Grid
+        container
+        spacing={4}
+        display="flex"
+        alignItems="top"
+        justifyContent="center"
+      >
+        <Grid item xs={12} md={7}>
           <Carousel
-            style={styles.formAndCarrouselContent}
             vehicle={promotion.vehicle}
             medias={[{ image: promotion.image }]}
           />
+        </Grid>
+        <Grid item xs={12} md={5}>
           <Form vehicle={promotion.vehicle} promotion={promotion} />
-        </Box>
-      </Container>
-    </>
+        </Grid>
+      </Grid>
+
+      <Box>
+        <Typography variant="caption">{parse(promotion.legales)}</Typography>
+      </Box>
+    </Container>
   );
 };
-
 Slug.layout = "PromotionsLayout";
 
 export const getServerSideProps = async (ctx) => {

@@ -2,10 +2,11 @@ import React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useSnackbar } from "notistack";
-import { Card, CardContent, Typography, Box } from "@mui/material";
+import { Card, CardContent, Typography, Box, Divider } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import parse from "html-react-parser";
 import axios from "axios";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 const useStyles = makeStyles({
   selectedBorder: {
@@ -48,6 +49,9 @@ const FormComponent = ({ vehicle, promotion }) => {
 
   const [dissableButton, setDissableButton] = React.useState(false);
   const { enqueueSnackbar } = useSnackbar();
+
+  const message = `Hola estoy interesado en esta promocion: ${promotion.title}`;
+  const parseMessage = encodeURIComponent(message);
 
   let defaultData = {
     name: "",
@@ -160,107 +164,136 @@ const FormComponent = ({ vehicle, promotion }) => {
   };
 
   return (
-    <div>
-      <Card>
-        <CardContent>
-          <Typography variant="h1" sx={{ fontSize: 32, fontWeight: 700 }}>
-            {promotion && promotion.title}
-          </Typography>
-          {promotion && promotion.content && parse(promotion.content)}
-          <Box>
-            <form onSubmit={onHandleSubmit}>
-              <Box
-                style={{
-                  marginBottom: "1em",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "0.5em",
-                }}>
-                <Typography variant="h6">Contacta con un asesor</Typography>
-                <TextField
-                  label="Nombre"
-                  variant="outlined"
-                  fullWidth
-                  name="name"
-                  value={name}
-                  inputProps={{ className: classes.input }}
-                  onChange={onHandleChange}
-                />
-                <TextField
-                  label="Email"
-                  variant="outlined"
-                  name="email"
-                  value={email}
-                  onChange={onHandleChange}
-                  fullWidth
-                  inputProps={{ className: classes.input }}
-                />
-                <TextField
-                  label="Télefono"
-                  variant="outlined"
-                  name="phone"
-                  value={phone}
-                  onChange={onHandleChange}
-                  fullWidth
-                  inputProps={{ className: classes.input }}
-                />
-              </Box>
-
-              <Box
-                style={{
-                  borderRadius: 10,
-                  marginBottom: 10,
-                }}>
-                <TextField
-                  id="outlined-basic"
-                  label="Tiempo de compra"
-                  variant="outlined"
-                  name="timeFrame"
-                  value={timeFrame}
-                  onChange={onHandleChange}
-                  fullWidth
-                  select
-                  SelectProps={{ native: true }}
-                  style={{
-                    marginBottom: 10,
-                    borderRadius: 10,
-                  }}>
-                  {timeFrames &&
-                    timeFrames.map((timeFrame) => (
-                      <option key={timeFrame.id} value={timeFrame.value}>
-                        {timeFrame.value}
-                      </option>
-                    ))}
-                </TextField>
-                <TextField
-                  id="outlined-basic"
-                  label="Enganche"
-                  variant="outlined"
-                  name="downPayment"
-                  value={downPayment}
-                  onChange={onHandleChange}
-                  fullWidth
-                  style={{
-                    marginBottom: 10,
-                    borderRadius: 10,
-                  }}
-                />
-              </Box>
-              <Button
-                variant="contained"
-                color="primary"
+    <>
+      <Box mt={4}>
+        <Typography variant="h1" sx={{ fontSize: 32, fontWeight: 700 }}>
+          {promotion && promotion.title}
+        </Typography>
+        {promotion && promotion.content && parse(promotion.content)}
+        <Box>
+          <form onSubmit={onHandleSubmit}>
+            <Box
+              style={{
+                marginBottom: "1em",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.5em",
+              }}
+            >
+              <Typography variant="h6">Contacta con un asesor</Typography>
+              <TextField
+                label="Nombre"
+                variant="outlined"
                 fullWidth
-                type="submit">
-                Cotizar
-              </Button>
-            </form>
-            <Typography variant="body2" gutterBottom>
-              * Nunca compartiremos tus datos con nadie más.
-            </Typography>
-          </Box>
-        </CardContent>
-      </Card>
-    </div>
+                name="name"
+                value={name}
+                inputProps={{ className: classes.input }}
+                onChange={onHandleChange}
+                margin="dense"
+                helperText="Por favor ingresa tu nombre completo"
+              />
+              <TextField
+                margin="dense"
+                label="Email"
+                variant="outlined"
+                name="email"
+                value={email}
+                onChange={onHandleChange}
+                fullWidth
+                inputProps={{ className: classes.input }}
+                helperText="Por favor ingresa tu email"
+              />
+              <TextField
+                margin="dense"
+                label="Télefono"
+                variant="outlined"
+                name="phone"
+                value={phone}
+                onChange={onHandleChange}
+                fullWidth
+                inputProps={{ className: classes.input }}
+                helperText="Por favor ingresa tu numero a 10 digitos"
+              />
+            </Box>
+
+            <Box
+              style={{
+                borderRadius: 10,
+                marginBottom: 10,
+              }}
+            >
+              <TextField
+                margin="dense"
+                id="outlined-basic"
+                label="Tiempo de compra"
+                variant="outlined"
+                name="timeFrame"
+                value={timeFrame}
+                onChange={onHandleChange}
+                fullWidth
+                select
+                helperText="Por favor ingresa tu tiempo de compra"
+                SelectProps={{ native: true }}
+                style={{
+                  marginBottom: 10,
+                  borderRadius: 10,
+                }}
+              >
+                {timeFrames &&
+                  timeFrames.map((timeFrame) => (
+                    <option key={timeFrame.id} value={timeFrame.value}>
+                      {timeFrame.value}
+                    </option>
+                  ))}
+              </TextField>
+              <TextField
+                margin="dense"
+                id="outlined-basic"
+                label="Enganche"
+                variant="outlined"
+                name="downPayment"
+                value={downPayment}
+                onChange={onHandleChange}
+                fullWidth
+                style={{
+                  marginBottom: 10,
+                  borderRadius: 10,
+                }}
+                helperText="Por favor selecciona el enganche que quieres dar"
+              />
+            </Box>
+            <Button
+              variant="contained"
+              color="primary"
+              fullWidth
+              type="submit"
+              style={{ marginBottom: 20 }}
+            >
+              Solicita información
+            </Button>
+
+            {/* <Typography variant="body2" mt={2} mb={1}>
+            Tambien nos puedes enviar un whatsapp
+          </Typography> */}
+
+            <Divider style={{ marginBottom: 20 }}>ó</Divider>
+
+            <Button
+              startIcon={<WhatsAppIcon />}
+              variant="contained"
+              style={{ backgroundColor: "#4BC558" }}
+              fullWidth
+              href={`https://wa.me/${promotion.store.dpxPhone}?text=${parseMessage}`}
+            >
+              Chat on WhatsApp
+            </Button>
+          </form>
+          <Typography variant="body2" gutterBottom mt={2} mb={5}>
+            * Nunca compartiremos tus datos con nadie más.
+          </Typography>
+        </Box>
+      </Box>
+    </>
   );
 };
 
