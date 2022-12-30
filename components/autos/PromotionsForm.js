@@ -122,9 +122,6 @@ const FormComponent = ({ vehicle, promotion, url }) => {
       });
     } catch (err) {
       console.log(err);
-      enqueueSnackbar("Ocurrio un error Inesperado", {
-        variant: "error",
-      });
     }
   };
 
