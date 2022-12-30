@@ -101,26 +101,30 @@ const FormComponent = ({ vehicle, promotion, url }) => {
         "Content-Type": "application/json",
       },
     };
-    try {
-      enqueueSnackbar("Formulario Completado Correctamente", {
-        variant: "info",
-      });
-      handleClose();
-      const response = await axios.post(
-        "https://dealerproxapi.com/api/v1/leads/website",
-        //"http://localhost:5000/api/v1/leads/website",
-        lead,
-        config
-      );
-      setFormData({
-        ...formData,
-        name: "",
-        email: "",
-        phone: "",
-        downPayment: "",
-        timeFrame: "Solo Quiero Informacion",
-      });
-    } catch (err) {}
+
+    console.log(lead);
+    // try {
+    //   enqueueSnackbar("Formulario Completado Correctamente", {
+    //     variant: "info",
+    //   });
+    //   handleClose();
+    //   const response = await axios.post(
+    //     "https://dealerproxapi.com/api/v1/leads/website",
+    //     //"http://localhost:5000/api/v1/leads/website",
+    //     lead,
+    //     config
+    //   );
+    //   setFormData({
+    //     ...formData,
+    //     name: "",
+    //     email: "",
+    //     phone: "",
+    //     downPayment: "",
+    //     timeFrame: "Solo Quiero Informacion",
+    //   });
+    // } catch (err) {
+    //   console.log(err);
+    // }
   };
 
   const onHandleSubmit = async (e) => {
@@ -180,7 +184,8 @@ const FormComponent = ({ vehicle, promotion, url }) => {
                 display: "flex",
                 flexDirection: "column",
                 gap: "0.5em",
-              }}>
+              }}
+            >
               <Typography variant="h6">Contacta con un asesor</Typography>
               <TextField
                 label="Nombre"
@@ -221,7 +226,8 @@ const FormComponent = ({ vehicle, promotion, url }) => {
               style={{
                 borderRadius: 10,
                 marginBottom: 10,
-              }}>
+              }}
+            >
               <TextField
                 margin="dense"
                 id="outlined-basic"
@@ -237,7 +243,8 @@ const FormComponent = ({ vehicle, promotion, url }) => {
                 style={{
                   marginBottom: 10,
                   borderRadius: 10,
-                }}>
+                }}
+              >
                 {timeFrames &&
                   timeFrames.map((timeFrame) => (
                     <option key={timeFrame.id} value={timeFrame.value}>
@@ -269,7 +276,8 @@ const FormComponent = ({ vehicle, promotion, url }) => {
               color="primary"
               fullWidth
               type="submit"
-              style={{ marginBottom: 20 }}>
+              style={{ marginBottom: 20 }}
+            >
               Solicita información
             </Button>
 
@@ -285,7 +293,8 @@ const FormComponent = ({ vehicle, promotion, url }) => {
               style={{ backgroundColor: "#4BC558" }}
               fullWidth
               href={`https://wa.me/${promotion.store.dpxPhone}?text=${parseMessage}`}
-              target="_blank">
+              target="_blank"
+            >
               Chat on WhatsApp
             </Button>
           </form>
