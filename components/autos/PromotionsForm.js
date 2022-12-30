@@ -96,6 +96,16 @@ const FormComponent = ({ vehicle, promotion, url }) => {
   const onHandleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  const clickWhatsappButton = () => {
+    ga.event({
+      action: "click",
+      params: {
+        event_category: "click",
+        event_label: "Whatsapp Button",
+      },
+    });
+  };
+
   const sendLead = async (lead) => {
     const config = {
       headers: {
@@ -117,14 +127,6 @@ const FormComponent = ({ vehicle, promotion, url }) => {
       );
 
       // Send Event to Google Analytics
-
-      ga.event({
-        action: "click",
-        params: {
-          event_category: "click",
-          event_label: "Whatsapp Button",
-        },
-      });
 
       setFormData({
         ...formData,
@@ -308,6 +310,7 @@ const FormComponent = ({ vehicle, promotion, url }) => {
               fullWidth
               href={`https://wa.me/${promotion.store.dpxPhone}?text=${parseMessage}`}
               target="_blank"
+              onClick={clickWhatsappButton}
             >
               Chat on WhatsApp
             </Button>
