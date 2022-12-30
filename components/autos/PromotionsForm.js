@@ -61,7 +61,7 @@ const FormComponent = ({ vehicle, promotion, url }) => {
     email: "",
     phone: "",
     timeFrame: "Solo Quiero Informacion",
-    downPayment: "",
+    downPayment: 0,
     source: "605b5446020c150355aac5e9",
     vehicle: "",
     modelType: "",
@@ -101,7 +101,6 @@ const FormComponent = ({ vehicle, promotion, url }) => {
       action: action,
       params: params,
     });
-    console.log("click button");
   };
 
   const sendLead = async (lead) => {
@@ -112,9 +111,6 @@ const FormComponent = ({ vehicle, promotion, url }) => {
     };
 
     try {
-      enqueueSnackbar("Formulario Completado Correctamente", {
-        variant: "info",
-      });
       handleClose();
 
       sendEventGa4("generate_lead", {
@@ -134,7 +130,7 @@ const FormComponent = ({ vehicle, promotion, url }) => {
         name: "",
         email: "",
         phone: "",
-        downPayment: "",
+        downPayment: 0,
         timeFrame: "Solo Quiero Informacion",
       });
     } catch (err) {
@@ -280,6 +276,7 @@ const FormComponent = ({ vehicle, promotion, url }) => {
                   borderRadius: 10,
                 }}
                 helperText="Por favor selecciona el enganche que quieres dar"
+                InputLabelProps={{ shrink: true }}
                 InputProps={{
                   inputComponent: NumberFormatPrice,
                 }}
@@ -305,7 +302,7 @@ const FormComponent = ({ vehicle, promotion, url }) => {
               variant="contained"
               style={{ backgroundColor: "#4BC558" }}
               fullWidth
-              // href={`https://wa.me/${promotion.store.dpxPhone}?text=${parseMessage}`}
+              href={`https://wa.me/${promotion.store.dpxPhone}?text=${parseMessage}`}
               target="_blank"
               onClick={() =>
                 sendEventGa4("generate_lead", {
