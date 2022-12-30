@@ -8,6 +8,7 @@ import NumberFormatPrice from "../../utils/masks/NumberFormatPrice";
 import parse from "html-react-parser";
 import axios from "axios";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import * as ga from "../../lib/ga";
 
 const useStyles = makeStyles({
   selectedBorder: {
