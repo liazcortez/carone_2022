@@ -96,14 +96,12 @@ const FormComponent = ({ vehicle, promotion, url }) => {
   const onHandleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const clickWhatsappButton = () => {
-    ga.event({
-      action: "click",
-      params: {
-        event_category: "click",
-        event_label: "Whatsapp Button",
-      },
+  const sendEventGa4 = async (action, params) => {
+    await ga.event({
+      action: action,
+      params: params,
     });
+    console.log("click button");
   };
 
   const sendLead = async (lead) => {
@@ -119,14 +117,17 @@ const FormComponent = ({ vehicle, promotion, url }) => {
       });
       handleClose();
 
+      sendEventGa4("generate_lead", {
+        event_category: "Form",
+        event_label: "Fill out Form",
+      });
+
       await axios.post(
         "https://dealerproxapi.com/api/v1/leads/website",
         //"http://localhost:5000/api/v1/leads/website",
         lead,
         config
       );
-
-      // Send Event to Google Analytics
 
       setFormData({
         ...formData,
@@ -304,9 +305,14 @@ const FormComponent = ({ vehicle, promotion, url }) => {
               variant="contained"
               style={{ backgroundColor: "#4BC558" }}
               fullWidth
-              href={`https://wa.me/${promotion.store.dpxPhone}?text=${parseMessage}`}
+              // href={`https://wa.me/${promotion.store.dpxPhone}?text=${parseMessage}`}
               target="_blank"
-              onClick={clickWhatsappButton}>
+              onClick={() =>
+                sendEventGa4("generate_lead", {
+                  event_category: "click",
+                  event_label: "Click Whatsapp Button",
+                })
+              }>
               Chat on WhatsApp
             </Button>
           </form>
