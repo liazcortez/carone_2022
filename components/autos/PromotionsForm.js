@@ -102,29 +102,42 @@ const FormComponent = ({ vehicle, promotion, url }) => {
       },
     };
 
-    console.log(lead);
-    // try {
-    //   enqueueSnackbar("Formulario Completado Correctamente", {
-    //     variant: "info",
-    //   });
-    //   handleClose();
-    //   const response = await axios.post(
-    //     "https://dealerproxapi.com/api/v1/leads/website",
-    //     //"http://localhost:5000/api/v1/leads/website",
-    //     lead,
-    //     config
-    //   );
-    //   setFormData({
-    //     ...formData,
-    //     name: "",
-    //     email: "",
-    //     phone: "",
-    //     downPayment: "",
-    //     timeFrame: "Solo Quiero Informacion",
-    //   });
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    try {
+      enqueueSnackbar("Formulario Completado Correctamente", {
+        variant: "info",
+      });
+      handleClose();
+
+      await axios.post(
+        "https://dealerproxapi.com/api/v1/leads/website",
+        //"http://localhost:5000/api/v1/leads/website",
+        lead,
+        config
+      );
+
+      // Send Event to Google Analytics
+
+      ga.event({
+        action: "click",
+        params: {
+          event_category: "click",
+          event_label: "Whatsapp Button",
+        },
+      });
+
+      setFormData({
+        ...formData,
+        name: "",
+        email: "",
+        phone: "",
+        downPayment: "",
+        timeFrame: "Solo Quiero Informacion",
+      });
+    } catch (err) {
+      enqueueSnackbar("Ocurrio un error Inesperado", {
+        variant: "error",
+      });
+    }
   };
 
   const onHandleSubmit = async (e) => {
