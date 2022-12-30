@@ -117,6 +117,11 @@ const FormComponent = ({ vehicle, promotion, url }) => {
       });
       handleClose();
 
+      sendEventGa4("generate_lead", {
+        event_category: "Form",
+        event_label: "Fill out Form",
+      });
+
       await axios.post(
         "https://dealerproxapi.com/api/v1/leads/website",
         //"http://localhost:5000/api/v1/leads/website",
