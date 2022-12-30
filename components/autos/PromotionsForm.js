@@ -8,6 +8,7 @@ import NumberFormatPrice from "../../utils/masks/NumberFormatPrice";
 import parse from "html-react-parser";
 import axios from "axios";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import * as ga from "../../lib/ga";
 
 const useStyles = makeStyles({
   selectedBorder: {
@@ -95,23 +96,38 @@ const FormComponent = ({ vehicle, promotion, url }) => {
   const onHandleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  const clickWhatsappButton = () => {
+    ga.event({
+      action: "click",
+      params: {
+        event_category: "click",
+        event_label: "Whatsapp Button",
+      },
+    });
+  };
+
   const sendLead = async (lead) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
       },
     };
+
     try {
       enqueueSnackbar("Formulario Completado Correctamente", {
         variant: "info",
       });
       handleClose();
-      const response = await axios.post(
+
+      await axios.post(
         "https://dealerproxapi.com/api/v1/leads/website",
         //"http://localhost:5000/api/v1/leads/website",
         lead,
         config
       );
+
+      // Send Event to Google Analytics
+
       setFormData({
         ...formData,
         name: "",
@@ -121,7 +137,9 @@ const FormComponent = ({ vehicle, promotion, url }) => {
         timeFrame: "Solo Quiero Informacion",
       });
     } catch (err) {
-      console.log(err);
+      enqueueSnackbar("Ocurrio un error Inesperado", {
+        variant: "error",
+      });
     }
   };
 
@@ -287,7 +305,8 @@ const FormComponent = ({ vehicle, promotion, url }) => {
               style={{ backgroundColor: "#4BC558" }}
               fullWidth
               href={`https://wa.me/${promotion.store.dpxPhone}?text=${parseMessage}`}
-              target="_blank">
+              target="_blank"
+              onClick={clickWhatsappButton}>
               Chat on WhatsApp
             </Button>
           </form>
