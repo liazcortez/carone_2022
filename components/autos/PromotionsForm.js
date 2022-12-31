@@ -309,7 +309,7 @@ const FormComponent = ({ vehicle, promotion, url }) => {
               variant="contained"
               style={{ backgroundColor: "#4BC558" }}
               fullWidth
-              // href={`https://wa.me/${promotion.store.dpxPhone}?text=${parseMessage}`}
+              href={`https://wa.me/${promotion.store.dpxPhone}?text=${parseMessage}`}
               target="_blank"
               onClick={() =>
                 sendEventGa4("generate_lead", {
