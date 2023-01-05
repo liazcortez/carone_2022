@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useSnackbar } from "notistack";
-import { Card, CardContent, Typography, Box, Divider } from "@mui/material";
+import { Typography, Box, Divider } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import NumberFormatPrice from "../../utils/masks/NumberFormatPrice";
 import parse from "html-react-parser";
@@ -44,7 +44,7 @@ const timeFrames = [
   },
 ];
 
-const FormComponent = ({ vehicle, promotion, url }) => {
+const FormComponent = ({ promotion, url }) => {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
