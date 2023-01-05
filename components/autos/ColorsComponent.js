@@ -66,22 +66,27 @@ const ColorsComponent = ({ colors }) => {
     <>
       <Container maxWidth="lg">
         <Grid container>
-          <Grid item xs={12} className="colorSlider">
+          <Grid
+            item
+            xs={12}
+            className="colorSlider"
+            sx={{ marginTop: { mg: 10, lg: 10 } }}
+          >
             {colors.map((color, index) => (
               <Box key={index}>
-                 <Box className={index === current ? "color active" : "color"}>
+                <Box className={index === current ? "color active" : "color"}>
                   {index === current && (
-                    <img src={color.image} alt="w/e" className="image" style={{width: '100%'}} />
+                    <img
+                      src={color.image}
+                      alt="w/e"
+                      className="image"
+                      style={{ width: "100%" }}
+                    />
                   )}
                 </Box>
               </Box>
             ))}
-          </Grid>
-        </Grid>
-      </Container>
-      <Container>
-        <Grid container>
-          <Grid item xs={12}>
+
             <Box
               display="flex"
               flexDirection="row"
@@ -95,11 +100,11 @@ const ColorsComponent = ({ colors }) => {
                   p={1}
                   bgcolor={color.color}
                   style={{
-                    marginRight:'1%',
+                    marginRight: "1%",
                     borderRadius: 50,
                     border: "1px solid #888888",
                   }}
-                  sx={{ width:{xs:20, md:40}, height:{xs:20, md:40}}}
+                  sx={{ width: { xs: 20, md: 40 }, height: { xs: 20, md: 40 } }}
                   onClick={() => currentSlide(index)}
                 />
               ))}

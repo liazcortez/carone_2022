@@ -45,16 +45,17 @@ const Slug = ({ vehicle }) => {
     meta,
   } = vehicle;
 
-
   const NameCar = (
     <Box mt={2}>
-      <Typography variant="h1" sx={{fontSize: "35px", fontWeight: 600, display:"none"}}>
-        Venta de Auto {vehicle.make.name.toUpperCase()}{" "}{vehicle.model.toUpperCase()} {vehicle.year}
+      <Typography
+        variant="h1"
+        sx={{ fontSize: "35px", fontWeight: 600, display: "none" }}
+      >
+        Venta de Auto {vehicle.make.name.toUpperCase()}{" "}
+        {vehicle.model.toUpperCase()} {vehicle.year}
       </Typography>
     </Box>
-  )
-
-
+  );
 
   return (
     <>
@@ -76,16 +77,14 @@ const Slug = ({ vehicle }) => {
             url={url}
             image={meta && meta.image ? meta.image : mainImage}
           />
-
           {NameCar}
-
           <Container maxWidth="lg">
             {banner && (
               <BannerAutos
                 banner={banner}
                 description={description}
                 promotion={promotion}
-                title={(title).replace("-", " ")}
+                title={title.replace("-", " ")}
               />
             )}
           </Container>
@@ -129,12 +128,17 @@ const Slug = ({ vehicle }) => {
                 )}
                 {/* Colors Component */}
                 <ColorsComponent colors={colors} />
-                <SharingComponent url={url} />
+                {/* <SharingComponent url={url} /> */}
               </Grid>
               <Grid item xs={12} lg={6}>
-                <Box display='flex' flexDirection='column' justifyContent='end' style={{height: '100%', padding:"0px"}}>
-                <Financing vehicle={vehicle} /> 
-                {/* sharing */}
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="end"
+                  style={{ height: "100%", padding: "0px" }}
+                >
+                  <Financing vehicle={vehicle} />
+                  {/* sharing */}
                 </Box>
               </Grid>
             </Grid>
@@ -152,7 +156,6 @@ const Slug = ({ vehicle }) => {
 
             <Divider style={{ marginBottom: 40, marginTop: 20 }} />
           </Container>
-          
           <Container style={{ overflow: "scroll" }} maxWidth="lg">
             <Grid container>
               <Grid item xs={12}>
