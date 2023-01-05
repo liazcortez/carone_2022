@@ -25,6 +25,8 @@ import {
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import axios from "axios";
+import { useEffect } from "react";
+import { transform } from "lodash-es";
 
 
 const CapitalizeNames = (string) => {
@@ -110,12 +112,12 @@ const FormComponent = ({ vehicle }) => {
 
   const [formData, setFormData] = React.useState(defaultData);
   
-  const { name, email, phone, timeFrame, downPayment } = formData;
+  const { name, email, phone, timeFrame, downPayment, store } = formData;
 
-  const onClickStore = (store) => {
+  /*const onClickStore = (store) => {
     setStoreIcon(store.dpxStore);
     setFormData({ ...formData, store: store.dpxStore });
-  };
+  };*/
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -127,6 +129,7 @@ const FormComponent = ({ vehicle }) => {
 
   const onHandleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  useEffect(()=>console.log(formData),[formData])
   const sendLead = async (lead) => {
     const config = {
       headers: {
@@ -187,51 +190,23 @@ const FormComponent = ({ vehicle }) => {
   
 
   return (
-    <div style={{  }}>
-      <Box sx={{paddingBlockEnd: "15px"}}>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleClickOpen}
-          fullWidth
-          size="large"
-          disabled={(dissableButton || vehicle.availableStore.length <= 0)?true:false}
-          style={{ height: 60}}
-        >
-          Solicitar Cotización
-        </Button>
-      </Box>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="form-dialog-title"
-      >
+    <div style={{  }}>   
+    <Box style={{
+                  border: "1px solid #dbf2ff",
+                  padding: 4,
+                  borderRadius: 10,
+                  textAlign: "left"
+                }}>
         <Typography
           variant="h6"
           component="p"
           id="form-dialog-title"
-          style={{ textAlign: "center", marginTop: 20 }}
+          style={{ textAlign: "center"}}
         >
           Contactar un Asesor
         </Typography>
-        <DialogContent>
-          <Box>
+        <Box>
             <form onSubmit={onHandleSubmit}>
-              <Box
-                style={{
-                  padding: 20,
-                  borderRadius: 10,
-                  marginBottom: 10,
-                  border: "1px solid #dbf2ff",
-                }}
-              >
-                <Typography
-                  variant="h6"
-                  component="p"
-                  style={{ marginBottom: 10 }}
-                >
-                  1. Datos Personales
-                </Typography>
                 <TextField
                   id="outlined-basic"
                   label="Nombre"
@@ -241,11 +216,17 @@ const FormComponent = ({ vehicle }) => {
                   value={name}
                   onChange={onHandleChange}
                   style={{
-                    marginBottom: 10,
+                    marginBottom: 1,
                     border: "1px solid #dbf2ff",
                     borderRadius: 10,
                   }}
                 />
+                <Typography
+                  variant="caption"
+                >
+                  Por favor ingresa tu nombre completo
+                </Typography>
+                
                 <TextField
                   id="outlined-basic"
                   label="Email"
@@ -255,11 +236,17 @@ const FormComponent = ({ vehicle }) => {
                   onChange={onHandleChange}
                   fullWidth
                   style={{
-                    marginBottom: 10,
+                    marginTop: 4,
+                    marginBottom: 1,
                     border: "1px solid #dbf2ff",
                     borderRadius: 10,
                   }}
                 />
+                <Typography
+                  variant="caption"
+                >
+                  Por favor ingresa tu email
+                </Typography>
                 <TextField
                   id="outlined-basic"
                   label="Télefono"
@@ -269,121 +256,47 @@ const FormComponent = ({ vehicle }) => {
                   onChange={onHandleChange}
                   fullWidth
                   style={{
-                    marginBottom: 10,
+                    marginTop: 4,
+                    marginBottom: 1,
                     border: "1px solid #dbf2ff",
                     borderRadius: 10,
                   }}
                 />
-              </Box>
-
-              <Box
-                style={{
-                  border: "1px solid #dbf2ff",
-                  padding: 20,
-                  borderRadius: 10,
-                  marginBottom: 10,
-                }}
-              >
                 <Typography
-                  variant="h6"
-                  component="p"
-                  style={{ marginBottom: 10 }}
+                  variant="caption"
                 >
-                  2. Selecciona la Agencia de Preferencia
+                  Por favor ingresa tu numero de 10 digitos
                 </Typography>
-                <Box className={classes.makesStyles}>
-                  {vehicle.availableStore &&
-                    vehicle.availableStore.map((store) => (
-                      <Box>
-                        <Box
-                        display='flex' flexDirection={'column'} justifyContent='space-between'
-                          className={
-                            storeIcon === store.dpxStore
-                              ? classes.selectedBorder
-                              : classes.unselectedBorder
-                          }
-                          key={store.dpxStore}
-                          onClick={() => onClickStore(store)}
-                          style={{
-                            cursor: "pointer",
-                            borderRadius: 10,
-                            padding: 5,
-                            margin: 10,
-                            marginRight: 15,
-                            height: 150 
-                            // height: 180 
-                          }}
-                        >
-                          <Box display="flex" justifyContent="center">
-                            <StoreIcon
-                              style={{ fontSize: 50 }}
-                              color={
-                                storeIcon === store.dpxStore ? "primary" : "inherit"
-                              }
-                            />
-                          </Box>
-                          <Box display="flex" justifyContent="center">
-                            <Typography
-                              variant="body2"
-                              gutterBottom
-                              style={{ textTransform: "capitalize" }}
-                            >
-                              {store.make.name} {store.name}
-                            </Typography>
-                          </Box>
-                          <Box display="flex" justifyContent="center">
-                            {storeIcon === store.dpxStore ? (
-                              <CheckBoxOutlinedIcon
-                                color={
-                                  storeIcon === store._id ? "primary" : "inherit"
-                                }
-                              />
-                            ) : (
-                              <CheckBoxOutlineBlankOutlinedIcon
-                                color={
-                                  storeIcon === store._id ? "primary" : "inherit"
-                                }
-                              />
-                            )}
-                          </Box>
-                        {/* {
-                          store.dpxStore &&
-                        <a 
-                          target='_blank'
-                          rel="noreferrer"
-                          href={ `https://wa.me//${store.dpxPhone}?text=Hola! Estoy interesado en un ${CapitalizeNames(vehicle.make.name)} ${CapitalizeNames(vehicle.model)} ${vehicle.year}`}
-                          style={{textDecoration: 'none', marginTop: 10}}
-                        >
-                          <Box 
-                            display='flex' 
-                            p={1}
-                            alignItems='center' 
-                            style={{color:'white', fontWeight: 600, backgroundColor: '#48c357', textTransform: 'capitalize', borderRadius: 5, width: 100}}
-                          >
-                          <img src="/static/whatsapp.png" width={15} style={{marginRight: 5}}/>Contactar
-                          </Box>
-                        </a>
-                        } */}
-                        </Box>
-                        
-                      </Box>
-                    ))}
-                </Box>
-              </Box>
-              <Box
-                style={{
-                  border: "1px solid #dbf2ff",
-                  padding: 20,
-                  borderRadius: 10,
-                  marginBottom: 10,
-                }}
-              >
-                <Typography
-                  variant="h6"
-                  component="p"
-                  style={{ marginBottom: 10 }}
+                <TextField
+                  id="outlined-basic"
+                  label="Agencias"
+                  variant="outlined"
+                  name="store"
+                  value={store}
+                  onChange={onHandleChange}
+                  fullWidth
+                  select 
+                  SelectProps={{ native: true }}
+                  style={{
+                    marginTop: 4,
+                    marginBottom: 1,
+                    border: "1px solid #dbf2ff",
+                    borderRadius: 10,
+                  }}
                 >
-                  3. Datos de Compra
+                {vehicle.availableStore.map((store) => (
+                      <option key={store.dpxStore} value={store.dpxStore}
+                      style={{
+                        textTransform: "capitalize",
+                      }}>
+                        {store.make.name} {store.name}
+                      </option>
+                    ))}
+                </TextField>
+                <Typography
+                  variant="caption"
+                >
+                  Por favor seleccione la agencia
                 </Typography>
                 <TextField
                   id="outlined-basic"
@@ -396,7 +309,8 @@ const FormComponent = ({ vehicle }) => {
                   select 
                   SelectProps={{ native: true }}
                   style={{
-                    marginBottom: 10,
+                    marginTop: 4,
+                    marginBottom: 1,
                     border: "1px solid #dbf2ff",
                     borderRadius: 10,
                   }}
@@ -407,6 +321,11 @@ const FormComponent = ({ vehicle }) => {
                       </option>
                     ))}
                 </TextField>
+                <Typography
+                  variant="caption"
+                >
+                  Por favor seleccione su tiempo de compra
+                </Typography>
                 <TextField
                   id="outlined-basic"
                   label="Enganche"
@@ -416,12 +335,17 @@ const FormComponent = ({ vehicle }) => {
                   onChange={onHandleChange}
                   fullWidth
                   style={{
-                    marginBottom: 10,
+                    marginTop: 4,
+                    marginBottom: 1,
                     border: "1px solid #dbf2ff",
                     borderRadius: 10,
                   }}
                 />
-              </Box>
+                <Typography
+                  variant="caption"
+                >
+                  Por favor ingresa el enganche que quieres dar
+                </Typography>
               <Button
                 variant="contained"
                 color="primary"
@@ -436,16 +360,7 @@ const FormComponent = ({ vehicle }) => {
               * Nunca compartiremos tus datos con nadie más.
             </Typography>
           </Box>
-        </DialogContent>
-        {/* <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleClose} color="primary">
-            Subscribe
-          </Button>
-        </DialogActions> */}
-      </Dialog>
+    </Box>
     </div>
   );
 };
