@@ -66,8 +66,7 @@ const TabsComponent = ({ features, gallery, video,technicalSheet }) => {
           marginBottom: 30,
         }}
         indicatorColor="primary"
-        variant="scrollable"
-        scrollButtons={false}
+        centered
       >
         <Tab label="Caracteristicas" />
         <Tab label="Galeria" />

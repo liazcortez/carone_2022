@@ -1,57 +1,15 @@
 import React, { Fragment } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import StoreIcon from "@material-ui/icons/Store";
-import StoreMallDirectoryOutlinedIcon from "@material-ui/icons/StoreMallDirectoryOutlined";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import CheckBoxOutlineBlankOutlinedIcon from "@material-ui/icons/CheckBoxOutlineBlankOutlined";
 import { useSnackbar } from "notistack";
-import CheckBoxOutlinedIcon from "@material-ui/icons/CheckBoxOutlined";
 import {
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
   Typography,
-  Checkbox,
   Box,
-  Divider,
-  Avatar,
-  Paper,
   capitalize,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import axios from "axios";
-import { useEffect } from "react";
-import { transform } from "lodash-es";
 import NumberFormatPrice from "../../utils/masks/NumberFormatPrice";
-
-const CapitalizeNames = (string) => {
-  if (string === undefined || string === null) return "";
-  string = string.replace(/-/, " ");
-
-  const words = string.split(" ");
-
-  let finalString = "";
-
-  words.map((word, i) => {
-    if (i !== 0 && i !== words.length) {
-      finalString += " ";
-    }
-    if (word.includes(".") || word.includes("/")) {
-      finalString += word.toUpperCase();
-    } else {
-      finalString += word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-    }
-    return false;
-  });
-
-  return finalString;
-};
 
 const useStyles = makeStyles({
   selectedBorder: {
@@ -89,12 +47,9 @@ const timeFrames = [
 
 const FormComponent = ({ vehicle }) => {
   const classes = useStyles();
-
-  const [open, setOpen] = React.useState(false);
   const [dissableButton, setDissableButton] = React.useState(false);
   const { enqueueSnackbar } = useSnackbar();
 
-  const [storeIcon, setStoreIcon] = React.useState("");
   const defaultData = {
     name: "",
     email: "",
@@ -119,18 +74,10 @@ const FormComponent = ({ vehicle }) => {
     setFormData({ ...formData, store: store.dpxStore });
   };*/
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   const onHandleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  useEffect(() => console.log(formData), [formData]);
   const sendLead = async (lead) => {
     const config = {
       headers: {
@@ -138,10 +85,6 @@ const FormComponent = ({ vehicle }) => {
       },
     };
     try {
-      enqueueSnackbar("Formulario Completado Correctamente", {
-        variant: "info",
-      });
-      handleClose();
       const response = await axios.post(
         "https://dealerproxapi.com/api/v1/leads/website",
         // "http://localhost:5000/api/v1/leads/website",
@@ -155,7 +98,6 @@ const FormComponent = ({ vehicle }) => {
   const onHandleSubmit = async (e) => {
     e.preventDefault();
     setDissableButton(true);
-
     let emailValidation = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
     let phoneValidation = new RegExp(/^[0-9]{10}$/);
     let downPaymentValidation = new RegExp(/^[0-9]+$/);
@@ -164,7 +106,7 @@ const FormComponent = ({ vehicle }) => {
       formData.name === "" ||
       formData.email === "" ||
       formData.phone === "" ||
-      storeIcon === ""
+      formData.store === ""
     ) {
       return enqueueSnackbar("Por favor llena todos los campos", {
         variant: "error",
@@ -267,6 +209,7 @@ const FormComponent = ({ vehicle }) => {
               size="small"
               SelectProps={{ native: true }}
             >
+              <option key={0} value={""}> </option>
               {vehicle.availableStore.map((store) => (
                 <option key={store.dpxStore} value={store.dpxStore}>
                   {capitalize(store.make.name)} {capitalize(store.name)}
