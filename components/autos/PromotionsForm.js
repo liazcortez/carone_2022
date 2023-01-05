@@ -8,6 +8,7 @@ import NumberFormatPrice from "../../utils/masks/NumberFormatPrice";
 import parse from "html-react-parser";
 import axios from "axios";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import * as ga from "../../lib/ga";
 
 const useStyles = makeStyles({
   selectedBorder: {
@@ -60,7 +61,7 @@ const FormComponent = ({ promotion, url }) => {
     email: "",
     phone: "",
     timeFrame: "Solo Quiero Informacion",
-    downPayment: "",
+    downPayment: 0,
     source: "605b5446020c150355aac5e9",
     vehicle: "",
     modelType: "",
@@ -95,32 +96,48 @@ const FormComponent = ({ promotion, url }) => {
   const onHandleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  const sendEventGa4 = async (action, params) => {
+    await ga.event({
+      action: action,
+      params: params,
+    });
+  };
+
   const sendLead = async (lead) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
       },
     };
+
     try {
-      enqueueSnackbar("Formulario Completado Correctamente", {
-        variant: "info",
-      });
       handleClose();
-      const response = await axios.post(
+
+      sendEventGa4("generate_lead", {
+        event_category: "Form",
+        event_label: "Fill out Form",
+      });
+
+      await axios.post(
         "https://dealerproxapi.com/api/v1/leads/website",
         //"http://localhost:5000/api/v1/leads/website",
         lead,
         config
       );
+
       setFormData({
         ...formData,
         name: "",
         email: "",
         phone: "",
-        downPayment: "",
+        downPayment: 0,
         timeFrame: "Solo Quiero Informacion",
       });
-    } catch (err) {}
+    } catch (err) {
+      enqueueSnackbar("Ocurrio un error Inesperado", {
+        variant: "error",
+      });
+    }
   };
 
   const onHandleSubmit = async (e) => {
@@ -259,6 +276,7 @@ const FormComponent = ({ promotion, url }) => {
                   borderRadius: 10,
                 }}
                 helperText="Por favor selecciona el enganche que quieres dar"
+                InputLabelProps={{ shrink: true }}
                 InputProps={{
                   inputComponent: NumberFormatPrice,
                 }}
@@ -285,7 +303,13 @@ const FormComponent = ({ promotion, url }) => {
               style={{ backgroundColor: "#4BC558" }}
               fullWidth
               href={`https://wa.me/${promotion.store.dpxPhone}?text=${parseMessage}`}
-              target="_blank">
+              target="_blank"
+              onClick={() =>
+                sendEventGa4("generate_lead", {
+                  event_category: "click",
+                  event_label: "Click Whatsapp Button",
+                })
+              }>
               Chat on WhatsApp
             </Button>
           </form>
