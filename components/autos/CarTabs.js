@@ -42,8 +42,7 @@ const CarTabs = ({ versions, model }) => {
         onChange={handleChange}
         style={{ backgroundColor: "white", color: "#02216e", marginBottom: 30, width:"100%"}}
         indicatorColor="primary"
-        variant="scrollable"
-        scrollButtons={false}
+        centered
       >
         {versions &&
           versions.map((version) => (

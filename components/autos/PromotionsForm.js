@@ -2,11 +2,13 @@ import React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useSnackbar } from "notistack";
-import { Card, CardContent, Typography, Box, Divider } from "@mui/material";
+import { Typography, Box, Divider } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import NumberFormatPrice from "../../utils/masks/NumberFormatPrice";
 import parse from "html-react-parser";
 import axios from "axios";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import * as ga from "../../lib/ga";
 
 const useStyles = makeStyles({
   selectedBorder: {
@@ -42,7 +44,7 @@ const timeFrames = [
   },
 ];
 
-const FormComponent = ({ vehicle, promotion }) => {
+const FormComponent = ({ promotion, url }) => {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
@@ -50,7 +52,8 @@ const FormComponent = ({ vehicle, promotion }) => {
   const [dissableButton, setDissableButton] = React.useState(false);
   const { enqueueSnackbar } = useSnackbar();
 
-  const message = `Hola estoy interesado en esta promocion: ${promotion.title}`;
+  const message = `Hola estoy interesado en esta promocion: ${promotion.title}
+-  ${url}`;
   const parseMessage = encodeURIComponent(message);
 
   let defaultData = {
@@ -92,33 +95,47 @@ const FormComponent = ({ vehicle, promotion }) => {
   const onHandleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  const sendEventGa4 = async (action, params) => {
+    await ga.event({
+      action: action,
+      params: params,
+    });
+  };
+
   const sendLead = async (lead) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
       },
     };
+
     try {
-      enqueueSnackbar("Formulario Completado Correctamente", {
-        variant: "info",
-      });
       handleClose();
-      const response = await axios.post(
+
+      sendEventGa4("generate_lead", {
+        event_category: "Form",
+        event_label: "Fill out Form",
+      });
+
+      await axios.post(
         "https://dealerproxapi.com/api/v1/leads/website",
         // "http://localhost:5001/api/v1/leads/website",
         lead,
         config
       );
+
       setFormData({
         ...formData,
         name: "",
         email: "",
         phone: "",
-        downPayment: "",
+        downPayment: 0,
         timeFrame: "Solo Quiero Informacion",
       });
     } catch (err) {
-      console.log(err)
+      enqueueSnackbar("Ocurrio un error Inesperado", {
+        variant: "error",
+      });
     }
   };
 
@@ -179,8 +196,7 @@ const FormComponent = ({ vehicle, promotion }) => {
                 display: "flex",
                 flexDirection: "column",
                 gap: "0.5em",
-              }}
-            >
+              }}>
               <Typography variant="h6">Contacta con un asesor</Typography>
               <TextField
                 label="Nombre"
@@ -221,8 +237,7 @@ const FormComponent = ({ vehicle, promotion }) => {
               style={{
                 borderRadius: 10,
                 marginBottom: 10,
-              }}
-            >
+              }}>
               <TextField
                 margin="dense"
                 id="outlined-basic"
@@ -238,8 +253,7 @@ const FormComponent = ({ vehicle, promotion }) => {
                 style={{
                   marginBottom: 10,
                   borderRadius: 10,
-                }}
-              >
+                }}>
                 {timeFrames &&
                   timeFrames.map((timeFrame) => (
                     <option key={timeFrame.id} value={timeFrame.value}>
@@ -261,6 +275,10 @@ const FormComponent = ({ vehicle, promotion }) => {
                   borderRadius: 10,
                 }}
                 helperText="Por favor selecciona el enganche que quieres dar"
+                InputLabelProps={{ shrink: true }}
+                InputProps={{
+                  inputComponent: NumberFormatPrice,
+                }}
               />
             </Box>
             <Button
@@ -268,8 +286,7 @@ const FormComponent = ({ vehicle, promotion }) => {
               color="primary"
               fullWidth
               type="submit"
-              style={{ marginBottom: 20 }}
-            >
+              style={{ marginBottom: 20 }}>
               Solicita información
             </Button>
 
@@ -285,7 +302,13 @@ const FormComponent = ({ vehicle, promotion }) => {
               style={{ backgroundColor: "#4BC558" }}
               fullWidth
               href={`https://wa.me/${promotion.store.dpxPhone}?text=${parseMessage}`}
-            >
+              target="_blank"
+              onClick={() =>
+                sendEventGa4("generate_lead", {
+                  event_category: "click",
+                  event_label: "Click Whatsapp Button",
+                })
+              }>
               Chat on WhatsApp
             </Button>
           </form>
