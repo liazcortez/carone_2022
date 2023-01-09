@@ -76,16 +76,18 @@ const FormComponent = ({ promotion, url }) => {
   let { name, email, phone, timeFrame, downPayment } = formData;
 
   React.useEffect(() => {
-    if (!promotion?._id)return;
-      setFormData({
-        ...formData,
-        vehicle: promotion.vehicle._id,
-        modelType: promotion.vehicle.modelType,
-        vehicleModel: promotion.vehicle.model,
-        make: promotion.make.dpxMake,
-        year: promotion.vehicle.year,
-        store: promotion.store.dpxStore,
-      });
+    if (!promotion?._id) return;
+    setFormData({
+      ...formData,
+      vehicle: promotion.vehicle._id,
+      modelType: promotion.vehicle.modelType,
+      vehicleModel: promotion.vehicle.model,
+      make: promotion.make.dpxMake,
+      year: promotion.vehicle.year,
+      store: promotion.store.dpxStore,
+    });
+
+    console.log(promotion);
   }, [promotion]);
 
   const handleClose = () => {
@@ -196,8 +198,9 @@ const FormComponent = ({ promotion, url }) => {
                 display: "flex",
                 flexDirection: "column",
                 gap: "0.5em",
-              }}>
-              <Typography variant="h6">Contacta con un asesor</Typography>
+              }}
+            >
+              {/* <Typography variant="h6">Contacta con un asesor</Typography> */}
               <TextField
                 label="Nombre"
                 variant="outlined"
@@ -237,7 +240,8 @@ const FormComponent = ({ promotion, url }) => {
               style={{
                 borderRadius: 10,
                 marginBottom: 10,
-              }}>
+              }}
+            >
               <TextField
                 margin="dense"
                 id="outlined-basic"
@@ -253,7 +257,8 @@ const FormComponent = ({ promotion, url }) => {
                 style={{
                   marginBottom: 10,
                   borderRadius: 10,
-                }}>
+                }}
+              >
                 {timeFrames &&
                   timeFrames.map((timeFrame) => (
                     <option key={timeFrame.id} value={timeFrame.value}>
@@ -286,7 +291,8 @@ const FormComponent = ({ promotion, url }) => {
               color="primary"
               fullWidth
               type="submit"
-              style={{ marginBottom: 20 }}>
+              style={{ marginBottom: 20 }}
+            >
               Solicita información
             </Button>
 
@@ -308,7 +314,8 @@ const FormComponent = ({ promotion, url }) => {
                   event_category: "click",
                   event_label: "Click Whatsapp Button",
                 })
-              }>
+              }
+            >
               Chat on WhatsApp
             </Button>
           </form>
