@@ -76,17 +76,16 @@ const FormComponent = ({ promotion, url }) => {
   let { name, email, phone, timeFrame, downPayment } = formData;
 
   React.useEffect(() => {
-    if (promotion) {
+    if (!promotion?._id)return;
       setFormData({
         ...formData,
         vehicle: promotion.vehicle._id,
         modelType: promotion.vehicle.modelType,
         vehicleModel: promotion.vehicle.model,
-        make: promotion.store.make,
+        make: promotion.make.dpxMake,
         year: promotion.vehicle.year,
         store: promotion.store.dpxStore,
       });
-    }
   }, [promotion]);
 
   const handleClose = () => {
@@ -120,7 +119,7 @@ const FormComponent = ({ promotion, url }) => {
 
       await axios.post(
         "https://dealerproxapi.com/api/v1/leads/website",
-        //"http://localhost:5000/api/v1/leads/website",
+        // "http://localhost:5001/api/v1/leads/website",
         lead,
         config
       );
