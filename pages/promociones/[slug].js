@@ -37,43 +37,52 @@ const Slug = ({ promotion }) => {
         <img className="mainLogo" alt="Logo carone" />
         <Divider sx={{ marginTop: 2 }} />
       </Box>
-        {
-            promotion && promotion.isActive === true ?
-           <>
-            <Grid
-              container
-              spacing={4}
-              display="flex"
-              alignItems="top"
-              justifyContent="center"
-            >
-              <Grid item xs={12} md={7}>
-                <Carousel
-                  vehicle={promotion.vehicle}
-                  medias={[{ image: promotion.image }]}
-                />
-              </Grid>
-              <Grid item xs={12} md={5}>
-                <Form vehicle={promotion.vehicle} promotion={promotion} url={url} />
-              </Grid>
-            </Grid>
-
-            <Box>
-              <Typography variant="caption">{parse(promotion.legales)}</Typography>
-            </Box>
-           </>:
-           <Grid 
+      {promotion && promotion.isActive === true ? (
+        <>
+          <Grid
             container
             spacing={4}
             display="flex"
-            alignItems="center"
+            alignItems="top"
             justifyContent="center"
-            style={{marginBottom:50, marginTop: 50}}>
-            <Grid item xs={12}>
-                <center><Typography variant="h5">La Promoción ya no esta disponible</Typography></center>
+          >
+            <Grid item xs={12} md={7}>
+              <Carousel
+                vehicle={promotion.vehicle}
+                medias={[{ image: promotion.image }]}
+              />
             </Grid>
-           </Grid>
-        }
+            <Grid item xs={12} md={5}>
+              <Form
+                vehicle={promotion.vehicle}
+                promotion={promotion}
+                url={url}
+              />
+            </Grid>
+          </Grid>
+
+          <Box>
+            <Typography> {parse(promotion.legales)}</Typography>
+          </Box>
+        </>
+      ) : (
+        <Grid
+          container
+          spacing={4}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          style={{ marginBottom: 50, marginTop: 50 }}
+        >
+          <Grid item xs={12}>
+            <center>
+              <Typography variant="h5">
+                La Promoción ya no esta disponible
+              </Typography>
+            </center>
+          </Grid>
+        </Grid>
+      )}
     </Container>
   );
 };
