@@ -32,7 +32,15 @@ const Slug = ({ promotion }) => {
     return null;
 
   return (
-    <Container maxWidth="lg">
+    <>
+      <Meta
+        title="Promociones - Carone Group" 
+        description="Promociones de autos en México - Carone Group"
+        url={`https://carone.com.mx/promociones${promotion?.slug}`}
+        googlebot={"index,follow"}
+        robots="all"
+      />
+      <Container maxWidth="lg">
       <Box style={{ marginBottom: 30, marginTop: 25, textAlign: "center" }}>
         <img className="mainLogo" alt="Logo carone" />
         <Divider sx={{ marginTop: 2 }} />
@@ -65,25 +73,26 @@ const Slug = ({ promotion }) => {
             <Typography> {parse(promotion.legales)}</Typography>
           </Box>
         </>
-      ) : (
-        <Grid
-          container
-          spacing={4}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          style={{ marginBottom: 50, marginTop: 50 }}
-        >
-          <Grid item xs={12}>
-            <center>
-              <Typography variant="h5">
-                La Promoción ya no esta disponible
-              </Typography>
-            </center>
+        ) : (
+          <Grid
+            container
+            spacing={4}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            style={{ marginBottom: 50, marginTop: 50 }}
+          >
+            <Grid item xs={12}>
+              <center>
+                <Typography variant="h5">
+                  La Promoción ya no esta disponible
+                </Typography>
+              </center>
+            </Grid>
           </Grid>
-        </Grid>
-      )}
-    </Container>
+        )}
+      </Container>
+    </>
   );
 };
 Slug.layout = "PromotionsLayout";
