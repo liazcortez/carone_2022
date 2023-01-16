@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useSnackbar } from "notistack";
-import { Card, CardContent, Typography, Box, Divider } from "@mui/material";
+import { Typography, Box, Divider } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import NumberFormatPrice from "../../utils/masks/NumberFormatPrice";
 import parse from "html-react-parser";
@@ -44,7 +44,7 @@ const timeFrames = [
   },
 ];
 
-const FormComponent = ({ vehicle, promotion, url }) => {
+const FormComponent = ({ promotion, url }) => {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
@@ -76,17 +76,18 @@ const FormComponent = ({ vehicle, promotion, url }) => {
   let { name, email, phone, timeFrame, downPayment } = formData;
 
   React.useEffect(() => {
-    if (promotion) {
-      setFormData({
-        ...formData,
-        vehicle: promotion.vehicle._id,
-        modelType: promotion.vehicle.modelType,
-        vehicleModel: promotion.vehicle.model,
-        make: promotion.store.make,
-        year: promotion.vehicle.year,
-        store: promotion.store.dpxStore,
-      });
-    }
+    if (!promotion?._id) return;
+    setFormData({
+      ...formData,
+      vehicle: promotion.vehicle._id,
+      modelType: promotion.vehicle.modelType,
+      vehicleModel: promotion.vehicle.model,
+      make: promotion.make.dpxMake,
+      year: promotion.vehicle.year,
+      store: promotion.store.dpxStore,
+    });
+
+    console.log(promotion);
   }, [promotion]);
 
   const handleClose = () => {
@@ -120,7 +121,7 @@ const FormComponent = ({ vehicle, promotion, url }) => {
 
       await axios.post(
         "https://dealerproxapi.com/api/v1/leads/website",
-        //"http://localhost:5000/api/v1/leads/website",
+        // "http://localhost:5001/api/v1/leads/website",
         lead,
         config
       );
@@ -197,8 +198,9 @@ const FormComponent = ({ vehicle, promotion, url }) => {
                 display: "flex",
                 flexDirection: "column",
                 gap: "0.5em",
-              }}>
-              <Typography variant="h6">Contacta con un asesor</Typography>
+              }}
+            >
+              {/* <Typography variant="h6">Contacta con un asesor</Typography> */}
               <TextField
                 label="Nombre"
                 variant="outlined"
@@ -238,7 +240,8 @@ const FormComponent = ({ vehicle, promotion, url }) => {
               style={{
                 borderRadius: 10,
                 marginBottom: 10,
-              }}>
+              }}
+            >
               <TextField
                 margin="dense"
                 id="outlined-basic"
@@ -254,7 +257,8 @@ const FormComponent = ({ vehicle, promotion, url }) => {
                 style={{
                   marginBottom: 10,
                   borderRadius: 10,
-                }}>
+                }}
+              >
                 {timeFrames &&
                   timeFrames.map((timeFrame) => (
                     <option key={timeFrame.id} value={timeFrame.value}>
@@ -287,7 +291,8 @@ const FormComponent = ({ vehicle, promotion, url }) => {
               color="primary"
               fullWidth
               type="submit"
-              style={{ marginBottom: 20 }}>
+              style={{ marginBottom: 20 }}
+            >
               Solicita información
             </Button>
 
@@ -309,7 +314,8 @@ const FormComponent = ({ vehicle, promotion, url }) => {
                   event_category: "click",
                   event_label: "Click Whatsapp Button",
                 })
-              }>
+              }
+            >
               Chat on WhatsApp
             </Button>
           </form>
