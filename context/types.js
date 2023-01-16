@@ -55,3 +55,6 @@ export const UPDATE_CAMPAIGN = "UPDATE_CAMPAIGN";
 
 //Promotions
 export const GET_PROMOTIONS_BY_SLUG = "GET_PROMOTIONS_BY_SLUG";
+
+//cards
+export const GET_CARD = "GET_CARD";

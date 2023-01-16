@@ -75,6 +75,7 @@ const SemisForm = ({preowned}) => {
     year: preowned.year,
     source: "605b541a020c150355aac5e6",
   };
+  console.log(defaultData);
 
   const [formData, setFormData] = React.useState(defaultData);
 
@@ -84,6 +85,7 @@ const SemisForm = ({preowned}) => {
 
   const onHandleSubmit = async(e) => {
     e.preventDefault();
+    setOpen(false)
     setDissableButton(true);
 
     if(formData.store === null || formData.store === undefined){
