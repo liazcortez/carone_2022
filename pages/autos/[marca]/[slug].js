@@ -49,7 +49,11 @@ const Slug = ({ vehicle }) => {
   const NameCar = (
     <Box mt={2}>
       <Typography variant="h1" sx={{fontSize: "35px", fontWeight: 600, display:"none"}}>
-        Venta de Auto {vehicle.make.name.toUpperCase()}{" "}{vehicle.model.toUpperCase()} {vehicle.year}
+        Venta de Auto 
+        {console.log(vehicle)}
+        {/* {vehicle.make.name.toUpperCase()}{" "}
+        {vehicle.model.toUpperCase()} 
+        {vehicle.year} */}
       </Typography>
     </Box>
   )
@@ -183,6 +187,8 @@ export const getServerSideProps = async (ctx) => {
     typeof vehicle.data[0] != "undefined" && vehicle.data.length > 0
       ? vehicle.data[0]
       : { isPublished: false };
+
+      console.log(currentVehicle, ctx.params.slug)
 
   return {
     props: {
