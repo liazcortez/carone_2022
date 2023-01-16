@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Typography, Grid, Avatar} from "@mui/material";
 
 const FormCard = ({card}) => {
-  console.log(card);
   return (
     <Grid container spacing={2}>
         <Grid item xs={12}>
