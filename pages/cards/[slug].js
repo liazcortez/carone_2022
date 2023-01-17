@@ -30,28 +30,22 @@ const Slug = ({ card }) => {
         robots="all"
       />
       <Container maxWidth="lg">
-      <Box style={{ marginBottom: 30, marginTop: 25, textAlign: "center" }}>
-        <img className="mainLogo" alt="Logo carone" />
-        <Divider sx={{ marginTop: 2 }} />
-      </Box>
-        <>
           <Grid
             container
             spacing={4}
             display="flex"
-            alignItems="top"
+            alignItems="center"
             justifyContent="center"
           >
-            <Grid item xs={8}>
+            <Grid item xs={12} md={7} style={{alignItems:"center", display:"flex", flexDirection:"row"}}>
               <FormCard card={card}/>
             </Grid>
           </Grid>
-        </>
       </Container>
     </>
   );
 };
-Slug.layout = "PromotionsLayout";
+Slug.layout = "CardsLayout";
 
 
 export const getServerSideProps = async (ctx) => {
