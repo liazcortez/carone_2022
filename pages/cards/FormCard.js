@@ -13,11 +13,11 @@ const FormCard = ({card}) => {
   const prettyPhone = (p) => `+52 ${p[0]}${p[1]} ${p[2]}${p[3]}${p[4]}${p[5]} ${p[6]}${p[7]}${p[8]}${p[9]}`
   return (
     <Grid container spacing={2}>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <Box style={{ borderRadius:"0% 0% 30% 30%", width:"100%", marginBottom:10}}>
             <center>
               <img src={card?.stores?.make?.image} alt={card?.store?.make?.name.toUpperCase()} style={{width:"42%", marginTop:5}}/>
-              <Typography variant='h6' fontSize={35} style={{marginBottom:12, fontWeight: 700}}>{card?.stores?.make?.name.toUpperCase()} {Capitalize(card?.stores?.name)}</Typography>
+              <Typography variant='h6' fontSize={35} style={{marginBottom:12, fontWeight: 700}}>{card?.stores?.make?.name.toUpperCase()} {Capitalize(card?.stores?.name || '')}</Typography>
             </center>
           </Box>
           <Divider sx={{ marginTop: 2, marginBottom: 2, width:"0%"}} />
@@ -29,8 +29,8 @@ const FormCard = ({card}) => {
           <Divider sx={{ marginTop: 2, marginBottom: 2, width:"0%"}} />
           <Box style={{width:"100%", marginBottom:16, marginTop:10}}>
             <center>
-              <Typography variant="h6" style={{fontFamily:"tahoma"}} >{capitalCase(card?.name)}</Typography>
-              <Typography variant="caption" color="grayText" style={{fontFamily:"tahoma", fontSize:"14px"}}>{Capitalize(card?.job)}</Typography>
+              <Typography variant="h6" style={{fontFamily:"tahoma"}} >{capitalCase(card?.name || '')}</Typography>
+              <Typography variant="caption" color="grayText" style={{fontFamily:"tahoma", fontSize:"14px"}}>{Capitalize(card?.job || '')}</Typography>
               <Typography variant='body2' style={{fontFamily:"tahoma"}} >
                 <b>
                   <a
@@ -109,7 +109,7 @@ const FormCard = ({card}) => {
               </Box>
             </center>
           </Box>
-        </Grid>
+        </Grid> */}
     </Grid>
   )
 }
