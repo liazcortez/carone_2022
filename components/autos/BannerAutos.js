@@ -38,7 +38,7 @@ const BannerAut = ({ banner, description, promotion, title }) => {
 
           style={{
             
-            backgroundImage: `url(${banner ? banner : imageUrl})`,
+            backgroundImage: `url('${banner ? banner : imageUrl}')`,
           }}
         >
           <Box className='descriptionContainer'>

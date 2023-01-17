@@ -187,6 +187,8 @@ export const getServerSideProps = async (ctx) => {
       ? vehicle.data[0]
       : { isPublished: false };
 
+      console.log(currentVehicle, ctx.params.slug)
+
   return {
     props: {
       vehicle: currentVehicle,

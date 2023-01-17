@@ -109,7 +109,7 @@ const Banner = ({ imageUrl }) => {
           style={{
             padding: 100,
             backgroundPosition: 'center',
-            backgroundImage: `url(${imageUrl})`,
+            backgroundImage: `url('${imageUrl}')`,
           }}
         >
           <Box
