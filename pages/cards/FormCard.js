@@ -69,18 +69,30 @@ const FormCard = ({card}) => {
                     <TwitterIcon style={{color:"#87CEEB",  fontSize:"30px"}}/> 
                   </Link>
                 } 
-                <Link href={card?.youtube} underline="none" target="_blank" rel="noopener noreferrer">
-                  <YouTubeIcon style={{color:"#ff0000",  fontSize:"30px"}}/>
-                </Link>
-                <Link href={card?.instagram} underline="none" target="_blank" rel="noopener noreferrer">
-                  <InstagramIcon style={{color:"#ff0080",  fontSize:"30px"}}/>
-                </Link>
-                <Link href={card?.tiktok} underline="none" target="_blank" rel="noopener noreferrer">
-                  <MusicNoteIcon style={{  fontSize:"30px", color:"#000000"}}/>
-                </Link>
-                <Link href={card?.wsp} underline="none" target="_blank" rel="noopener noreferrer">
-                  <WhatsAppIcon style={{color:"#25D366", fontSize:"30px"}}/>
-                </Link>
+                {
+                  card && card.youtube !== '' &&
+                  <Link href={card?.youtube} underline="none" target="_blank" rel="noopener noreferrer">
+                    <YouTubeIcon style={{color:"#ff0000",  fontSize:"30px"}}/>
+                  </Link>
+                }
+                {
+                  card && card.instagram !== '' &&
+                  <Link href={card?.instagram} underline="none" target="_blank" rel="noopener noreferrer">
+                    <InstagramIcon style={{color:"#ff0080",  fontSize:"30px"}}/>
+                  </Link>
+                }
+                {
+                  card && card.tiktok !== '' &&
+                  <Link href={card?.tiktok} underline="none" target="_blank" rel="noopener noreferrer">
+                    <MusicNoteIcon style={{  fontSize:"30px", color:"#000000"}}/>
+                  </Link>
+                }
+                {
+                  card && card.wsp !== '' &&
+                  <Link href={card?.wsp} underline="none" target="_blank" rel="noopener noreferrer">
+                    <WhatsAppIcon style={{color:"#25D366", fontSize:"30px"}}/>
+                  </Link>
+                }
               </Stack>
             </center>
           </Box>
