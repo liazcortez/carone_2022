@@ -11,13 +11,16 @@ import { capitalCase } from 'change-case';
 
 const FormCard = ({card}) => {
   const prettyPhone = (p) => `+52 ${p[0]}${p[1]} ${p[2]}${p[3]}${p[4]}${p[5]} ${p[6]}${p[7]}${p[8]}${p[9]}`
+
+  if(!card) return null;
+
   return (
     <Grid container spacing={2}>
-        {/* <Grid item xs={12}>
+      <Grid item xs={12}>
           <Box style={{ borderRadius:"0% 0% 30% 30%", width:"100%", marginBottom:10}}>
             <center>
-              <img src={card?.stores?.make?.image} alt={card?.store?.make?.name.toUpperCase()} style={{width:"42%", marginTop:5}}/>
-              <Typography variant='h6' fontSize={35} style={{marginBottom:12, fontWeight: 700}}>{card?.stores?.make?.name.toUpperCase()} {Capitalize(card?.stores?.name || '')}</Typography>
+              <img src={card?.stores?.make?.image} alt={card?.store?.make?.name} style={{width:"42%", marginTop:5}}/>
+              <Typography variant='h6' fontSize={35} style={{marginBottom:12, fontWeight: 700}}>{card?.stores?.make?.name.toUpperCase()} {Capitalize(card?.stores?.name)}</Typography>
             </center>
           </Box>
           <Divider sx={{ marginTop: 2, marginBottom: 2, width:"0%"}} />
@@ -57,42 +60,24 @@ const FormCard = ({card}) => {
           <Box style={{width:"100%"}}>
             <center>
               <Stack spacing={2} direction="row" style={{justifyContent:"center"}}>
-                {
-                  card && card.facebook !== '' &&
-                  <Link href={card?.facebook} underline="none" target="_blank" rel="noopener noreferrer">
+                  <a href={card?.facebook} underline="none" target="_blank" rel="noopener noreferrer">
                     <FacebookIcon style={{color:"#000080", fontSize:"30px"}}/>
-                  </Link>
-                }
-                {
-                  card && card.twitter !== '' &&
-                  <Link href={card?.twitter} underline="none" target="_blank" rel="noopener noreferrer">
+                  </a>
+                  <a href={card?.twitter} underline="none" target="_blank" rel="noopener noreferrer">
                     <TwitterIcon style={{color:"#87CEEB",  fontSize:"30px"}}/> 
-                  </Link>
-                } 
-                {
-                  card && card.youtube !== '' &&
-                  <Link href={card?.youtube} underline="none" target="_blank" rel="noopener noreferrer">
+                  </a>
+                  <a href={card?.youtube} underline="none" target="_blank" rel="noopener noreferrer">
                     <YouTubeIcon style={{color:"#ff0000",  fontSize:"30px"}}/>
-                  </Link>
-                }
-                {
-                  card && card.instagram !== '' &&
-                  <Link href={card?.instagram} underline="none" target="_blank" rel="noopener noreferrer">
+                  </a>
+                  <a href={card?.instagram} underline="none" target="_blank" rel="noopener noreferrer">
                     <InstagramIcon style={{color:"#ff0080",  fontSize:"30px"}}/>
-                  </Link>
-                }
-                {
-                  card && card.tiktok !== '' &&
-                  <Link href={card?.tiktok} underline="none" target="_blank" rel="noopener noreferrer">
+                  </a>
+                  <a href={card?.tiktok} underline="none" target="_blank" rel="noopener noreferrer">
                     <MusicNoteIcon style={{  fontSize:"30px", color:"#000000"}}/>
-                  </Link>
-                }
-                {
-                  card && card.wsp !== '' &&
-                  <Link href={card?.wsp} underline="none" target="_blank" rel="noopener noreferrer">
+                  </a>
+                  <a href={card?.wsp} underline="none" target="_blank" rel="noopener noreferrer">
                     <WhatsAppIcon style={{color:"#25D366", fontSize:"30px"}}/>
-                  </Link>
-                }
+                  </a>
               </Stack>
             </center>
           </Box>
@@ -109,7 +94,7 @@ const FormCard = ({card}) => {
               </Box>
             </center>
           </Box>
-        </Grid> */}
+        </Grid>
     </Grid>
   )
 }
