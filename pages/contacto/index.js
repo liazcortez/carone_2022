@@ -42,7 +42,6 @@ const storeRow = ({ store, index }) => (
 
         <Box style={{ display: "flex", alignItems: "start" }}>
           <LocationOnIcon style={{ fontSize: "25px", paddingTop: "5px" }} />
-          {console.log(store.location)}
           <a
             href={`https://www.google.com.mx/maps/search/${store.address}`}
             target="_blank"

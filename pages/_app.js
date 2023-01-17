@@ -7,6 +7,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import theme from "../src/theme";
 import MainLayout from "../components/Layout";
 import PromotionsLayout from "../components/PromotionsLayout";
+import CardsLayout from "../components/cardLayout";
 import VehicleState from "../context/vehicle/VehicleState";
 import PromotionState from "../context/promotions/promotionsState";
 import CategoryState from "../context/category/CategoryState";
@@ -41,6 +42,7 @@ export default function MyApp(props) {
   const layouts = {
     MainLayout: MainLayout,
     PromotionsLayout: PromotionsLayout,
+    CardsLayout: CardsLayout,
   };
 
   const Layout =
