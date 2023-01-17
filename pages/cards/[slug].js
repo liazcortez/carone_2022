@@ -29,15 +29,13 @@ const Slug = ({ card }) => {
         googlebot={"index,follow"}
         robots="all"
       />
-      <Container maxWidth="lg">
+      <Container maxWidth="lg"  style={{alignItems:"center", justifyContent:"center", display:"flex"}}>
           <Grid
             container
-            spacing={4}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
+            spacing={2}
+            style={{alignItems:"center", justifyContent:"center", display:"flex"}}
           >
-            <Grid item xs={12} md={7} style={{alignItems:"center", display:"flex", flexDirection:"row"}}>
+            <Grid item xs={12} md={7} style={{alignItems:"center", justifyContent:"center", display:"flex"}}>
               <FormCard card={card}/>
             </Grid>
           </Grid>

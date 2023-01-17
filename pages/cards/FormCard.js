@@ -15,21 +15,19 @@ const FormCard = ({card}) => {
   if(!card) return null;
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12}>
-          <Box style={{ borderRadius:"0% 0% 30% 30%", width:"100%", marginBottom:10}}>
+    <Grid container spacing={2} style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
+      <Grid item xs={12} style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
+          <Box style={{ borderRadius:"0% 0% 30% 30%", width:"100%", marginBottom:10, display:"flex", alignItems:"center", justifyContent:"center"}}>
             <center>
               <img src={card?.stores?.make?.image} alt={card?.store?.make?.name} style={{width:"42%", marginTop:5}}/>
               <Typography variant='h6' fontSize={35} style={{marginBottom:12, fontWeight: 700}}>{card?.stores?.make?.name.toUpperCase()} {Capitalize(card?.stores?.name)}</Typography>
             </center>
           </Box>
-          <Divider sx={{ marginTop: 2, marginBottom: 2, width:"0%"}} />
           <Box style={{width:"100%", marginBottom:15, marginTop:12}}>
             <center>
               <Avatar src={card?.image} alt={card?.slug}  sx={{ width: 100, height: 100 }}/>
             </center>
           </Box>
-          <Divider sx={{ marginTop: 2, marginBottom: 2, width:"0%"}} />
           <Box style={{width:"100%", marginBottom:16, marginTop:10}}>
             <center>
               <Typography variant="h6" style={{fontFamily:"tahoma"}} >{capitalCase(card?.name || '')}</Typography>
@@ -55,7 +53,7 @@ const FormCard = ({card}) => {
             </center>
           </Box>
           <center>
-          <Divider sx={{ marginTop: 3, marginBottom: 8, width:"80%"}} />
+          <Divider sx={{ marginTop: 3, marginBottom: 5, width:"80%"}} />
           </center>
           <Box style={{width:"100%"}}>
             <center>
@@ -75,14 +73,14 @@ const FormCard = ({card}) => {
                   <a href={card?.tiktok} underline="none" target="_blank" rel="noopener noreferrer">
                     <MusicNoteIcon style={{  fontSize:"30px", color:"#000000"}}/>
                   </a>
-                  <a href={card?.wsp} underline="none" target="_blank" rel="noopener noreferrer">
+                  <a href={`https://wa.me/${card?.wsp}`} underline="none" target="_blank" rel="noopener noreferrer">
                     <WhatsAppIcon style={{color:"#25D366", fontSize:"30px"}}/>
                   </a>
               </Stack>
             </center>
           </Box>
           <Divider sx={{ marginTop: 5.4, width:"0%"}} />
-          <Box style={{background:"#1278E0", borderRadius:"60% 10% 0% 0%", width:"100%", marginTop:20, padding:0}}>
+          <Box style={{background:"#1278E0", borderRadius:"60% 10% 0% 0%", width:"100%"}}>
             <center>
               <Box style={{display:"flex", justifyContent:"center", alignItems:"center", paddingTop:"16px", paddingBottom:"16px"}}>
                 <Box style={{width:"50%"}}>
