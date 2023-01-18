@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { baseURL } from "../../api/api";
-import { Box, Container, Divider, Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import Meta from "../../components/Meta";
 import FormCard from "./FormCard";
 
 const Slug = ({ card }) => {
   const [currCard, setCurrCard] = useState("");
-
-  const Capitalize = (string) => {
-    if (string === undefined) return "";
-
-    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-  };
 
   useEffect(() => {
     if (card) setCurrCard(card);
@@ -29,13 +23,15 @@ const Slug = ({ card }) => {
         googlebot={"index,follow"}
         robots="all"
       />
-      <Container maxWidth="lg"  style={{alignItems:"center", justifyContent:"center", display:"flex"}}>
+      <Container maxWidth="lg">
           <Grid
-            container
-            spacing={2}
-            style={{alignItems:"center", justifyContent:"center", display:"flex"}}
+             container
+             spacing={4}
+             display="flex"
+             alignItems="center"
+             justifyContent="center"
           >
-            <Grid item xs={12} md={7} style={{alignItems:"center", justifyContent:"center", display:"flex"}}>
+            <Grid item xs={12} md={7} style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", height:"100%"}} >
               <FormCard card={card}/>
             </Grid>
           </Grid>
@@ -49,7 +45,6 @@ Slug.layout = "CardsLayout";
 export const getServerSideProps = async (ctx) => {
   // `https://apicarone.com/api/v1/vehicles?slug=${ctx.params.slug}`
   const res = await fetch(`${baseURL}/cards/slug/${ctx.params.slug}`);
-
   const responseCard = await res.json();
 
   return {
