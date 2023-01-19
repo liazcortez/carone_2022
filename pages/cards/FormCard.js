@@ -7,11 +7,10 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import { Capitalize } from '../../utils/capitalize';
-import { capitalCase } from 'change-case';
+import { CapitalizeV2 } from '../../utils/capitalize';
 
 const FormCard = ({card}) => {
   const prettyPhone = (p) => `+52 ${p[0]}${p[1]} ${p[2]}${p[3]}${p[4]}${p[5]} ${p[6]}${p[7]}${p[8]}${p[9]}`
-
   if(!card) return null;
 
   return (
@@ -27,7 +26,7 @@ const FormCard = ({card}) => {
             <Avatar src={card?.image} alt={card?.slug}  sx={{ width: 100, height: 100 }}/>
           </Box>
           <Box style={{width:"100%", marginBottom:16, marginTop:10, display:"flex", alignItems:"center", justifyContent:"flex", textAlign:"center", flexDirection:"column"}}>
-              <Typography variant="h6" fontSize={25} style={{fontFamily:"tahoma"}} >{capitalCase(card?.name || '')}</Typography>
+              <Typography variant="h6" fontSize={25} style={{fontFamily:"tahoma"}} >{CapitalizeV2(card?.name)}</Typography>
               <Typography variant="caption" color="grayText" style={{fontFamily:"tahoma", fontSize:"18px"}}>{Capitalize(card?.job || '')}</Typography>
               <Typography variant='body2' style={{fontFamily:"tahoma", fontSize:"18px"}} >
                 <b>
