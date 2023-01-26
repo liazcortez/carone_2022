@@ -9,6 +9,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 const timeFrames = [
   {
@@ -28,7 +29,6 @@ const timeFrames = [
     value: '3 Meses o Más'
   },
 ]
-
 
 const CapitalizeNames = (string) => {
   if(string === undefined || string === null) return '';
@@ -67,6 +67,7 @@ const SemisForm = ({preowned}) => {
     downPayment: 0,
     timeFrame: 0,
     store: preowned.store.dpxStore,
+    isWspEnable: preowned.store.areas.isWspEnable,
     vehicle: preowned.vehicle,
     modelType: preowned.vehicle.modelType,
     vehicleModel: preowned.vehicle.model,
@@ -324,7 +325,7 @@ const SemisForm = ({preowned}) => {
             </DialogActions>
           </Dialog>
           {
-            preowned.store && preowned.store.dpxStore && preowned.store.dpxPhonePreowned&&
+            preowned.store && preowned.store.dpxStore && preowned.store.dpxPhonePreowned&& preowned.store.areas.isWspEnable&&
             <>
               <center>
                 <Typography variant='caption' color='textPrimary' style={{display: 'flex', alignItems: 'center', justifyContent:'center'}}>
@@ -341,6 +342,7 @@ const SemisForm = ({preowned}) => {
                 style={{textDecoration: 'none'}}
               >
                 <Button
+                  startIcon={<WhatsAppIcon />}
                   variant="contained"
                   color="primary"
                   fullWidth
