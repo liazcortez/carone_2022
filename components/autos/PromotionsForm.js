@@ -69,6 +69,7 @@ const FormComponent = ({ promotion, url }) => {
     make: "",
     store: "",
     year: "",
+    isWspEnable: Boolean,
   };
 
   const [formData, setFormData] = React.useState(defaultData);
@@ -301,7 +302,8 @@ const FormComponent = ({ promotion, url }) => {
           </Typography> */}
 
             <Divider style={{ marginBottom: 20 }}>ó</Divider>
-
+            {
+            promotion.store && promotion.store.dpxStore && promotion.store.dpxPhone&& promotion.store.areas.isWspEnable &&
             <Button
               startIcon={<WhatsAppIcon />}
               variant="contained"
@@ -318,6 +320,7 @@ const FormComponent = ({ promotion, url }) => {
             >
               Chat on WhatsApp
             </Button>
+            }
           </form>
           <Typography variant="body2" gutterBottom mt={2} mb={5}>
             * Nunca compartiremos tus datos con nadie más.
