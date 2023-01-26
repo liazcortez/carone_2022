@@ -9,6 +9,7 @@ import parse from "html-react-parser";
 import axios from "axios";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import * as ga from "../../lib/ga";
+import { getPhone } from '../../utils/wspPhoneV';
 
 const useStyles = makeStyles({
   selectedBorder: {
@@ -69,11 +70,9 @@ const FormComponent = ({ promotion, url }) => {
     make: "",
     store: "",
     year: "",
-    isWspEnable: Boolean,
   };
-
+  let res = getPhone("nuevos", promotion.store.areas)
   const [formData, setFormData] = React.useState(defaultData);
-
   let { name, email, phone, timeFrame, downPayment } = formData;
 
   React.useEffect(() => {
@@ -86,6 +85,7 @@ const FormComponent = ({ promotion, url }) => {
       make: promotion.make.dpxMake,
       year: promotion.vehicle.year,
       store: promotion.store.dpxStore,
+      areas: promotion.store.areas,
     });
 
     console.log(promotion);
@@ -303,7 +303,7 @@ const FormComponent = ({ promotion, url }) => {
 
             <Divider style={{ marginBottom: 20 }}>ó</Divider>
             {
-            promotion.store && promotion.store.dpxStore && promotion.store.dpxPhone&& promotion.store.areas.isWspEnable &&
+            res &&
             <Button
               startIcon={<WhatsAppIcon />}
               variant="contained"

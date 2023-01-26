@@ -10,6 +10,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { getPhone } from '../../utils/wspPhoneV';
 
 const timeFrames = [
   {
@@ -67,7 +68,7 @@ const SemisForm = ({preowned}) => {
     downPayment: 0,
     timeFrame: 0,
     store: preowned.store.dpxStore,
-    isWspEnable: preowned.store.areas.isWspEnable,
+    areas: [preowned.store.areas],
     vehicle: preowned.vehicle,
     modelType: preowned.vehicle.modelType,
     vehicleModel: preowned.vehicle.model,
@@ -77,9 +78,8 @@ const SemisForm = ({preowned}) => {
     source: "605b541a020c150355aac5e6",
   };
   console.log(defaultData);
-
+  let res = getPhone("seminuevos", preowned.store.areas)
   const [formData, setFormData] = React.useState(defaultData);
-
   const { name, email, phone, downPayment } = formData;
 
   const { enqueueSnackbar } = useSnackbar();
@@ -325,7 +325,7 @@ const SemisForm = ({preowned}) => {
             </DialogActions>
           </Dialog>
           {
-            preowned.store && preowned.store.dpxStore && preowned.store.dpxPhonePreowned&& preowned.store.areas.isWspEnable&&
+            res.success &&
             <>
               <center>
                 <Typography variant='caption' color='textPrimary' style={{display: 'flex', alignItems: 'center', justifyContent:'center'}}>
