@@ -35,11 +35,17 @@ export default function AboutUs() {
     store: "",
     area: "",
     description: "",
+    title: "",
   });
   const { enqueueSnackbar } = useSnackbar();
 
   const onHandleSubmit = (event) => {
     event.preventDefault;
+    if (!currents.title)
+      return enqueueSnackbar("Agrega un asunto", {
+        variant: "error",
+      });
+
     if (!currents.area)
       return enqueueSnackbar("Selecciona un departamento", {
         variant: "error",
@@ -59,7 +65,7 @@ export default function AboutUs() {
   const onHandleChange = (e) =>
     setCurrents({ ...currents, [e.target.name]: e.target.value });
 
-  const { store, area, description } = currents;
+  const { store, area, description, title } = currents;
 
   const { stores, getStores } = useStore();
   const { createComplaint, error, success, clearState } = useComplaint();
@@ -85,6 +91,7 @@ export default function AboutUs() {
         store: "",
         area: "",
         description: "",
+        title: "",
       });
     }
   }, [error, success]);
@@ -124,6 +131,14 @@ export default function AboutUs() {
                   gap: "1em",
                 }}
               >
+                <TextField
+                  label="Asunto"
+                  variant="outlined"
+                  fullWidth
+                  name="title"
+                  value={title}
+                  onChange={onHandleChange}
+                />
                 <TextField
                   label="Agencia"
                   variant="outlined"
