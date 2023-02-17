@@ -58,3 +58,6 @@ export const GET_PROMOTIONS_BY_SLUG = "GET_PROMOTIONS_BY_SLUG";
 
 //cards
 export const GET_CARD = "GET_CARD";
+
+//Complaints
+export const CREATE_COMPLAINT = "CREATE_COMPLAINT";

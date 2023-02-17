@@ -21,6 +21,7 @@ import StoreState from "../context/store/StoreState";
 import PreownedState from "../context/preowned/PreownedState";
 import CampaignState from "../context/campaign/CampaignState";
 import CardState from "../context/card/CardState";
+import ComplaintState from "../context/complaint/ComplaintState";
 
 import "@fullcalendar/common/main.css";
 import "@fullcalendar/daygrid/main.css";
@@ -71,9 +72,11 @@ export default function MyApp(props) {
                               <CampaignState>
                                 <MediaState>
                                   <CardState>
-                                    <SnackbarProvider dense maxSnack={3}>
-                                      <Component {...pageProps} />
-                                    </SnackbarProvider>
+                                    <ComplaintState>
+                                      <SnackbarProvider dense maxSnack={3}>
+                                        <Component {...pageProps} />
+                                      </SnackbarProvider>
+                                    </ComplaintState>
                                   </CardState>
                                 </MediaState>
                               </CampaignState>
