@@ -19,10 +19,10 @@ import Link from "next/link";
 import Skeleton from "@material-ui/lab/Skeleton";
 import { capitalCase } from "change-case";
 import NumberFormat from "react-number-format";
-import moment from 'moment';
-import 'moment/locale/es';
+import moment from "moment";
+import "moment/locale/es";
 import useStorage from "../../hooks/custom/useStorage";
-moment.locale('es');
+moment.locale("es");
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   hover: {
-    cursor: 'pointer',
+    cursor: "pointer",
     "&:hover": {
       border: "2px solid #556cd699",
     },
@@ -66,24 +66,22 @@ const emptyImage =
   "https://i.pinimg.com/originals/ae/8a/c2/ae8ac2fa217d23aadcc913989fcc34a2.png";
 
 const CarlistCard = ({ vehicle, setDataList }) => {
-
   const classes = useStyles();
   const [isFavorite, setIsFavorite] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
-  const [_document, setDocument] = useState(null)
+  const [_document, setDocument] = useState(null);
   const { setItem } = useStorage();
 
   useEffect(() => {
-    setDocument(document)
-  }, [])
+    setDocument(document);
+  }, []);
 
   const formatText = (name) => {
-
-    // name = name.replace('days', `Dias`);
-    // name = name.replace('ago', t('atras'));
+    name = name.replace("days", `Dias`);
+    name = name.replace("ago", "atras");
 
     return name;
-  }
+  };
 
   const handleAddFavorite = (vehicle) => {
     let data;
@@ -99,7 +97,10 @@ const CarlistCard = ({ vehicle, setDataList }) => {
           if (setDataList) {
             setDataList(newFavorites);
           }
-          localStorage.setItem("favorites-seminuevos", JSON.stringify(newFavorites));
+          localStorage.setItem(
+            "favorites-seminuevos",
+            JSON.stringify(newFavorites)
+          );
           setIsFavorite(false);
           return;
         }
@@ -129,17 +130,22 @@ const CarlistCard = ({ vehicle, setDataList }) => {
   }, [vehicle]);
 
   return (
-    <Link
-      href={`/seminuevos/${vehicle.slug}`}
-    >
-
-      <Card id={vehicle?._id} className={(classes.root, classes.hover)} onClick={() => { setItem('lastClickedPreownweds', vehicle?._id) }}>
+    <Link href={`/seminuevos/${vehicle.slug}`}>
+      <Card
+        id={vehicle?._id}
+        className={(classes.root, classes.hover)}
+        onClick={() => {
+          setItem("lastClickedPreownweds", vehicle?._id);
+        }}
+      >
         {vehicle ? (
           <a>
             <CardMedia
               className={classes.media}
               image={vehicle.mainImage ? vehicle.mainImage : emptyImage}
-              title={`${vehicle && vehicle.version && vehicle.version} ${vehicle && vehicle.year}`}
+              title={`${vehicle && vehicle.version && vehicle.version} ${
+                vehicle && vehicle.year
+              }`}
             />
           </a>
         ) : (
@@ -153,16 +159,28 @@ const CarlistCard = ({ vehicle, setDataList }) => {
               </Typography>
 
               <Link href={`/seminuevos/${vehicle && vehicle.slug}`}>
-                <Box  >
+                <Box>
                   <a style={{ textDecoration: "none", color: "black" }}>
-                    <Typography fontSize={"20px"} fontWeight={500} style={{ overflow: 'hidden', whiteSpace: 'nowrap', width: 'calc(90%)', display: 'inline-block', textOverflow: 'ellipsis' }}>
-                      {`${vehicle && vehicle.vehicle ? capitalCase(vehicle.vehicle.model) : ''} ${vehicle.version} ${vehicle.year}`}
+                    <Typography
+                      fontSize={"20px"}
+                      fontWeight={500}
+                      style={{
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        width: "calc(90%)",
+                        display: "inline-block",
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      {`${
+                        vehicle && vehicle.vehicle
+                          ? capitalCase(vehicle.vehicle.model)
+                          : ""
+                      } ${vehicle.version} ${vehicle.year}`}
                     </Typography>
                   </a>
                 </Box>
               </Link>
-
-
 
               <Typography gutterBottom style={{ fontSize: 17 }}>
                 Precio: &nbsp;
@@ -178,9 +196,23 @@ const CarlistCard = ({ vehicle, setDataList }) => {
                 )}
               </Typography>
 
-
-              <Typography fontWeight={500} gutterBottom style={{ fontSize: 17 }}>
-                {`${(vehicle && vehicle.store && vehicle.storeMake && vehicle.storeMake.name ? capitalCase(vehicle.storeMake.name) : '')} ${(vehicle && vehicle.store && vehicle.store.name ? capitalCase(vehicle.store.name) : '')}`}
+              <Typography
+                fontWeight={500}
+                gutterBottom
+                style={{ fontSize: 17 }}
+              >
+                {`${
+                  vehicle &&
+                  vehicle.store &&
+                  vehicle.storeMake &&
+                  vehicle.storeMake.name
+                    ? capitalCase(vehicle.storeMake.name)
+                    : ""
+                } ${
+                  vehicle && vehicle.store && vehicle.store.name
+                    ? capitalCase(vehicle.store.name)
+                    : ""
+                }`}
               </Typography>
             </>
           ) : (
@@ -207,8 +239,7 @@ const CarlistCard = ({ vehicle, setDataList }) => {
           )}
         </CardContent>
         <Divider />
-        <CardActions disableSpacing style={{ justifyContent: 'space-between' }}>
-
+        <CardActions disableSpacing style={{ justifyContent: "space-between" }}>
           <FormControlLabel
             control={
               <Checkbox
@@ -216,24 +247,24 @@ const CarlistCard = ({ vehicle, setDataList }) => {
                 checkedIcon={<FavoriteIcon style={{ color: "#c54065" }} />}
                 name="checkedH"
                 checked={
-                  document && localStorage.getItem("favorites-seminuevos") &&
+                  document &&
+                  localStorage.getItem("favorites-seminuevos") &&
                   JSON.parse(localStorage.getItem("favorites-seminuevos")).some(
                     (d) => vehicle && d._id === vehicle._id
                   )
                 }
-              />}
+              />
+            }
             onClick={(e) => handleAddFavorite(vehicle)}
-
           />
 
-          <Typography style={{ textTransform: 'capitalize' }}>
-            {`${formatText(moment(vehicle.createdAt, "YYYYMMDD").fromNow())}`}
+          <Typography style={{ textTransform: "capitalize" }}>
+            {formatText(moment(vehicle.createdAt).fromNow())}
           </Typography>
           {/* <FavoriteIcon /> */}
         </CardActions>
       </Card>
     </Link>
-
   );
 };
 
