@@ -138,7 +138,14 @@ export default function AboutUs() {
                   name="title"
                   value={title}
                   onChange={onHandleChange}
-                />
+                  SelectProps={{ native: true }}
+                  select
+                  InputLabelProps={{ shrink: true }}
+                >
+                  <option value="">Selecciona un motivo</option>
+                  <option value="queja">Queja</option>
+                  <option value="sugerencia">Sugerencia</option>
+                </TextField>
                 <TextField
                   label="Agencia"
                   variant="outlined"
